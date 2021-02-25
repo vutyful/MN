@@ -6,6 +6,7 @@
 	
 	<typeAliases>
 		<typeAlias type="systems.domains.TempVO" alias="temp"/>
+		<typeAlias type="systems.domains.BoardVO" alias="board"/>
 	</typeAliases>
 	
 	</configuration> 
