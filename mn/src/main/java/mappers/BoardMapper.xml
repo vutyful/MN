@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardDAO">
+
+<!--     <resultMap id="board" type="board">
+        <result column="BO_ID" property="bo_id" />
+        <result column="BO_TITLE" property="bo_title" />
+        <result column="BO_CATE" property="bo_cate" />
+        <result column="BO_CONTENT" property="bo_content" />
+        <result column="BO_IMG" property="bo_img" />
+        <result column="MEM_ID" property="mem_id" />
+    </resultMap> -->
+
+	<!-- 게시글 리스트 매퍼 아 라이브러리 안깔아서 그런가?-->
+	<select id="boardList" resultType="board">
+		select *
+		from board
+	</select>
+
+</mapper>
