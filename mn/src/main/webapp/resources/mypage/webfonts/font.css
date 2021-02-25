@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'SDSamliphopangcheTTFBasic';
+  src: url('SDSamliphopangcheTTFBasic.eot');
+  src: url('SDSamliphopangcheTTFBasic.eot?#iefix') format('embedded-opentype'),
+       url('SDSamliphopangcheTTFBasic.svg#SDSamliphopangcheTTFBasic') format('svg'),
+       url('SDSamliphopangcheTTFBasic.ttf') format('truetype'),
+       url('SDSamliphopangcheTTFBasic.woff') format('woff'),
+       url('SDSamliphopangcheTTFBasic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
