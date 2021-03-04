@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import systems.domains.CommunityVO;
+import systems.domains.BoardVO;
 import systems.services.CommunityService;
 import systems.services.CommunityServiceImpl;
 
@@ -20,7 +20,7 @@ public class CommunityController {
 	
 	//커뮤니티 게시판 등록
 	@RequestMapping(value="CommunityInsert.do")
-	public String CommunityInsert(CommunityVO vo) {
+	public String CommunityInsert(BoardVO vo) {
 		System.out.println("CommunityVO"+ vo);
 		System.out.println("community 컨드롤 왔니?? 와라와라");
 		//1. id를 통해서 db에서 이름을 가져옴
@@ -37,9 +37,9 @@ public class CommunityController {
 	public String getBoardList(Model model) {
 		System.out.println("BoardList 컨트롤 탔니?");
 		
-		List<CommunityVO> vo = new ArrayList<CommunityVO>();
+		List<BoardVO> vo = new ArrayList<BoardVO>();
 		vo = CommunityServiceImpl.getBoardList();
-		System.out.println("아이디"+vo.get(0).getMem_id());
+		System.out.println("아이디"+vo.get(0).getMem_num());
 		System.out.println("날짜"+vo.get(0).getBo_date());
 	
 //		for(int i = 0; i < vo.size(); i++) {

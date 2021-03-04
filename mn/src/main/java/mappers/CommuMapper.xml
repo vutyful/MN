@@ -4,13 +4,13 @@
 
 <mapper namespace="CommuMap">
 
-<insert id="CommunityInsert" parameterType="CommunityVO" >
+<insert id="CommunityInsert" parameterType="board" >
 
-insert into board(bo_num,mem_id,bo_title,bo_content,bo_date) values(BOARD_SEQ.nextval,#{mem_id},#{bo_title},#{bo_content},sysdate)
+insert into board(bo_num,mem_num,bo_title,bo_content,bo_date,bo_cate) values(board_seq.NEXTVAL,member_seq.NEXTVAL,#{bo_title},#{bo_content},sysdate,#{bo_cate})
 
 </insert>
 
-<select id="getBoardList" resultType="CommunityVO">
+<select id="getBoardList" resultType="board">
 select * from board
 </select>
 

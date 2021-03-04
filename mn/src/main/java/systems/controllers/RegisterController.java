@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import systems.domains.RegistVO;
+import systems.domains.MemberVO;
 import systems.services.RegisterService;
 
 @Controller
@@ -21,18 +21,18 @@ public class RegisterController {
     //카카오 로그 요청
     @RequestMapping(value="/userInsertKaKao.do", produces = "application/text;charset=utf-8")
     @ResponseBody
-    public String userInsertKaKao(@RequestBody RegistVO vo, HttpSession session){
-        System.out.println("userInsertKakao 확인 : " + vo.getMem_id());
+    public String userInsertKaKao(@RequestBody MemberVO vo, HttpSession session){
+        System.out.println("userInsertKakao 확인 : " + vo.getMem_num());
 
     	
-    	RegistVO RegistVO = RegisterServiceImpl.idCheck_Login(vo);
+    	MemberVO RegistVO = RegisterServiceImpl.idCheck_Login(vo);
         if(RegistVO==null){
         	RegisterServiceImpl.userInsertKaKao(vo);
-            session.setAttribute("m_Id", vo.getMem_id());
+            session.setAttribute("m_Id", vo.getMem_num());
             session.setAttribute("Mem_name", vo.getMem_name());
           
         } else{
-            session.setAttribute("m_Id", RegistVO.getMem_id());
+            session.setAttribute("m_Id", RegistVO.getMem_num());
             session.setAttribute("Mem_name", RegistVO.getMem_name());
         
         }
@@ -51,8 +51,8 @@ public class RegisterController {
 	
     //일반회원 로그인
 	@RequestMapping("/login.do")
-	public String login(RegistVO vo) {
-		System.out.println("아이디"+vo.getMem_id());
+	public String login(MemberVO vo) {
+		System.out.println("아이디"+vo.getMem_num());
 		System.out.println("비번"+vo.getMem_pass());
 		Object loginresult = RegisterServiceImpl.login(vo);
 //		System.out.println(loginresult.getMem_email());
@@ -71,9 +71,9 @@ public class RegisterController {
 
     //회원가입
 	@RequestMapping(value="/registJoin.do", produces = "application/text;charset=utf-8")
-	public String registerJoin(RegistVO vo) {
+	public String registerJoin(MemberVO vo) {
 		//아까 받은 계정정보를 vo에 넣으셔서 여기로 보내시면 될거에요.
-		System.out.println("이메일"+vo.getMem_id());
+		System.out.println("이메일"+vo.getMem_num());
 		System.out.println("비밀번호"+vo.getMem_pass());
 		System.out.println("이름"+vo.getMem_name());
 		System.out.println("전화번호"+vo.getMem_tel());

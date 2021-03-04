@@ -1,7 +1,6 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'main' of https\://github.com/vutyful/MN.git
 eclipse.preferences.version=1
-<<<<<<< HEAD
-encoding//src/main/webapp/resources/FullCalendar/data.json=UTF-8
-=======
 encoding//src/main/webapp/Register.jsp=UTF-8
-encoding/<project>=UTF-8
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
+encoding//src/main/webapp/resources/FullCalendar/data.json=UTF-8

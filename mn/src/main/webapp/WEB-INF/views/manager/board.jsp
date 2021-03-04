@@ -425,13 +425,13 @@
                                     <tbody>
                                     <c:forEach items="${boardList}" var="board">
                                         <tr>
-                                            <td>${board.bo_id}</td>
+                                            <td>${board.bo_num}</td>
                                             <td>${board.bo_title}</td>
                                             <td>${board.bo_cate}</td>
                                             <td>${board.bo_date}</td>
                                             <td>${board.bo_content}</td>
-                                            <td>${board.mem_id}</td>
-                                            <td><a href="/mn/boardDelete.do?bo_id=${board.bo_id}" onclick="return confirm('정말 삭제하시겠습니까?');" class="btn btn-danger btn-circle" id="deletebtn">
+                                            <td>${board.mem_num}</td>
+                                            <td><a href="/mn/boardDelete.do?bo_id=${board.bo_num}" onclick="return confirm('정말 삭제하시겠습니까?');" class="btn btn-danger btn-circle" id="deletebtn">
                                         <i class="fas fa-trash"></i>
                                     </a></td>
                                         </tr>

@@ -121,7 +121,7 @@
                                     <li><a href="#">편의기능</a>
                                         <ul class="dropdown">
                                             <li><a href="/mn/buenoBasic/catagory.do">AR 체험</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory-post.do">내 주변 동물병원</a></li>
+                                            <li><a href="/mn/buenoBasic/hospital.do">내 주변 동물병원</a></li>
                                             <li><a href="/mn/buenoBasic/single-post.do">사운드</a></li>
                                         </ul>
                                     </li>
@@ -264,14 +264,14 @@
             <div class="single-slide">
                 <!-- Blog Thumbnail -->
                 <div class="blog-thumbnail">
-                    <a href="infoDetail.do?con_id=${con.con_id}"><img src="${con.con_img }" style="width: 600px; height: 480px;" alt=""></a>
+                    <a href="infoDetail.do?con_id=${con.con_num}"><img src="${con.con_img }" style="width: 600px; height: 480px;" alt=""></a>
                 </div>
 
                 <!-- Blog Content -->
                 <div class="blog-content-bg">
                     <div class="blog-content">
-                        <a href="infoDetail.do?con_id=${con.con_id}" class="post-tag">${con.con_cate}</a>
-                        <a href="infoDetail.do?con_id=${con.con_id}" class="post-title">${con.con_title}</a>
+                        <a href="infoDetail.do?con_id=${con.con_num}" class="post-tag">${con.con_cate}</a>
+                        <a href="infoDetail.do?con_id=${con.con_num}" class="post-title">${con.con_title}</a>
                         <div class="post-meta">
                         </div>
                     </div>

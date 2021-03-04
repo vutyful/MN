@@ -14,7 +14,7 @@
 	<!-- 관리자 게시글 삭제 -->
 	<delete id="boardDelete" parameterType="board">
 		delete from board
-		where bo_id = ${bo_id}
+		where bo_num = ${bo_num}
 	</delete>
 
 	<!-- 관리자페이지 통계 총 게시물 수 숫자값만 원한다면 인트형으로 한다.-->

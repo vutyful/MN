@@ -3,15 +3,15 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="RegisterMap">
 
-<insert id="registerJoin" parameterType="RegistVO">
-	insert into member(mem_id,mem_name,mem_pass,mem_tel)
-	values(#{mem_id},#{mem_name},#{mem_pass},#{mem_tel})
+<insert id="registerJoin" parameterType="member">
+	insert into member(mem_num,mem_name,mem_pass,mem_tel,mem_email)
+	values(#{mem_num},#{mem_name},#{mem_pass},#{mem_tel},#{mem_email})
 </insert>
 
-<select id="login" parameterType="RegistVO" resultType="RegistVO">
+<select id="login" parameterType="member" resultType="member">
 	select *
 	from member
-	where Mem_id = #{mem_id} and MEM_PASS= #{mem_pass}
+	where Mem_id = #{mem_num} and MEM_PASS= #{mem_pass}
 </select>
 
 
