@@ -153,6 +153,7 @@
                                     <li><a href="#">커뮤니티</a>
                                         <ul class="dropdown">
                                             <li><a href="index.jsp">홈</a></li>
+                                            <li><a href="/mn/buenoBasic/edit-post.do">글 작성</a></li>
                                             <li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
                                             <li><a href="/mn/buenoBasic/catagory-post.do">Catagory Post</a></li>
                                             <li><a href="/mn/buenoBasic/single-post.do">Single Post</a></li>
@@ -588,7 +589,7 @@
                                         <a href="#" class="post-author">By Julia Stiles</a>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
 
                             <!-- Single Post Area -->
                             <div class="single-post-area d-flex mb-30">

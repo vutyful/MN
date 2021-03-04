@@ -27,7 +27,9 @@
 <body id="reportsPage">
     <div class="" id="home">
         <div class="container">
-            <!-- <div class="row">
+        
+        	<!-- header start -->
+            <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-xl navbar-light bg-light">
                         <a class="navbar-brand" href="#">
@@ -49,7 +51,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
-                                        Reports
+                                        <!-- Reports -->
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="#">Daily Report</a>
@@ -67,7 +69,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
-                                        Settings
+                                        <!-- Settings -->
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="#">Profile</a>
@@ -87,23 +89,26 @@
                         </div>
                     </nav>
                 </div>
-            </div> -->
+            </div>
+            <!-- header end -->
+            
             <!-- row -->
             <div class="row tm-content-row tm-mt-big">
                 <div class="tm-col tm-col-big">
                     <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">Latest Hits</h2>
+                        <h2 class="tm-block-title">[동물이름] 몸무게</h2>
                         <canvas id="lineChart"></canvas>
                     </div>
                 </div>
                 <div class="tm-col tm-col-big">
                     <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">Performance</h2>
+                        <h2 class="tm-block-title">바차트~</h2>
                         <canvas id="barChart"></canvas>
                     </div>
                 </div>
                 <div class="tm-col tm-col-small">
                     <div class="bg-white tm-block h-100">
+                        <!-- <h2 class="tm-block-title">파이차트~</h2> -->
                         <canvas id="pieChart" class="chartjs-render-monitor"></canvas>
                     </div>
                 </div>
@@ -146,11 +151,11 @@
                 </div>
                 <div class="tm-col tm-col-big">
                     <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">Calendar</h2>
+                        <h2 class="tm-block-title">달력</h2>
                         <div id="calendar"></div>
                         <div class="row mt-4">
                             <div class="col-12 text-right">
-                                <a href="#" class="tm-link-black">View Schedules</a>
+                                <a href="calendar.jsp" class="tm-link-black">일정관리</a>
                             </div>
                         </div>
 
@@ -158,7 +163,7 @@
                 </div>
                 <div class="tm-col tm-col-small">
                     <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">Upcoming Tasks</h2>
+                        <h2 class="tm-block-title">세부일정</h2>
                         <ol class="tm-list-group">
                             <li class="tm-list-group-item">List of tasks</li>
                             <li class="tm-list-group-item">Lorem ipsum doloe</li>
@@ -178,10 +183,10 @@
             </div>
             <footer class="row tm-mt-small">
                 <div class="col-12 font-weight-light">
-                    <p class="d-inline-block tm-bg-black text-white py-2 px-4">
+                    <!-- <p class="d-inline-block tm-bg-black text-white py-2 px-4">
                         Copyright &copy; 2018. Created by
                         <a href="http://www.tooplate.com" class="text-white tm-footer-link">Tooplate</a> |  Distributed by <a href="https://themewagon.com" class="text-white tm-footer-link">ThemeWagon</a>
-                    </p>
+                    </p> -->
                 </div>
             </footer>
         </div>
