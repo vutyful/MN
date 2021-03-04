@@ -1,456 +1,472 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Title -->
-    <title>Bueno - Food Blog HTML Template</title>
+<!-- Title -->
+<title>Bueno - Food Blog HTML Template</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="./resources/idximg/icon.ico">
+<!-- Favicon -->
+<link rel="icon" href="./resources/idximg/icon.ico">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="./resources/bueno/style.css">
+<!-- Stylesheet -->
+<link rel="stylesheet" href="./resources/bueno/style.css">
 
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-content">
-            <h3>Cooking in progress..</h3>
-            <div id="cooking">
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div id="area">
-                    <div id="sides">
-                        <div id="pan"></div>
-                        <div id="handle"></div>
-                    </div>
-                    <div id="pancake">
-                        <div id="pastry"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<!-- Preloader -->
+	<div class="preloader d-flex align-items-center justify-content-center">
+		<div class="preloader-content">
+			<h3>Cooking in progress..</h3>
+			<div id="cooking">
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+				<div id="area">
+					<div id="sides">
+						<div id="pan"></div>
+						<div id="handle"></div>
+					</div>
+					<div id="pancake">
+						<div id="pastry"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
+	<!-- ##### Header Area Start ##### -->
+	<header class="header-area">
 
-        <!-- Top Header Area -->
-        <div class="top-header-area bg-img bg-overlay" style="background-image: url(./resources/idximg/header.jpg);">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center justify-content-between">
-                    <div class="col-12 col-sm-6">
-                        <!-- Top Social Info -->
-                        <div class="top-social-info">
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-5 col-xl-4">
-                        <!-- Top Search Area -->
-                        <!-- <div class="top-search-area">
+		<!-- Top Header Area -->
+		<div class="top-header-area bg-img bg-overlay"
+			style="background-image: url(./resources/idximg/header.jpg);">
+			<div class="container h-100">
+				<div class="row h-100 align-items-center justify-content-between">
+					<div class="col-12 col-sm-6">
+						<!-- Top Social Info -->
+						<div class="top-social-info">
+							<a href="#" data-toggle="tooltip" data-placement="bottom"
+								title="Pinterest"><i class="fa fa-pinterest"
+								aria-hidden="true"></i></a> <a href="#" data-toggle="tooltip"
+								data-placement="bottom" title="Facebook"><i
+								class="fa fa-facebook" aria-hidden="true"></i></a> <a href="#"
+								data-toggle="tooltip" data-placement="bottom" title="Twitter"><i
+								class="fa fa-twitter" aria-hidden="true"></i></a> <a href="#"
+								data-toggle="tooltip" data-placement="bottom" title="Dribbble"><i
+								class="fa fa-dribbble" aria-hidden="true"></i></a> <a href="#"
+								data-toggle="tooltip" data-placement="bottom" title="Behance"><i
+								class="fa fa-behance" aria-hidden="true"></i></a> <a href="#"
+								data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i
+								class="fa fa-linkedin" aria-hidden="true"></i></a>
+						</div>
+					</div>
+					<div class="col-12 col-sm-6 col-lg-5 col-xl-4">
+						<!-- Top Search Area -->
+						<!-- <div class="top-search-area">
                             <form action="#" method="post">
                                 <input type="search" name="top-search" id="topSearch" placeholder="Search">
                                 <button type="submit" class="btn"><i class="fa fa-search"></i></button>
                             </form>
                         </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        <!-- Logo Area -->
-        <div class="logo-area">
-            <a href="/mn/index.jsp"><img src="./resources/idximg/logo2.png" alt=""></a>
-        </div>
+		<!-- Logo Area -->
+		<div class="logo-area">
+			<a href="/mn/index.jsp"><img src="./resources/idximg/logo2.png"
+				alt=""></a>
+		</div>
 
-        <!-- Navbar Area -->
-        <div class="bueno-main-menu" id="sticker">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="buenoNav">
+		<!-- Navbar Area -->
+		<div class="bueno-main-menu" id="sticker">
+			<div class="classy-nav-container breakpoint-off">
+				<div class="container">
+					<!-- Menu -->
+					<nav class="classy-navbar justify-content-between" id="buenoNav">
 
-                        <!-- Toggler -->
-                        <div id="toggler"><img src="./resources/bueno/img/core-img/toggler.png" alt=""></div>
+						<!-- Toggler -->
+						<div id="toggler">
+							<img src="./resources/bueno/img/core-img/toggler.png" alt="">
+						</div>
 
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
+						<!-- Navbar Toggler -->
+						<div class="classy-navbar-toggler">
+							<span class="navbarToggler"><span></span><span></span><span></span></span>
+						</div>
 
-                        <!-- Menu -->
-                        <div class="classy-menu">
+						<!-- Menu -->
+						<div class="classy-menu">
 
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
+							<!-- Close Button -->
+							<div class="classycloseIcon">
+								<div class="cross-wrap">
+									<span class="top"></span><span class="bottom"></span>
+								</div>
+							</div>
 
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="/mn/index.jsp">홈</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">정보</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">- 레시피</a></li>
-                                                <li><a href="#">- Bread</a></li>
-                                                <li><a href="#">- Breakfast</a></li>
-                                                <li><a href="#">- Meat</a></li>
-                                                <li><a href="#">- Fastfood</a></li>
-                                                <li><a href="#">- Salad</a></li>
-                                                <li><a href="#">- Soup</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">- 레시피</a></li>
-                                                <li><a href="#">- Bread</a></li>
-                                                <li><a href="#">- Breakfast</a></li>
-                                                <li><a href="#">- Meat</a></li>
-                                                <li><a href="#">- Fastfood</a></li>
-                                                <li><a href="#">- Salad</a></li>
-                                                <li><a href="#">- Soup</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">- 레시피</a></li>
-                                                <li><a href="#">- Bread</a></li>
-                                                <li><a href="#">- Breakfast</a></li>
-                                                <li><a href="#">- Meat</a></li>
-                                                <li><a href="#">- Fastfood</a></li>
-                                                <li><a href="#">- Salad</a></li>
-                                                <li><a href="#">- Soup</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">- 레시피</a></li>
-                                                <li><a href="#">- Bread</a></li>
-                                                <li><a href="#">- Breakfast</a></li>
-                                                <li><a href="#">- Meat</a></li>
-                                                <li><a href="#">- Fastfood</a></li>
-                                                <li><a href="#">- Salad</a></li>
-                                                <li><a href="#">- Soup</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="#">커뮤니티</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.jsp">홈</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory-post.do">Catagory Post</a></li>
-                                            <li><a href="/mn/buenoBasic/single-post.do">Single Post</a></li>
-                                            <li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
-                                            <li><a href="/mn/buenoBasic/contact.do">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">상품1</a></li>
-                                    <li><a href="#">상품2</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/mn/index.jsp">홈</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory-post.do">Catagory Post</a></li>
-                                            <li><a href="/mn/buenoBasic/single-post.do">Single Post</a></li>
-                                            <li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
-                                            <li><a href="/mn/buenoBasic/contact.do">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">편의기능</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/mn/index.jsp">홈</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory-post.do">Catagory Post</a></li>
-                                            <li><a href="/mn/buenoBasic/single-post.do">Single Post</a></li>
-                                            <li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
-                                            <li><a href="/mn/buenoBasic/contact.do">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/mn/buenoBasic/single-post.do">마이페이지</a></li>
-                                    <li><a href="/mn/buenoBasic/contact.do">Contact(예비탭)</a></li>
-                                </ul>
+							<!-- Nav Start -->
+							<div class="classynav">
+								<ul>
+									<li><a href="/mn/index.jsp">홈</a></li>
+									<li><a href="#">About Us</a></li>
+									<li><a href="#">정보</a>
+										<div class="megamenu">
+											<ul class="single-mega cn-col-4">
+												<li><a href="#">- 레시피</a></li>
+												<li><a href="#">- Bread</a></li>
+												<li><a href="#">- Breakfast</a></li>
+												<li><a href="#">- Meat</a></li>
+												<li><a href="#">- Fastfood</a></li>
+												<li><a href="#">- Salad</a></li>
+												<li><a href="#">- Soup</a></li>
+											</ul>
+											<ul class="single-mega cn-col-4">
+												<li><a href="#">- 레시피</a></li>
+												<li><a href="#">- Bread</a></li>
+												<li><a href="#">- Breakfast</a></li>
+												<li><a href="#">- Meat</a></li>
+												<li><a href="#">- Fastfood</a></li>
+												<li><a href="#">- Salad</a></li>
+												<li><a href="#">- Soup</a></li>
+											</ul>
+											<ul class="single-mega cn-col-4">
+												<li><a href="#">- 레시피</a></li>
+												<li><a href="#">- Bread</a></li>
+												<li><a href="#">- Breakfast</a></li>
+												<li><a href="#">- Meat</a></li>
+												<li><a href="#">- Fastfood</a></li>
+												<li><a href="#">- Salad</a></li>
+												<li><a href="#">- Soup</a></li>
+											</ul>
+											<ul class="single-mega cn-col-4">
+												<li><a href="#">- 레시피</a></li>
+												<li><a href="#">- Bread</a></li>
+												<li><a href="#">- Breakfast</a></li>
+												<li><a href="#">- Meat</a></li>
+												<li><a href="#">- Fastfood</a></li>
+												<li><a href="#">- Salad</a></li>
+												<li><a href="#">- Soup</a></li>
+											</ul>
+										</div></li>
+									<li><a href="#">커뮤니티</a>
+										<ul class="dropdown">
+											<li><a href="index.jsp">홈</a></li>
+											<li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
+											<li><a href="/mn/buenoBasic/catagory-post.do">Catagory
+													Post</a></li>
+											<li><a href="/mn/buenoBasic/single-post.do">Single
+													Post</a></li>
+											<li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
+											<li><a href="/mn/buenoBasic/contact.do">Contact</a></li>
+										</ul></li>
+									<li><a href="#">상품1</a></li>
+									<li><a href="#">상품2</a>
+										<ul class="dropdown">
+											<li><a href="/mn/index.jsp">홈</a></li>
+											<li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
+											<li><a href="/mn/buenoBasic/catagory-post.do">Catagory
+													Post</a></li>
+											<li><a href="/mn/buenoBasic/single-post.do">Single
+													Post</a></li>
+											<li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
+											<li><a href="/mn/buenoBasic/contact.do">Contact</a></li>
+										</ul></li>
+									<li><a href="#">편의기능</a>
+										<ul class="dropdown">
+											<li><a href="/mn/index.jsp">홈</a></li>
+											<li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
+											<li><a href="/mn/buenoBasic/catagory-post.do">Catagory
+													Post</a></li>
+											<li><a href="/mn/buenoBasic/single-post.do">Single
+													Post</a></li>
+											<li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
+											<li><a href="/mn/buenoBasic/hospital.do">병원 찾기</a></li>
+										</ul></li>
+									<li><a href="/mn/buenoBasic/single-post.do">마이페이지</a></li>
+									<li><a href="/mn/buenoBasic/contact.do">Contact(예비탭)</a></li>
+								</ul>
 
-                                <!-- Login/Register -->
-                                <div class="login-area">
-                                    <a href="#">Login / Register</a>
-                                </div>
-                            </div>
-                            <!-- Nav End -->
+								<!-- Login/Register -->
+								<div class="login-area">
+									<a href="#">Login / Register</a>
+								</div>
+							</div>
+							<!-- Nav End -->
 
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- ##### Header Area End ##### -->
 
-    <!-- ##### Treading Post Area Start ##### -->
-    <div class="treading-post-area" id="treadingPost">
-        <div class="close-icon">
-            <i class="fa fa-times"></i>
-        </div>
+	<!-- ##### Treading Post Area Start ##### -->
+	<div class="treading-post-area" id="treadingPost">
+		<div class="close-icon">
+			<i class="fa fa-times"></i>
+		</div>
 
-        <h4>Treading Post</h4>
+		<h4>Treading Post</h4>
 
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="./resources/bueno/img/bg-img/9.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Friend eggs with ham</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
+		<!-- Single Blog Post -->
+		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+			<!-- Blog Thumbnail -->
+			<div class="blog-thumbnail">
+				<img src="./resources/bueno/img/bg-img/9.jpg" alt="">
+			</div>
+			<!-- Blog Content -->
+			<div class="blog-content">
+				<a href="#" class="post-tag">The Best</a> <a href="#"
+					class="post-title">Friend eggs with ham</a>
+				<div class="post-meta">
+					<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+						class="post-author">By Julia Stiles</a>
+				</div>
+			</div>
+		</div>
 
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="./resources/bueno/img/bg-img/10.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Mushrooms with pork chop</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
+		<!-- Single Blog Post -->
+		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+			<!-- Blog Thumbnail -->
+			<div class="blog-thumbnail">
+				<img src="./resources/bueno/img/bg-img/10.jpg" alt="">
+			</div>
+			<!-- Blog Content -->
+			<div class="blog-content">
+				<a href="#" class="post-tag">The Best</a> <a href="#"
+					class="post-title">Mushrooms with pork chop</a>
+				<div class="post-meta">
+					<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+						class="post-author">By Julia Stiles</a>
+				</div>
+			</div>
+		</div>
 
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="./resources/bueno/img/bg-img/11.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Birthday cake with chocolate</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
+		<!-- Single Blog Post -->
+		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+			<!-- Blog Thumbnail -->
+			<div class="blog-thumbnail">
+				<img src="./resources/bueno/img/bg-img/11.jpg" alt="">
+			</div>
+			<!-- Blog Content -->
+			<div class="blog-content">
+				<a href="#" class="post-tag">The Best</a> <a href="#"
+					class="post-title">Birthday cake with chocolate</a>
+				<div class="post-meta">
+					<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+						class="post-author">By Julia Stiles</a>
+				</div>
+			</div>
+		</div>
 
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="./resources/bueno/img/bg-img/9.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Friend eggs with ham</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
+		<!-- Single Blog Post -->
+		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+			<!-- Blog Thumbnail -->
+			<div class="blog-thumbnail">
+				<img src="./resources/bueno/img/bg-img/9.jpg" alt="">
+			</div>
+			<!-- Blog Content -->
+			<div class="blog-content">
+				<a href="#" class="post-tag">The Best</a> <a href="#"
+					class="post-title">Friend eggs with ham</a>
+				<div class="post-meta">
+					<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+						class="post-author">By Julia Stiles</a>
+				</div>
+			</div>
+		</div>
 
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="./resources/bueno/img/bg-img/10.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Mushrooms with pork chop</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
+		<!-- Single Blog Post -->
+		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+			<!-- Blog Thumbnail -->
+			<div class="blog-thumbnail">
+				<img src="./resources/bueno/img/bg-img/10.jpg" alt="">
+			</div>
+			<!-- Blog Content -->
+			<div class="blog-content">
+				<a href="#" class="post-tag">The Best</a> <a href="#"
+					class="post-title">Mushrooms with pork chop</a>
+				<div class="post-meta">
+					<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+						class="post-author">By Julia Stiles</a>
+				</div>
+			</div>
+		</div>
 
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="./resources/bueno/img/bg-img/11.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Birthday cake with chocolate</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Treading Post Area End ##### -->
+		<!-- Single Blog Post -->
+		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+			<!-- Blog Thumbnail -->
+			<div class="blog-thumbnail">
+				<img src="./resources/bueno/img/bg-img/11.jpg" alt="">
+			</div>
+			<!-- Blog Content -->
+			<div class="blog-content">
+				<a href="#" class="post-tag">The Best</a> <a href="#"
+					class="post-title">Birthday cake with chocolate</a>
+				<div class="post-meta">
+					<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+						class="post-author">By Julia Stiles</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ##### Treading Post Area End ##### -->
 
-    <!-- ##### Hero Area Start ##### -->
-    <div class="hero-area">
-        <!-- Hero Post Slides -->
-        <div class="hero-post-slides owl-carousel">
-            <!-- Single Slide -->
-            <div class="single-slide">
-                <!-- Blog Thumbnail -->
-                <div class="blog-thumbnail">
-                    <a href="#"><img src="./resources/idximg/slide.jpg" alt=""></a>
-                </div>
+	<!-- ##### Hero Area Start ##### -->
+	<div class="hero-area">
+		<!-- Hero Post Slides -->
+		<div class="hero-post-slides owl-carousel">
+			<!-- Single Slide -->
+			<div class="single-slide">
+				<!-- Blog Thumbnail -->
+				<div class="blog-thumbnail">
+					<a href="#"><img src="./resources/idximg/slide.jpg" alt=""></a>
+				</div>
 
-                <!-- Blog Content -->
-                <div class="blog-content-bg">
-                    <div class="blog-content">
-                        <a href="#" class="post-tag">고냥이~</a>
-                        <a href="#" class="post-title">정보글1</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+				<!-- Blog Content -->
+				<div class="blog-content-bg">
+					<div class="blog-content">
+						<a href="#" class="post-tag">고냥이~</a> <a href="#"
+							class="post-title">정보글1</a>
+						<div class="post-meta">
+							<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+								class="post-author">By Julia Stiles</a>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <!-- Single Slide -->
-            <div class="single-slide">
-                <!-- Blog Thumbnail -->
-                <div class="blog-thumbnail">
-                    <a href="#"><img src="./resources/idximg/slide2.jpg" alt=""></a>
-                </div>
+			<!-- Single Slide -->
+			<div class="single-slide">
+				<!-- Blog Thumbnail -->
+				<div class="blog-thumbnail">
+					<a href="#"><img src="./resources/idximg/slide2.jpg" alt=""></a>
+				</div>
 
-                <!-- Blog Content -->
-                <div class="blog-content-bg">
-                    <div class="blog-content">
-                        <a href="#" class="post-tag">멍뭉이~</a>
-                        <a href="#" class="post-title">정보글2</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+				<!-- Blog Content -->
+				<div class="blog-content-bg">
+					<div class="blog-content">
+						<a href="#" class="post-tag">멍뭉이~</a> <a href="#"
+							class="post-title">정보글2</a>
+						<div class="post-meta">
+							<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+								class="post-author">By Julia Stiles</a>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <!-- Single Slide -->
-            <div class="single-slide">
-                <!-- Blog Thumbnail -->
-                <div class="blog-thumbnail">
-                    <a href="#"><img src="./resources/idximg/slide3.jpg" alt=""></a>
-                </div>
+			<!-- Single Slide -->
+			<div class="single-slide">
+				<!-- Blog Thumbnail -->
+				<div class="blog-thumbnail">
+					<a href="#"><img src="./resources/idximg/slide3.jpg" alt=""></a>
+				</div>
 
-                <!-- Blog Content -->
-                <div class="blog-content-bg">
-                    <div class="blog-content">
-                        <a href="#" class="post-tag">개냥이~</a>
-                        <a href="#" class="post-title">정보글3</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">7월 11일, 2018년</a>
-                            <a href="#" class="post-author">By 줄리아 Stiles</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+				<!-- Blog Content -->
+				<div class="blog-content-bg">
+					<div class="blog-content">
+						<a href="#" class="post-tag">개냥이~</a> <a href="#"
+							class="post-title">정보글3</a>
+						<div class="post-meta">
+							<a href="#" class="post-date">7월 11일, 2018년</a> <a href="#"
+								class="post-author">By 줄리아 Stiles</a>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <!-- Single Slide -->
-            <div class="single-slide">
-                <!-- Blog Thumbnail -->
-                <div class="blog-thumbnail">
-                    <a href="#"><img src="./resources/idximg/slide4.jpg" alt=""></a>
-                </div>
+			<!-- Single Slide -->
+			<div class="single-slide">
+				<!-- Blog Thumbnail -->
+				<div class="blog-thumbnail">
+					<a href="#"><img src="./resources/idximg/slide4.jpg" alt=""></a>
+				</div>
 
-                <!-- Blog Content -->
-                <div class="blog-content-bg">
-                    <div class="blog-content">
-                        <a href="#" class="post-tag">댕댕이~</a>
-                        <a href="#" class="post-title">정보글4</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Hero Area End ##### -->
+				<!-- Blog Content -->
+				<div class="blog-content-bg">
+					<div class="blog-content">
+						<a href="#" class="post-tag">댕댕이~</a> <a href="#"
+							class="post-title">정보글4</a>
+						<div class="post-meta">
+							<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+								class="post-author">By Julia Stiles</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ##### Hero Area End ##### -->
 
-    <!-- ##### Catagory Area Start ##### -->
-    <div class="post-catagory section-padding-100-0 mb-70">
-        <div class="container">
-            <div class="row justify-content-center">
-                <!-- Single Post Catagory -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="./resources/idximg/comu4.jpg" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">커뮤니티 인기글(예시)</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+	<!-- ##### Catagory Area Start ##### -->
+	<div class="post-catagory section-padding-100-0 mb-70">
+		<div class="container">
+			<div class="row justify-content-center">
+				<!-- Single Post Catagory -->
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="single-post-catagory mb-30">
+						<img src="./resources/idximg/comu4.jpg" alt="">
+						<!-- Content -->
+						<div class="catagory-content-bg">
+							<div class="catagory-content">
+								<a href="#" class="post-tag">The Best</a> <a href="#"
+									class="post-title">커뮤니티 인기글(예시)</a>
+							</div>
+						</div>
+					</div>
+				</div>
 
-                <!-- Single Post Catagory -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="./resources/idximg/comu3.jpg" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">커뮤니티 최신글(예시)</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+				<!-- Single Post Catagory -->
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="single-post-catagory mb-30">
+						<img src="./resources/idximg/comu3.jpg" alt="">
+						<!-- Content -->
+						<div class="catagory-content-bg">
+							<div class="catagory-content">
+								<a href="#" class="post-tag">The Best</a> <a href="#"
+									class="post-title">커뮤니티 최신글(예시)</a>
+							</div>
+						</div>
+					</div>
+				</div>
 
-                <!-- Single Post Catagory -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="./resources/idximg/comu2.jpg" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">커뮤니티 글 링크(예시)</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Catagory Area End ##### -->
+				<!-- Single Post Catagory -->
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="single-post-catagory mb-30">
+						<img src="./resources/idximg/comu2.jpg" alt="">
+						<!-- Content -->
+						<div class="catagory-content-bg">
+							<div class="catagory-content">
+								<a href="#" class="post-tag">The Best</a> <a href="#"
+									class="post-title">커뮤니티 글 링크(예시)</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ##### Catagory Area End ##### -->
 
-    <!-- ##### Big Posts Area Start ##### -->
-    <!-- <div class="big-posts-area mb-50">
+	<!-- ##### Big Posts Area Start ##### -->
+	<!-- <div class="big-posts-area mb-50">
         <div class="container">
             Single Big Post Area
             <div class="row align-items-center">
@@ -495,26 +511,26 @@
             </div>
         </div>
     </div> -->
-    <!-- ##### Big Posts Area End ##### -->
+	<!-- ##### Big Posts Area End ##### -->
 
-    <!-- ##### Posts Area End ##### -->
-    <div class="bueno-post-area mb-70">
-        <div class="container">
-        	
-        	<!-- <img src="./resources/idximg/qna2.jpg" alt=""> -->
-        	
-            <div class="row justify-content-center">
-                <!-- Post Area -->
-                <div class="col-12 col-lg-8 col-xl-9">
-                    <!-- Single Blog Post  -->
-                    <!-- 1<div class="single-blog-post style-1 d-flex flex-wrap mb-30"> -->
-                        <!-- Blog Thumbnail -->
-                        <div class="blog-thumbnail">
-                            <!-- <img src="./resources/bueno/img/bg-img/9.jpg" alt=""> -->
-                            <img src="./resources/idximg/qna.jpg" alt="">
-                        </div>
-                        <!-- Blog Content -->
-                        <!-- <div class="blog-content">
+	<!-- ##### Posts Area End ##### -->
+	<div class="bueno-post-area mb-70">
+		<div class="container">
+
+			<!-- <img src="./resources/idximg/qna2.jpg" alt=""> -->
+
+			<div class="row justify-content-center">
+				<!-- Post Area -->
+				<div class="col-12 col-lg-8 col-xl-9">
+					<!-- Single Blog Post  -->
+					<!-- 1<div class="single-blog-post style-1 d-flex flex-wrap mb-30"> -->
+					<!-- Blog Thumbnail -->
+					<div class="blog-thumbnail">
+						<!-- <img src="./resources/bueno/img/bg-img/9.jpg" alt=""> -->
+						<img src="./resources/idximg/qna.jpg" alt="">
+					</div>
+					<!-- Blog Content -->
+					<!-- <div class="blog-content">
                             <a href="#" class="post-tag">The Best</a>
                             <a href="#" class="post-title">Friend eggs with ham</a>
                             <div class="post-meta">
@@ -523,10 +539,10 @@
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
                         </div> -->
-                    <!-- </div> -->
+					<!-- </div> -->
 
-                    <!-- Single Blog Post -->
-                    <!-- <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+					<!-- Single Blog Post -->
+					<!-- <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
                         Blog Thumbnail
                         <div class="blog-thumbnail">
                             <img src="./resources/bueno/img/bg-img/10.jpg" alt="">
@@ -560,220 +576,231 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
                         </div>
                     </div> -->
-                </div>
+				</div>
 
-                <!-- Sidebar Area -->
-                <div class="col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3">
-                    <div class="sidebar-area">
+				<!-- Sidebar Area -->
+				<div class="col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3">
+					<div class="sidebar-area">
 
-                        <!-- Single Widget Area -->
-                        <div class="single-widget-area add-widget mb-30">
-                            <img src="./resources/bueno/img/bg-img/add.png" alt="">
-                        </div>
+						<!-- Single Widget Area -->
+						<div class="single-widget-area add-widget mb-30">
+							<img src="./resources/bueno/img/bg-img/add.png" alt="">
+						</div>
 
-                        <!-- Single Widget Area -->
-                        <div class="single-widget-area post-widget">
+						<!-- Single Widget Area -->
+						<div class="single-widget-area post-widget">
 
-                            <!-- Single Post Area -->
-                            <div class="single-post-area d-flex">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <img src="./resources/bueno/img/bg-img/12.jpg" alt="">
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <a href="#" class="post-title">아</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">July 11, 2018</a>
-                                        <a href="#" class="post-author">By Julia Stiles</a>
-                                    </div>
-                                </div>
-                            </div> -->
+							<!-- Single Post Area -->
+							<div class="single-post-area d-flex">
+								<!-- Blog Thumbnail -->
+								<div class="blog-thumbnail">
+									<img src="./resources/bueno/img/bg-img/12.jpg" alt="">
+								</div>
+								<!-- Blog Content -->
+								<div class="blog-content">
+									<a href="#" class="post-title">아</a>
+									<div class="post-meta">
+										<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+											class="post-author">By Julia Stiles</a>
+									</div>
+								</div>
+							</div>
+							-->
 
-                            <!-- Single Post Area -->
-                            <div class="single-post-area d-flex mb-30">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <img src="./resources/bueno/img/bg-img/13.jpg" alt="">
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <a href="#" class="post-title">마</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">July 11, 2018</a>
-                                        <a href="#" class="post-author">By Julia Stiles</a>
-                                    </div>
-                                </div>
-                            </div>
+							<!-- Single Post Area -->
+							<div class="single-post-area d-flex mb-30">
+								<!-- Blog Thumbnail -->
+								<div class="blog-thumbnail">
+									<img src="./resources/bueno/img/bg-img/13.jpg" alt="">
+								</div>
+								<!-- Blog Content -->
+								<div class="blog-content">
+									<a href="#" class="post-title">마</a>
+									<div class="post-meta">
+										<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+											class="post-author">By Julia Stiles</a>
+									</div>
+								</div>
+							</div>
 
-                            <!-- Single Post Area -->
-                            <div class="single-post-area d-flex">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <img src="./resources/bueno/img/bg-img/14.jpg" alt="">
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <a href="#" class="post-title">도 &amp; 상품</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">July 11, 2018</a>
-                                        <a href="#" class="post-author">By Julia Stiles</a>
-                                    </div>
-                                </div>
-                            </div>
+							<!-- Single Post Area -->
+							<div class="single-post-area d-flex">
+								<!-- Blog Thumbnail -->
+								<div class="blog-thumbnail">
+									<img src="./resources/bueno/img/bg-img/14.jpg" alt="">
+								</div>
+								<!-- Blog Content -->
+								<div class="blog-content">
+									<a href="#" class="post-title">도 &amp; 상품</a>
+									<div class="post-meta">
+										<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+											class="post-author">By Julia Stiles</a>
+									</div>
+								</div>
+							</div>
 
-                            <!-- Single Post Area -->
-                            <div class="single-post-area d-flex">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <img src="./resources/bueno/img/bg-img/15.jpg" alt="">
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <a href="#" class="post-title">광</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">July 11, 2018</a>
-                                        <a href="#" class="post-author">By Julia Stiles</a>
-                                    </div>
-                                </div>
-                            </div>
+							<!-- Single Post Area -->
+							<div class="single-post-area d-flex">
+								<!-- Blog Thumbnail -->
+								<div class="blog-thumbnail">
+									<img src="./resources/bueno/img/bg-img/15.jpg" alt="">
+								</div>
+								<!-- Blog Content -->
+								<div class="blog-content">
+									<a href="#" class="post-title">광</a>
+									<div class="post-meta">
+										<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+											class="post-author">By Julia Stiles</a>
+									</div>
+								</div>
+							</div>
 
-                            <!-- Single Post Area -->
-                            <div class="single-post-area d-flex">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <img src="./resources/bueno/img/bg-img/16.jpg" alt="">
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <a href="#" class="post-title">고</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">July 11, 2018</a>
-                                        <a href="#" class="post-author">By Julia Stiles</a>
-                                    </div>
-                                </div>
-                            </div>
+							<!-- Single Post Area -->
+							<div class="single-post-area d-flex">
+								<!-- Blog Thumbnail -->
+								<div class="blog-thumbnail">
+									<img src="./resources/bueno/img/bg-img/16.jpg" alt="">
+								</div>
+								<!-- Blog Content -->
+								<div class="blog-content">
+									<a href="#" class="post-title">고</a>
+									<div class="post-meta">
+										<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+											class="post-author">By Julia Stiles</a>
+									</div>
+								</div>
+							</div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Posts Area End ##### -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ##### Posts Area End ##### -->
 
-    <!-- ##### Instagram Area Start ##### -->
-    <div class="instagram-feed-area d-flex flex-wrap">
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="./resources/bueno/img/bg-img/insta1.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="./resources/bueno/img/bg-img/insta1.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
+	<!-- ##### Instagram Area Start ##### -->
+	<div class="instagram-feed-area d-flex flex-wrap">
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="./resources/bueno/img/bg-img/insta1.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="./resources/bueno/img/bg-img/insta1.jpg" class="img-zoom"
+				title="Instagram Image">+</a>
+		</div>
 
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="./resources/bueno/img/bg-img/insta2.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="./resources/bueno/img/bg-img/insta2.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="./resources/bueno/img/bg-img/insta2.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="./resources/bueno/img/bg-img/insta2.jpg" class="img-zoom"
+				title="Instagram Image">+</a>
+		</div>
 
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="./resources/bueno/img/bg-img/insta3.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="./resources/bueno/img/bg-img/insta3.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="./resources/bueno/img/bg-img/insta3.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="./resources/bueno/img/bg-img/insta3.jpg" class="img-zoom"
+				title="Instagram Image">+</a>
+		</div>
 
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="./resources/bueno/img/bg-img/insta4.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="./resources/bueno/img/bg-img/insta4.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="./resources/bueno/img/bg-img/insta4.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="./resources/bueno/img/bg-img/insta4.jpg" class="img-zoom"
+				title="Instagram Image">+</a>
+		</div>
 
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="./resources/bueno/img/bg-img/insta5.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="./resources/bueno/img/bg-img/insta5.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="./resources/bueno/img/bg-img/insta5.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="./resources/bueno/img/bg-img/insta5.jpg" class="img-zoom"
+				title="Instagram Image">+</a>
+		</div>
 
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="./resources/bueno/img/bg-img/insta6.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="./resources/bueno/img/bg-img/insta6.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="./resources/bueno/img/bg-img/insta6.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="./resources/bueno/img/bg-img/insta6.jpg" class="img-zoom"
+				title="Instagram Image">+</a>
+		</div>
 
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="./resources/bueno/img/bg-img/insta7.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="./resources/bueno/img/bg-img/insta7.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="./resources/bueno/img/bg-img/insta7.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="./resources/bueno/img/bg-img/insta7.jpg" class="img-zoom"
+				title="Instagram Image">+</a>
+		</div>
 
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="./resources/bueno/img/bg-img/insta8.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="./resources/bueno/img/bg-img/insta8.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="./resources/bueno/img/bg-img/insta8.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="./resources/bueno/img/bg-img/insta8.jpg" class="img-zoom"
+				title="Instagram Image">+</a>
+		</div>
 
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="./resources/bueno/img/bg-img/insta9.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="./resources/bueno/img/bg-img/insta9.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="./resources/bueno/img/bg-img/insta9.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="./resources/bueno/img/bg-img/insta9.jpg" class="img-zoom"
+				title="Instagram Image">+</a>
+		</div>
 
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="./resources/bueno/img/bg-img/insta10.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="./resources/bueno/img/bg-img/insta10.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
-    </div>
-    <!-- ##### Instagram Area End ##### -->
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="./resources/bueno/img/bg-img/insta10.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="./resources/bueno/img/bg-img/insta10.jpg" class="img-zoom"
+				title="Instagram Image">+</a>
+		</div>
+	</div>
+	<!-- ##### Instagram Area End ##### -->
 
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-5">
-                    <!-- Copywrite Text -->
-                    <!-- <p class="copywrite-text"><a href="#">Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+	<!-- ##### Footer Area Start ##### -->
+	<footer class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-sm-5">
+					<!-- Copywrite Text -->
+					<!-- <p class="copywrite-text"><a href="#">Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p> -->
-                </div>
-                <div class="col-12 col-sm-7">
-                    <!-- Footer Nav -->
-                    <div class="footer-nav">
-                        <ul>
-                            <li class="active"><a href="#">홈</a></li>
-                            <li><a href="#">Recipes</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ##### Footer Area End ##### -->
+				</div>
+				<div class="col-12 col-sm-7">
+					<!-- Footer Nav -->
+					<div class="footer-nav">
+						<ul>
+							<li class="active"><a href="#">홈</a></li>
+							<li><a href="#">Recipes</a></li>
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">Blog</a></li>
+							<li><a href="#">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- ##### Footer Area End ##### -->
 
-    <!-- ##### All Javascript Script ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <script src="./resources/bueno/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="./resources/bueno/js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="./resources/bueno/js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
-    <script src="./resources/bueno/js/plugins/plugins.js"></script>
-    <!-- Active js -->
-    <script src="./resources/bueno/js/active.js"></script>
+	<!-- ##### All Javascript Script ##### -->
+	<!-- jQuery-2.2.4 js -->
+	<script src="./resources/bueno/js/jquery/jquery-2.2.4.min.js"></script>
+	<!-- Popper js -->
+	<script src="./resources/bueno/js/bootstrap/popper.min.js"></script>
+	<!-- Bootstrap js -->
+	<script src="./resources/bueno/js/bootstrap/bootstrap.min.js"></script>
+	<!-- All Plugins js -->
+	<script src="./resources/bueno/js/plugins/plugins.js"></script>
+	<!-- Active js -->
+	<script src="./resources/bueno/js/active.js"></script>
 </body>
 
 </html>

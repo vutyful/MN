@@ -16,8 +16,27 @@ public class BoardDAOImpl implements BoardDAO{
 	
 	@Override
 	public List<BoardVO> boardList(BoardVO vo) {
-		System.out.println("===> Mybatis boardList() 호출");
+//		System.out.println("===> Mybatis boardList() 호출");
 		return mybatis.selectList("BoardDAO.boardList", vo);
 	}//게시판 리스트 불러오기
+	
+	public int boardDelete(BoardVO vo) {
+//		System.out.println("===> Mybatis boardDelete() 호출");
+		return mybatis.delete("BoardDAO.boardDelete", vo);
+	}//관리자게시판 글 삭제
+	
+	public List<BoardVO> boardTotal(BoardVO vo) {
+//		System.out.println("===> Mybatis boardTotal() 호출");
+		return mybatis.selectList("BoardDAO.boardTotal", vo);
+	}
+	//관리자페이지 통계 게시판 글 총수
+	
+	
+	public List<BoardVO> boardToday(BoardVO vo) {
+//		System.out.println("===> Mybatis boardToday() 호출");
+		return mybatis.selectList("BoardDAO.boardToday", vo);
+	}
+	//관리자페이지 통계 계시판 오늘 글 수
+	
 
 }

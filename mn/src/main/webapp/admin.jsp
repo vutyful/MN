@@ -140,6 +140,13 @@
             
             
             <!-- tables 형태  회원관리 -->
+                        <li class="nav-item">
+                <a class="nav-link" href="/mn/admin2.do">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>통계</span></a>
+            </li>
+            
+            
             <li class="nav-item">
                 <a class="nav-link" href="member.jsp">
                     <i class="fas fa-fw fa-table"></i>
@@ -510,14 +517,14 @@
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                                         </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                       <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
                                             <div class="dropdown-header">Dropdown Header:</div>
                                             <a class="dropdown-item" href="#">Action</a>
                                             <a class="dropdown-item" href="#">Another action</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
+                                        </div> 
                                     </div>
                                 </div>
                                 <!-- Card Body -->
@@ -553,9 +560,11 @@
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
+                               <div class="chart-pie pt-4 pb-2">
                                         <canvas id="myPieChart"></canvas>
-                                    </div>
+                                    </div> 
+                                    
+                                    <!-- 파이차트 아래 텍스트 부분-->
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
                                             <i class="fas fa-circle text-primary"></i> Direct
@@ -563,10 +572,12 @@
                                         <span class="mr-2">
                                             <i class="fas fa-circle text-success"></i> Social
                                         </span>
-                                        <span class="mr-2">
+                                   <span class="mr-2">
                                             <i class="fas fa-circle text-info"></i> Referral
                                         </span>
                                     </div>
+                                   <!-- 파이차트 아래 텍스트 부분-->
+                                   
                                 </div>
                             </div>
                         </div>

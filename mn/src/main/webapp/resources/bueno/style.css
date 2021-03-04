@@ -1634,6 +1634,26 @@ h3 {
 .contact-form-area textarea.form-control {
   height: 190px; }
 
+
+/* 병원찾기 아이프레임 사이즈 수정함.*/
+/* .map-area {
+  position: relative;
+  z-index: 2; }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .map-area {
+      margin-top: 50px; } }
+  @media only screen and (max-width: 767px) {
+    .map-area {
+      margin-top: 50px; } }
+  .map-area iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    margin-bottom: 0; }
+    @media only screen and (max-width: 767px) {
+      .map-area iframe {
+        height: 300px; } } */
+        
 .map-area {
   position: relative;
   z-index: 2; }
@@ -1651,6 +1671,7 @@ h3 {
     @media only screen and (max-width: 767px) {
       .map-area iframe {
         height: 300px; } }
+        
 
 /* ====== The End ====== */
 
