@@ -1,5 +1,7 @@
 package systems.controllers;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,10 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 	
-	//¹ÎÀçÈ£°¡ ÀÛ¾÷ÁßÀÎ views/buenoBasicÆú´õ jspÆÄÀÏµé·Î ÀÌµ¿½ÃÄÑÁÜ
+	//ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½ï¿½ views/buenoBasicï¿½ï¿½ï¿½ï¿½ jspï¿½ï¿½ï¿½Ïµï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("buenoBasic/{url}.do")
     public String test(@PathVariable String url) {
-        System.out.println(url + " ÀÌµ¿");
+        System.out.println(url + " ï¿½Ìµï¿½");
         return "/buenoBasic/"+url;
     }
+	
+	
+	//í¸ì˜ê¸°ëŠ¥ - ë³‘ì›ì°¾ê¸°í˜ì´ì§€.
+	@RequestMapping("hospital.do")
+	public String hospital() {
+		return "/buenoBasic/hospital";
+	}
+	
+	
 }

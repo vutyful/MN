@@ -5,11 +5,7 @@
 <html lang="en">
 
 <head>
-<%-- 1111111111111111
-${board.bo_id}
-${boardList.bo_id}
-${bo_id} --%>
-${board.bo_id}
+	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -418,10 +414,10 @@ ${board.bo_id}
                                     <thead>
                                         <tr>
                                             <th>게시글 번호</th>
-                                            <th>글제목</th>
+                                            <th>글 제목</th>
                                             <th>카테고리</th>
+                                            <th>작성일</th>
                                             <th>글 내용</th>
-                                            <th>이미지</th>
                                             <th>멤버아이디</th>
                                             <th>삭제버튼</th>
                                         </tr>
@@ -432,10 +428,12 @@ ${board.bo_id}
                                             <td>${board.bo_id}</td>
                                             <td>${board.bo_title}</td>
                                             <td>${board.bo_cate}</td>
+                                            <td>${board.bo_date}</td>
                                             <td>${board.bo_content}</td>
-                                            <td>${board.bo_img}</td>
                                             <td>${board.mem_id}</td>
-                                            <td><class="button"></td>
+                                            <td><a href="/mn/boardDelete.do?bo_id=${board.bo_id}" onclick="return confirm('정말 삭제하시겠습니까?');" class="btn btn-danger btn-circle" id="deletebtn">
+                                        <i class="fas fa-trash"></i>
+                                    </a></td>
                                         </tr>
                                      </c:forEach>  
                                     </tbody>

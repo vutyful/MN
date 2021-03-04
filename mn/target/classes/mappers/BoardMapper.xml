@@ -3,19 +3,31 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="BoardDAO">
 
-<!--     <resultMap id="board" type="board">
-        <result column="BO_ID" property="bo_id" />
-        <result column="BO_TITLE" property="bo_title" />
-        <result column="BO_CATE" property="bo_cate" />
-        <result column="BO_CONTENT" property="bo_content" />
-        <result column="BO_IMG" property="bo_img" />
-        <result column="MEM_ID" property="mem_id" />
-    </resultMap> -->
 
-	<!-- 게시글 리스트 매퍼 아 라이브러리 안깔아서 그런가?-->
+
+	<!-- 관리자 게시글 리스트 -->
 	<select id="boardList" resultType="board">
 		select *
 		from board
+	</select>
+
+	<!-- 관리자 게시글 삭제 -->
+	<delete id="boardDelete" parameterType="board">
+		delete from board
+		where bo_id = ${bo_id}
+	</delete>
+
+	<!-- 관리자페이지 통계 총 게시물 수 숫자값만 원한다면 인트형으로 한다.-->
+	<select id="boardTotal" resultType="int">  
+		select count(*)
+		from board
+	</select>
+
+	<!-- 관리자페이지 통계 오늘의 게시물 수 -->
+	<select id="boardToday" resultType="int">
+		select count(*)
+		from board
+		where TO_CHAR(bo_date,'YYYYMMDD') = TO_char(SYSDATE, 'YYYYMMDD')
 	</select>
 
 </mapper>
