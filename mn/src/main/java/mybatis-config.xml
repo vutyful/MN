@@ -7,11 +7,25 @@
     <settings> <setting name="jdbcTypeForNull" value="NULL" /> </settings>
 	
 	<typeAliases>
+<<<<<<< HEAD
 		<typeAlias type="systems.domains.CommunityVO" alias="CommunityVO"/>
 		<typeAlias type="systems.domains.RegistVO" alias="RegistVO"/>
+=======
+		<!-- <typeAlias type="systems.domains.CalendarVO" alias="calendar"/> -->
+		<typeAlias type="systems.domains.BoardVO" alias="board"/>
+		<typeAlias type="systems.domains.ContentVO" alias="content"/>
+>>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 	</typeAliases>
+<<<<<<< HEAD
 	<typeHandlers>
         <typeHandler handler="systems.domains.CLOBHandler" javaType="String" jdbcType="LONGVARCHAR"/>
     </typeHandlers>
     
+=======
+	
+	<typeHandlers>
+        <typeHandler handler="systems.domains.CLOBHandler" javaType="String" jdbcType="LONGVARCHAR"/>
+	</typeHandlers>
+	
+>>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 	</configuration> 
