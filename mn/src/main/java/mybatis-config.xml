@@ -2,11 +2,30 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+	
 	<configuration>
+    <settings> <setting name="jdbcTypeForNull" value="NULL" /> </settings>
 	
 	<typeAliases>
-		<typeAlias type="systems.domains.TempVO" alias="temp"/>
+<<<<<<< HEAD
+		<typeAlias type="systems.domains.CommunityVO" alias="CommunityVO"/>
+		<typeAlias type="systems.domains.RegistVO" alias="RegistVO"/>
+=======
+		<!-- <typeAlias type="systems.domains.CalendarVO" alias="calendar"/> -->
 		<typeAlias type="systems.domains.BoardVO" alias="board"/>
+		<typeAlias type="systems.domains.ContentVO" alias="content"/>
+>>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 	</typeAliases>
+<<<<<<< HEAD
+	<typeHandlers>
+        <typeHandler handler="systems.domains.CLOBHandler" javaType="String" jdbcType="LONGVARCHAR"/>
+    </typeHandlers>
+    
+=======
 	
+	<typeHandlers>
+        <typeHandler handler="systems.domains.CLOBHandler" javaType="String" jdbcType="LONGVARCHAR"/>
+	</typeHandlers>
+	
+>>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 	</configuration> 
