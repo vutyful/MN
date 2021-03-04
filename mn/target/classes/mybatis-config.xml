@@ -5,8 +5,13 @@
 	<configuration>
 	
 	<typeAliases>
-		<typeAlias type="systems.domains.TempVO" alias="temp"/>
+		<!-- <typeAlias type="systems.domains.CalendarVO" alias="calendar"/> -->
 		<typeAlias type="systems.domains.BoardVO" alias="board"/>
+		<typeAlias type="systems.domains.ContentVO" alias="content"/>
 	</typeAliases>
+	
+	<typeHandlers>
+        <typeHandler handler="systems.domains.CLOBHandler" javaType="String" jdbcType="LONGVARCHAR"/>
+	</typeHandlers>
 	
 	</configuration> 
