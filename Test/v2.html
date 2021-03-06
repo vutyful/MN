@@ -59,7 +59,16 @@
 				<a-plane width="0.5" height="0.5" position="0 0 0" rotation="-90 0 0" color="white" shadow="receive: true" shadow-material>
 				</a-plane>
 			</a-entity>
-			
+			<a-entity geometry="primitive: sphere;
+				radius: ${radius};
+				segmentsWidth: ${segments-width};
+				segmentsHeight: ${segments-height}"
+				material="shader: flat; 
+				src: url(${src});
+				color: ${color};
+				fog: false"
+				scale="-1 1 1">
+			</a-entity>
 			<!-- Camera Control -->
 			<a-camera ar-raycaster raycaster cursor="fuse:false"> </a-camera>
 			
