@@ -10,6 +10,18 @@
 		<script src="http	s://cdn.rawgit.com/donmccurdy/aframe-extras/cfe5f316/dist/aframe-extras.js"></script>
 		<!-- three.ar.js -->
 		<script src="https://google-ar.github.io/three.ar.js/dist/three.ar.js"></script>
+		<script>
+			<a-entity geometry="primitive: sphere;
+				radius: ${radius};
+				segmentsWidth: ${segments-width};
+				segmentsHeight: ${segments-height}"
+				material="shader: flat; 
+				src: url(${src});
+				color: ${color};
+				fog: false"
+				scale="-1 1 1">
+			</a-entity>
+		</script>
 	</head>
 		
 	<!-- body -->
