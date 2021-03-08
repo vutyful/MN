@@ -15,6 +15,12 @@ public interface MainService {
 	// con_id 이용하여 컨텐츠 정보 가져오기(컨텐츠 상세)
 	public ContentVO getOneContent(int con_id);
 	
+	// con_cate 이용하여 해당 카테고리의 컨텐츠 가져오기
+	public List<ContentVO> getCateContent(String con_cate);
+	
+	//keyword 포함하는 컨텐츠 전부 가져오기
+	public List<ContentVO> searchAll(String keyword);
+	
 	//커뮤니티 글 3개 가져오기(어떤 기준일지는 추후에 정하기)
 	
 	//광고 가져오기

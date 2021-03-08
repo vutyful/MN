@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -347,20 +348,24 @@
     <!-- ##### Catagory Area Start ##### -->
     <div class="post-catagory section-padding-100">
         <div class="container">
+            <div style="padding-bottom: 40px;">
+        		<h2 style="color:black; text-align: center;">${cate}</h2>
+        	</div>
             <div class="row">
                 <!-- Single Post Catagory -->
+                <c:forEach items="${ConList}" var="eachCon">
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
-                        <img src="../resources/bueno/img/bg-img/4.jpg" alt="">
+                        <img src="${eachCon.con_img}" alt="" style="width: 350px; height: 316px;">
                         <!-- Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Healthy Food</a>
+                                <a href="infoDetail.do?con_num=${eachCon.con_num}" class="post-title">${eachCon.con_title}</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                </c:forEach>
 
                 <!-- Single Post Catagory -->
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -371,104 +376,6 @@
                             <div class="catagory-content">
                                 <a href="#" class="post-tag">The Best</a>
                                 <a href="#" class="post-title">Organic Cuisine</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post Catagory -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="../resources/bueno/img/bg-img/6.jpg" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Vegetarian Food</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post Catagory -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="../resources/bueno/img/bg-img/17.jpg" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Chicken Food</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post Catagory -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="../resources/bueno/img/bg-img/18.jpg" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Pizza</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post Catagory -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="../resources/bueno/img/bg-img/19.jpg" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Fast Food</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post Catagory -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="../resources/bueno/img/bg-img/20.jpg" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Burgers</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post Catagory -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="../resources/bueno/img/bg-img/21.jpg" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Deserts</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post Catagory -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="../resources/bueno/img/bg-img/22.jpg" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Soups</a>
                             </div>
                         </div>
                     </div>

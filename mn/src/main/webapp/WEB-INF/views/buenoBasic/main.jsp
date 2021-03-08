@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+<%@include file = "/header.jsp" %>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,30 +10,30 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags
 
-    <!-- Title -->
+    Title
     <title>멍냥</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="../resources/idximg/icon.ico">
+    Favicon
+    <link rel="icon" href="../resources/idximg/멍냥.ico">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="../resources/bueno/style.css">
+    Stylesheet
+    <link rel="stylesheet" href="../resources/bueno/style2.css">
 
 </head>
 
 <body>
 
-    <!-- ##### Header Area Start ##### -->
+    ##### Header Area Start #####
 <header class="header-area">
 
-        <!-- Top Header Area -->
+        Top Header Area
         <div class="top-header-area bg-img bg-overlay" style="background-image: url(../resources/idximg/header.jpg);">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-between">
                     <div class="col-12 col-sm-6">
-                        <!-- Top Social Info -->
+                        Top Social Info
                         <div class="top-social-info">
                             <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -43,74 +44,70 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-5 col-xl-4">
-                        <!-- Top Search Area -->
-                        <!-- <div class="top-search-area">
+                        Top Search Area
+                        <div class="top-search-area">
                             <form action="#" method="post">
                                 <input type="search" name="top-search" id="topSearch" placeholder="Search">
                                 <button type="submit" class="btn"><i class="fa fa-search"></i></button>
                             </form>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Logo Area -->
+        Logo Area
         <div class="logo-area">
-            <a href="#"><img src="../resources/idximg/logo2.png" alt=""></a>
+            <a href="#"><img src="../resources/idximg/로고.PNG" alt=""></a>
         </div>
 
-        <!-- Navbar Area -->
+        Navbar Area
         <div class="bueno-main-menu" id="sticker">
-            <div class="classy-nav-container breakpoint-off">
+            <div class="classy-nav-container breakpoint-off" style="background-color:#F2DAC0;">
                 <div class="container">
-                    <!-- Menu -->
+                    Menu
                     <nav class="classy-navbar justify-content-between" id="buenoNav">
 
-                        <!-- Toggler -->
+                        Toggler
                         <div id="toggler"><img src="../resources/bueno/img/core-img/toggler.png" alt=""></div>
 
-                        <!-- Navbar Toggler -->
+                        Navbar Toggler
                         <div class="classy-navbar-toggler">
                             <span class="navbarToggler"><span></span><span></span><span></span></span>
                         </div>
 
-                        <!-- Menu -->
+                        Menu
                         <div class="classy-menu">
 
-                            <!-- Close Button -->
+                            Close Button
                             <div class="classycloseIcon">
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                             </div>
 
-                            <!-- Nav Start -->
+                            Nav Start
                             <div class="classynav">
                                 <ul>
                                     <li><a href="#">강아지</a>
                                             <ul class="dropdown">
-                                                <li><a href="infoList.do">- 강아지 음식</a></li>
-                                                <li><a href="infoList.do">- 강아지 행동</a></li>
-                                                <li><a href="infoList.do">- 강아지 건강</a></li>
-                                                <li><a href="infoList.do">- 강아지 훈련</a></li>
-                                                <li><a href="infoCard.do">- 견종백과</a></li>
+                                                <li><a href="infoCard.do?con_cate=강아지 음식">- 강아지 음식</a></li>
+                                                <li><a href="infoList.do?con_cate=강아지 행동">- 강아지 행동</a></li>
+                                                <li><a href="infoList.do?con_cate=강아지 건강">- 강아지 건강</a></li>
+                                                <li><a href="infoCard.do?con_cate=견종백과">- 견종백과</a></li>
                                             </ul>
                                     </li>
                                     <li><a href="#">고양이</a>
                                             <ul class="dropdown">
-                                                <li><a href="infoList.do">- 고양이 음식</a></li>
-                                                <li><a href="infoList.do">- 고양이 행동</a></li>
-                                                <li><a href="infoList.do">- 고양이 건강</a></li>
-                                                <li><a href="infoCard.do">- 묘종백과</a></li>
+                                                <li><a href="infoCard.do?con_cate=고양이 음식">- 고양이 음식</a></li>
+                                                <li><a href="infoList.do?con_cate=고양이 행동">- 고양이 행동</a></li>
+                                                <li><a href="infoList.do?con_cate=고양이 건강">- 고양이 건강</a></li>
+                                                <li><a href="infoCard.do?con_cate=묘종백과">- 묘종백과</a></li>
                                             </ul>
                                     </li>
                                     <li><a href="#">커뮤니티</a>
-                                <!--         <ul class="dropdown">
-                                            <li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory-post.do">Catagory Post</a></li>
-                                            <li><a href="/mn/buenoBasic/single-post.do">Single Post</a></li>
-                                            <li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
-                                            <li><a href="/mn/buenoBasic/contact.do">Contact</a></li>
-                                        </ul> -->
+                                        <ul class="dropdown">
+                                            <li><a href="#">고양이</a></li>
+                                            <li><a href="#">강아지</a></li>
+                                        </ul>
                                     </li>
                                     <li><a href="#">상품</a>
                                         <ul class="dropdown">
@@ -128,12 +125,12 @@
                                     <li><a href="/mn/buenoBasic/single-post.do">반려동물</a></li>
                                 </ul>
 
-                                <!-- Login/Register -->
+                                Login/Register
                                 <div class="login-area">
                                     <a href="#">Login / Register</a>
                                 </div>
                             </div>
-                            <!-- Nav End -->
+                            Nav End
 
                         </div>
                     </nav>
@@ -141,23 +138,23 @@
             </div>
         </div>
     </header>
-    <!-- ##### Header Area End ##### -->
+    ##### Header Area End #####
 
-    <!-- ##### Treading Post Area Start ##### -->
+    ##### 내가 쓴 글 #####
     <div class="treading-post-area" id="treadingPost">
         <div class="close-icon">
             <i class="fa fa-times"></i>
         </div>
 
-        <h4>Treading Post</h4>
+        <h4>내가 쓴 글</h4>
 
-        <!-- Single Blog Post -->
+        Single Blog Post
         <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
+            Blog Thumbnail
             <div class="blog-thumbnail">
                 <img src="../resources/bueno/img/bg-img/9.jpg" alt="">
             </div>
-            <!-- Blog Content -->
+            Blog Content
             <div class="blog-content">
                 <a href="#" class="post-tag">The Best</a>
                 <a href="#" class="post-title">Friend eggs with ham</a>
@@ -168,95 +165,11 @@
             </div>
         </div>
 
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="../resources/bueno/img/bg-img/10.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Mushrooms with pork chop</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="../resources/bueno/img/bg-img/11.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Birthday cake with chocolate</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="../resources/bueno/img/bg-img/9.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Friend eggs with ham</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="../resources/bueno/img/bg-img/10.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Mushrooms with pork chop</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="../resources/bueno/img/bg-img/11.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Birthday cake with chocolate</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div> -->
     <!-- ##### Treading Post Area End ##### -->
 
     <!-- ##### 메인 슬라이더 area ##### -->
-    <div class="hero-area">
+    <div class="hero-area" style="margin-top: 30px;">
         <!-- Hero Post Slides -->
         <div class="hero-post-slides owl-carousel">
             <!-- Single Slide -->
@@ -270,8 +183,8 @@
                 <!-- Blog Content -->
                 <div class="blog-content-bg">
                     <div class="blog-content">
-                        <a href="infoDetail.do?con_id=${con.con_num}" class="post-tag">${con.con_cate}</a>
-                        <a href="infoDetail.do?con_id=${con.con_num}" class="post-title">${con.con_title}</a>
+                        <a href="infoDetail.do?con_num=${con.con_num}" class="post-tag">${con.con_cate}</a>
+                        <a href="infoDetail.do?con_num=${con.con_num}" class="post-title">${con.con_title}</a>
                         <div class="post-meta">
                         </div>
                     </div>
@@ -416,53 +329,8 @@
                             <!-- <img src="./resources/bueno/img/bg-img/9.jpg" alt=""> -->
                             <img src="../resources/idximg/qna.jpg" alt="">
                         </div>
-                        <!-- Blog Content -->
-                        <!-- <div class="blog-content">
-                            <a href="#" class="post-tag">The Best</a>
-                            <a href="#" class="post-title">Friend eggs with ham</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-date">July 11, 2018</a>
-                                <a href="#" class="post-author">By Julia Stiles</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
-                        </div> -->
-                    <!-- </div> -->
 
                     <!-- Single Blog Post -->
-                    <!-- <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-                        Blog Thumbnail
-                        <div class="blog-thumbnail">
-                            <img src="./resources/bueno/img/bg-img/10.jpg" alt="">
-                        </div>
-                        Blog Content
-                        <div class="blog-content">
-                            <a href="#" class="post-tag">The Best</a>
-                            <a href="#" class="post-title">Mushrooms with pork chop</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-date">July 11, 2018</a>
-                                <a href="#" class="post-author">By Julia Stiles</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
-                        </div>
-                    </div>
-
-                    Single Blog Post
-                    <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-                        Blog Thumbnail
-                        <div class="blog-thumbnail">
-                            <img src="./resources/bueno/img/bg-img/11.jpg" alt="">
-                        </div>
-                        Blog Content
-                        <div class="blog-content">
-                            <a href="#" class="post-tag">The Best</a>
-                            <a href="#" class="post-title">Birthday cake with chocolate</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-date">July 11, 2018</a>
-                                <a href="#" class="post-author">By Julia Stiles</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
-                        </div>
-                    </div> -->
                 </div>
 
                 <!-- Sidebar Area -->
@@ -574,11 +442,9 @@ Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p
                     <!-- Footer Nav -->
                     <div class="footer-nav">
                         <ul>
-                            <li class="active"><a href="#">홈</a></li>
-                            <li><a href="#">Recipes</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li ><a href="#">홈</a></li>
+                            <li><a href="#">관리자 페이지</a></li>
+                            <li><a href="infoWrite.do">정보글 등록</a></li>
                         </ul>
                     </div>
                 </div>
@@ -595,9 +461,12 @@ Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p
     <!-- Bootstrap js -->
     <script src="../resources/bueno/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="../resources/bueno/js/plugins/plugins.js"></script>
+	<script src="../resources/bueno/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="../resources/bueno/js/active.js"></script>
+    <script src="../resources/bueno/js/active_main.js"></script>
+
+   
+
 </body>
 
 </html>

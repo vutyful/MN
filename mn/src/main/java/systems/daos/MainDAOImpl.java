@@ -25,7 +25,19 @@ public class MainDAOImpl implements MainDAO{
 	}
 
 	// con_id 이용하여 컨텐츠 정보 가져오기(컨텐츠 상세)
-	public ContentVO getOneContent(int con_id) {
-		return mybatis.selectOne("MainMap.getOneContent", con_id);
+	public ContentVO getOneContent(int con_num) {
+		return mybatis.selectOne("MainMap.getOneContent", con_num);
 	}
+
+	// con_cate 이용하여 해당 카테고리의 컨텐츠 가져오기
+	public List<ContentVO> getCateContent(String con_cate) {
+		return mybatis.selectList("MainMap.getCateContent", con_cate);
+	}
+
+	//keyword 포함하는 컨텐츠 전부 가져오기
+	public List<ContentVO> searchAll(String keyword) {
+		return mybatis.selectList("MainMap.searchAll", keyword);
+	}
+	
+	
 }
