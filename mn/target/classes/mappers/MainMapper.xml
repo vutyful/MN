@@ -19,4 +19,14 @@
 	select * from content where con_num=#{con_num}
 </select>
 
+<!-- // con_cate 이용하여 해당 카테고리 정보 모두 가져오기 -->
+<select id="getCateContent" parameterType="String" resultType="content">
+	select * from content where con_cate=#{con_cate}
+</select>
+
+<!-- keyword 포함하는 컨텐츠 전부 가져오기 -->
+<select id="searchAll" parameterType="String" resultType="content">
+	select * from content where con_content LIKE '%'||#{keyword}||'%'
+</select>
+
 </mapper>
