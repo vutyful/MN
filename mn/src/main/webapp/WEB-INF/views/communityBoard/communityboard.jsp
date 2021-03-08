@@ -14,11 +14,11 @@
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
 <!-- https://fonts.google.com/specimen/Open+Sans -->
 <link rel="stylesheet"
-	href="resources/dashboard/dashboard/css/fontawesome.min.css">
+	href="../resources/dashboard/css/fontawesome.min.css">
 <!-- https://fontawesome.com/ -->
-<link rel="stylesheet" href="resources/dashboard/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/dashboard/css/bootstrap.min.css">
 <!-- https://getbootstrap.com/ -->
-<link rel="stylesheet" href="resources/dashboard/css/tooplate.css">
+<link rel="stylesheet" href="../resources/dashboard/css/tooplate.css">
 </head>
 
 <style type="text/css">
@@ -103,8 +103,8 @@ text-align: center;
 							</div>
 							<div class="col-md-4 col-sm-12 text-right">
 								<!-- 등록하기 버튼 누를시 회원과 비회원 구분하도록 하기 -->
-								<a href="communityBoard/communityInsert.jsp"
-									class="btn btn-small btn-primary">등록하기</a>
+								<a href="/mn/communityBoard/commuWriting.do"
+									class="btn btn-small btn-primary">글쓰기</a>
 							</div>
 						</div>
 						<div class="table-responsive">
@@ -126,12 +126,15 @@ text-align: center;
 											<tr>
 												<th scope="row"></th>
 												<!-- jstl foreach문으로 목록 내용 불러오기 -->
-												<td class="tm-product-name">${item.bo_title}</td>
-												<td class="text-center">${item.mem_id}</td>
+											<%-- <td class="tm-product-name">${item.bo_title}</td>  --%>
+											<td><a href='/mn/communityBoard/boardDetail.do?bo_num=${item.bo_num}'/>'${item.bo_title}</a></td>
+											<td class="text-center">${item.bo_num}</td>
 												<td class="text-center">${item.bo_date}</td>
 											</tr>
 										</c:forEach>
 									</tbody>
+									
+								
 								</table>
 							</form>
 
@@ -173,14 +176,16 @@ text-align: center;
 				</footer>
 			</div>
 		</div>
-		<script src="resources/dashboard/js/jquery-3.3.1.min.js"></script>
+		<script src="../resources/dashboard/js/jquery-3.3.1.min.js"></script>
 		<!-- https://jquery.com/download/ -->
-		<script src="resources/dashboard/js/bootstrap.min.js"></script>
-		<!-- https://getbootstrap.com/ -->
-
-
+		<script src="../resources/dashboard/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 			
+		<!-- jquery 시작 -->
+
+		
+		
+		
 		</script>
 </body>
 

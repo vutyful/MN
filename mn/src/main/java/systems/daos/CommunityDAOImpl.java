@@ -1,6 +1,7 @@
 package systems.daos;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 
@@ -15,7 +16,8 @@ public class CommunityDAOImpl implements CommunityDAO{
 	
 	@Autowired
 	private SqlSessionTemplate mybatis;
-
+	
+	//게시판 등록
 	@Override
 	public void CommunityInsert(BoardVO vo) {
 		System.out.println("mybatis CommunityInsert 호출");
@@ -27,6 +29,13 @@ public class CommunityDAOImpl implements CommunityDAO{
 	public List<BoardVO> getBoardList() {
 		System.out.println("mybatis getBoardList 호출");
 		return mybatis.selectList("CommuMap.getBoardList");
+	}
+	
+	//게시판 상세페이지
+	@Override
+	public List<Map> boardDetail(int bo_num) {
+		System.out.println("mybatis boardDetail 호출");
+		return mybatis.selectList("CommuMap.boardDetail",bo_num);
 	}
 
 }

@@ -4,14 +4,14 @@
 <mapper namespace="RegisterMap">
 
 <insert id="registerJoin" parameterType="member">
-	insert into member(mem_num,mem_name,mem_pass,mem_tel,mem_email)
-	values(#{mem_num},#{mem_name},#{mem_pass},#{mem_tel},#{mem_email})
+	insert into member(mem_num,mem_name,mem_pass,mem_email,mem_tel)
+	values(SEQ_MEMBER.nextval,#{mem_name},#{mem_pass},#{mem_email},#{mem_tel})
 </insert>
 
 <select id="login" parameterType="member" resultType="member">
 	select *
 	from member
-	where Mem_id = #{mem_num} and MEM_PASS= #{mem_pass}
+	where mem_email = #{mem_email} and MEM_PASS= #{mem_pass}
 </select>
 
 

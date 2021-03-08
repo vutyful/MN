@@ -141,7 +141,13 @@
             </li>
             
              -->
-            
+                         <!-- tables 형태  회원관리 -->
+                        <li class="nav-item">
+                <a class="nav-link" href="/mn/statistics.do">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>통계</span></a>
+            </li>
+                         
             <!-- tables 형태  회원관리 -->
             <li class="nav-item">
                 <a class="nav-link" href="member.jsp">
@@ -157,7 +163,7 @@
             </li>
             <!-- tables 형태 광고관리.-->
                         <li class="nav-item">
-                <a class="nav-link" href="ad.jsp">
+                <a class="nav-link" href="/mn/ad.do">
                     <i class="fas fa-fw fa-table"></i>
                     <span>광고관리</span></a>
             </li>

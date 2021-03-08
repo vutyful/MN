@@ -110,26 +110,26 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password">비밀번호</label>
-                                    <input placeholder="영문 소문자, 숫자를 모두 포함" id="mem_pass" name="mem_pass" type="password" class="form-control validate">
-                                	 <div id = "mem_pass_check"></div>
+                                    <input placeholder="영문 소문자, 특수문자,숫자를 4이상 모두 포함" id="mem_pass" name="mem_pass" type="password" class="form-control validate">
                                 	
                                 	
                                 </div>
                                 <div class="form-group">
                                     <label for="password2">비밀번호확인</label>
-                                    <input placeholder="비밀번호를 다시 입력하세요." id="mem_pass_check" type="password" class="form-control validate">
+                                    <input placeholder="비밀번호를 다시 입력하세요." id="mem_pass_ck" type="password" class="form-control validate">
+                                	 <div id = "mem_pass_check"></div>
                                 	
+                                <div class="form-group">
+                                
+                                    <label for="mem_email">e-mail</label>
+                                    <input placeholder="이메일을 입력하세요." id="mem_email" name="mem_email" type="email" class="form-control validate">
+                                	<div id = "mem_email_check"></div>
+                                </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
                                     <input placeholder="010-000-0000" id="mem_tel" name="mem_tel" type="tel" class="form-control validate">
                                 	<div id = "mem_tel_check"></div>
-                                </div>
-                                <div class="form-group">
-                                
-                                    <label for="mem_id">e-mail</label>
-                                    <input placeholder="이메일을 입력하세요." id="mem_id" name="mem_id" type="email" class="form-control validate">
-                                	<div id = "mem_id_check"></div>
                                 </div>
 <!-- 								<div class="form-group">
 																	
@@ -188,7 +188,7 @@
  		// 휴대폰 번호 정규식
  		var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
  		// 비밀번호 정규식
- 		var pwJ = /^([A-Z][a-z][0-9]){4,12}$/; //비번 정규식 다시 확인
+ 		var pwJ = /^.*(?=^.{5,10}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/; //비번 정규식 다시 확인
  		
 		
  		//이름 정규식 확인
@@ -213,7 +213,7 @@
 			}
 		});
  		
-/*  		//이메일 정규식 확인
+  		//이메일 정규식 확인
  		$("#mem_email").blur(function() {  //blur() 포커스빠져나갔을때 나타나는 메서드
 			if (mailJ.test($(this).val())) {	//test() 메서드는 주어진 문자열이 정규 표현식을 만족하는지 판별하고, 그 여부를 true 또는 false로 반환합니다.
 					console.log(mailJ.test($(this).val()));
@@ -222,7 +222,7 @@
 				$('#mem_email_check').text('이메일을 확인해주세요');
 				$('#mem_email_check').css('color', 'red');
 			}
-		}); */
+		}); 
  		
  		
  		//휴대폰 정규식 확인
@@ -251,25 +251,27 @@
 			} else {
 				inval_Arr[0] = false;
 			}
-			// 이메일 정규식
-			if (mailJ.test($('#mem_id').val())){
-				console.log(mailJ.test($('#mem_id').val()));
+ 	 		//비밀번호 입력시 비교 확인 
+			if (pwJ.test($('#mem_pass').val())==pwJ.test($('#mem_pass_ck').val())){
+				console.log(pwJ.test($('#mem_pass').val()))
+				console.log(pwJ.test($('#mem_pass_ck').val()))
+				alert("비밀번호가 일치함")
 				inval_Arr[1] = true;
 			} else {
+				alert("비밀번호가 일치하지 않습니다")
+				$('#mem_pass').val("");
+ 	 			$('#mem_pass_ck').val("");
 				inval_Arr[1] = false;
 			}	
-			
- 	 		//비밀번호 입력시 비교 확인 
-			if (pwJ.test($('#mem_pass').val()==$('#mem_pass_check').val())){
-				alert("비밀번호가 일치함")
+
+			// 이메일 정규식 (회원로그인 아이디가 되는 부분)
+			if (mailJ.test($('#mem_email').val())){
+				console.log(phoneJ.test($('#mem_email').val()));
 				inval_Arr[2] = true;
 			} else {
-				alert("비번확인 안함? 정신 안차림?")
-				$('#mem_pass').val("");
- 	 			$('#mem_pass_check').val("");
 				inval_Arr[2] = false;
 			}	
-
+			
  	 		
 			// 휴대폰 정규식
 			if (phoneJ.test($('#mem_tel').val())){
@@ -289,7 +291,7 @@
 			}
 			
 			if(validAll){ // 유효성 모두 통과
-				alert('가입성공!');
+				alert('가입을 축하합니다');
 				$('#frm').submit()
 				
 			} else{

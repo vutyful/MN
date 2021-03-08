@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page session="true" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,14 +26,17 @@
 	type="text/javascript"></script>
 <script src="resources/dashboard/js/bootstrap.min.js"
 	type="text/javascript"></script>
-<!-- īī���� js -->
+<!-- 카카오톡 js -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<!-- validate ��ȿ��  -->
+<!-- validate 유효성  -->
 <script src="resources/js/jquery.validate.min.js" type="text/javascript"></script>
-<!-- jquery ���� -->
+<!-- jquery 시작 -->
 </head>
 
 <body class=" ">
+<h2>Session 사용</h2>
+<p>세션 이름 : <b>${sessionScope.userInfo.mem_email}</b></p>
+<P>페이지 상단에 <%@ page session="true" %> 선언함</P>
 	<div class="container">
 		<div class="row tm-mt-big">
 			<div class="col-12 mx-auto tm-login-col">
@@ -41,21 +46,21 @@
 							<a href=index.jsp><i
 								class="fas fa-3x fa-tachometer-alt tm-site-icon text-center"></i></a>
 							<h2 class="tm-block-title mt-3">Login</h2>
-							<!-- �Ϲ�ȸ������ -->
+							<!-- 일반회원가입 -->
 							<form action="/mn/login.do" method="post">
 								<div class="input-group">
 									<label for="Mem_id"
 										class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Email</label>
 									<input name="Mem_id" type="text"
 										class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7"
-										id="Mem_id" placeholder="e-mail Ŀ��." required>
+										id="Mem_id" placeholder="e-mail 커몽." required>
 								</div>
 								<div class="input-group mt-3">
 									<label for="mem_pass"
 										class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Password</label>
 									<input name="mem_pass" type="password"
 										class="form-control validate" id="mem_pass"
-										placeholder="��й�ȣ Ŀ��" required>
+										placeholder="비밀번호 커몽" required>
 								</div>
 
 								<div class="input-group mt-3">
@@ -64,7 +69,7 @@
 								</div>
 							</form>
 
-							<!-- �Ϲ�ȸ������ -->
+							<!-- 일반회원가입 -->
 							<div class="input-group mt-3"></div>
 						</div>
 
@@ -75,7 +80,7 @@
 
 							<div class="input-group mt-3"></div>
 							<div class="input-group mt-3">
-								<a href=Register.jsp><em>ȸ�������ϱ�</em></a>
+								<a href=Register.jsp><em>회원가입하기</em></a>
 							</div>
 							</form>
 						</div>
@@ -86,14 +91,14 @@
 		<footer class="row tm-mt-big">
 			<div class="col-12 font-weight-light text-center">
 				<p class="d-inline-block tm-bg-black text-white py-2 px-4">
-					�۳��̳� &copy; 2021. ����Ѽ۹� family <a href="http://www.tooplate.com"
-						class="text-white tm-footer-link">��ڳ���</a> | ȯ���մϴ� <a
-						href="https://themewagon.com" class="text-white tm-footer-link">�������</a>
+					멍냥이네 &copy; 2021. 김박한송민 family <a href="http://www.tooplate.com"
+						class="text-white tm-footer-link">대박나라</a> | 환영합니다 <a
+						href="https://themewagon.com" class="text-white tm-footer-link">어서오세요</a>
 				</p>
 			</div>
 		</footer>
 	</div>
-	<!-- 	<!-- īī���� ��ư �̹��� -->
+	<!-- 	<!-- 카카오톡 버튼 이미지 -->
 	<p id="token-result"></p>
 	<a id="kakao-login-btn" href="javascript:createLoginButton()"> <img
 		src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
@@ -118,22 +123,22 @@
 					success : function(res) {
 						alert(JSON.stringify(res))
 
-						var username = res.id; //������ īī���� ���� id
-						var m_Email = res.kakao_account.email; //������ �̸���
-						var m_Name = res.properties.nickname; //������ ����� ����
+						var username = res.id; //유저의 카카오톡 고유 id
+						var m_Email = res.kakao_account.email; //유저의 이메일
+						var m_Name = res.properties.nickname; //유저가 등록한 별명
 
 						console.log(username);
 						console.log(m_Email);
 						console.log(m_Name);
 
-						var objPrmtr = new Object(); //key, value���·� ������ Object
+						var objPrmtr = new Object(); //key, value형태로 저장할 Object
 
 						objPrmtr.username = username;
 						objPrmtr.m_Email = m_Email;
 						objPrmtr.m_Name = m_Name;
-						//��������� ���� ������ �޾ƿ°Ŵϱ�.
+						//여기까지가 계정 정보를 받아온거니까.
 						
-						//���κ����� 
+						//뭐로비교하지 
 						
 						/* $.ajax({
 							type : 'post',
@@ -143,19 +148,19 @@
 							data : JSON.stringify(objPrmtr),
 							dataType : 'json',
 							success : function(data) {
-								alert('�α����� �Ϸ� �Ǿ����ϴ�.');
+								alert('로그인이 완료 되었습니다.');
 								location.href = "/index.jsp";
 							},
 							error : function(err) {
-								//err msg ���
-								alert("�α��� �����Ͽ����ϴ�.");
+								//err msg 출력
+								alert("로그인 실패하였습니다.");
 
 								console.log(err)
 							}
 						}) 
 					},
 					fail : function(error) {
-						alert("�α��� �����Ͽ����ϴ�.");
+						alert("로그인 실패하였습니다.");
 						//   alert(JSON.stringify(error));
 					}
 				});
