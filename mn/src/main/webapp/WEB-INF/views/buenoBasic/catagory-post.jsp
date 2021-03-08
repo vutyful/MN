@@ -153,11 +153,12 @@
                                         <ul class="dropdown">
                                             <li><a href="../index.jsp">홈</a></li>
                                             <li><a href="/mn/buenoBasic/edit-post.do">글 작성</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory-post.do">Catagory Post</a></li>
-                                            <li><a href="/mn/buenoBasic/single-post.do">Single Post</a></li>
+                                            <!-- <li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li> -->
+                                            <li><a href="/mn/buenoBasic/catagory-post.do">멍멍이 Post</a></li>
+                                            <li><a href="/mn/buenoBasic/catagory-post.do">냥냥이 Post</a></li>
+                                         <!--    <li><a href="/mn/buenoBasic/single-post.do">Single Post</a></li>
                                             <li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
-                                            <li><a href="/mn/buenoBasic/contact.do">Contact</a></li>
+                                            <li><a href="/mn/buenoBasic/contact.do">Contact</a></li> -->
                                         </ul>
                                     </li>
                                     <li><a href="#">상품1</a></li>

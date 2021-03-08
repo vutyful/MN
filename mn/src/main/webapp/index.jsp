@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,88 +119,7 @@
 								</div>
 							</div>
 
-<<<<<<< HEAD
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="/mn/index.jsp">홈</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">정보</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">- 레시피</a></li>
-                                                <li><a href="#">- Bread</a></li>
-                                                <li><a href="#">- Breakfast</a></li>
-                                                <li><a href="#">- Meat</a></li>
-                                                <li><a href="#">- Fastfood</a></li>
-                                                <li><a href="#">- Salad</a></li>
-                                                <li><a href="#">- Soup</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">- 레시피</a></li>
-                                                <li><a href="#">- Bread</a></li>
-                                                <li><a href="#">- Breakfast</a></li>
-                                                <li><a href="#">- Meat</a></li>
-                                                <li><a href="#">- Fastfood</a></li>
-                                                <li><a href="#">- Salad</a></li>
-                                                <li><a href="#">- Soup</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">- 레시피</a></li>
-                                                <li><a href="#">- Bread</a></li>
-                                                <li><a href="#">- Breakfast</a></li>
-                                                <li><a href="#">- Meat</a></li>
-                                                <li><a href="#">- Fastfood</a></li>
-                                                <li><a href="#">- Salad</a></li>
-                                                <li><a href="#">- Soup</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">- 레시피</a></li>
-                                                <li><a href="#">- Bread</a></li>
-                                                <li><a href="#">- Breakfast</a></li>
-                                                <li><a href="#">- Meat</a></li>
-                                                <li><a href="#">- Fastfood</a></li>
-                                                <li><a href="#">- Salad</a></li>
-                                                <li><a href="#">- Soup</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="#">커뮤니티</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.jsp">홈</a></li>
-                                            <li><a href="/mn/buenoBasic/edit-post.do">글 작성</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory-post.do">Catagory Post</a></li>
-                                            <li><a href="/mn/buenoBasic/single-post.do">Single Post</a></li>
-                                            <li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
-                                            <li><a href="/mn/buenoBasic/contact.do">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">상품1</a></li>
-                                    <li><a href="#">상품2</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/mn/index.jsp">홈</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory-post.do">Catagory Post</a></li>
-                                            <li><a href="/mn/buenoBasic/single-post.do">Single Post</a></li>
-                                            <li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
-                                            <li><a href="/mn/buenoBasic/contact.do">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">편의기능</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/mn/index.jsp">홈</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory-post.do">Catagory Post</a></li>
-                                            <li><a href="/mn/buenoBasic/single-post.do">Single Post</a></li>
-                                            <li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
-                                            <li><a href="/mn/buenoBasic/contact.do">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/mn/buenoBasic/single-post.do">마이페이지</a></li>
-                                    <li><a href="/mn/buenoBasic/contact.do">Contact(예비탭)</a></li>
-                                </ul>
-=======
+
 							<!-- Nav Start -->
 							<div class="classynav">
 								<ul>
@@ -248,15 +167,15 @@
 									<li><a href="#">커뮤니티</a>
 										<ul class="dropdown">
 											<li><a href="index.jsp">홈</a></li>
-											<li><a href="/mn/buenoBasic/catagory.do">Catagory</a></li>
-											<li><a href="/mn/buenoBasic/catagory-post.do">Catagory
-													Post</a></li>
-											<li><a href="/mn/buenoBasic/single-post.do">Single
-													Post</a></li>
-											<li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
-											<li><a href="/mn/buenoBasic/contact.do">Contact</a></li>
+											<li><a href="communityBoard/BoardList.do">강아지</a></li>
+										<!-- 	<li><a href="/mn/buenoBasic/catagory-post.do">Catagory
+													Post</a></li> -->
+											<li><a href="buenoBasic/single-post.do">고양이
+													</a></li>
+										<!-- 	<li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
+											<li><a href="/mn/buenoBasic/contact.do">Contact</a></li> -->
 										</ul></li>
-									<li><a href="#">상품1</a></li>
+					<!-- 				<li><a href="#">상품1</a></li>
 									<li><a href="#">상품2</a>
 										<ul class="dropdown">
 											<li><a href="/mn/index.jsp">홈</a></li>
@@ -267,7 +186,7 @@
 													Post</a></li>
 											<li><a href="/mn/buenoBasic/receipe.do">Recipe</a></li>
 											<li><a href="/mn/buenoBasic/contact.do">Contact</a></li>
-										</ul></li>
+										</ul></li> -->
 									<li><a href="#">편의기능</a>
 										<ul class="dropdown">
 											<li><a href="/mn/index.jsp">홈</a></li>
@@ -282,7 +201,6 @@
 									<li><a href="/mn/buenoBasic/single-post.do">마이페이지</a></li>
 									<li><a href="/mn/buenoBasic/contact.do">Contact(예비탭)</a></li>
 								</ul>
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 
 								<!-- Login/Register -->
 								<div class="login-area">
@@ -546,55 +464,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- ##### Catagory Area End ##### -->
 
-	<!-- ##### Big Posts Area Start ##### -->
-	<!-- <div class="big-posts-area mb-50">
-        <div class="container">
-            Single Big Post Area
-            <div class="row align-items-center">
-                <div class="col-12 col-md-6">
-                    <div class="big-post-thumbnail mb-50">
-                        <img src="./resources/bueno/img/bg-img/7.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="big-post-content text-center mb-50">
-                        <a href="#" class="post-tag">Healthy</a>
-                        <a href="#" class="post-title">Friend eggs with ham</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt augue pellentesque. Suspendisse vestibulum sem in eros maximus, pretium commodo turpis convallis. Aenean scelerisque orci quis urna tempus, vitae interdum velit aliquet.</p>
-                        <a href="#" class="btn bueno-btn">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-            Single Big Post Area
-            <div class="row align-items-center">
-                <div class="col-12 col-md-6">
-                    <div class="big-post-content text-center mb-50">
-                        <a href="#" class="post-tag">The Best</a>
-                        <a href="#" class="post-title">Steak with boiled vegetables</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt augue pellentesque. Suspendisse vestibulum sem in eros maximus, pretium commodo turpis convallis. Aenean scelerisque orci quis urna tempus, vitae interdum velit aliquet.</p>
-                        <a href="#" class="btn bueno-btn">Read More</a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="big-post-thumbnail mb-50">
-                        <img src="./resources/bueno/img/bg-img/8.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-	<!-- ##### Big Posts Area End ##### -->
 
 	<!-- ##### Posts Area End ##### -->
 	<div class="bueno-post-area mb-70">
@@ -673,23 +543,7 @@
 						<!-- Single Widget Area -->
 						<div class="single-widget-area post-widget">
 
-<<<<<<< HEAD
-                            <!-- Single Post Area -->
-                            <div class="single-post-area d-flex">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <img src="./resources/bueno/img/bg-img/12.jpg" alt="">
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <a href="#" class="post-title">아</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">July 11, 2018</a>
-                                        <a href="#" class="post-author">By Julia Stiles</a>
-                                    </div>
-                                </div>
-                            </div>
-=======
+
 							<!-- Single Post Area -->
 							<div class="single-post-area d-flex">
 								<!-- Blog Thumbnail -->
@@ -705,8 +559,6 @@
 									</div>
 								</div>
 							</div>
-							-->
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 
 							<!-- Single Post Area -->
 							<div class="single-post-area d-flex mb-30">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +20,13 @@
 <!-- https://getbootstrap.com/ -->
 <link rel="stylesheet" href="resources/dashboard/css/tooplate.css"
 	type='text/css'>
+<style type="text/css">
 
+body{
+background-color: white;
+}
+
+</style>
 </head>
 
 <body class=" ">
@@ -27,7 +34,7 @@
 		<div class="row tm-mt-big">
 			<div class="col-12 mx-auto tm-login-col">
 				<div class="bg-white tm-block">
-					<div class="row">
+					<div class="row" style="background-color: pink;">
 						<div class="col-12 text-center">
 							<a href=index.jsp><i
 								class="fas fa-3x fa-tachometer-alt tm-site-icon text-center"></i></a>
@@ -37,16 +44,16 @@
 								<div class="input-group">
 									<label for="Mem_id"
 										class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Email</label>
-									<input name="Mem_id" type="text"
+									<input name="mem_email" type="text"
 										class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7"
-										id="Mem_id" placeholder="e-mail입력 sy10201220@naver.com" required>
+										id="Mem_email" placeholder="e-mail입력 sy10201220@naver.com" required>
 								</div>
 								<div class="input-group mt-3">
 									<label for="mem_pass"
 										class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Password</label>
 									<input name="mem_pass" type="password"
 										class="form-control validate" id="mem_pass"
-										placeholder="비밀번호 qqqq1111" required>
+										placeholder="비밀번호 qqq111!!" required>
 								</div>
 
 								<div class="input-group mt-3">
@@ -61,7 +68,7 @@
 
 					</div>
 					<div class="row mt-2">
-						<div class="col-12">
+						<div class="col-12" style="background-color: pink;" >
 				
 
 							<div class="input-group mt-3"></div>

@@ -1,9 +1,11 @@
 package systems.domains;
 
+
 public class MemberVO {
 	
 	private int mem_num; //회원번호
 	private int mem_check; //권한 체크 (0이면 일반회원, 1이면 관리자)
+	
 	private String mem_email; //이메일 (아이디)
 	private String mem_name; //이름
 	private String mem_pass; // 비밀번호

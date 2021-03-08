@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,10 +16,10 @@
 <title>게시판등록 확인 및 댓글</title>
 
 <!-- Favicon -->
-<link rel="icon" href="resources/bueno/bueno/img/core-img/favicon.ico">
+<link rel="icon" href=../resources/bueno/bueno/img/core-img/favicon.ico">
 
 <!-- Stylesheet -->
-<link rel="stylesheet" href="resources/bueno/style.css" type='text/css'>
+<link rel="stylesheet" href="../resources/bueno/style.css" type='text/css'>
 
 </head>
 
@@ -51,7 +52,7 @@
 
 		<!-- Top Header Area -->
 		<div class="top-header-area bg-img bg-overlay"
-			style="background-image: url(resources/bueno/img/bg-img/header.jpg);">
+			style="background-image: url(../resources/bueno/img/bg-img/header.jpg);">
 			<div class="container h-100">
 				<div class="row h-100 align-items-center justify-content-between">
 					<div class="col-12 col-sm-6">
@@ -90,7 +91,7 @@
 
 		<!-- Logo Area -->
 		<div class="logo-area">
-			<a href="index.jsp"><img src="resources/bueno/img/core-img/logo.png"
+			<a href="index.jsp"><img src="../resources/bueno/img/core-img/logo.png"
 				alt=""></a>
 		</div>
 
@@ -103,7 +104,7 @@
 
 						<!-- Toggler -->
 						<div id="toggler">
-							<img src="resources/bueno/img/core-img/toggler.png" alt="">
+							<img src="../resources/bueno/img/core-img/toggler.png" alt="">
 						</div>
 
 						<!-- Navbar Toggler -->
@@ -128,12 +129,10 @@
 									<li><a href="#">About Us</a></li>
 									<li><a href="#">커뮤니티</a>
 										<ul class="dropdown">
-											<li><a href="index.jsp">Home</a></li>
-											<li><a href="catagory.jsp">Catagory</a></li>
-											<li><a href="catagory-post.jsp">Catagory Post</a></li>
-											<li><a href="board.jsp">게시글</a></li>
-											<li><a href="receipe.jsp">Recipe</a></li>
-											<li><a href="contact.jsp">Contact</a></li>
+											
+											<li><a href="catagory.jsp">강아지</a></li>
+											<li><a href="catagory-post.jsp">고양이</a></li>
+											
 										</ul></li>
 									<li><a href="single-post.jsp">Blog</a></li>
 									<li><a href="contact.jsp">Contact</a></li>
@@ -165,7 +164,7 @@
 		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
 			<!-- Blog Thumbnail -->
 			<div class="blog-thumbnail">
-				<img src="resources/bueno/img/bg-img/9.jpg" alt="">
+				<img src="../resources/bueno/img/bg-img/9.jpg" alt="">
 			</div>
 			<!-- Blog Content -->
 			<div class="blog-content">
@@ -182,7 +181,7 @@
 		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
 			<!-- Blog Thumbnail -->
 			<div class="blog-thumbnail">
-				<img src="resources/bueno/img/bg-img/10.jpg" alt="">
+				<img src="../resources/bueno/img/bg-img/10.jpg" alt="">
 			</div>
 			<!-- Blog Content -->
 			<div class="blog-content">
@@ -199,7 +198,7 @@
 
 	<!-- ##### Search Area Start ##### -->
 	<div class="bueno-search-area section-padding-100-0 pb-70 bg-img"
-		style="background-image: url(resources/bueno/img/core-img/pattern.png);">
+		style="background-image: url(../resources/bueno/img/core-img/pattern.png);">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -260,11 +259,11 @@
 				<div class="con-content">
 					<div class="col-12 col-lg-6">
 						
-						<h4 class="post-title">고냥씨 목욕시키기</h4>
+						<h4 class="post-title">${data.BO_TITLE}</h4>
 
 						<div class="post-meta mb-50">
-							<a href="#" class="post-date">July 11, 2018</a> <a href="#"
-								class="post-author">By Julia Stiles</a>
+							<a href="#" class="post-date"> ${data.BO_DATE} </a> 
+							<a href="#"class="post-author">${data.MEM_EMAIL}</a>
 						</div>
 					</div>
 				</div>
@@ -278,19 +277,20 @@
 				<div class="col-12 col-lg-8 col-xl-9">
 					<div class="post-details-content mb-100">
 						<div class="blog-thumbnail mb-50">
-							<img src="resources/bueno/img/bg-img/cat_shower.png" alt="">
+							<img src="../resources/bueno/img/bg-img/cat_shower.png" alt="">
 						</div>
 						<div>
-							<p>우리는 베스트 프렌드가 될거야. 피만 안보면 됨</p>
+							${data.BO_CONTENT}
 						</div>
 						<!--회원 비회원을 위한 코드를 위해 남겨 놓음 -->
+						
 						<div class="col-12">
-							<button class="btn bueno-btn mt-30" type="submit">수정</button>
-							<button class="btn bueno-btn mt-30" type="submit">삭제</button>
+							<input type="submit" id="update_btn" value="수정" class="btn bueno-btn mt-30"/>
+							<input type="submit" id="delect_btn" value="삭제" class="btn bueno-btn mt-30"/>
 						</div>
 					</div>
 					<div class="comment_area clearfix mb-100">
-						<h4 class="mb-50">Comments</h4>
+						<h4 class="mb-50">댓글</h4>
 
 						<ol>
 							<!-- Single Comment Area -->
@@ -299,7 +299,7 @@
 								<div class="comment-content d-flex">
 									<!-- Comment Author -->
 									<div class="comment-author">
-										<img src="resources/bueno/img/bg-img/32.jpg" alt="author">
+										<img src="../resources/bueno/img/bg-img/32.jpg" alt="author">
 									</div>
 									<!-- Comment Meta -->
 									<div class="comment-meta">
@@ -383,15 +383,25 @@
 
 	<!-- ##### All Javascript Script ##### -->
 	<!-- jQuery-2.2.4 js -->
-	<script src="resources/bueno/js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="../resources/bueno/js/jquery/jquery-2.2.4.min.js"></script>
 	<!-- Popper js -->
-	<script src="resources/bueno/js/bootstrap/popper.min.js"></script>
+	<script src="../resources/bueno/js/bootstrap/popper.min.js"></script>
 	<!-- Bootstrap js -->
-	<script src="resources/bueno/js/bootstrap/bootstrap.min.js"></script>
+	<script src="../resources/bueno/js/bootstrap/bootstrap.min.js"></script>
 	<!-- All Plugins js -->
-	<script src="resources/bueno/js/plugins/plugins.js"></script>
+	<script src="../resources/bueno/js/plugins/plugins.js"></script>
 	<!-- Active js -->
-	<script src="resources/bueno/js/active.js"></script>
-</body>
-
-</html>
+	<script src="../resources/bueno/js/active.js"></script>
+	
+	<script type="text/javascript">
+	//수정버튼을 눌렀을 시
+	$('#update_btn').click(function () {
+		alert("게시글 수정")
+	});
+	
+	
+	
+	
+	</script>
+	</body>
+	</html>

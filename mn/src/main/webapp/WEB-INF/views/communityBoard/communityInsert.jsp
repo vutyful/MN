@@ -15,16 +15,16 @@
 <title>게시판등록</title>
 
 <!-- Favicon -->
-<link rel="icon" href="resources/bueno/img/core-img/favicon.ico">
+<link rel="icon" href="../resources/bueno/img/core-img/favicon.ico">
 
 <!-- Stylesheet -->
-<link rel="stylesheet" href="resources/bueno/style.css" type='text/css'>
+<link rel="stylesheet" href="../resources/bueno/style.css" type='text/css'>
 <!-- summernote-dist -->
 <link rel="stylesheet"
-	href="resources/summernote-dist/summernote-lite.css">
+	href="../resources/summernote-dist/summernote-lite.css">
 
 <!-- summernote-dist -->
-<link href="resources/summernote-dist/summernote.css" rel="stylesheet"
+<link href="../resources/summernote-dist/summernote.css" rel="stylesheet"
 	type="text/css" />
 <link
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
@@ -64,7 +64,7 @@
 
 		<!-- Top Header Area -->
 		<div class="top-header-area bg-img bg-overlay"
-			style="background-image: url(resources/bueno/img/bg-img/header.jpg);">
+			style="background-image: url(../resources/bueno/img/bg-img/header.jpg);">
 			<div class="container h-100">
 				<div class="row h-100 align-items-center justify-content-between">
 					<div class="col-12 col-sm-6">
@@ -104,7 +104,7 @@
 		<!-- Logo Area -->
 		<div class="logo-area">
 			<a href="index.jsp"><img
-				src="resources/bueno/img/core-img/logo.png" alt=""></a>
+				src="../resources/bueno/img/core-img/logo.png" alt=""></a>
 		</div>
 
 		<!-- Navbar Area -->
@@ -116,7 +116,7 @@
 
 						<!-- Toggler -->
 						<div id="toggler">
-							<img src="resources/bueno/img/core-img/toggler.png" alt="">
+							<img src="../resources/bueno/img/core-img/toggler.png" alt="">
 						</div>
 
 						<!-- Navbar Toggler -->
@@ -178,7 +178,7 @@
 		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
 			<!-- Blog Thumbnail -->
 			<div class="blog-thumbnail">
-				<img src="resources/bueno/img/bg-img/9.jpg" alt="">
+				<img src="../resources/bueno/img/bg-img/9.jpg" alt="">
 			</div>
 			<!-- Blog Content -->
 			<div class="blog-content">
@@ -194,7 +194,7 @@
 		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
 			<!-- Blog Thumbnail -->
 			<div class="blog-thumbnail">
-				<img src="resources/bueno/img/bg-img/10.jpg" alt="">
+				<img src="../resources/bueno/img/bg-img/10.jpg" alt="">
 			</div>
 			<!-- Blog Content -->
 			<div class="blog-content">
@@ -210,7 +210,7 @@
 
 	<!-- ##### Search Area Start ##### -->
 	<div class="bueno-search-area section-padding-100-0 pb-70 bg-img"
-		style="background-image: url(resources/bueno/img/core-img/pattern.png);">
+		style="background-image: url(../resources/bueno/img/core-img/pattern.png);">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -235,7 +235,7 @@
 				<div class="col-12 col-lg-8 col-xl-9">
 					<div class="mb-100">
 						<div class="blog-thumbnail mb-50">
-							<!-- <img src="resources/bueno/img/bg-img/cat_shower.png" alt=""> -->
+							<!-- <img src="../resources/bueno/img/bg-img/cat_shower.png" alt=""> -->
 						</div>
 						<!-- summernote -->
 						<form action="CommunityInsert.do"method="post">
@@ -246,7 +246,7 @@
 							<!-- summernote  -->
 							<textarea id="summernote" name="bo_content"></textarea>
 
-							<div class="col-12">
+							<div class="col-12"><!--  /mn/communityBoard/CommunityInsert.do -->
 								<input id="insert_btn" class="btn bueno-btn mt-30"
 									type="submit" value="등록">
 								<input id="del_btn" class="btn bueno-btn mt-30" type="submit" value="삭제"></input>
@@ -297,18 +297,18 @@
 	<!-- ##### Footer Area Start ##### -->
 <!-- ##### All Javascript Script ##### -->
 <!-- jQuery-2.2.4 js -->
-<script src="/mn/resources/bueno/js/jquery/jquery-2.2.4.min.js"></script>
+<script src="../resources/bueno/js/jquery/jquery-2.2.4.min.js"></script>
 <!-- Popper js -->
-<script src="/mn/resources/bueno/js/bootstrap/popper.min.js"></script>
+<script src="/mn/../resources/bueno/js/bootstrap/popper.min.js"></script>
 <!-- Bootstrap js -->
-<script src="/mn/resources/bueno/js/bootstrap/bootstrap.min.js"></script>
+<script src="../resources/bueno/js/bootstrap/bootstrap.min.js"></script>
 <!-- All Plugins js -->
-<script src="/mn/resources/bueno/js/plugins/plugins.js"></script>
+<script src="../resources/bueno/js/plugins/plugins.js"></script>
 <!-- Active js -->
-<script src="/mn/resources/bueno/js/active.js"></script>
+<script src="../resources/bueno/js/active.js"></script>
 <!--summernote js  -->
-<script src="/mn/resources/summernote-dist/summernote-lite.js"></script>
-<script src="/mn/resources/summernote-dist/lang/summernote-ko-KR.js"></script>
+<script src="../resources/summernote-dist/summernote-lite.js"></script>
+<script src="../resources/summernote-dist/lang/summernote-ko-KR.js"></script>
 
 <script type="text/javascript">
 
