@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>관리자페이지 - 게시판관리</title>
+    <title>관리자페이지 - 광고 관리</title>
 
     <!-- Custom fonts for this template -->
     <link href="resources/manager/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -141,13 +141,14 @@
             </li>
             
              -->
-                         <!-- tables 형태  회원관리 -->
+            
+                        <!-- tables 형태  회원관리 -->
                         <li class="nav-item">
                 <a class="nav-link" href="/mn/statistics.do">
                     <i class="fas fa-fw fa-table"></i>
                     <span>통계</span></a>
             </li>
-                         
+            
             <!-- tables 형태  회원관리 -->
             <li class="nav-item">
                 <a class="nav-link" href="member.jsp">
@@ -419,26 +420,29 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>게시글 번호</th>
-                                            <th>글 제목</th>
-                                            <th>카테고리</th>
-                                            <th>작성일</th>
-                                            <th>글 내용</th>
-                                            <th>멤버아이디</th>
-                                            <th>삭제버튼</th>
+                                            <th>광고번호</th>
+                                            <th>광고이름</th>
+                                            <th>광고사진</th>
+                                            <th>광고링크</th>
+                                            <th>시작날짜</th>
+                                            <th>총클릭수</th>
+                                            <th>끝날짜</th>
+                                            <th>강아지</th>
+                                            <th>고양이</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${boardList}" var="board">
+                                    <c:forEach items="${adList}" var="ad">
                                         <tr>
-                                            <td>${board.bo_num}</td>
-                                            <td>${board.bo_title}</td>
-                                            <td>${board.bo_cate}</td>
-                                            <td>${board.bo_date}</td>
-                                            <td>${board.bo_content}</td>
-                                            <td>${board.mem_num}</td>
-                                            <td><a href="/mn/boardDelete.do?bo_id=${board.bo_num}" onclick="return confirm('정말 삭제하시겠습니까?');" class="btn btn-danger btn-circle" id="deletebtn">
-                                        <i class="fas fa-trash"></i>
+                                            <td>${ad.ad_num}</td>
+                                            <td>${ad.ad_name}</td>
+                                            <td>${ad.ad_img}</td>
+                                            <td>${ad.ad_link}</td>
+                                            <td>${ad.totalclick}</td>
+                                            <td>${ad.startdate}</td>
+                                            <td>${ad.enddate}</td>
+                                            <td>${ad.cat}</td>
+                                            <td>${ad.dog}</td>
                                     </a></td>
                                         </tr>
                                      </c:forEach>  
