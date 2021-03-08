@@ -11,6 +11,7 @@ public class AdVO {
 	private String enddate; //광고 마감일
 	private String cat; // 반려묘 있는 사람의 클릭 수
 	private String dog; // 반려견 있는 사람의 클릭 수
+	
 	public int getAd_num() {
 		return ad_num;
 	}

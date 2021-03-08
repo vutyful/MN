@@ -12,7 +12,7 @@
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!-- Title -->
-<title>Bueno - Food Blog HTML Template</title>
+<title>내 주변 병원찾기 페이지.</title>
 
 <!-- Favicon -->
 <link rel="icon" href="../resources/bueno/img/core-img/favicon.ico">
@@ -20,8 +20,9 @@
 <!-- Stylesheet -->
 <link rel="stylesheet" href="../resources/bueno/style.css">
 
-<!-- 지도 css-->
+<!-- 지도 css -->
 <link rel="stylesheet" href="../resources/bueno/hospitalmap.css">
+
 </head>
 
 
@@ -307,63 +308,7 @@
 	</div>
 	<!-- ##### Treading Post Area End ##### -->
 
-	<!-- 
-    ##### Search Area Start #####
-    <div class="bueno-search-area section-padding-100-0 pb-70 bg-img" style="background-image: url(img/core-img/pattern.png);">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <form action="#" method="post">
-                        <div class="row">
-                            <div class="col-12 col-sm-6 col-lg-3">
-                                <div class="form-group mb-30">
-                                    <select class="form-control" id="recipe">
-                                      <option value="">Recipe</option>
-                                      <option value="">Recipe 1</option>
-                                      <option value="">Recipe 2</option>
-                                      <option value="">Recipe 3</option>
-                                      <option value="">Recipe 4</option>
-                                    </select>
-                                </div>
-                            </div>
 
-                            <div class="col-12 col-sm-6 col-lg-3">
-                                <div class="form-group mb-30">
-                                    <select class="form-control" id="vegan">
-                                      <option value="">Vegan</option>
-                                      <option value="">Vegan 1</option>
-                                      <option value="">Vegan 2</option>
-                                      <option value="">Vegan 3</option>
-                                      <option value="">Vegan 4</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-lg-3">
-                                <div class="form-group mb-30">
-                                    <select class="form-control" id="ingredients">
-                                      <option value="">Ingredients</option>
-                                      <option value="">Ingredients 1</option>
-                                      <option value="">Ingredients 2</option>
-                                      <option value="">Ingredients 3</option>
-                                      <option value="">Ingredients 4</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-3">
-                                <div class="form-group mb-30">
-                                    <button class="btn bueno-btn w-100">Search</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    ##### Search Area End #####
-
- -->
 
 	<!-- ##### Contact Area Start ##### -->
 	<section class="contact-area section-padding-100">
@@ -373,37 +318,6 @@
 					<div class="contact-content mb-100">
 						<h4 class="mb-50">병원 찾기 안내</h4>
 						<p>하단의 검색창에 찾고자 하는 병원을 검색해 주세요.</p>
-
-						<!--          <div class="row align-items-center mt-30 mb-50">
-                            <div class="col-12 col-lg-4">
-                                Single Contact Info
-                                <div class="single-contact-info d-flex align-items-center">
-                                    <div class="icon mr-15">
-                                        <img src="img/core-img/placeholder.png" alt="">
-                                    </div>
-                                    <p>1481 Creekside Lane Avila Beach, CA 931</p>
-                                </div>
-
-                                Single Contact Info
-                                <div class="single-contact-info d-flex align-items-center">
-                                    <div class="icon mr-15">
-                                        <img src="img/core-img/smartphone.png" alt="">
-                                    </div>
-                                    <p>+53 345 7953 32453</p>
-                                </div>
-
-                                Single Contact Info
-                                <div class="single-contact-info d-flex align-items-center">
-                                    <div class="icon mr-15">
-                                        <img src="img/core-img/message.png" alt="">
-                                    </div>
-                                    <p>yourmail@gmail.com</p>
-                                </div>
-                            </div>  -->
-
-
-
-						<!--          <iframe src="../resources/bueno/html/mcdo.html" allowfullscreen </iframe>-->
 					</div>
 				</div>
 			</div>
@@ -417,8 +331,16 @@
 					<div class="option">
 						<div>
 							<form onsubmit="searchPlaces(); return false;">
-								키워드 : <input type="text" value="가산 디지털단지역 동물병원" id="keyword"
-									size="15">
+
+								<select name="keyword" id="keyword" >
+									<option value="가산디지털단지 동물병원" selected="selected">가산디지털단지 동물병원</option>
+									<option value="구로 동물병원">구로 동물병원</option>
+									<option value="강남역 동물병원">강남 동물병원</option>
+									<option value="인천시청 동물병원">인천시청 동물병원</option>
+									<option value="신도림 동물병원">신도림 동물병원</option>
+									<option value="온수역 동물병원">온수역 동물병원</option>
+									<option value="경기도 성남 동물병원">경기도 성남 동물병원</option>
+								</select> <br />
 								<button type="submit">검색하기</button>
 							</form>
 						</div>
@@ -721,7 +643,8 @@
 
 	<!-- 지도 js파일 -->
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a688020429a89f912c8eb20aaab1bf8c&libraries=services"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=934d6274004469e809ca51645ec76eab&libraries=services"></script>
+
 	<script src="../resources/bueno/js/map.js"></script>
 
 </body>
