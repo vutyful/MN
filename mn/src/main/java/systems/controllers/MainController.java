@@ -1,6 +1,10 @@
 package systems.controllers;
 
+import java.net.URLEncoder;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,10 +32,15 @@ public class MainController {
 	@RequestMapping("buenoBasic/writeContent.do")
 	public String writeinfo(ContentVO vo) {
 		System.out.println("글등록 controller");
-		// con_content에서 첫번째 img 태그 찾아 src 값 얻어오기
-		
+		String temp = "";
+		try {
+			temp = "redirect:infoList.do?con_cate=" + URLEncoder.encode(vo.getCon_cate(), "UTF-8");
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		System.out.println(temp);
 		mainService.writeInfo(vo);
-		return "buenoBasic/infoList";
+		return temp;
 	}
 	
 	//메인페이지 로딩
@@ -40,14 +49,17 @@ public class MainController {
 		//슬라이더 정보글 가져오기
 		List<ContentVO> result = mainService.getAllContent();
 		m.addAttribute("contents",result);
+		
 		System.out.println(result);
 	}
 	
 	//infoList 페이지 불러오기(건강, 행동 리스트)
 	@RequestMapping("buenoBasic/infoList.do")
-	public void infoList(String con_cate,Model m) {
+	public void infoList(String con_cate, Model m) {
 		// 메인에서 카테고리 이름 받아와서 con_cate 해당 카테고리 목록 가져오기
 		List<ContentVO> result = mainService.getCateContent(con_cate);
+		System.out.println("con_cate:"+con_cate);
+		System.out.println(result.get(0).getCon_cate());
 		m.addAttribute("ConList", result);
 		m.addAttribute("cate", result.get(0).getCon_cate());
 	}

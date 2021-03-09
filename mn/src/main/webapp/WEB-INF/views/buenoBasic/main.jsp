@@ -2,171 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file = "/header.jsp" %>
-<!-- <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags
-
-    Title
-    <title>멍냥</title>
-
-    Favicon
-    <link rel="icon" href="../resources/idximg/멍냥.ico">
-
-    Stylesheet
-    <link rel="stylesheet" href="../resources/bueno/style2.css">
-
-</head>
-
-<body>
-
-    ##### Header Area Start #####
-<header class="header-area">
-
-        Top Header Area
-        <div class="top-header-area bg-img bg-overlay" style="background-image: url(../resources/idximg/header.jpg);">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center justify-content-between">
-                    <div class="col-12 col-sm-6">
-                        Top Social Info
-                        <div class="top-social-info">
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-5 col-xl-4">
-                        Top Search Area
-                        <div class="top-search-area">
-                            <form action="#" method="post">
-                                <input type="search" name="top-search" id="topSearch" placeholder="Search">
-                                <button type="submit" class="btn"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        Logo Area
-        <div class="logo-area">
-            <a href="#"><img src="../resources/idximg/로고.PNG" alt=""></a>
-        </div>
-
-        Navbar Area
-        <div class="bueno-main-menu" id="sticker">
-            <div class="classy-nav-container breakpoint-off" style="background-color:#F2DAC0;">
-                <div class="container">
-                    Menu
-                    <nav class="classy-navbar justify-content-between" id="buenoNav">
-
-                        Toggler
-                        <div id="toggler"><img src="../resources/bueno/img/core-img/toggler.png" alt=""></div>
-
-                        Navbar Toggler
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        Menu
-                        <div class="classy-menu">
-
-                            Close Button
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            Nav Start
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="#">강아지</a>
-                                            <ul class="dropdown">
-                                                <li><a href="infoCard.do?con_cate=강아지 음식">- 강아지 음식</a></li>
-                                                <li><a href="infoList.do?con_cate=강아지 행동">- 강아지 행동</a></li>
-                                                <li><a href="infoList.do?con_cate=강아지 건강">- 강아지 건강</a></li>
-                                                <li><a href="infoCard.do?con_cate=견종백과">- 견종백과</a></li>
-                                            </ul>
-                                    </li>
-                                    <li><a href="#">고양이</a>
-                                            <ul class="dropdown">
-                                                <li><a href="infoCard.do?con_cate=고양이 음식">- 고양이 음식</a></li>
-                                                <li><a href="infoList.do?con_cate=고양이 행동">- 고양이 행동</a></li>
-                                                <li><a href="infoList.do?con_cate=고양이 건강">- 고양이 건강</a></li>
-                                                <li><a href="infoCard.do?con_cate=묘종백과">- 묘종백과</a></li>
-                                            </ul>
-                                    </li>
-                                    <li><a href="#">커뮤니티</a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">고양이</a></li>
-                                            <li><a href="#">강아지</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">상품</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/mn/buenoBasic/catagory.do">고양이</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory-post.do">강아지</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">편의기능</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/mn/buenoBasic/catagory.do">AR 체험</a></li>
-                                            <li><a href="/mn/buenoBasic/hospital.do">내 주변 동물병원</a></li>
-                                            <li><a href="/mn/buenoBasic/single-post.do">사운드</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/mn/buenoBasic/single-post.do">반려동물</a></li>
-                                </ul>
-
-                                Login/Register
-                                <div class="login-area">
-                                    <a href="#">Login / Register</a>
-                                </div>
-                            </div>
-                            Nav End
-
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    ##### Header Area End #####
-
-    ##### 내가 쓴 글 #####
-    <div class="treading-post-area" id="treadingPost">
-        <div class="close-icon">
-            <i class="fa fa-times"></i>
-        </div>
-
-        <h4>내가 쓴 글</h4>
-
-        Single Blog Post
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            Blog Thumbnail
-            <div class="blog-thumbnail">
-                <img src="../resources/bueno/img/bg-img/9.jpg" alt="">
-            </div>
-            Blog Content
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Friend eggs with ham</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-
-    </div> -->
-    <!-- ##### Treading Post Area End ##### -->
 
     <!-- ##### 메인 슬라이더 area ##### -->
     <div class="hero-area" style="margin-top: 30px;">
@@ -218,12 +54,12 @@
     <!-- ##### Catagory Area Start ##### -->
     <div class="post-catagory section-padding-100-0 mb-70">
         <div class="container">
-            <div class="row justify-content-center">
-                <!-- Single Post Catagory -->
+<!--             <div class="row justify-content-center">
+                Single Post Catagory
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
                         <img src="../resources/idximg/comu4.jpg" alt="">
-                        <!-- Content -->
+                        Content
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
                                 <a href="#" class="post-tag">The Best</a>
@@ -233,11 +69,11 @@
                     </div>
                 </div>
 
-                <!-- Single Post Catagory -->
+                Single Post Catagory
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
                         <img src="../resources/idximg/comu3.jpg" alt="">
-                        <!-- Content -->
+                        Content
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
                                 <a href="#" class="post-tag">The Best</a>
@@ -247,11 +83,11 @@
                     </div>
                 </div>
 
-                <!-- Single Post Catagory -->
+                Single Post Catagory
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
                         <img src="../resources/idximg/comu2.jpg" alt="">
-                        <!-- Content -->
+                        Content
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
                                 <a href="#" class="post-tag">The Best</a>
@@ -260,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- ##### Catagory Area End ##### -->
@@ -443,7 +279,7 @@ Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p
                     <div class="footer-nav">
                         <ul>
                             <li ><a href="#">홈</a></li>
-                            <li><a href="#">관리자 페이지</a></li>
+                            <li><a href="../manager/statistics.do">관리자 페이지</a></li>
                             <li><a href="infoWrite.do">정보글 등록</a></li>
                         </ul>
                     </div>

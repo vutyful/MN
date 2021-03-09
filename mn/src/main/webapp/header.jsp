@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +20,6 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/mn/resources/bueno/style2.css">
     
-    <!-- summer note -->
-    <link rel="stylesheet" type="text/css" href="../resources/summernote/summernote.css">
 
 </head>
 
@@ -59,7 +58,7 @@
 
         <!-- Logo Area -->
         <div class="logo-area">
-            <a href="main.do"><img src="/mn/resources/idximg/로고.PNG" alt=""></a>
+            <a href="/mn/buenoBasic/main.do"><img src="/mn/resources/idximg/로고.PNG" alt=""></a>
         </div>
 
         <!-- Navbar Area -->
@@ -106,7 +105,7 @@
                                     </li>
                                     <li><a href="#">커뮤니티</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">고양이</a></li>
+                                            <li><a href="/mn/communityBoard/BoardList.do">고양이</a></li>
                                             <li><a href="#">강아지</a></li>
                                         </ul>
                                     </li>
@@ -123,12 +122,19 @@
                                             <li><a href="/mn/buenoBasic/single-post.do">사운드</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/mn/buenoBasic/single-post.do">반려동물</a></li>
+                                    <li><a href="/mn/mypage2.jsp">반려동물</a></li>
                                 </ul>
 
                                 <!-- Login/Register -->
                                 <div class="login-area">
-                                    <a href="#">Login / Register</a>
+                                <c:choose>
+                                	<c:when test="${empty sessionScope.userInfo}">
+                                    	<a href="/mn/login.jsp">Login / Register</a>
+                                    </c:when>
+                                    <c:otherwise>
+                                    	<a href="#">${sessionScope.userInfo.mem_name}님, 안녕하세요!</a>
+                                    </c:otherwise>
+                                </c:choose>
                                 </div>
                             </div>
                             <!-- Nav End -->

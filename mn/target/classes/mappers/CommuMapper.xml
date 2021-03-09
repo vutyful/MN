@@ -19,7 +19,7 @@ select * from board
 
 <select id="boardDetail" parameterType="board" resultType="map">
 
-SELECT bo_title, bo_content, member.mem_email mem_email, bo_date
+SELECT bo_title, bo_content, mem_email, bo_date, mem_name, member.mem_num mem_num
 FROM board
 FULL OUTER JOIN member ON board.mem_num = member.mem_num
 WHERE board.bo_num=#{bo_num}
