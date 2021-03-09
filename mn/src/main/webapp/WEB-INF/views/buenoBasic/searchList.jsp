@@ -32,12 +32,12 @@
                     </c:forEach>
 
                     <!-- Single Blog Post -->
-                    <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-                        <!-- Blog Thumbnail -->
+<!--                     <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+                        Blog Thumbnail
                         <div class="blog-thumbnail">
                             <img src="../resources/bueno/img/bg-img/11.jpg" alt="">
                         </div>
-                        <!-- Blog Content -->
+                        Blog Content
                         <div class="blog-content">
                             <a href="#" class="post-tag">The Best</a>
                             <a href="#" class="post-title">Birthday cake with chocolate</a>
@@ -47,7 +47,7 @@
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Sidebar Area -->

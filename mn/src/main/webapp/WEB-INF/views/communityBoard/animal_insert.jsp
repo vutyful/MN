@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,15 +7,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>¹Ý·Áµ¿¹°µî·Ï</title>
+<title>ë°˜ë ¤ë™ë¬¼ë“±ë¡</title>
 
-<!--¸ÞÀÎ Çì´õ ºÎºÐ-->
+<!--ë©”ì¸ í—¤ë” ë¶€ë¶„-->
 <!-- Favicon -->
 <link rel="icon" href="resources/img/core-img/favicon.ico">
 <!-- Stylesheet -->
 <link rel="stylesheet" href="resources/style.css">
 
-<!-- account ±âº» ui -->
+<!-- account ê¸°ë³¸ ui -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
 <!-- https://fonts.google.com/specimen/Open+Sans -->
@@ -27,7 +27,7 @@
 </head>
 
 <body>
-	<!--¸ÞÀÎÄÚµå Ãß°¡  -->
+	<!--ë©”ì¸ì½”ë“œ ì¶”ê°€  -->
 	<div class="preloader d-flex align-items-center justify-content-center">
 		<div class="container">
 			<div class="row">
@@ -35,7 +35,7 @@
 					<nav class="navbar navbar-expand-xl navbar-light bg-light">
 						<a class="navbar-brand" href="login.jsp"> <i
 							class="fas fa-3x fa-tachometer-alt tm-site-icon"></i>
-							<h1 class="tm-site-title mb-0">¸Û³ÉÀÌ</h1>
+							<h1 class="tm-site-title mb-0">ë©ëƒ¥ì´</h1>
 						</a>
 						<button class="navbar-toggler ml-auto mr-0" type="button"
 							data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -61,7 +61,7 @@
 								<li class="nav-item"><a class="nav-link"
 									href="products.jsp">Products</a></li>
 
-								<li class="nav-item active"><a class="nav-link" href="#">¹Ý·Áµ¿¹°µî·Ï</a>
+								<li class="nav-item active"><a class="nav-link" href="#">ë°˜ë ¤ë™ë¬¼ë“±ë¡</a>
 								</li>
 								<li class="nav-item dropdown"><a
 									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -92,19 +92,19 @@
 					<div class="bg-white tm-block">
 						<div class="row">
 							<div class="col-12">
-								<h2 class="tm-block-title">³»¹Ý·Áµ¿¹° µî·ÏÇÏ±â</h2>
+								<h2 class="tm-block-title">ë‚´ë°˜ë ¤ë™ë¬¼ ë“±ë¡í•˜ê¸°</h2>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-12">
 								<form action="" class="tm-signup-form">
 									<div class="form-group">
-										<label for="pet_name">ÀÌ¸§</label> <input
-											placeholder="ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä" id="pet_name" name="pet_name"
+										<label for="pet_name">ì´ë¦„</label> <input
+											placeholder="ì´ë¦„ì„ ìž…ë ¥í•˜ì„¸ìš”" id="pet_name" name="pet_name"
 											type="text" class="form-control validate">
-								    									<!-- »ý³âµî·Ï -->
+								    									<!-- ìƒë…„ë“±ë¡ -->
 									<div id="cid_33" class="form-input jf-required">
-										<label for="pet_birthday">»ý³â¿ùÀÏ</label>
+										<label for="pet_birthday">ìƒë…„ì›”ì¼</label>
 										<div data-wrapper-react="true">
 											<span class="form-sub-label-container"
 												style="vertical-align: top"> <select
@@ -207,28 +207,28 @@
 								    			
 									</div>
 									<div class="form-group">
-										<label for="pet_dogcat">Á¾</label> <input
-											placeholder="°í¾çÀÌ or °­¾ÆÁö¸¦ ÀÔ·ÂÇÏ¼¼¿ä" id="pet_dogcat"
+										<label for="pet_dogcat">ì¢…</label> <input
+											placeholder="ê³ ì–‘ì´ or ê°•ì•„ì§€ë¥¼ ìž…ë ¥í•˜ì„¸ìš”" id="pet_dogcat"
 											name="pet_dogcat" type="text" class="form-control validate">
 									</div>
 									<div class="form-group">
-										<label for="pet_kind">Ç°Á¾</label> <input
-											placeholder="¹«½¼ Ç°Á¾ÀÎ°¡¿ä?" id="pet_kind" name="pet_kind"
+										<label for="pet_kind">í’ˆì¢…</label> <input
+											placeholder="ë¬´ìŠ¨ í’ˆì¢…ì¸ê°€ìš”?" id="pet_kind" name="pet_kind"
 											type="text" class="form-control validate">
 									</div>
 									
 									<div class="form-group">
-										<label for="pet_check">µî·Ï¿©ºÎ</label> <input
-											placeholder="µî·ÏµÇ¾îÀÖ³ª¿ä??" id="pet_check" name="pet_check"
+										<label for="pet_check">ë“±ë¡ì—¬ë¶€</label> <input
+											placeholder="ë“±ë¡ë˜ì–´ìžˆë‚˜ìš”??" id="pet_check" name="pet_check"
 											type="text" class="form-control validate">
 									</div>
 
 									<div class="row">
 										<div class="col-12 col-sm-4">
-											<button type="submit" class="btn btn-primary">µî·ÏÇÏ±â</button>
+											<button type="submit" class="btn btn-primary">ë“±ë¡í•˜ê¸°</button>
 										</div>
 										<div class="col-12 col-sm-8 tm-btn-right">
-											<button type="submit" class="btn btn-danger">¹«Áö°³´Ù¸®</button>
+											<button type="submit" class="btn btn-danger">ë¬´ì§€ê°œë‹¤ë¦¬</button>
 										</div>
 									</div>
 
@@ -239,12 +239,12 @@
 				</div>
 				<div class="tm-col tm-col-small">
 					<div class="bg-white tm-block">
-						<h2 class="tm-block-title">»çÁøµî·ÏÇÏ±â</h2>
+						<h2 class="tm-block-title">ì‚¬ì§„ë“±ë¡í•˜ê¸°</h2>
 						<img src="resources/img/jero.png" alt="Profile Image"
 							class="img-fluid">
 						<div class="custom-file mt-3 mb-3">
 							 <input id="fileInput" type="file" style="display:none;" />
-                        <input type="button" class="btn btn-primary d-block mx-xl-auto" value="»çÁø¿Ã¸®±â" onclick="document.getElementById('fileInput').click();"
+                        <input type="button" class="btn btn-primary d-block mx-xl-auto" value="ì‚¬ì§„ì˜¬ë¦¬ê¸°" onclick="document.getElementById('fileInput').click();"
                         />
 						</div>
 					</div>

@@ -22,8 +22,8 @@ public class AdminController {
 	private PetService petService;
 
 	// 첫 통계페이지에서 바로 통계화면
-	@RequestMapping(value="statistics.do")
-	public String admin2(BoardVO boardvo,PetVO petvo ,Model model) {
+	@RequestMapping(value="manager/statistics.do")
+	public void admin2(BoardVO boardvo,PetVO petvo ,Model model) {
 		System.out.println("통계페이지");
 
 		List<BoardVO> Total = boardService.boardTotal(boardvo); // 총 게시물 수
@@ -39,7 +39,6 @@ public class AdminController {
 		model.addAttribute("petDog", Dog);
 		model.addAttribute("petCat", Cat);
 
-		return "manager/statistics";
 	}
 	
 

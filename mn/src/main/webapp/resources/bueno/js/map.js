@@ -121,7 +121,7 @@ function getListItem(index, places) {
     var el = document.createElement('li'),
     itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
                 '<div class="info">' +
-                '   <h5>' + places.place_name + '</h5>';
+                '   <h5><a href='+ places.place_url + ' target="_blank">' + places.place_name + '</a></h5>';
 
     if (places.road_address_name) {
         itemStr += '    <span>' + places.road_address_name + '</span>' +
@@ -133,8 +133,6 @@ function getListItem(index, places) {
       itemStr += '  <span class="tel">' + places.phone  + '</span>' +
                 '</div>';       
                     
-	  itemStr += '<br><a href=' + places.place_url;
-	  itemStr += ' target="_blank">상세보기</a>';
 
 
     el.innerHTML = itemStr;

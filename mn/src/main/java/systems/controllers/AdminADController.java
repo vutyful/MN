@@ -17,14 +17,13 @@ public class AdminADController {
 	private AdService adService;
 	
 	//관리자페이지 게시글 콘트롤러
-	@RequestMapping(value="ad.do")
-	public String adList(AdVO vo, Model model) {
+	@RequestMapping(value="manager/ad.do")
+	public void adList(AdVO vo, Model model) {
 
 		List <AdVO> list = adService.adList(vo);
 		model.addAttribute("adList", list);
 
 		System.out.println("---관리자 광고관리페이지로 이동---");
-		return "manager/ad";
 	}
 
 }

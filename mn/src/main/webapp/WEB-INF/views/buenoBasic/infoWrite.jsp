@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file = "/header.jsp" %>
-
+    <!-- summer note -->
+    <link rel="stylesheet" type="text/css" href="../resources/summernote/summernote.css">
+    
     <!-- summer note -->
     <div style="padding:30px;">
     	<h2 style="color:black; text-align: center;">정보글 쓰기</h2>
@@ -11,7 +13,7 @@
     <div class="col-12 col-lg-8 col-xl-9">
     <div class="mb-100"> 
    	<form id="frm" action="writeContent.do" method="post">
-        <input type="hidden" id="con_cate" name="con_cate"/>
+        <input type="hidden" id="con_cate" name="con_cate" value="고양이 행동"/>
     	<input name="con_title" type="text" placeholder="제목" style="width:100%; height: 40px;">
     	
 		<textarea id="summernote" class="summernote" style="margin:40px;"></textarea>

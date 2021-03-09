@@ -60,19 +60,24 @@ public class RegisterController {
 		System.out.println("비번"+vo.getMem_pass());
 		
 		HttpSession session = request.getSession();
-		  Object loginresult = RegisterServiceImpl.login(vo);
+		  MemberVO loginresult = RegisterServiceImpl.login(vo);
+		  
+		  System.out.println("회원이름"+loginresult.getMem_name());
+		  System.out.println("관리자여부"+loginresult.getMem_check());
+		  System.out.println("회원번호"+loginresult.getMem_num());
+		  System.out.println("회원번호"+loginresult.getMem_tel());
+		  System.out.println("회원비밀번호"+loginresult.getMem_pass());
 		
 		if (loginresult!=null) {
 			System.out.println("controller 로그인이  " + loginresult);
-
-			session.setAttribute("userInfo",vo);
+			session.setAttribute("userInfo",loginresult);
 			System.out.println();
-			return "/login2";
+			return "redirect:buenoBasic/main.do";
 			
 		} else {
 			session.setAttribute("userInfo", null);
 		    System.out.println("controller 일반 로그인 실패");
-			return "/mn/src/main/WEB-INF/login.jsp";
+			return "/mn/src/main/login.jsp";
 		}
 	} 
     
@@ -90,7 +95,7 @@ public class RegisterController {
 		System.out.println("컨트롤?"+result);
 		System.out.println("컨트롤탔니?");
 		
-		return "buenoBasic/main";
+		return "redirect:buenoBasic/main.do";
 		
 	}
 	

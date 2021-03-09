@@ -16,14 +16,14 @@
 <title>관리자페이지 - 통계페이지</title>
 
 <!-- Custom fonts for this template-->
-<link href="resources/vendor/fontawesome-free/css/all.min.css"
+<link href="/mn/resources/vendor/fontawesome-free/css/all.min.css"
 	rel="stylesheet" type="text/css">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 
 <!-- Custom styles for this template-->
-<link href="resources/manager/css/sb-admin-2.min.css" rel="stylesheet">
+<link href="/mn/resources/manager/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -40,11 +40,12 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="admin.jsp">
+				href="../buenoBasic/main.do">
 				<div class="sidebar-brand-icon rotate-n-15">
 					<i class="fas fa-laugh-wink"></i>
 				</div>
-				<div class="sidebar-brand-text mx-3">멍냥관리자페이지</div>
+				
+				<div class="sidebar-brand-text mx-3">메인페이지</div>
 			</a>
 
 			<!-- Divider -->
@@ -146,7 +147,7 @@
              								안쓰는 부분-->
 			<!-- tables 형태  통계 -->
 			<li class="nav-item"><a class="nav-link"
-				href="/mn/statistics.do"> <i class="fas fa-fw fa-table"></i> <span>통계</span></a>
+				href="/mn/manager/statistics.do"> <i class="fas fa-fw fa-table"></i> <span>통계</span></a>
 			</li>
 
 
@@ -156,12 +157,12 @@
 			</a></li>
 
 			<!-- tables 형태 게시판관리.-->
-			<li class="nav-item"><a class="nav-link" href="/mn/board.do">
+			<li class="nav-item"><a class="nav-link" href="/mn/manager/board.do">
 					<i class="fas fa-fw fa-table"></i> <span>게시판관리</span>
 			</a></li>
 
 			<!-- tables 형태 광고관리.-->
-			<li class="nav-item"><a class="nav-link" href="/mn/ad.do"> <i
+			<li class="nav-item"><a class="nav-link" href="/mn/manager/ad.do"> <i
 					class="fas fa-fw fa-table"></i> <span>광고관리</span></a></li>
 			<!-- tables 형태 정보관리.-->
 			<li class="nav-item"><a class="nav-link" href="content.jsp">
@@ -180,7 +181,7 @@
 			<!-- Sidebar Message -->
 			<div class="sidebar-card">
 				<img class="sidebar-card-illustration mb-2"
-					src="resources/manager/img/MN.png" alt="">
+					src="../resources/manager/img/MN.png" alt="">
 				<!--  <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a> -->
 			</div>
@@ -205,7 +206,7 @@
 						<i class="fa fa-bars"></i>
 					</button>
 
-					<!-- Topbar Search -->
+	<!-- 				Topbar Search
 					<form
 						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 						<div class="input-group">
@@ -218,7 +219,7 @@
 								</button>
 							</div>
 						</div>
-					</form>
+					</form> -->
 
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
@@ -636,22 +637,22 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="resources/manager/vendor/jquery/jquery.min.js"></script>
+	<script src="/mn/resources/manager/vendor/jquery/jquery.min.js"></script>
 	<script
-		src="resources/manager/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		src="/mn/resources/manager/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
 	<script
-		src="resources/manager/vendor/jquery-easing/jquery.easing.min.js"></script>
+		src="/mn/resources/manager/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 	<!-- Custom scripts for all pages-->
-	<script src="resources/manager/js/sb-admin-2.min.js"></script>
+	<script src="/mn/resources/manager/js/sb-admin-2.min.js"></script>
 
 	<!-- Page level plugins -->
-	<script src="resources/manager/vendor/chart.js/Chart.min.js"></script>
+	<script src="/mn/resources/manager/vendor/chart.js/Chart.min.js"></script>
 
 	<!-- Page level custom scripts -->
-	<script src="resources/manager/js/demo/chart-area-demo.js"></script>
+	<script src="/mn/resources/manager/js/demo/chart-area-demo.js"></script>
 	<!-- <script src="resources/manager/js/demo/chart-pie-demo.js"></script>-->
 	<script>
 //Set new default font family and font color to mimic Bootstrap's default styling

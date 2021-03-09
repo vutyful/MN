@@ -54,10 +54,10 @@ public class CommunityController {
 		System.out.println("제목"+vo.get(0).getBo_title());
 		System.out.println("날짜"+vo.get(0).getBo_date());
 		
+		//작성자 이름 뽑아오기 위해, getBoardList 할 때 조인하여 작성자까지 얻어오기 (Map 사용)
 		
-			model.addAttribute("vo", vo);
+		model.addAttribute("vo", vo);
 		
-
 		return "communityBoard/communityboard";
 	
 	}
