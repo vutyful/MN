@@ -12,13 +12,14 @@
 <!-- Root Context: defines shared resources visible to all other web components -->
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
-	<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"></property>
+	<property name="url" value="jdbc:oracle:thin:@192.168.0.79:1521:orcl"></property>
 
-	<property name="username" value="scott"></property>
-	<property name="password" value="tiger"></property>
+	<property name="username" value="mn"></property>
+	<property name="password" value="1234"></property>
 
 </bean>	
 	
+	<!-- 마이바티즈 연동 -->
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
   <property name="dataSource" ref="dataSource" />
   <property name="configLocation" value="classpath:/mybatis-config.xml"></property>

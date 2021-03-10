@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Web AR Learning</title>
+		<!-- AFrame -->
+		<script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+		<script src="https://rawgit.com/chenzlabs/aframe-ar/827e9db/dist/aframe-ar.min.js"></script>
+		<!-- CesiumMan Walk Script -->
+		<script src="http	s://cdn.rawgit.com/donmccurdy/aframe-extras/cfe5f316/dist/aframe-extras.js"></script>
+		<!-- three.ar.js -->
+		<script src="https://google-ar.github.io/three.ar.js/dist/three.ar.js"></script>
+		
+		<!-- custom.js -->
+		
+	</head>
+		
+	<!-- body -->
+	<body> 
+		<a-scene ar>
+			<!-- First test -->
+			<!-- object & detail -->
+			<!-- 
+			<a-box width="0.25" height="0.25" depth="0.25" position="-0.25 0.125 -0.75" rotation="0 45 0" color="#4CC3D9"></a-box>
+			<a-sphere position="0 0.3125 -1.25" radius="0.3125" color="#EF2D5E"></a-sphere>
+			<a-cylinder position="0.25 0.1875 -0.75" radius="0.125" height="0.375" color="#FFC65D"></a-cylinder>
+			<a-plane position="0 0 -1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4" shadow></a-plane>
+			 -->
+			<a-entity geometry="primitive: sphere;
+				radius: ${radius};
+				segmentsWidth: ${segments-width};
+				segmentsHeight: ${segments-height}"
+				material="shader: flat; 
+				src: url(${src});
+				color: ${color};
+				fog: false"
+				scale="-1 1 1">
+			</a-entity>
+			
+			<!-- Camera Control -->
+			<a-camera ar-raycaster raycaster cursor="fuse:false"> </a-camera>
+			
+		</a-scene>
+	</body>
+</html>

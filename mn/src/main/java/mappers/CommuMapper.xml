@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CommuMap">
+
+<insert id="CommunityInsert" parameterType="board" >
+
+	insert into board(bo_num,bo_title,bo_content,bo_date,bo_cate, mem_num)
+	values(seq_board.NEXTVAL,#{bo_title},#{bo_content},sysdate,'테스트', #{mem_num})
+
+</insert>
+
+<select id="getBoardList" resultType="board">
+
+select * from board
+
+</select>
+
+<select id="boardDetail" parameterType="board" resultType="map">
+
+SELECT bo_title, bo_content, mem_email, bo_date, mem_name, member.mem_num mem_num
+FROM board
+FULL OUTER JOIN member ON board.mem_num = member.mem_num
+WHERE board.bo_num=#{bo_num}
+
+</select>
+
+
+</mapper>

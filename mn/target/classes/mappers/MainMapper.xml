@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MainMap">
+
+<!-- 정보 글 등록 -->
+<insert id="writeInfo" parameterType="content">
+	insert into content(con_num,con_title,con_cate,con_date,con_content)
+	values(seq_content.NEXTVAL,#{con_title},#{con_cate},sysdate,#{con_content})
+</insert>
+
+<!-- 메인 슬라이더에 띄울 정보 -->
+<select id="getAllContent" resultType="content">
+	select * from content
+</select>
+
+<!-- // con_id 이용하여 컨텐츠 정보 가져오기(컨텐츠 상세) -->
+<select id="getOneContent" parameterType="Integer" resultType="content">
+	select * from content where con_num=#{con_num}
+</select>
+
+<!-- // con_cate 이용하여 해당 카테고리 정보 모두 가져오기 -->
+<select id="getCateContent" parameterType="String" resultType="content">
+	select * from content where con_cate=#{con_cate}
+</select>
+
+<!-- keyword 포함하는 컨텐츠 전부 가져오기 -->
+<select id="searchAll" parameterType="String" resultType="content">
+	select * from content where con_content LIKE '%'||#{keyword}||'%'
+</select>
+
+</mapper>
