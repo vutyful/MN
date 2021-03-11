@@ -1,13 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file = "/header.jsp" %>
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Login Page</title>
 
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
@@ -19,54 +14,61 @@
 <!-- https://getbootstrap.com/ -->
 <link rel="stylesheet" href="resources/dashboard/css/tooplate.css"
 	type='text/css'>
+<style type="text/css">
 
+body{
+background-color: white;
+}
+
+</style>
 </head>
 
 <body class=" ">
 	<div class="container">
-		<div class="row tm-mt-big">
+		<div class="row tm-mt-big" style="background-color: #F2DAC0;">
 			<div class="col-12 mx-auto tm-login-col">
 				<div class="bg-white tm-block">
-					<div class="row">
+					<div class="row" style="background-color:white;">
 						<div class="col-12 text-center">
 							<a href=index.jsp><i
 								class="fas fa-3x fa-tachometer-alt tm-site-icon text-center"></i></a>
 							<h2 class="tm-block-title mt-3">Login</h2>
-							<!-- ÀÏ¹İÈ¸¿ø°¡ÀÔ -->
+							<!-- ì¼ë°˜íšŒì›ê°€ì… -->
 							<form action="/mn/login.do" method="post">
 								<div class="input-group">
 									<label for="Mem_id"
 										class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Email</label>
-									<input name="Mem_id" type="text"
+									<input name="mem_email" type="text"
 										class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7"
-										id="Mem_id" placeholder="e-mailÀÔ·Â sy10201220@naver.com" required>
+										id="Mem_email" placeholder="e-mailì…ë ¥ sy10201220@naver.com" required>
 								</div>
 								<div class="input-group mt-3">
 									<label for="mem_pass"
 										class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Password</label>
 									<input name="mem_pass" type="password"
 										class="form-control validate" id="mem_pass"
-										placeholder="ºñ¹Ğ¹øÈ£ qqqq1111" required>
+										placeholder="ë¹„ë°€ë²ˆí˜¸ qqq111!!" required>
 								</div>
 
 								<div class="input-group mt-3">
+								<!-- ë¡œê·¸ì¸ ë²„íŠ¼ -->
 									<input type="submit" id="login_btn" class="login_btn"
 										class="btn btn-primary d-inline-block mx-auto" value='login'>
 								</div>
 							</form>
 
-							<!-- ÀÏ¹İÈ¸¿ø°¡ÀÔ -->
+							<!-- ì¼ë°˜íšŒì›ê°€ì… -->
 							<div class="input-group mt-3"></div>
 						</div>
 
 					</div>
 					<div class="row mt-2">
-						<div class="col-12">
+						<div class="col-12"  >
 				
 
 							<div class="input-group mt-3"></div>
 							<div class="input-group mt-3">
-								<a href=Register.jsp><em>È¸¿ø°¡ÀÔÇÏ±â</em></a>
+								<a href=/mn/Register.jsp><em>íšŒì›ê°€ì…í•˜ê¸°</em></a>
 							</div>
 							</form>
 						</div>
@@ -74,17 +76,17 @@
 				</div>
 			</div>
 		</div>
-		<footer class="row tm-mt-big">
+<!-- 		<footer class="row tm-mt-big">
 			<div class="col-12 font-weight-light text-center">
 				<p class="d-inline-block tm-bg-black text-white py-2 px-4">
-					¸Û³ÉÀÌ³× &copy; 2021. ±è¹ÚÇÑ¼Û¹Î family <a href="http://www.tooplate.com"
-						class="text-white tm-footer-link">´ë¹Ú³ª¶ó</a> | È¯¿µÇÕ´Ï´Ù <a
-						href="https://themewagon.com" class="text-white tm-footer-link">¾î¼­¿À¼¼¿ä</a>
+					ë©ëƒ¥ì´ë„¤ &copy; 2021. ê¹€ë°•í•œì†¡ë¯¼ family <a href="http://www.tooplate.com"
+						class="text-white tm-footer-link">ëŒ€ë°•ë‚˜ë¼</a> | í™˜ì˜í•©ë‹ˆë‹¤ <a
+						href="https://themewagon.com" class="text-white tm-footer-link">ì–´ì„œì˜¤ì„¸ìš”</a>
 				</p>
 			</div>
-		</footer>
+		</footer> -->
 	</div>
-	<!-- 	<!-- Ä«Ä«¿ÀÅå ¹öÆ° ÀÌ¹ÌÁö -->
+	<!-- 	<!-- ì¹´ì¹´ì˜¤í†¡ ë²„íŠ¼ ì´ë¯¸ì§€ -->
 	<p id="token-result"></p>
 	<a id="kakao-login-btn" href="javascript:createLoginButton()"> <img
 		src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
@@ -94,11 +96,11 @@
 	type="text/javascript"></script>
 <script src="resources/dashboard/js/bootstrap.min.js"
 	type="text/javascript"></script>
-<!-- Ä«Ä«¿ÀÅå js -->
+<!-- ì¹´ì¹´ì˜¤í†¡ js -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<!-- validate À¯È¿¼º  -->
+<!-- validate ìœ íš¨ì„±  -->
 <script src="resources/js/jquery.validate.min.js" type="text/javascript"></script>
-<!-- jquery ½ÃÀÛ -->
+<!-- jquery ì‹œì‘ -->
 	<script type="text/javascript">
 	
 		$(function () {
@@ -115,22 +117,22 @@
 					success : function(res) {
 						alert(JSON.stringify(res))
 
-						var username = res.id; //À¯ÀúÀÇ Ä«Ä«¿ÀÅå °íÀ¯ id
-						var m_Email = res.kakao_account.email; //À¯ÀúÀÇ ÀÌ¸ŞÀÏ
-						var m_Name = res.properties.nickname; //À¯Àú°¡ µî·ÏÇÑ º°¸í
+						var username = res.id; //ìœ ì €ì˜ ì¹´ì¹´ì˜¤í†¡ ê³ ìœ  id
+						var m_Email = res.kakao_account.email; //ìœ ì €ì˜ ì´ë©”ì¼
+						var m_Name = res.properties.nickname; //ìœ ì €ê°€ ë“±ë¡í•œ ë³„ëª…
 
 						console.log(username);
 						console.log(m_Email);
 						console.log(m_Name);
 
-						var objPrmtr = new Object(); //key, valueÇüÅÂ·Î ÀúÀåÇÒ Object
+						var objPrmtr = new Object(); //key, valueí˜•íƒœë¡œ ì €ì¥í•  Object
 
 						objPrmtr.username = username;
 						objPrmtr.m_Email = m_Email;
 						objPrmtr.m_Name = m_Name;
-						//¿©±â±îÁö°¡ °èÁ¤ Á¤º¸¸¦ ¹Ş¾Æ¿Â°Å´Ï±î.
+						//ì—¬ê¸°ê¹Œì§€ê°€ ê³„ì • ì •ë³´ë¥¼ ë°›ì•„ì˜¨ê±°ë‹ˆê¹Œ.
 						
-						//¹¹·Îºñ±³ÇÏÁö 
+						//ë­ë¡œë¹„êµí•˜ì§€ 
 						
 						/* $.ajax({
 							type : 'post',
@@ -140,19 +142,19 @@
 							data : JSON.stringify(objPrmtr),
 							dataType : 'json',
 							success : function(data) {
-								alert('·Î±×ÀÎÀÌ ¿Ï·á µÇ¾ú½À´Ï´Ù.');
+								alert('ë¡œê·¸ì¸ì´ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤.');
 								location.href = "/index.jsp";
 							},
 							error : function(err) {
-								//err msg Ãâ·Â
-								alert("·Î±×ÀÎ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+								//err msg ì¶œë ¥
+								alert("ë¡œê·¸ì¸ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 
 								console.log(err)
 							}
 						}) 
 					},
 					fail : function(error) {
-						alert("·Î±×ÀÎ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+						alert("ë¡œê·¸ì¸ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 						//   alert(JSON.stringify(error));
 					}
 				});

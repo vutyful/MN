@@ -15,16 +15,16 @@
     <title>관리자페이지 - 게시판관리</title>
 
     <!-- Custom fonts for this template -->
-    <link href="resources/manager/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/mn/resources/manager/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="resources/manager/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/mn/resources/manager/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="resources/manager/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/mn/resources/manager/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -37,11 +37,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin.jsp">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../buenoBasic/main.do">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">멍냥관리자페이지 </div>
+                <div class="sidebar-brand-text mx-3">메인페이지 </div>
             </a>
 
             <!-- Divider -->
@@ -141,7 +141,11 @@
             </li>
             
              -->
-            
+                         <!-- tables 형태  회원관리 -->
+			<li class="nav-item"><a class="nav-link"
+				href="/mn/manager/statistics.do"> <i class="fas fa-fw fa-table"></i> <span>통계</span></a>
+			</li>
+                         
             <!-- tables 형태  회원관리 -->
             <li class="nav-item">
                 <a class="nav-link" href="member.jsp">
@@ -151,13 +155,13 @@
             
              <!-- tables 형태 게시판관리.-->
             <li class="nav-item">
-                <a class="nav-link" href="/mn/board.do">
+                <a class="nav-link" href="/mn/manager/board.do">
                     <i class="fas fa-fw fa-table"></i>
                     <span>게시판관리</span></a>
             </li>
             <!-- tables 형태 광고관리.-->
                         <li class="nav-item">
-                <a class="nav-link" href="ad.jsp">
+                <a class="nav-link" href="/mn/manager/ad.do">
                     <i class="fas fa-fw fa-table"></i>
                     <span>광고관리</span></a>
             </li>
@@ -196,7 +200,7 @@
                         </button>
                     </form>
 
-                    <!-- Topbar Search -->
+        <!--             Topbar Search
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
@@ -208,7 +212,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -398,15 +402,15 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                    <h1 class="h3 mb-2 text-gray-800">게시판목록 관리</h1>
+                 <!--    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
+                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                  <!--           <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -490,21 +494,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="resources/manager/vendor/jquery/jquery.min.js"></script>
-    <script src="resources/manager/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/mn/resources/manager/vendor/jquery/jquery.min.js"></script>
+    <script src="/mn/resources/manager/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="resources/manager/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/mn/resources/manager/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="resources/manager/js/sb-admin-2.min.js"></script>
+    <script src="/mn/resources/manager/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="resources/manager/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="resources/manager/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="/mn/resources/manager/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/mn/resources/manager/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="resources/manager/js/demo/datatables-demo.js"></script>
+    <script src="/mn/resources/manager/js/demo/datatables-demo.js"></script>
 
 </body>
 

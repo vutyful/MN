@@ -13,17 +13,17 @@
 <meta name="author" content="">
 
 
-<title>관리자페이지 - 메인</title>
+<title>관리자페이지 - 통계페이지</title>
 
 <!-- Custom fonts for this template-->
-<link href="resources/vendor/fontawesome-free/css/all.min.css"
+<link href="/mn/resources/vendor/fontawesome-free/css/all.min.css"
 	rel="stylesheet" type="text/css">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 
 <!-- Custom styles for this template-->
-<link href="resources/manager/css/sb-admin-2.min.css" rel="stylesheet">
+<link href="/mn/resources/manager/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -40,11 +40,12 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="admin.jsp">
+				href="../buenoBasic/main.do">
 				<div class="sidebar-brand-icon rotate-n-15">
 					<i class="fas fa-laugh-wink"></i>
 				</div>
-				<div class="sidebar-brand-text mx-3">멍냥관리자페이지</div>
+				
+				<div class="sidebar-brand-text mx-3">메인페이지</div>
 			</a>
 
 			<!-- Divider -->
@@ -144,6 +145,10 @@
                     <span>Tables </span></a>
             </li>
              								안쓰는 부분-->
+			<!-- tables 형태  통계 -->
+			<li class="nav-item"><a class="nav-link"
+				href="/mn/manager/statistics.do"> <i class="fas fa-fw fa-table"></i> <span>통계</span></a>
+			</li>
 
 
 			<!-- tables 형태  회원관리 -->
@@ -152,11 +157,12 @@
 			</a></li>
 
 			<!-- tables 형태 게시판관리.-->
-			<li class="nav-item"><a class="nav-link" href="/mn/board.do">
+			<li class="nav-item"><a class="nav-link" href="/mn/manager/board.do">
 					<i class="fas fa-fw fa-table"></i> <span>게시판관리</span>
 			</a></li>
+
 			<!-- tables 형태 광고관리.-->
-			<li class="nav-item"><a class="nav-link" href="ad.jsp"> <i
+			<li class="nav-item"><a class="nav-link" href="/mn/manager/ad.do"> <i
 					class="fas fa-fw fa-table"></i> <span>광고관리</span></a></li>
 			<!-- tables 형태 정보관리.-->
 			<li class="nav-item"><a class="nav-link" href="content.jsp">
@@ -175,7 +181,7 @@
 			<!-- Sidebar Message -->
 			<div class="sidebar-card">
 				<img class="sidebar-card-illustration mb-2"
-					src="resources/manager/img/MN.png" alt="">
+					src="../resources/manager/img/MN.png" alt="">
 				<!--  <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a> -->
 			</div>
@@ -200,7 +206,7 @@
 						<i class="fa fa-bars"></i>
 					</button>
 
-					<!-- Topbar Search -->
+	<!-- 				Topbar Search
 					<form
 						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 						<div class="input-group">
@@ -213,7 +219,7 @@
 								</button>
 							</div>
 						</div>
-					</form>
+					</form> -->
 
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
@@ -394,9 +400,6 @@
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">멍냥 통계</h1>
-						<a href="#"
-							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-							class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 					</div>
 
 					<!-- Content Row -->
@@ -406,14 +409,14 @@ ${boardTotal}  총 게시물 값 받아옴
 ${boardToday}  오늘의 게시물 값만 받아옴
 -->
 						<!-- 오늘의 총 게시물 수-->
-						<div class="col-xl-6 col-md-9 mb-4">
+						<div class="col-xl-4 col-md-6 mb-2">
 							<div class="card border-left-primary shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-6">
 											<div
 												class="text-l font-weight-bold text-primary text-uppercase mb-3">
-												총 게시물 수</div>
+												고객님들의 총 게시판 게시물 수</div>
 											<div class="h3 mb-0 font-weight-bold text-gray-800">${boardTotal}</div>
 										</div>
 										<div class="col-auto">
@@ -425,14 +428,14 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 						</div>
 
 						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-6 col-md-9 mb-4">
+						<div class="col-xl-4 col-md-6 mb-2">
 							<div class="card border-left-success shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-6">
 											<div
 												class="text-l font-weight-bold text-success text-uppercase mb-3">
-												오늘의 게시물 수</div>
+												오늘의 게시판 게시물 수</div>
 											<div class="h3 mb-0 font-weight-bold text-gray-800">${boardToday}</div>
 										</div>
 										<div class="col-auto">
@@ -486,8 +489,8 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 									<!-- Card Header - Dropdown -->
 									<div
 										class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-										<h6 class="m-0 font-weight-bold text-primary">Revenue
-											Sources</h6>
+										<h6 class="m-0 font-weight-bold text-primary">회원 강아지 /
+											고양이 등록비율</h6>
 										<div class="dropdown no-arrow">
 											<a class="dropdown-toggle" href="#" role="button"
 												id="dropdownMenuLink" data-toggle="dropdown"
@@ -514,11 +517,9 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 										<!-- 파이차트 아래 텍스트 부분-->
 										<div class="mt-4 text-center small">
 											<span class="mr-2"> <i
-												class="fas fa-circle text-primary"></i> Direct
+												class="fas fa-circle text-primary"></i> 강아지
 											</span> <span class="mr-2"> <i
-												class="fas fa-circle text-success"></i> Social
-											</span> <span class="mr-2"> <i
-												class="fas fa-circle text-info"></i> Referral
+												class="fas fa-circle text-success"></i> 고양이
 											</span>
 										</div>
 										<!-- 파이차트 아래 텍스트 부분-->
@@ -636,36 +637,36 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="resources/manager/vendor/jquery/jquery.min.js"></script>
+	<script src="/mn/resources/manager/vendor/jquery/jquery.min.js"></script>
 	<script
-		src="resources/manager/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		src="/mn/resources/manager/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
 	<script
-		src="resources/manager/vendor/jquery-easing/jquery.easing.min.js"></script>
+		src="/mn/resources/manager/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 	<!-- Custom scripts for all pages-->
-	<script src="resources/manager/js/sb-admin-2.min.js"></script>
+	<script src="/mn/resources/manager/js/sb-admin-2.min.js"></script>
 
 	<!-- Page level plugins -->
-	<script src="resources/manager/vendor/chart.js/Chart.min.js"></script>
+	<script src="/mn/resources/manager/vendor/chart.js/Chart.min.js"></script>
 
 	<!-- Page level custom scripts -->
-	<script src="resources/manager/js/demo/chart-area-demo.js"></script>
+	<script src="/mn/resources/manager/js/demo/chart-area-demo.js"></script>
 	<!-- <script src="resources/manager/js/demo/chart-pie-demo.js"></script>-->
 	<script>
 //Set new default font family and font color to mimic Bootstrap's default styling
  Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
  Chart.defaults.global.defaultFontColor = '#858796';
 
- // Pie Chart Example       js로 하면 에러떠서 안되는데 이렇게 하면 $ 값을 추적 할 수있어서 오류 안뜨고 값이 들어간다.
+ // Pie Chart Example  강아지 / 고양이 파이차트   
  var ctx = document.getElementById("myPieChart");
  var myPieChart = new Chart(ctx, {
    type: 'doughnut',
    data: {
-     labels: ["총 게시물 수", "오늘의 게시물 수"],
+     labels: ["강이지", "고양이"],
      datasets: [{
-       data: [${boardTotal}, ${boardToday}],
+       data: [${petDog}, ${petCat}],
        backgroundColor: ['#4e73df', '#1cc88a'],
        hoverBackgroundColor: ['#2e59d9', '#17a673'],
        hoverBorderColor: "rgba(234, 236, 244, 1)",

@@ -1,12 +1,17 @@
 package systems.controllers;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import systems.domains.MemberVO;
 import systems.services.RegisterService;
@@ -42,29 +47,37 @@ public class RegisterController {
     }//여기까진 들여쓰기가 맞아요.
     
     
-    //메인화면에서 로그인하러 옴
+    //메인화면에서 로그인하러 옴(로그인 화면)
     @RequestMapping("/loginpage.do")
     public String loginpage() {
     	return "login";
     }
-    
-	
-    //일반회원 로그인
-	@RequestMapping("/login.do")
-	public String login(MemberVO vo) {
-		System.out.println("아이디"+vo.getMem_num());
+    	
+    //일반회원 로그인처리
+	@RequestMapping(value= "/login.do", method=RequestMethod.POST)
+	public String login(MemberVO vo, HttpServletRequest request) {
+		System.out.println("이메일"+vo.getMem_email());
 		System.out.println("비번"+vo.getMem_pass());
-		Object loginresult = RegisterServiceImpl.login(vo);
-//		System.out.println(loginresult.getMem_email());
+		
+		HttpSession session = request.getSession();
+		  MemberVO loginresult = RegisterServiceImpl.login(vo);
+		  
+		  System.out.println("회원이름"+loginresult.getMem_name());
+		  System.out.println("관리자여부"+loginresult.getMem_check());
+		  System.out.println("회원번호"+loginresult.getMem_num());
+		  System.out.println("회원번호"+loginresult.getMem_tel());
+		  System.out.println("회원비밀번호"+loginresult.getMem_pass());
+		
 		if (loginresult!=null) {
-			System.out.println("controller 로그인이 된건가 그런건가 " + loginresult);
-			//session mem_id(시퀀스), mem_email(아이디) 저장하기
-			//model 생각
-			return "/communityBoard/communityInsert";
+			System.out.println("controller 로그인이  " + loginresult);
+			session.setAttribute("userInfo",loginresult);
+			System.out.println();
+			return "redirect:buenoBasic/main.do";
 			
 		} else {
-			System.out.println("controller 일반 로그인 실패");
-			return "login";
+			session.setAttribute("userInfo", null);
+		    System.out.println("controller 일반 로그인 실패");
+			return "/mn/src/main/login.jsp";
 		}
 	} 
     
@@ -73,7 +86,7 @@ public class RegisterController {
 	@RequestMapping(value="/registJoin.do", produces = "application/text;charset=utf-8")
 	public String registerJoin(MemberVO vo) {
 		//아까 받은 계정정보를 vo에 넣으셔서 여기로 보내시면 될거에요.
-		System.out.println("이메일"+vo.getMem_num());
+		System.out.println("이메일"+vo.getMem_email());
 		System.out.println("비밀번호"+vo.getMem_pass());
 		System.out.println("이름"+vo.getMem_name());
 		System.out.println("전화번호"+vo.getMem_tel());
@@ -82,7 +95,7 @@ public class RegisterController {
 		System.out.println("컨트롤?"+result);
 		System.out.println("컨트롤탔니?");
 		
-		return "index";
+		return "redirect:buenoBasic/main.do";
 		
 	}
 	

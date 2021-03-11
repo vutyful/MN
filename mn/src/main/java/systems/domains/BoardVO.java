@@ -8,6 +8,8 @@ public class BoardVO {
     private String bo_content; //내용
     private String bo_state; //상태 (y/n)
     private int mem_num; // 회원번호 (외래키)
+    
+    
 	public int getBo_num() {
 		return bo_num;
 	}

@@ -1,24 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>ƒøπ¬¥œ∆º ∞‘Ω√∆«</title>
+<%@include file = "/header.jsp" %>
 
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
 <!-- https://fonts.google.com/specimen/Open+Sans -->
 <link rel="stylesheet"
-	href="resources/dashboard/dashboard/css/fontawesome.min.css">
+	href="../resources/dashboard/css/fontawesome.min.css">
 <!-- https://fontawesome.com/ -->
-<link rel="stylesheet" href="resources/dashboard/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/dashboard/css/bootstrap.min.css">
 <!-- https://getbootstrap.com/ -->
-<link rel="stylesheet" href="resources/dashboard/css/tooplate.css">
+<link rel="stylesheet" href="../resources/dashboard/css/tooplate.css">
 </head>
 
 <style type="text/css">
@@ -33,78 +26,35 @@ height:100%
 margin: auto;
 text-align: center;
 }
+.bg02{
+background-image: none;
+background-color: white;
+}
 
 </style>
 
 <body id="reportsPage" class="bg02">
 	<div class="" id="home">
 		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<nav class="navbar navbar-expand-xl navbar-light bg-light">
-						<a class="navbar-brand" href="login.jsp"> <i
-							class="fas fa-3x fa-tachometer-alt tm-site-icon"></i>
-							<h1 class="tm-site-title mb-0">∏€≥…∞‘Ω√∆«</h1>
-						</a>
-						<button class="navbar-toggler ml-auto mr-0" type="button"
-							data-toggle="collapse" data-target="#navbarSupportedContent"
-							aria-controls="navbarSupportedContent" aria-expanded="false"
-							aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-
-						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<ul class="navbar-nav mx-auto">
-								<li class="nav-item"><a class="nav-link" href="login.jsp">Dashboard
-										<span class="sr-only">(current)</span>
-								</a></li>
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-									role="button" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false"> Reports </a>
-									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<a class="dropdown-item" href="#">Daily Report</a> <a
-											class="dropdown-item" href="#">Weekly Report</a> <a
-											class="dropdown-item" href="#">Yearly Report</a>
-									</div></li>
-								<li class="nav-item active"><a class="nav-link"
-									href="products.jsp">Products</a></li>
-
-								<li class="nav-item"><a class="nav-link"
-									href="accounts.jsp">Accounts</a></li>
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-									role="button" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false"> Settings </a>
-									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<a class="dropdown-item" href="#">Profile</a> <a
-											class="dropdown-item" href="#">Billing</a> <a
-											class="dropdown-item" href="#">Customize</a>
-									</div></li>
-							</ul>
-							<ul class="navbar-nav">
-								<li class="nav-item"><a class="nav-link d-flex"
-									href="login.jsp"> <i
-										class="far fa-user mr-2 tm-logout-icon"></i> <span>Logout</span>
-								</a></li>
-							</ul>
-						</div>
-					</nav>
-				</div>
-			</div>
 			<!-- row -->
 			<div class="row tm-content-row tm-mt-big" style="width: 100%;">
 				<div class="col-xl-8 col-lg-12 tm-md-12 tm-sm-12 tm-col">
 					<div class="bg-white tm-block h-100">
 						<div class="row">
 							<div class="col-md-8 col-sm-12">
-								<h2 class="tm-block-title d-inline-block">∞‘Ω√∆«</h2>
+								<h2 class="tm-block-title d-inline-block">Í≤åÏãúÌåê</h2>
 
 							</div>
 							<div class="col-md-4 col-sm-12 text-right">
-								<!-- µÓ∑œ«œ±‚ πˆ∆∞ ¥©∏¶Ω√ »∏ø¯∞˙ ∫Ò»∏ø¯ ±∏∫–«œµµ∑œ «œ±‚ -->
-								<a href="communityBoard/communityInsert.jsp"
-									class="btn btn-small btn-primary">µÓ∑œ«œ±‚</a>
+								<!-- Îì±Î°ùÌïòÍ∏∞ Î≤ÑÌäº ÎàÑÎ•ºÏãú ÌöåÏõêÍ≥º ÎπÑÌöåÏõê Íµ¨Î∂ÑÌïòÎèÑÎ°ù ÌïòÍ∏∞ -->
+								<c:choose>
+									<c:when test="${empty sessionScope.userInfo}">
+									<a href="/mn/login.jsp?"class="btn btn-small btn-primary">Í∏ÄÏì∞Í∏∞</a>
+									</c:when>
+									<c:otherwise>
+									<a href="/mn/communityBoard/commuWriting.do"class="btn btn-small btn-primary">Í∏ÄÏì∞Í∏∞</a>
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</div>
 						<div class="table-responsive">
@@ -115,9 +65,9 @@ text-align: center;
 									<thead>
 										<tr class="tm-bg-gray">
 											<th scope="col">&nbsp;</th>
-											<th scope="col" style="width: 500px;">∏Ò∑œ</th>
-											<th scope="col" style="width: 300px;">æ∆¿Ãµ</th>
-											<th scope="col" style="width: 200px;">≥Ø¬•</th>
+											<th scope="col" style="width: 500px;">Î™©Î°ù</th>
+											<th scope="col" style="width: 300px;">ÏûëÏÑ±Ïûê</th>
+											<th scope="col" style="width: 200px;">ÎÇ†Ïßú</th>
 										</tr>
 									</thead>
 
@@ -125,13 +75,16 @@ text-align: center;
 										<c:forEach items="${vo}" var="item">
 											<tr>
 												<th scope="row"></th>
-												<!-- jstl foreachπÆ¿∏∑Œ ∏Ò∑œ ≥ªøÎ ∫“∑Øø¿±‚ -->
-												<td class="tm-product-name">${item.bo_title}</td>
-												<td class="text-center">${item.mem_id}</td>
+												<!-- jstl foreachÎ¨∏ÏúºÎ°ú Î™©Î°ù ÎÇ¥Ïö© Î∂àÎü¨Ïò§Í∏∞ -->
+											<%-- <td class="tm-product-name">${item.bo_title}</td>  --%>
+											<td><a href='/mn/communityBoard/boardDetail.do?bo_num=${item.bo_num}'/>'${item.bo_title}</a></td>
+											<td class="text-center">${item.bo_num}</td>
 												<td class="text-center">${item.bo_date}</td>
 											</tr>
 										</c:forEach>
 									</tbody>
+									
+								
 								</table>
 							</form>
 
@@ -139,7 +92,6 @@ text-align: center;
 
 						<div class="tm-table-mt tm-table-actions-row">
 							<div class="tm-table-actions-col-left">
-								<button class="btn btn-danger">¿Á»£æﬂ ∞Àªˆ??</button>
 							</div>
 							<div class="tm-table-actions-col-right">
 								<span class="tm-pagination-label">Page</span>
@@ -173,14 +125,16 @@ text-align: center;
 				</footer>
 			</div>
 		</div>
-		<script src="resources/dashboard/js/jquery-3.3.1.min.js"></script>
+		<script src="../resources/dashboard/js/jquery-3.3.1.min.js"></script>
 		<!-- https://jquery.com/download/ -->
-		<script src="resources/dashboard/js/bootstrap.min.js"></script>
-		<!-- https://getbootstrap.com/ -->
-
-
+		<script src="../resources/dashboard/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 			
+		<!-- jquery ÏãúÏûë -->
+
+		
+		
+		
 		</script>
 </body>
 

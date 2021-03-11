@@ -11,6 +11,7 @@
 			<typeAlias type="systems.domains.ReplyVO" alias="reply"/>
 			<typeAlias type="systems.domains.AdVO" alias="ad"/>
 			<typeAlias type="systems.domains.CalendarVO" alias="calendar"/>
+			<typeAlias type="systems.domains.PetVO" alias="pet"/>
 			
 		</typeAliases>
 		<typeHandlers>
