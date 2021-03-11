@@ -11,7 +11,15 @@ public class MemberVO {
 	private String mem_pass; // 비밀번호
 	private String mem_tel; //전화번호
 	
+	private String bookmark; //북마크
 	
+	
+	public String getBookmark() {
+		return bookmark;
+	}
+	public void setBookmark(String bookmark) {
+		this.bookmark = bookmark;
+	}
 	public int getMem_num() {
 		return mem_num;
 	}

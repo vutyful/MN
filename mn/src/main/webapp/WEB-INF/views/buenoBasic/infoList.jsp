@@ -107,7 +107,7 @@ Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p
     <!-- All Plugins js -->
     <script src="../resources/bueno/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="../resources/bueno/js/active.js"></script>
+    <script src="../resources/bueno/js/active_main.js"></script>
 </body>
 
 </html>

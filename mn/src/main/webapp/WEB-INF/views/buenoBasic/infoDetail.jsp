@@ -10,11 +10,20 @@
                 <!-- Post Details Content Area -->
                 <div class="col-12 col-lg-8 col-xl-9">
                     <div class="post-details-content mb-100">
-                        <div class="blog-thumbnail mb-50">
-                        </div>
+                       <div class="blog-thumbnail mb-50">
+                        <c:choose>
+                        	<c:when test="${empty sessionScope.userInfo}"> <!-- 로그인 안했을 때 -->
+                       		 <a href="/mn/login.jsp"><img src="/mn/resources/content/img/bm_no.jpg" style="width: 60px; height: 60px;"></a>
+                        	</c:when>
+                        	<c:otherwise> <!-- 북마크 안했을 때 -->
+                       		 <img id="bm_img" src="/mn/resources/content/img/bm_no.jpg" style="width: 60px; height: 60px;">
+                        	</c:otherwise>
+                        </c:choose>
+                       </div>
+                       <input type="hidden" id="con_num" value="${detail.con_num}">
                         <div class="blog-content">
                             <a href="#" class="post-tag" style="font-size: 20px;">${detail.con_cate}</a>
-                            <h4 class="post-title" style="font-size: 50px;">${detail.con_title}</h4>
+                            <h4 class="post-title" style="font-size: 40px; color: ">${detail.con_title}</h4>
                             <div class="post-meta mb-50">
                                 <a href="#" class="post-date"> ${detail.con_date} </a>
                             </div>
@@ -87,7 +96,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- All Plugins js -->
     <script src="../resources/bueno/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="../resources/bueno/js/active.js"></script>
+    <script src="../resources/bueno/js/active_main.js"></script>
+    <!-- bookmark js -->
+    <script src="../resources/content/bookmark.js"></script>
 </body>
 
 </html>

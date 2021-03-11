@@ -1,5 +1,6 @@
 package systems.daos;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import systems.domains.ContentVO;
+import systems.domains.MemberVO;
 
 @Repository("mainDAO")
 public class MainDAOImpl implements MainDAO{
@@ -38,6 +40,23 @@ public class MainDAOImpl implements MainDAO{
 	public List<ContentVO> searchAll(String keyword) {
 		return mybatis.selectList("MainMap.searchAll", keyword);
 	}
+
+	//mem_num에 해당하는 북마크 업데이트
+	public void updateBookmark(int mem_num, String bm) {
+		System.out.println("북마크 업데이트 dao");
+		HashMap map = new HashMap();
+		map.put("mem_num",mem_num);
+		map.put("bm", bm);
+		mybatis.update("MainMap.updateBookmark", map);
+	}
+
+	//mem_num으로 북마크 가져오기
+	public String getBookmark(int mem_num) {
+		return mybatis.selectOne("MainMap.getBookmark", mem_num);
+	}
+
+	
+	
 	
 	
 }

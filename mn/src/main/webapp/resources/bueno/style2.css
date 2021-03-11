@@ -1,6 +1,6 @@
 /* Master Stylesheet - 1.0 */
 /* :: 1.0 Import Fonts */
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
+@import url("https://fonts.googleapis.com/css?family=esamanru:300,400,500,600,700");
 /* :: 2.0 Import All CSS */
 @import url(css/bootstrap.min.css);
 @import url(css/classy-nav.css);
@@ -13,9 +13,14 @@
 * {
   margin: 0;
   padding: 0; }
+  
+@font-face{
+	font-family: "esamanru";
+	src: url("font/esamanru Light.ttf");
+}
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "esamanru", sans-serif;
   font-size: 14px; }
 
 h1,
@@ -24,13 +29,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "esamanru", sans-serif;
   color: #272727;
   line-height: 1.3;
   font-weight: 600; }
 
 p {
-  font-family: "Montserrat", sans-serif;
+  font-family: "esamanru", sans-serif;
   color: #7a7a7a;
   font-size: 14px;
   line-height: 2;
@@ -46,7 +51,7 @@ a:focus {
   color: #000000;
   font-weight: 600;
   font-size: 16px;
-  font-family: "Montserrat", sans-serif; }
+  font-family: "esamanru", sans-serif; }
 
 ul,
 ol {
@@ -58,6 +63,19 @@ ol {
 img {
   height: auto;
   max-width: 100%; }
+  
+/*메인 인기글 이미지 모서리 둥글게*/
+.box{
+	width: 350px;
+	height: 350px;
+	border-radius: 20%;
+	overflow: hidden;
+}
+.profile{
+	width: 100%;
+	height: 100%;
+	object-fit:cover;
+}
 
 /* :: 3.1.0 Spacing */
 .mt-15 {
@@ -143,6 +161,10 @@ img {
 .section-padding-100-70 {
   padding-top: 100px;
   padding-bottom: 70px; }
+  
+.section-padding-70-20 {
+  padding-top: 70px;
+  padding-bottom: 30; }
 
 /* :: 3.4.0 Preloader */
 .preloader {
@@ -156,17 +178,11 @@ img {
   z-index: 99999; }
 
 h3 {
-  position: relative;
-  margin: 0 auto;
-  top: 0;
-  text-transform: uppercase;
-  font-weight: 400;
-  width: 100vw;
-  text-align: center;
-  font-size: 3vh;
-  color: #ffffff;
-  opacity: 0.75;
-  animation: pulse 2.5s linear infinite; }
+  color: #B17747;}
+ 
+.entry-content not p{
+	font-size: 10px;
+}
 
 #cooking {
   position: relative;
@@ -521,7 +537,7 @@ h3 {
       .header-area .bueno-main-menu .classy-navbar .classynav ul li a {
         font-weight: 600;
         text-transform: capitalize;
-        font-size: 15px;
+        font-size: 20px;
         padding: 0 10px;
         color: #404040; }
         .header-area .bueno-main-menu .classy-navbar .classynav ul li a:hover, .header-area .bueno-main-menu .classy-navbar .classynav ul li a:focus {
@@ -924,7 +940,7 @@ h3 {
 .footer-area {
   position: relative;
   z-index: 1;
-  padding: 50px 0; }
+  padding-bottom: 80px; }
   .footer-area .copywrite-text {
     font-size: 12px;
     margin-bottom: 0;
@@ -1120,7 +1136,6 @@ h3 {
     padding-right: 0;
     background-color: #FACD89;
     padding: 8px 20px;
-    border-radius: 30px;
     font-size: 10px;
     font-weight: 700; }
   .mfp-bottom-bar .mfp-counter {

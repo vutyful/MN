@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import systems.daos.MainDAOImpl;
 import systems.domains.ContentVO;
+import systems.domains.MemberVO;
 
 @Service("mainService")
 public class MainServiceImpl implements MainService{
@@ -25,7 +26,7 @@ public class MainServiceImpl implements MainService{
 		return mainDAO.getAllContent();
 	}
 
-	// con_id 이용하여 컨텐츠 정보 가져오기(컨텐츠 상세)
+	// con_num 이용하여 컨텐츠 정보 가져오기(컨텐츠 상세)
 	public ContentVO getOneContent(int con_num) {
 		return mainDAO.getOneContent(con_num);
 	}
@@ -39,5 +40,16 @@ public class MainServiceImpl implements MainService{
 	public List<ContentVO> searchAll(String keyword) {
 		return mainDAO.searchAll(keyword);
 	}
+
+	//mem_num에 해당하는 북마크 업데이트
+	public void updateBookmark(int mem_num, String bm) {
+		mainDAO.updateBookmark(mem_num, bm);
+	}
+
+	//mem_num으로 북마크 가져오기
+	public String getBookmark(int mem_num) {
+		return mainDAO.getBookmark(mem_num);
+	}
+	
 
 }
