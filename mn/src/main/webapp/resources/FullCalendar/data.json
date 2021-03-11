@@ -1,35 +1,35 @@
 [{
-    "_id": 1,
-    "title": "거래처 미팅",
-    "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
-    "start": "2021-03-07T09:30",
+    "sch_id": 1,
+    "allDay": "false",
     "end": "2021-03-07T15:00",
-    "type": "카테고리1",
-    "username": "강아지2",
     "backgroundColor": "#D25565",
-    "textColor": "#FFFFFF",
-    "allDay": "false"
+    "start": "2021-03-07T09:30",
+    "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+    "title": "거래처 미팅",
+    "textColor": "#ffffff",
+    "type": "카테고리1",
+    "username": "강아지2"
   }, {
-    "_id": 2,
+    "sch_id": 2,
     "title": "치과예약",
     "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
     "start": "2021-03-01T12:30",
     "end": "2021-03-01T15:30",
     "type": "카테고리1",
     "username": "고양이2",
-    "backgroundColor": "#9775FA",
-    "textColor": "#FFFFFF",
+    "backgroundColor": "#9775fa",
+    "textColor": "#ffffff",
     "allDay": false
   }, {
-    "_id": 3,
+    "sch_id": 3,
     "title": "철수 생일",
     "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
     "start": "2021-03-12",
     "end": "2021-03-12",
     "type": "카테고리2",
     "username": "강아지2",
-    "backgroundColor": "#FFA94D",
-    "textColor": "#FFFFFF",
+    "backgroundColor": "#ffa94d",
+    "textColor": "#ffffff",
     "allDay": "true"
   }, {
     "_id": 4,
@@ -39,8 +39,8 @@
     "end": "2021-03-06",
     "type": "카테고리2",
     "username": "고양이3",
-    "backgroundColor": "#74C0FC",
-    "textColor": "#FFFFFF",
+    "backgroundColor": "#74c0fc",
+    "textColor": "#ffffff",
     "allDay": true
   }, {
     "_id": 5,
@@ -50,8 +50,8 @@
     "end": "2021-03-08",
     "type": "카테고리3",
     "username": "고양이3",
-    "backgroundColor": "#F06595",
-    "textColor": "#FFFFFF",
+    "backgroundColor": "#f06595",
+    "textColor": "#ffffff",
     "allDay": true
   }, {
     "_id": 6,
@@ -61,8 +61,8 @@
     "end": "2021-03-14",
     "type": "카테고리2",
     "username": "고양이1",
-    "backgroundColor": "#63E6BE",
-    "textColor": "#FFFFFF",
+    "backgroundColor": "#63e6be",
+    "textColor": "#ffffff",
     "allDay": true
   }, {
     "_id": 7,
@@ -72,8 +72,8 @@
     "end": "2021-03-20",
     "type": "카테고리4",
     "username": "고양이1",
-    "backgroundColor": "#A9E34B",
-    "textColor": "#FFFFFF",
+    "backgroundColor": "#a9e34b",
+    "textColor": "#ffffff",
     "allDay": true
   },{
     "_id": 8,
@@ -83,8 +83,8 @@
     "end": "2021-03-24T10:00",
     "type": "카테고리3",
     "username": "강아지1",
-    "backgroundColor": "#4D638C",
-    "textColor": "#FFFFFF",
+    "backgroundColor": "#4d638c",
+    "textColor": "#ffffff",
     "allDay": false
   },{
     "_id": 9,
@@ -105,7 +105,7 @@
     "end": "2021-03-22",
     "type": "카테고리2",
     "username": "강아지2",
-    "backgroundColor": "#9775FA",
-    "textColor": "#FFFFFF",
+    "backgroundColor": "#9775fa",
+    "textColor": "#ffffff",
     "allDay": true
   }]

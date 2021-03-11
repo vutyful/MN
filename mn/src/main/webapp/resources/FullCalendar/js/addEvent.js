@@ -9,6 +9,9 @@ var editType = $('#edit-type');
 var editColor = $('#edit-color');
 var editDesc = $('#edit-desc');
 
+var editUsername = $('#edit-username');
+
+
 var addBtnContainer = $('.modalBtnContainer-addEvent');
 var modifyBtnContainer = $('.modalBtnContainer-modifyEvent');
 
@@ -46,7 +49,7 @@ var newEvent = function (start, end, eventType) {
             end: editEnd.val(),
             description: editDesc.val(),
             type: editType.val(),
-            username: '사나',
+            username: editUsername.val(),
             backgroundColor: editColor.val(),
             textColor: '#ffffff',
             allDay: false
