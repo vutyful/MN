@@ -91,6 +91,20 @@
                                 </select>
                             </div>
                         </div>
+                        
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-username">구분</label>
+                                <select class="inputModal" type="text" name="edit-username" id="edit-username">
+                                    <option value="강아지1">강아지1</option>
+                                    <option value="강아지2">강아지2</option>
+                                    <option value="고양이1">고양이1</option>
+                                    <option value="고양이2">고양이2</option>
+                                    <option value="고양이3">고양이3</option>
+                                </select>
+                            </div>
+                        </div>
+                        
                         <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-color">색상</label>
@@ -156,7 +170,7 @@
                         <label class="checkbox-inline"><input class='filter' type="checkbox" value="강아지2"
                                 checked>강아지2</label>
                         <label class="checkbox-inline"><input class='filter' type="checkbox" value="고양이1"
-                                checked>고야이1</label>
+                                checked>고양이1</label>
                         <label class="checkbox-inline"><input class='filter' type="checkbox" value="고양이2"
                                 checked>고양이2</label>
                         <label class="checkbox-inline"><input class='filter' type="checkbox" value="고양이3"

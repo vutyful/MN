@@ -1,16 +1,16 @@
 [{
-    "_id": 1,
-    "title": "거래처 미팅",
-    "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
-    "start": "2021-03-07T09:30",
+    "sch_id": 1,
+    "allDay": "false",
     "end": "2021-03-07T15:00",
-    "type": "카테고리1",
-    "username": "강아지2",
     "backgroundColor": "#D25565",
+    "start": "2021-03-07T09:30",
+    "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+    "title": "거래처 미팅",
     "textColor": "#ffffff",
-    "allDay": false
+    "type": "카테고리1",
+    "username": "강아지2"
   }, {
-    "_id": 2,
+    "sch_id": 2,
     "title": "치과예약",
     "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
     "start": "2021-03-01T12:30",
@@ -21,7 +21,7 @@
     "textColor": "#ffffff",
     "allDay": false
   }, {
-    "_id": 3,
+    "sch_id": 3,
     "title": "철수 생일",
     "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
     "start": "2021-03-12",
@@ -30,7 +30,7 @@
     "username": "강아지2",
     "backgroundColor": "#ffa94d",
     "textColor": "#ffffff",
-    "allDay": true
+    "allDay": "true"
   }, {
     "_id": 4,
     "title": "멜론 만기",
