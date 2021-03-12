@@ -1,4 +1,4 @@
-package project.simsim.systems.services;
+package systems.services;
 
 import java.util.List;
 import java.util.Map;
@@ -6,19 +6,13 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import project.simsim.systems.daos.ContentDAO;
-import project.simsim.systems.domains.ContentVO;
+import systems.daos.ContentDAO;
+import systems.domains.ContentVO;
 
 @Service
-public class ManageContentsServiceImpl implements ManageContentsService {
+public class ContentsServiceImpl implements ContentsService {
 	@Autowired
 	private ContentDAO contentDAO;
-	
-	@Override
-	public void saveContent(ContentVO vo) {
-		System.out.println("Service : saveContent");
-		contentDAO.saveContent(vo);
-	}
 
 	@Override
 	public List<Map> getContentsList() {

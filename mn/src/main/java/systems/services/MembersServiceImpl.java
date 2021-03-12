@@ -1,41 +1,41 @@
-package project.simsim.systems.services;
+package systems.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import project.simsim.systems.daos.ManageMembersDAO;
-import project.simsim.systems.domains.MemberVO;
+import systems.daos.MembersDAO;
+import systems.domains.MemberVO;
 
 @Service
-public class ManageMembersServiceImpl implements ManageMembersService 
+public class MembersServiceImpl implements MembersService 
 {
 	@Autowired
-	private ManageMembersDAO manageMembersDAO;
+	private MembersDAO MembersDAO;
 
 	@Override
 	public List<MemberVO> getMembersList() {
 		System.out.println("Service : getMembersList");
-		return manageMembersDAO.getMembersList();
+		return MembersDAO.getMembersList();
 	}
 
 	@Override
 	public MemberVO getMember(MemberVO vo) {
 		System.out.println("Service : getMember");
-		return manageMembersDAO.getMember(vo);
+		return MembersDAO.getMember(vo);
 	}
 
 	@Override
 	public void modifyMember(MemberVO vo) {
 		System.out.println("Service : modifyMember");
-		manageMembersDAO.modifyMember(vo);
+		MembersDAO.modifyMember(vo);
 	}
 
 	@Override
 	public List<MemberVO> getWithdrawalList() {
 		System.out.println("Service : getWithdrawalList");
-		return manageMembersDAO.getWithdrawalList();
+		return MembersDAO.getWithdrawalList();
 	}
 	
 }

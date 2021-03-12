@@ -1,10 +1,10 @@
-package project.simsim.systems.daos;
+package systems.daos;
 
 import java.util.List;
 
-import project.simsim.systems.domains.MemberVO;
+import systems.domains.MemberVO;
 
-public interface ManageMembersDAO {
+public interface MembersDAO {
 	public void modifyMember(MemberVO vo);
 	public MemberVO getMember(MemberVO vo);
 	public List<MemberVO> getMembersList();

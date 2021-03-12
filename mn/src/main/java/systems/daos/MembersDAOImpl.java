@@ -1,4 +1,4 @@
-package project.simsim.systems.daos;
+package systems.daos;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import project.simsim.systems.domains.MemberVO;
+import systems.domains.MemberVO;
 
 @Repository
-public class ManageMembersDAOImpl implements ManageMembersDAO 
+public class MembersDAOImpl implements MembersDAO 
 {
 	@Autowired
 	private SqlSessionTemplate mybatis;
@@ -17,25 +17,25 @@ public class ManageMembersDAOImpl implements ManageMembersDAO
 	@Override
 	public List<MemberVO> getMembersList() {
 		System.out.println("DAO : getMembersList");
-		return mybatis.selectList("ManageMembersMAP.getMembersList");
+		return mybatis.selectList("MembersMAP.getMembersList");
 	}
 
 	@Override
 	public MemberVO getMember(MemberVO vo) {
 		System.out.println("DAO : getMember");
-		return (MemberVO)mybatis.selectOne("ManageMembersMAP.getMember", vo);
+		return (MemberVO)mybatis.selectOne("MembersMAP.getMember", vo);
 	}
 
 	@Override
 	public void modifyMember(MemberVO vo) {
 		System.out.println("DAO : modifyMember");
-		mybatis.update("ManageMembersMAP.modifyMember", vo);
+		mybatis.update("MembersMAP.modifyMember", vo);
 	}
 
 	@Override
 	public List<MemberVO> getWithdrawalList() {
 		System.out.println("DAO : getWithdrawalList");
-		return mybatis.selectList("ManageMembersMAP.getWithdrawalList");
+		return mybatis.selectList("MembersMAP.getWithdrawalList");
 	}
 
 }

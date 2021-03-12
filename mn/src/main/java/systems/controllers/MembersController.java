@@ -1,4 +1,4 @@
-package project.simsim.systems.controllers;
+package systems.controllers;
 
 import java.util.List;
 
@@ -8,14 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import project.simsim.systems.domains.MemberVO;
-import project.simsim.systems.services.ManageMembersService;
+import systems.domains.MemberVO;
+import systems.services.MembersService;
 
 @Controller
-public class ManageMembersController 
+public class MembersController 
 {
 	@Autowired
-	private ManageMembersService manageMembersService;
+	private MembersService MembersService;
 	
 	@RequestMapping("manageMembers/{temp}.do")
 	public String test(@PathVariable String temp)
@@ -27,7 +27,7 @@ public class ManageMembersController
 	public String getMembersList(Model model)
 	{
 		System.out.println("Controller : getMembersList");
-		model.addAttribute("membersList", manageMembersService.getMembersList());
+		model.addAttribute("membersList", MembersService.getMembersList());
 		return "manageMembers/list";
 	}
 
@@ -35,7 +35,7 @@ public class ManageMembersController
 	public String getWithdrawalList(Model model)
 	{
 		System.out.println("Controller : getWithdrawalList");
-		model.addAttribute("membersList", manageMembersService.getWithdrawalList());
+		model.addAttribute("membersList", MembersService.getWithdrawalList());
 		return "manageMembers/withdrawals";
 	}
 	
@@ -43,14 +43,14 @@ public class ManageMembersController
 	public void view(MemberVO vo, Model model)
 	{
 		System.out.println("Controller : view");
-		model.addAttribute("member", manageMembersService.getMember(vo));
+		model.addAttribute("member", MembersService.getMember(vo));
 	}
 	
 	@RequestMapping("manageMembers/modifyMember.do")
 	public String modify(MemberVO vo)
 	{
 		System.out.println("Controller : modify");
-		manageMembersService.modifyMember(vo);
+		MembersService.modifyMember(vo);
 		return "redirect:MembersList.do";
 	}
 }
