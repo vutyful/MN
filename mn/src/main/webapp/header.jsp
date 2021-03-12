@@ -117,7 +117,7 @@
                                     </li>
                                     <li><a href="#">편의기능</a>
                                         <ul class="dropdown">
-                                            <li><a href="/mn/buenoBasic/catagory.do">AR 체험</a></li>
+                                            <li><a href="/mn/Test_v1.html">AR 체험</a></li>
                                             <li><a href="/mn/buenoBasic/hospital.do">내 주변 동물병원</a></li>
                                             <li><a href="/mn/buenoBasic/single-post.do">사운드</a></li>
                                         </ul>
