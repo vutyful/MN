@@ -15,16 +15,16 @@
     <title>SimSim Admin Page</title>
 
     <!-- Custom fonts for this template -->
-    <link href="../resources/manage/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/mn/resources/manager/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../resources/manage/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/mn/resources/manager/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="../resources/manage/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/mn/resources/manager/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -170,7 +170,7 @@
 										-->
 										</select>
 	                                	<h6 class="m-0 font-weight-bold text-primary" style="margin: 0.5rem 0 !important">프로필 이미지</h6>
-	                                	<!-- 
+	                                	<%--
 	                                    <c:choose>
 	                                    	<c:when test="${member.pic ne null}">
 												<img src="../resources/upload/${member.pic}">
@@ -179,7 +179,7 @@
 	                                    		이미지가 없습니다.
 	                                    	</c:otherwise>
 	                                    </c:choose>
-	                                     -->
+	                                     --%>
 	                                    <br>
 	                                    <input type="checkbox" name="pic" value="null" style="margin-left: 0.5rem"/>이미지 삭제
 	                                    <%-- 
@@ -256,11 +256,11 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../resources/manage/vendor/jquery/jquery.min.js"></script>
-    <script src="../resources/manage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/mn/resources/manager/vendor/jquery/jquery.min.js"></script>
+    <script src="/mn/resources/manager/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../resources/manage/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/mn/resources/manager/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>

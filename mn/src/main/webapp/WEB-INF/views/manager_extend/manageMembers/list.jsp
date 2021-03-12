@@ -15,16 +15,16 @@
     <title>SimSim Admin Page</title>
 
     <!-- Custom fonts for this template -->
-    <link href="../resources/manage/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/mn/resources/manager/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../resources/manage/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/mn/resources/manager/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="../resources/manage/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/mn/resources/manager/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -165,19 +165,16 @@
                                     <tbody>
 										<c:forEach items="${membersList}" var="member">
 											<tr>
-												<td>${member.joindate}</td>
+												<td>?</td>
 												<td>${member.mem_num}</td>
 												<td><a href='view.do?mem_num=${member.mem_num}'>${member.mem_email}</a></td>
 												<td>${member.mem_name}</td>
 												<td>?</td>
-												<td>?
-												<!-- 
+												<td>
 												<c:choose>
-													<c:when test="${member.auth == 1}">일반</c:when>
-													<c:when test="${member.auth == 5}">에디터</c:when>
-													<c:when test="${member.auth == 10}">서브 관리자</c:when>											
+													<c:when test="${member.mem_check == 1}">관리자</c:when>
+													<c:otherwise>일반회원</c:otherwise>										
 												</c:choose>
-												 -->
 												</td>
 											</tr>
 										</c:forEach>
@@ -235,21 +232,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../resources/manage/vendor/jquery/jquery.min.js"></script>
-    <script src="../resources/manage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/mn/resources/manager/vendor/jquery/jquery.min.js"></script>
+    <script src="/mn/resources/manager/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../resources/manage/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/mn/resources/manager/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../resources/manage/js/sb-admin-2.min.js"></script>
+    <script src="/mn/resources/manager/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../resources/manage/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../resources/manage/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="/mn/resources/manager/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/mn/resources/manager/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../resources/manage/js/demo/datatables-demo.js"></script>
+    <script src="/mn/resources/manager/js/demo/datatables-demo.js"></script>
 
 </body>
 

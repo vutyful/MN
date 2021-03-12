@@ -38,11 +38,11 @@ public class ContentsController
 	{
 		System.out.println("Controller : getContentsList");
 		model.addAttribute("contentsList", ContentsService.getContentsList());
-		return "manageContents/list";
+		return "manager_extend/manageContents/list";
 	}
 	
 	@RequestMapping("manageContents/view.do")
-	public void view(ContentVO vo, Model model)
+	public String view(ContentVO vo, Model model)
 	{
 		System.out.println("Controller : view");
 		List<String> cate = ContentsService.getCategoryList();
@@ -50,6 +50,7 @@ public class ContentsController
 			cate.remove(0);
 		model.addAttribute("list", cate);
 		model.addAttribute("content", ContentsService.getContent(vo));
+		return "manager_extend/manageContents/view";
 	}
 	
 	@RequestMapping("manageContents/modifyContent.do")

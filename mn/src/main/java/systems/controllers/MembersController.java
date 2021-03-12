@@ -28,7 +28,7 @@ public class MembersController
 	{
 		System.out.println("Controller : getMembersList");
 		model.addAttribute("membersList", MembersService.getMembersList());
-		return "manageMembers/list";
+		return "manager_extend/manageMembers/list";
 	}
 
 	@RequestMapping("manageMembers/Withdrawals.do")
@@ -40,10 +40,11 @@ public class MembersController
 	}
 	
 	@RequestMapping("manageMembers/view.do")
-	public void view(MemberVO vo, Model model)
+	public String view(MemberVO vo, Model model)
 	{
 		System.out.println("Controller : view");
 		model.addAttribute("member", MembersService.getMember(vo));
+		return "manager_extend/manageMembers/view";
 	}
 	
 	@RequestMapping("manageMembers/modifyMember.do")

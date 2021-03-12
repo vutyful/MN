@@ -10,7 +10,7 @@
 				, con_state = #{con_state}
 			</when>
 			<when test="con_state == null">
-				, con_state = 'none'
+				, con_state = 'y'
 			</when>
 		</choose>
 		<if test="con_img != null">
@@ -26,16 +26,16 @@
 	<select id="getContentsList" resultType="content">
 		SELECT * FROM content ORDER BY con_num DESC
 	</select>
-	
+	<!-- 
 	<select id="getJoinList" resultType="map">
 		SELECT * FROM content INNER JOIN member ON content.mem_num = member.mem_num
 	</select>
-	
+	 -->
 	<select id="getContent" parameterType="content" resultType="content">
 		SELECT * FROM content WHERE con_num = #{con_num}
 	</select>
 	
-	<select id="getcon_categoryList" resultType="string">
+	<select id="getCategoryList" resultType="string">
 		select con_cate from content GROUP BY con_cate
 	</select>
 

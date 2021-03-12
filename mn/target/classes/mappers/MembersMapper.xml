@@ -7,7 +7,7 @@
 		UPDATE member SET
 		mem_email = #{mem_email}, 
 		mem_name = #{mem_name},
-		auth = #{auth}
+		mem_check = #{mem_check}
 		<!-- 
 		<choose>
 			<when test="state != null">
@@ -26,7 +26,7 @@
 
 	<select id="getMembersList" resultType="member">
 		<!-- SELECT * FROM member WHERE NVL(state, 'normal') != '탈퇴' ORDER BY memnum DESC -->
-		SELECT * FROM member;
+		SELECT * FROM member
 	</select>
 	
 	<select id="getMember" parameterType="member" resultType="member">

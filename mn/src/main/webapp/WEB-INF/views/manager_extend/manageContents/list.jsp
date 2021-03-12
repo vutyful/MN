@@ -165,12 +165,12 @@
                                     <tbody>
 										<c:forEach items="${contentsList}" var="content">
 											<tr>
-												<td>${content.CON_DATE}</td>
-												<td>${content.CON_NUM}</td>
-												<td><a href='view.do?con_num=${content.CON_NUM}'>${content.CON_TITLE}</a></td>
+												<td>${content.con_date}</td>
+												<td>${content.con_num}</td>
+												<td><a href='view.do?con_num=${content.con_num}'>${content.con_title}</a></td>
 												<td>?</td>
-												<td>${content.CON_CATE}</td>
-												<td>${content.CON_STATE}</td>
+												<td>${content.con_cate}</td>
+												<td>${content.con_state}</td>
 											</tr>
 										</c:forEach>
                                     </tbody>
@@ -227,21 +227,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../resources/manage/vendor/jquery/jquery.min.js"></script>
-    <script src="../resources/manage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/mn/resources/manager/vendor/jquery/jquery.min.js"></script>
+    <script src="/mn/resources/manager/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../resources/manage/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/mn/resources/manager/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../resources/manage/js/sb-admin-2.min.js"></script>
+    <script src="/mn/resources/manager/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../resources/manage/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../resources/manage/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="/mn/resources/manager/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/mn/resources/manager/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../resources/manage/js/demo/datatables-demo.js"></script>
+    <script src="/mn/resources/manager/js/demo/datatables-demo.js"></script>
 
 </body>
 

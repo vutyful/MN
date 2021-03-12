@@ -17,8 +17,8 @@ public class ContentDAOImpl implements ContentDAO {
 	@Override
 	public List<Map> getContentsList() {
 		System.out.println("DAO : getContentsList");
-		//return mybatis.selectList("ContentMAP.getContentsList");
-		return mybatis.selectList("ContentMAP.getJoinList");
+		return mybatis.selectList("ContentMAP.getContentsList");
+		//return mybatis.selectList("ContentMAP.getJoinList");
 	}
 
 	@Override

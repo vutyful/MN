@@ -155,7 +155,7 @@
 	                                    	<h6 class="m-0 font-weight-bold text-primary" style="margin-bottom: 0.5rem !important">컨텐츠 타이틀</h6>
 	                                    	<input class="form-control form-control-user" type="text" name="con_title" value="${content.con_title}" placeholder="타이틀을 입력해주세요."/>
 	                                    </div>
-	                                    <input type="checkbox" name="con_state" value="hidden" <c:if test="${content.con_state eq 'y'}">checked</c:if> style="margin-left: 0.5rem"/>숨기기
+	                                    <input type="checkbox" name="con_state" value="n" <c:if test="${content.con_state eq 'n'}">checked</c:if> style="margin-left: 0.5rem"/>숨기기
 	                                </div>
 	                                <div class="card-body">
 	                                    <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">카테고리</h6>
@@ -178,10 +178,10 @@
 	                                    	</c:otherwise>
 	                                    </c:choose>
 	                                    <h6 class="m-0 font-weight-bold text-primary" style="margin: 0.5rem 0 !important">내용</h6>
-	                                	<textarea name="ccontent" rows="20" cols="77" placeholder="내용을 입력해주세요.">${content.con_content}</textarea>
-	                                	<!-- 
+	                                	<textarea name="con_content" rows="20" cols="77" placeholder="내용을 입력해주세요.">${content.con_content}</textarea>
+	                                	<%--  
 	                                    <h6 class="m-0 font-weight-bold text-primary" style="margin-bottom: 0.5rem !important">링크</h6>
-	                                	<input class="form-control form-control-user" type="text" name="link" value="${content.link}" "/>
+	                                	<input class="form-control form-control-user" type="text" name="link" value="?" "/>
 										<input type="hidden" name="memnum" value="${sessionScope.loginNo}"/>
 	                                	
 	                                    <h6 class="m-0 font-weight-bold text-primary" style="margin: 0.5rem 0 !important">이미지 첨부</h6>
@@ -189,8 +189,8 @@
 	                                    <p><code>이미지만 넣어주세요. 이미지가 아니면 표기되지 않습니다.</code></p>
 	                                    
 										<input type="hidden" name="memnum" value="${content.memnum}"/>
-										-->
-										<input type="hidden" name="connum" value="${content.con_num}"/>
+										--%>
+										<input type="hidden" name="con_num" value="${content.con_num}"/>
 										
 	                                    <a href="#" class="btn btn-primary btn-icon-split" onclick="$('#myform').submit();">
 	                                        <span class="icon text-white-50">
@@ -266,11 +266,11 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../resources/manage/vendor/jquery/jquery.min.js"></script>
-    <script src="../resources/manage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/mn/resources/manager/vendor/jquery/jquery.min.js"></script>
+    <script src="/mn/resources/manager/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../resources/manage/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/mn/resources/manager/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
