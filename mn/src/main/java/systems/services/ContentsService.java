@@ -1,12 +1,11 @@
-package project.simsim.systems.services;
+package systems.services;
 
 import java.util.List;
 import java.util.Map;
 
-import project.simsim.systems.domains.ContentVO;
+import systems.domains.ContentVO;
 
-public interface ManageContentsService {
-	void saveContent(ContentVO vo); 
+public interface ContentsService {
 	void modifyContent(ContentVO vo);
 	void deleteContent(ContentVO vo);
 	ContentVO getContent(ContentVO vo);

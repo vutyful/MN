@@ -153,33 +153,33 @@
 	                                <div class="card-header py-3">
 	                                    <div class="form-group">
 	                                    	<h6 class="m-0 font-weight-bold text-primary" style="margin-bottom: 0.5rem !important">컨텐츠 타이틀</h6>
-	                                    	<input class="form-control form-control-user" type="text" name="title" value="${content.title}" placeholder="타이틀을 입력해주세요."/>
+	                                    	<input class="form-control form-control-user" type="text" name="con_title" value="${content.con_title}" placeholder="타이틀을 입력해주세요."/>
 	                                    </div>
-	                                    <input type="checkbox" name="cstate" value="hidden" <c:if test="${content.cstate eq 'hidden'}">checked</c:if> style="margin-left: 0.5rem"/>숨기기
+	                                    <input type="checkbox" name="con_state" value="hidden" <c:if test="${content.con_state eq 'y'}">checked</c:if> style="margin-left: 0.5rem"/>숨기기
 	                                </div>
 	                                <div class="card-body">
 	                                    <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">카테고리</h6>
 	                                    
-										<select id="cate" <c:if test="${list.size() > 0}"> name="cate" </c:if>>
+										<select id="con_cate" <c:if test="${list.size() > 0}"> name="con_cate" </c:if>>
 											<c:forEach items="${list}" var="category">
-												<option <c:if test="${category == content.cate}">selected</c:if> >${category}</option>
+												<option <c:if test="${category == content.con_cate}">selected</c:if> >${category}</option>
 											</c:forEach>
 											<option value="direct">직접입력</option>
 										</select>
-										<input type="text" id="direct" <c:choose><c:when test="${list.size() > 0}">style="display:none;"</c:when><c:otherwise> name="cate"</c:otherwise></c:choose>>
+										<input type="text" id="direct" <c:choose><c:when test="${list.size() > 0}">style="display:none;"</c:when><c:otherwise> name="con_cate"</c:otherwise></c:choose>>
 	                                
 	                                    <h6 class="m-0 font-weight-bold text-primary" style="margin: 0.5rem 0 !important">이미지</h6>
 	                                    <c:choose>
-	                                    	<c:when test="${content.img ne null}">
-												<img src="../resources/upload/${content.img}">
+	                                    	<c:when test="${content.con_img ne null}">
+												<img src="../resources/upload/${content.con_img}">
 	                                    	</c:when>
 	                                    	<c:otherwise>
 	                                    		이미지가 없습니다.
 	                                    	</c:otherwise>
 	                                    </c:choose>
 	                                    <h6 class="m-0 font-weight-bold text-primary" style="margin: 0.5rem 0 !important">내용</h6>
-	                                	<textarea name="ccontent" rows="20" cols="77" placeholder="내용을 입력해주세요.">${content.ccontent}</textarea>
-	                                	
+	                                	<textarea name="ccontent" rows="20" cols="77" placeholder="내용을 입력해주세요.">${content.con_content}</textarea>
+	                                	<!-- 
 	                                    <h6 class="m-0 font-weight-bold text-primary" style="margin-bottom: 0.5rem !important">링크</h6>
 	                                	<input class="form-control form-control-user" type="text" name="link" value="${content.link}" "/>
 										<input type="hidden" name="memnum" value="${sessionScope.loginNo}"/>
@@ -188,16 +188,17 @@
 	                                    <input type="file" name="file" />
 	                                    <p><code>이미지만 넣어주세요. 이미지가 아니면 표기되지 않습니다.</code></p>
 	                                    
-										<input type="hidden" name="connum" value="${content.connum}"/>
 										<input type="hidden" name="memnum" value="${content.memnum}"/>
-	
+										-->
+										<input type="hidden" name="connum" value="${content.con_num}"/>
+										
 	                                    <a href="#" class="btn btn-primary btn-icon-split" onclick="$('#myform').submit();">
 	                                        <span class="icon text-white-50">
 	                                            <i class="fas fa-check"></i>
 	                                        </span>
 	                                        <span class="text">수정하기</span>
 	                                    </a>
-	                                    <a href="deleteContent.do?connum=${content.connum}"  onclick='return confirm("삭제하시겠습니까?")' class="btn btn-danger btn-icon-split">
+	                                    <a href="deleteContent.do?con_num=${content.con_num}"  onclick='return confirm("삭제하시겠습니까?")' class="btn btn-danger btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-trash"></i>
                                         </span>
@@ -276,18 +277,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript">
 	$(function(){
-		$('#cate').change(function(){
+		$('#con_cate').change(function(){
 			if($(this).val()=="direct")
 			{
 				$('#direct').show();
 				$(this).attr('name', "");
-				$('#direct').attr('name', "cate");
+				$('#direct').attr('name', "con_cate");
 			}
 			else
 			{
 				$('#direct').hide();
 				$('#direct').attr('name', "");
-				$(this).attr('name', "cate");
+				$(this).attr('name', "con_cate");
 			}
 		});
 	});

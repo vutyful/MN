@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="mem_checkor" content="">
 
     <title>SimSim Admin Page</title>
 
@@ -152,22 +152,25 @@
                             	<form class="user" id="myform" action="modifyMember.do" method="post">
 	                                <div class="card-body">
 	                                    <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">아이디</h6>
-										<input type="text" name="id" value="${member.id}"/>
+										<input type="text" name="id" value="${member.mem_email}"/>
 	                                    <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">이 름</h6>
-										<input type="text" name="name" value="${member.name}"/>
+										<input type="text" name="name" value="${member.mem_name}"/>
 	                                    <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">이메일</h6>
-										<p>${member.email}</p>
+										<p>${member.mem_email}</p>
 	                                    <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">생년월일</h6>
-										<p>${member.birth}</p>
+										<p>?</p>
 	                                    <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">성 별</h6>
-										<p>${member.gender}</p>
+										<p>?</p>
 		                                <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">권 한</h6>
-										<select name="auth">
-											<option <c:if test="${member.auth == 1}">selected</c:if> value="1">일반</option>
-											<option <c:if test="${member.auth == 5}">selected</c:if> value="5">에디터</option>
-											<option <c:if test="${member.auth == 10}">selected</c:if> value="10">서브 관리자</option>
+										<select name="mem_check">
+										<!-- 
+											<option <c:if test="${member.mem_check == 1}">selected</c:if> value="1">일반</option>
+											<option <c:if test="${member.mem_check == 5}">selected</c:if> value="5">에디터</option>
+											<option <c:if test="${member.mem_check == 10}">selected</c:if> value="10">서브 관리자</option>
+										-->
 										</select>
 	                                	<h6 class="m-0 font-weight-bold text-primary" style="margin: 0.5rem 0 !important">프로필 이미지</h6>
+	                                	<!-- 
 	                                    <c:choose>
 	                                    	<c:when test="${member.pic ne null}">
 												<img src="../resources/upload/${member.pic}">
@@ -176,12 +179,14 @@
 	                                    		이미지가 없습니다.
 	                                    	</c:otherwise>
 	                                    </c:choose>
+	                                     -->
 	                                    <br>
 	                                    <input type="checkbox" name="pic" value="null" style="margin-left: 0.5rem"/>이미지 삭제
+	                                    <%-- 
 	                                    <input type="checkbox" name="state" value="차단"  <c:if test="${member.state eq '차단'}">checked</c:if> style="margin-left: 0.5rem" />차단하기
-	                                	
+	                                	--%>
 	                                    <br>
-										<input type="hidden" name="memnum" value="${member.memnum}"/>
+										<input type="hidden" name="mem_num" value="${member.mem_num}"/>
 	
 	                                    <a href="#" class="btn btn-primary btn-icon-split" onclick="$('#myform').submit();">
 	                                        <span class="icon text-white-50">

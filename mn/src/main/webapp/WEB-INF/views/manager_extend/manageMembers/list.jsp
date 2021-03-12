@@ -166,16 +166,18 @@
 										<c:forEach items="${membersList}" var="member">
 											<tr>
 												<td>${member.joindate}</td>
-												<td>${member.memnum}</td>
-												<td><a href='view.do?memnum=${member.memnum}'>${member.id}</a></td>
-												<td>${member.name}</td>
-												<td>${member.state}</td>
-												<td>
+												<td>${member.mem_num}</td>
+												<td><a href='view.do?mem_num=${member.mem_num}'>${member.mem_email}</a></td>
+												<td>${member.mem_name}</td>
+												<td>?</td>
+												<td>?
+												<!-- 
 												<c:choose>
 													<c:when test="${member.auth == 1}">일반</c:when>
 													<c:when test="${member.auth == 5}">에디터</c:when>
 													<c:when test="${member.auth == 10}">서브 관리자</c:when>											
 												</c:choose>
+												 -->
 												</td>
 											</tr>
 										</c:forEach>

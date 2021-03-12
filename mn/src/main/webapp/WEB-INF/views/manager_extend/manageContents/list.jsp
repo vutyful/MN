@@ -164,12 +164,13 @@
                                     </thead>
                                     <tbody>
 										<c:forEach items="${contentsList}" var="content">
-											<tr>									<td>${content.POSTDATE}</td>
-												<td>${content.CONNUM}</td>
-												<td><a href='view.do?connum=${content.CONNUM}'>${content.TITLE}</a></td>
-												<td>${content.ID}</td>
-												<td>${content.CATE}</td>
-												<td>${content.CSTATE}</td>
+											<tr>
+												<td>${content.CON_DATE}</td>
+												<td>${content.CON_NUM}</td>
+												<td><a href='view.do?con_num=${content.CON_NUM}'>${content.CON_TITLE}</a></td>
+												<td>?</td>
+												<td>${content.CON_CATE}</td>
+												<td>${content.CON_STATE}</td>
 											</tr>
 										</c:forEach>
                                     </tbody>
