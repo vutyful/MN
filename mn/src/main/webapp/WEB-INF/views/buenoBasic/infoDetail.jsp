@@ -23,7 +23,6 @@
                        <input type="hidden" id="con_num" value="${detail.con_num}">
                         <div class="blog-content">
                             <a href="#" class="post-tag" style="font-size: 20px;">${detail.con_cate}</a>
-                            <h4 class="post-title" style="font-size: 40px; color: ">${detail.con_title}</h4>
                             <div class="post-meta mb-50">
                                 <a href="#" class="post-date"> ${detail.con_date} </a>
                             </div>
@@ -32,15 +31,82 @@
                         </div>
                     </div>
 
-					<!-- 댓글 -->
+					<!-- 댓글 리스트 -->
+                    <div class="comment_area clearfix mb-100">
+                        <h4 class="mb-50">댓글 <span id="cCount">${recount}</span>개</h4>
 
+                        <ol>
+                            <!-- 개별 댓글 -->
+                            <div id="addComment_area">
+	                        </div>
+                            <c:choose>
+	                            <c:when test="${not empty replys}">
+		                            <c:forEach items="${replys}" var="re">
+			                            <li class="single_comment_area">
+			                                <!-- Comment Content -->
+			                                <div class="comment-content d-flex">
+			                                    <!-- Comment Meta -->
+			                                    <div class="comment-meta">
+			                                        <div class="d-flex">
+			                                            <a href="#" class="post-author">${re.MEM_NAME}</a>
+			                                            <a href="#" class="post-date">${re.RE_DATE}</a>
+			                                            <a href="#" class="reply">답글 달기</a>
+			                                        </div>
+			                                        <p> ${re.RE_CONTENT}</p>
+			                                    </div>
+			                                </div>
+			                            </li>
+		                            </c:forEach>
+	                            </c:when>
+	                            <c:otherwise>
+	                            <!-- Single Comment Area -->
+	                            <li class="single_comment_area" id="nonereply">
+	                                <!-- Comment Content -->
+	                                <div class="comment-content d-flex">
+	                                    <!-- Comment Meta -->
+	                                   <p>등록된 댓글이 없습니다.</p>
+	                                </div>
+	                            </li>
+	                            </c:otherwise>
+                            </c:choose>
+                        </ol>
+                    </div>
+                    <!-- 댓글 작성 -->
+                    <div class="post-a-comment-area mb-30 clearfix" >
+                        <h4 class="mb-50">댓글 쓰기</h4>
+
+                        <!-- Reply Form -->
+                        <div class="contact-form-area">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <textarea name="re_content" id="re_content" class="form-control" cols="30" rows="10" placeholder="댓글을 입력해주세요."></textarea>
+                                        <input type="hidden" name="con_num" id="con_num" value="${detail.con_num}">
+                                        <input type="hidden" name="mem_name" id="mem_name" value="${sessionScope.userInfo.mem_name}">
+                                        
+                                    </div>
+                                    <div class="col-12">
+                                   	<c:choose>
+	                                   	<c:when test="${not empty sessionScope.userInfo}"> <!-- 로그인 세션이 있을 때 -->
+	                                       <button class="btn bueno-btn mt-30" id="replyinsert">등록하기</button>
+	                                   	</c:when>
+	                                   	<c:otherwise>
+	                                       <button id="login" class="btn bueno-btn mt-30">로그인</button>
+	                                   	</c:otherwise>
+                                       </c:choose>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Sidebar Widget -->
                 <div class="col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3">
                     <div class="sidebar-area">
                         <!-- Single Widget Area -->
-                        <div class="single-widget-area add-widget mb-30" style="margin-bottom:100px; height: 800px;">
+                        <div class="single-widget-area add-widget mb-30" style="margin-top:200px;">
+                        </div>
+                        <div class="single-widget-area add-widget mb-30">
+                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
                         </div>
                         <div class="single-widget-area add-widget mb-30">
                             <img src="../resources/bueno/img/bg-img/add.png" alt="">
@@ -99,6 +165,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="../resources/bueno/js/active_main.js"></script>
     <!-- bookmark js -->
     <script src="../resources/content/bookmark.js"></script>
+    <!-- reply.js -->
+    <script src="../resources/content/reply.js"></script>
 </body>
 
 </html>

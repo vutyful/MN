@@ -27,11 +27,11 @@
 	            <option value="묘종백과">묘종백과</option>
 	        </select>
 	     </div>
-    	
+
 		<textarea id="summernote" class="summernote" style="margin:40px;"></textarea>
         <input type="hidden" id="con_content" name="con_content"/>
-        <div style="text-align: center;">
-       		<button class="btn bueno-btn" id="info_write">등록하기</button>
+        <div style="text-align: center; margin-top: 20px;">
+       		<button class="btn bueno-btn" id="info_write" style="border-radius: 15px; font-size: 30px;">등록하기</button>
         </div>
 	</form>
  	</div>
@@ -72,6 +72,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="../resources/bueno/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
     <script src="../resources/bueno/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="../resources/bueno/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="../resources/bueno/js/active.js"></script>
+    
+    <!-- summer note -->
+    <script src="../resources/summernote/summernote.js"></script>
+    <script src="../resources/summernote/summernote2.js"></script>
+    <script src="../resources/summernote/lang/summernote-ko-KR.js"></script>
+    
+    <!-- db 연동에 필요한 js -->
+    <script src="../resources/content/content.js"></script>
+    
+</body>
+
+</html>tstrap.min.js"></script>
     <!-- All Plugins js -->
     <script src="../resources/bueno/js/plugins/plugins.js"></script>
     <!-- Active js -->

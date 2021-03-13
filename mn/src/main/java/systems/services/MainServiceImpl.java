@@ -1,11 +1,13 @@
 package systems.services;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import systems.daos.MainDAOImpl;
+import systems.domains.ContentReplyVO;
 import systems.domains.ContentVO;
 import systems.domains.MemberVO;
 
@@ -42,13 +44,28 @@ public class MainServiceImpl implements MainService{
 	}
 
 	//mem_num에 해당하는 북마크 업데이트
-	public void updateBookmark(int mem_num, String bm) {
+	public void updateBookmark(String mem_num, String bm) {
 		mainDAO.updateBookmark(mem_num, bm);
 	}
 
 	//mem_num으로 북마크 가져오기
-	public String getBookmark(int mem_num) {
+	public String getBookmark(String mem_num) {
 		return mainDAO.getBookmark(mem_num);
+	}
+
+	//댓글 등록하기
+	public void insertReply(ContentReplyVO vo) {
+		mainDAO.insertReply(vo);
+	}
+
+	//con_num에 해당하는 댓글 리스트 가져오기
+	public List<Map<String, String>> getReplyList(int con_num) {
+		return mainDAO.getReplyList(con_num);
+	}
+
+	// mem_num으로 가장 최근 쓴 댓글 정보 가져오기
+	public ContentReplyVO currentReply(String mem_num) {
+		return mainDAO.currentReply(mem_num);
 	}
 	
 

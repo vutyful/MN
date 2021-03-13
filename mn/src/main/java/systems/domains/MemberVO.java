@@ -3,7 +3,7 @@ package systems.domains;
 
 public class MemberVO {
 	
-	private int mem_num; //회원번호
+	private String mem_num; //회원번호
 	private int mem_check; //권한 체크 (0이면 일반회원, 1이면 관리자)
 	
 	private String mem_email; //이메일 (아이디)
@@ -20,10 +20,10 @@ public class MemberVO {
 	public void setBookmark(String bookmark) {
 		this.bookmark = bookmark;
 	}
-	public int getMem_num() {
+	public String getMem_num() {
 		return mem_num;
 	}
-	public void setMem_num(int mem_num) {
+	public void setMem_num(String mem_num) {
 		this.mem_num = mem_num;
 	}
 	public int getMem_check() {

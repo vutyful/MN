@@ -2,11 +2,13 @@ package systems.daos;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import systems.domains.ContentReplyVO;
 import systems.domains.ContentVO;
 import systems.domains.MemberVO;
 
@@ -42,7 +44,7 @@ public class MainDAOImpl implements MainDAO{
 	}
 
 	//mem_num에 해당하는 북마크 업데이트
-	public void updateBookmark(int mem_num, String bm) {
+	public void updateBookmark(String mem_num, String bm) {
 		System.out.println("북마크 업데이트 dao");
 		HashMap map = new HashMap();
 		map.put("mem_num",mem_num);
@@ -51,9 +53,26 @@ public class MainDAOImpl implements MainDAO{
 	}
 
 	//mem_num으로 북마크 가져오기
-	public String getBookmark(int mem_num) {
+	public String getBookmark(String mem_num) {
 		return mybatis.selectOne("MainMap.getBookmark", mem_num);
 	}
+
+	//댓글 등록하기
+	public void insertReply(ContentReplyVO vo) {
+		mybatis.insert("MainMap.insertReply", vo);
+	}
+	
+	// mem_num으로 가장 최근 쓴 댓글 정보 가져오기
+	public ContentReplyVO currentReply(String mem_num) {
+		return mybatis.selectOne("MainMap.currentReply", mem_num);
+	}
+	
+	//con_num에 해당하는 댓글 리스트 가져오기
+	public List<Map<String, String>> getReplyList(int con_num) {
+		return mybatis.selectList("MainMap.getReplyList", con_num);
+	}
+
+
 
 	
 	
