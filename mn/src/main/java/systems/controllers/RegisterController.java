@@ -62,11 +62,6 @@ public class RegisterController {
 		HttpSession session = request.getSession();
 		  MemberVO loginresult = RegisterServiceImpl.login(vo);
 		  
-		  System.out.println("회원이름"+loginresult.getMem_name());
-		  System.out.println("관리자여부"+loginresult.getMem_check());
-		  System.out.println("회원번호"+loginresult.getMem_num());
-		  System.out.println("회원번호"+loginresult.getMem_tel());
-		  System.out.println("회원비밀번호"+loginresult.getMem_pass());
 		
 		if (loginresult!=null) {
 			System.out.println("controller 로그인이  " + loginresult);
@@ -77,7 +72,7 @@ public class RegisterController {
 		} else {
 			session.setAttribute("userInfo", null);
 		    System.out.println("controller 일반 로그인 실패");
-			return "/mn/src/main/login.jsp";
+			return "redirect:/login.jsp";
 		}
 	} 
     

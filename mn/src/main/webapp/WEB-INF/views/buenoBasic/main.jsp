@@ -5,7 +5,7 @@
 
 
     <!-- ##### 메인 슬라이더 area ##### -->
-    <div class="hero-area" style="margin-top: 30px;">
+    <div class="hero-area" style="margin-top: 100px; margin-bottom: 80px;">
         <!-- Hero Post Slides -->
         <div class="hero-post-slides owl-carousel">
             <!-- Single Slide -->
@@ -51,15 +51,19 @@
     </div>
     <!-- ##### 메인 슬라이더 Area End ##### -->
 
-    <!-- ##### Catagory Area Start ##### -->
-    <div class="post-catagory section-padding-100-0 mb-70">
+    <!-- ##### 인기글 시작 ##### -->
+    <div style=" position:relative; left: 40%; margin-bottom:20px;">
+    <div class=".section-padding-70-20" style="text-align: center; width: 20%; background-color:#FAEFE2; color:#DEA361; border:#FAEFE2 solid 3px; border-radius:10px;"><h2 style=" margin-top:8px; 
+    text-align: center;">최신 정보</h2></div>
+    </div>
+    <div class="post-catagory mb-70">
         <div class="container">
-<!--             <div class="row justify-content-center">
-                Single Post Catagory
+            <div class="row justify-content-center">
+                <!-- Single Post Catagory -->
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="../resources/idximg/comu4.jpg" alt="">
-                        Content
+                    <div class="single-post-catagory mb-30 box">
+                        <img src="../resources/idximg/comu4.jpg" class = "profile" alt="">
+                       <!--  Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
                                 <a href="#" class="post-tag">The Best</a>
@@ -69,11 +73,11 @@
                     </div>
                 </div>
 
-                Single Post Catagory
+               <!--  Single Post Catagory -->
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="../resources/idximg/comu3.jpg" alt="">
-                        Content
+                    <div class="single-post-catagory mb-30 box">
+                        <img src="../resources/idximg/comu3.jpg" class = "profile" alt="">
+                     <!--    Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
                                 <a href="#" class="post-tag">The Best</a>
@@ -83,11 +87,11 @@
                     </div>
                 </div>
 
-                Single Post Catagory
+               <!--  Single Post Catagory -->
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="../resources/idximg/comu2.jpg" alt="">
-                        Content
+                    <div class="single-post-catagory mb-30 box">
+                        <img src="../resources/idximg/comu2.jpg" class = "profile" alt="">
+                        <!-- Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
                                 <a href="#" class="post-tag">The Best</a>
@@ -96,19 +100,73 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
-    <!-- ##### Catagory Area End ##### -->
+    <!-- ##### 인기글 끝 ##### -->
+    
+    <!-- ##### 최신글 시작 ##### -->
+    <div style=" position:relative; left: 40%; margin-bottom:20px;">
+    <div class=".section-padding-70-20" style="text-align: center; width: 20%; background-color:#FAEFE2; border:#FAEFE2 solid 3px; border-radius:10px;"><h2 style=" margin-top:8px; 
+    text-align: center; ">최신 정보</h2></div>
+    </div>
+    <div class="post-catagory mb-70">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Single Post Catagory -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post-catagory mb-30 box">
+                        <img src="../resources/idximg/comu4.jpg" class = "profile" alt="">
+                       <!--  Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="#" class="post-tag">The Best</a>
+                                <a href="#" class="post-title">커뮤니티 인기글(예시)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               <!--  Single Post Catagory -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post-catagory mb-30 box">
+                        <img src="../resources/idximg/comu3.jpg" class = "profile" alt="">
+                     <!--    Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="#" class="post-tag">The Best</a>
+                                <a href="#" class="post-title">커뮤니티 최신글(예시)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               <!--  Single Post Catagory -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post-catagory mb-30 box">
+                        <img src="../resources/idximg/comu2.jpg" class = "profile" alt="">
+                        <!-- Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="#" class="post-tag">The Best</a>
+                                <a href="#" class="post-title">커뮤니티 글 링크(예시)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### 최신글 끝 ##### -->
 
     <!-- ##### Big Posts Area Start ##### -->
-    <!-- <div class="big-posts-area mb-50">
+     <div class="big-posts-area mb-50">
         <div class="container">
-            Single Big Post Area
+            <!-- Single Big Post Area -->
             <div class="row align-items-center">
                 <div class="col-12 col-md-6">
                     <div class="big-post-thumbnail mb-50">
-                        <img src="./resources/bueno/img/bg-img/7.jpg" alt="">
+                        <img src="/mn/resources/bueno/img/bg-img/7.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -125,7 +183,7 @@
                 </div>
             </div>
 
-            Single Big Post Area
+            <!-- Single Big Post Area -->
             <div class="row align-items-center">
                 <div class="col-12 col-md-6">
                     <div class="big-post-content text-center mb-50">
@@ -141,127 +199,127 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="big-post-thumbnail mb-50">
-                        <img src="./resources/bueno/img/bg-img/8.jpg" alt="">
+                        <img src="/mn/resources/bueno/img/bg-img/8.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Big Posts Area End ##### -->
+
+    <!-- ##### Posts Area End ##### -->
+<!--     <div class="bueno-post-area mb-70">
+        <div class="container">
+        	
+        	<img src="./resources/idximg/qna2.jpg" alt="">
+        	
+            <div class="row justify-content-center">
+                퀴즈 자리
+                <div class="col-12 col-lg-8 col-xl-9">
+                    Single Blog Post 
+                    1<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+                        Blog Thumbnail
+                        <div class="blog-thumbnail">
+                            <img src="./resources/bueno/img/bg-img/9.jpg" alt="">
+                            <img src="../resources/idximg/qna.jpg" alt="">
+                        </div>
+
+                    Single Blog Post
+                </div>
+
+                사이드 광고
+                <div class="col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3">
+                    <div class="sidebar-area">
+
+                        Single Widget Area
+                        <div class="single-widget-area add-widget mb-30">
+                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
+                        </div>
+                        <div class="single-widget-area add-widget mb-30">
+                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
+                        </div>
+                        <div class="single-widget-area add-widget mb-30">
+                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div> -->
-    <!-- ##### Big Posts Area End ##### -->
-
-    <!-- ##### Posts Area End ##### -->
-    <div class="bueno-post-area mb-70">
-        <div class="container">
-        	
-        	<!-- <img src="./resources/idximg/qna2.jpg" alt=""> -->
-        	
-            <div class="row justify-content-center">
-                <!-- Post Area -->
-                <div class="col-12 col-lg-8 col-xl-9">
-                    <!-- Single Blog Post  -->
-                    <!-- 1<div class="single-blog-post style-1 d-flex flex-wrap mb-30"> -->
-                        <!-- Blog Thumbnail -->
-                        <div class="blog-thumbnail">
-                            <!-- <img src="./resources/bueno/img/bg-img/9.jpg" alt=""> -->
-                            <img src="../resources/idximg/qna.jpg" alt="">
-                        </div>
-
-                    <!-- Single Blog Post -->
-                </div>
-
-                <!-- Sidebar Area -->
-                <div class="col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3">
-                    <div class="sidebar-area">
-
-                        <!-- Single Widget Area -->
-                        <div class="single-widget-area add-widget mb-30">
-                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
-                        </div>
-                        <div class="single-widget-area add-widget mb-30">
-                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
-                        </div>
-                        <div class="single-widget-area add-widget mb-30">
-                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- ##### Posts Area End ##### -->
 
     <!-- ##### Instagram Area Start ##### -->
-    <div class="instagram-feed-area d-flex flex-wrap">
-        <!-- Single Instagram -->
+<!--     <div class="instagram-feed-area d-flex flex-wrap">
+        Single Instagram
         <div class="single-instagram">
             <img src="../resources/bueno/img/bg-img/insta1.jpg" alt="">
-            <!-- Image Zoom -->
+            Image Zoom
             <a href="../resources/bueno/img/bg-img/insta1.jpg" class="img-zoom" title="Instagram Image">+</a>
         </div>
 
-        <!-- Single Instagram -->
+        Single Instagram
         <div class="single-instagram">
             <img src="../resources/bueno/img/bg-img/insta2.jpg" alt="">
-            <!-- Image Zoom -->
+            Image Zoom
             <a href="../resources/bueno/img/bg-img/insta2.jpg" class="img-zoom" title="Instagram Image">+</a>
         </div>
 
-        <!-- Single Instagram -->
+        Single Instagram
         <div class="single-instagram">
             <img src="../resources/bueno/img/bg-img/insta3.jpg" alt="">
-            <!-- Image Zoom -->
+            Image Zoom
             <a href="../resources/bueno/img/bg-img/insta3.jpg" class="img-zoom" title="Instagram Image">+</a>
         </div>
 
-        <!-- Single Instagram -->
+        Single Instagram
         <div class="single-instagram">
             <img src="../resources/bueno/img/bg-img/insta4.jpg" alt="">
-            <!-- Image Zoom -->
+            Image Zoom
             <a href="../resources/bueno/img/bg-img/insta4.jpg" class="img-zoom" title="Instagram Image">+</a>
         </div>
 
-        <!-- Single Instagram -->
+        Single Instagram
         <div class="single-instagram">
             <img src="../resources/bueno/img/bg-img/insta5.jpg" alt="">
-            <!-- Image Zoom -->
+            Image Zoom
             <a href="../resources/bueno/img/bg-img/insta5.jpg" class="img-zoom" title="Instagram Image">+</a>
         </div>
 
-        <!-- Single Instagram -->
+        Single Instagram
         <div class="single-instagram">
             <img src="../resources/bueno/img/bg-img/insta6.jpg" alt="">
-            <!-- Image Zoom -->
+            Image Zoom
             <a href="../resources/bueno/img/bg-img/insta6.jpg" class="img-zoom" title="Instagram Image">+</a>
         </div>
 
-        <!-- Single Instagram -->
+        Single Instagram
         <div class="single-instagram">
             <img src="../resources/bueno/img/bg-img/insta7.jpg" alt="">
-            <!-- Image Zoom -->
+            Image Zoom
             <a href="../resources/bueno/img/bg-img/insta7.jpg" class="img-zoom" title="Instagram Image">+</a>
         </div>
 
-        <!-- Single Instagram -->
+        Single Instagram
         <div class="single-instagram">
             <img src="../resources/bueno/img/bg-img/insta8.jpg" alt="">
-            <!-- Image Zoom -->
+            Image Zoom
             <a href="../resources/bueno/img/bg-img/insta8.jpg" class="img-zoom" title="Instagram Image">+</a>
         </div>
 
-        <!-- Single Instagram -->
+        Single Instagram
         <div class="single-instagram">
             <img src="../resources/bueno/img/bg-img/insta9.jpg" alt="">
-            <!-- Image Zoom -->
+            Image Zoom
             <a href="../resources/bueno/img/bg-img/insta9.jpg" class="img-zoom" title="Instagram Image">+</a>
         </div>
 
-        <!-- Single Instagram -->
+        Single Instagram
         <div class="single-instagram">
             <img src="../resources/bueno/img/bg-img/insta10.jpg" alt="">
-            <!-- Image Zoom -->
+            Image Zoom
             <a href="../resources/bueno/img/bg-img/insta10.jpg" class="img-zoom" title="Instagram Image">+</a>
         </div>
-    </div>
+    </div> -->
     <!-- ##### Instagram Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
