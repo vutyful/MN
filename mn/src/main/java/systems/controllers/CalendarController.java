@@ -1,56 +1,146 @@
 package systems.controllers;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import systems.domains.CalendarVO;
 import systems.services.CalendarServiceImpl;
-
 @Controller
 public class CalendarController {
-
 	@Autowired
 	private CalendarServiceImpl calendarService;
 	
-	// �����췯 ���� DB �ҷ����� test
-	@RequestMapping("mn/test.do")
-	public Map<String,Object> Test(CalendarVO vo) {
-		System.out.println("test.do ȣ�� �Ϸ�");
+	//캘린더 일정 받아오기
+	//ajax로 받아온 데이터 한글처리
+	@RequestMapping(value="mn/test.do", produces="application/text; charset=utf-8")
+	@ResponseBody
+	public void Test(CalendarVO vo, HttpServletResponse response) throws Exception{
+		System.out.println("test.do 호출");
 //		System.out.println(calendarService.test(vo).getClass());
 		List<CalendarVO> test = calendarService.test(vo);
 //		System.out.println(test.get(0).getSchid());
 		
-//		JSONArray ja = new JSONArray();
+		//JSONArray ja = new JSONArray();
 		ArrayList<JSONObject> ja = new ArrayList<JSONObject>();
+		//List temp = new ArrayList();
 		for(int i=0; i < test.size(); i++) {
 			JSONObject jo = new JSONObject();
-			jo.put("sch_id", test.get(i).getSchid());
-			jo.put("title", test.get(i).getTitle());
-			jo.put("description", test.get(i).getDescription());
-			jo.put("start", test.get(i).getSchstart());
-			jo.put("end", test.get(i).getEnd());
-			jo.put("type", test.get(i).getType());
-			jo.put("username", test.get(i).getUsername());
-			jo.put("backgroundColor", test.get(i).getBackgroundColor());
-			jo.put("textColor", test.get(i).getTextColor());
-			jo.put("allDay", test.get(i).getAllDay());
+			jo.put("sch_id", test.get(i).getSch_id());
+			jo.put("title", test.get(i).getSch_title());
+			
+			if (test.get(i).getSch_description() != null) {
+				jo.put("description", test.get(i).getSch_description());
+			}else{
+				jo.put("description", "없음");
+			};
+			jo.put("start", test.get(i).getSch_start());
+			jo.put("end", test.get(i).getSch_end());
+			jo.put("type", test.get(i).getSch_type());
+			jo.put("username", test.get(i).getSch_pname());
+			jo.put("backgroundColor", test.get(i).getSch_backgroundColor());
+			jo.put("textColor", test.get(i).getSch_textColor());
+			jo.put("allDay", test.get(i).getSch_allDay());
 			
 			ja.add(jo);
 		}
 		
-		System.out.println(ja.size());
-		System.out.println(ja);
+		//System.out.println(ja.size());
+		//System.out.println(ja);
 		
-		Map<String,Object> map = new HashMap<String, Object>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("response", ja);
 		
-		return map;
+//		response.getWriter().print(gson.toJson(map));
+		response.getWriter().print((Object)ja);
+	}
+	
+	
+	
+	// 스케쥴러 일정 추가하기
+	@RequestMapping("mn/addSchedule.do")
+	public void addsch(CalendarVO vo, HttpServletResponse response) throws Exception{
+		System.out.println("addSchedule.do 호출");
+		//System.out.println(vo.getSch_title());
+		System.out.println(vo.getSch_pname());
+		
+		calendarService.addSchedule(vo);
+//		return "redirect:/mn/calendar.jsp";
+//		return "/mn/calendar.jsp";
+		
+		
+		List<CalendarVO> test = calendarService.test(vo);
+		
+		ArrayList<JSONObject> ja = new ArrayList<JSONObject>();
+		for(int i=0; i < test.size(); i++) {
+			JSONObject jo = new JSONObject();
+			jo.put("sch_id", test.get(i).getSch_id());
+			jo.put("title", test.get(i).getSch_title());
+			
+			if (test.get(i).getSch_description() != null) {
+				jo.put("description", test.get(i).getSch_description());
+			}else{
+				jo.put("description", "없음");
+			};
+			jo.put("start", test.get(i).getSch_start());
+			jo.put("end", test.get(i).getSch_end());
+			jo.put("type", test.get(i).getSch_type());
+			jo.put("username", test.get(i).getSch_pname());
+			jo.put("backgroundColor", test.get(i).getSch_backgroundColor());
+			jo.put("textColor", test.get(i).getSch_textColor());
+			jo.put("allDay", test.get(i).getSch_allDay());
+			
+			ja.add(jo);
+		}
+		
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("response", ja);
+		
+		response.getWriter().print((Object)ja);
+		
+	}
+	
+	
+	
+	//스케쥴러 일정 수정하기
+	@RequestMapping("mn/updateSchedule.do")
+	public void updatesch(CalendarVO vo) {
+		System.out.println("updateSchedule.do 호출");
+		System.out.println("일정 id 값 확인 : " + vo.getSch_id());
+		
+		calendarService.updateSchedule(vo);
+	}
+	
+	
+	
+	//스케쥴러 일정 삭제하기
+	@RequestMapping("mn/deleteSchedule.do")
+	public void deletesch(CalendarVO vo) {
+		System.out.println("deleteSchedule.do 호출");
+		System.out.println("일정 id 값 확인 : " + vo.getSch_id());
+		
+		calendarService.deleteSchedule(vo);
+//		return "redirect:/mn/test.do";
+	}
+	
+	
+	
+	//스케쥴러 일정 드롭엔 리사이즈
+	@RequestMapping("mn/simpleUpdateSchedule.do")
+	public void simpleUpdateSchedule(CalendarVO vo) {
+		System.out.println("스케쥴 드롭 or 리사이징 / simpleUpdateSchedule.do 호출");
+		System.out.println("일정 id 값 확인 : " + vo.getSch_id());
+		System.out.println("일정 start 값 확인 : " + vo.getSch_start());
+		System.out.println("일정 end 값 확인 : " + vo.getSch_end() + " (설정값보다 하루 더 많다;;)");
+		
+		calendarService.simpleUpdateSchedule(vo);
 	}
 }
