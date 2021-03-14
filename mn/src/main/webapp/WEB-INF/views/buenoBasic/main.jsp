@@ -52,8 +52,9 @@
     <!-- ##### 메인 슬라이더 Area End ##### -->
 
     <!-- ##### 인기글 시작 ##### -->
-    <div style=" position:relative; left: 40%; margin-top: 30px;">
-    <div class=".section-padding-70-20" style="text-align: center; width: 20%; background-color: yellow;"><h2 style="margin-bottom: 20px; text-align: center;">인기 정보</h2></div>
+    <div style=" position:relative; left: 40%; margin-bottom:20px;">
+    <div class=".section-padding-70-20" style="text-align: center; width: 20%; background-color:#FAEFE2; color:#DEA361; border:#FAEFE2 solid 3px; border-radius:10px;"><h2 style=" margin-top:8px; 
+    text-align: center;">최신 정보</h2></div>
     </div>
     <div class="post-catagory mb-70">
         <div class="container">
@@ -105,8 +106,9 @@
     <!-- ##### 인기글 끝 ##### -->
     
     <!-- ##### 최신글 시작 ##### -->
-    <div style=" position:relative; left: 40%">
-    <div class=".section-padding-70-20" style="text-align: center; width: 20%; background-color: yellow;"><h2 style="margin-bottom: 20px; text-align: center;">최신 정보</h2></div>
+    <div style=" position:relative; left: 40%; margin-bottom:20px;">
+    <div class=".section-padding-70-20" style="text-align: center; width: 20%; background-color:#FAEFE2; border:#FAEFE2 solid 3px; border-radius:10px;"><h2 style=" margin-top:8px; 
+    text-align: center; ">최신 정보</h2></div>
     </div>
     <div class="post-catagory mb-70">
         <div class="container">

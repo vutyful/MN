@@ -22,54 +22,14 @@
                        </div>
                        <input type="hidden" id="con_num" value="${detail.con_num}">
                         <div class="blog-content">
-                            <a href="#" class="post-tag" style="font-size: 20px;">${detail.con_cate}</a>
+                            <a class="post-tag" style="font-size: 20px;">${detail.con_cate}</a>
+                            <a class="post-title" style="font-size: 40px;">${detail.con_title}</a>
                             <div class="post-meta mb-50">
                                 <a href="#" class="post-date"> ${detail.con_date} </a>
                             </div>
                             <!-- 글 내용 -->
                             ${detail.con_content}
                         </div>
-                    </div>
-
-					<!-- 댓글 리스트 -->
-                    <div class="comment_area clearfix mb-100">
-                        <h4 class="mb-50">댓글 <span id="cCount">${recount}</span>개</h4>
-
-                        <ol>
-                            <!-- 개별 댓글 -->
-                            <div id="addComment_area">
-	                        </div>
-                            <c:choose>
-	                            <c:when test="${not empty replys}">
-		                            <c:forEach items="${replys}" var="re">
-			                            <li class="single_comment_area">
-			                                <!-- Comment Content -->
-			                                <div class="comment-content d-flex">
-			                                    <!-- Comment Meta -->
-			                                    <div class="comment-meta">
-			                                        <div class="d-flex">
-			                                            <a href="#" class="post-author">${re.MEM_NAME}</a>
-			                                            <a href="#" class="post-date">${re.RE_DATE}</a>
-			                                            <a href="#" class="reply">답글 달기</a>
-			                                        </div>
-			                                        <p> ${re.RE_CONTENT}</p>
-			                                    </div>
-			                                </div>
-			                            </li>
-		                            </c:forEach>
-	                            </c:when>
-	                            <c:otherwise>
-	                            <!-- Single Comment Area -->
-	                            <li class="single_comment_area" id="nonereply">
-	                                <!-- Comment Content -->
-	                                <div class="comment-content d-flex">
-	                                    <!-- Comment Meta -->
-	                                   <p>등록된 댓글이 없습니다.</p>
-	                                </div>
-	                            </li>
-	                            </c:otherwise>
-                            </c:choose>
-                        </ol>
                     </div>
                     <!-- 댓글 작성 -->
                     <div class="post-a-comment-area mb-30 clearfix" >
@@ -96,6 +56,52 @@
                                     </div>
                                 </div>
                         </div>
+                    </div>
+					<div style="border-bottom:#ECECEC solid 1px; margin-bottom: 20px;">
+						
+					</div>
+					<!-- 댓글 리스트 -->
+                    <div class="comment_area clearfix mb-100">
+                        <h4 class="mb-50">댓글 <span id="cCount">${recount}</span>개</h4>
+
+                        <ol>
+                            <!-- 개별 댓글 -->
+                            <div id="addComment_area">
+	                        </div>
+                            <c:choose>
+	                            <c:when test="${not empty replys}">
+		                            <c:forEach items="${replys}" var="re">
+			                            <li class="single_comment_area">
+			                                <!-- Comment Content -->
+			                                <div class="comment-content d-flex">
+			                                    <!-- Comment Meta -->
+			                                    <div class="comment-meta">
+			                                        <div class="d-flex">
+			                                            <a class="post-author">${re.MEM_NAME}</a>
+			                                            <a class="post-date">${re.RE_DATE}</a>
+			                                           		<c:if test="${re.MEM_NUM eq sessionScope.userInfo.mem_num}">
+				                                            <button class="btn reply-btn modify-btn">수정</button>
+				                                            <span><button class="btn reply-btn delete-btn" style="left:10px;">삭제</button></span>
+				                                            </c:if>
+			                                        </div>
+			                                        <p> ${re.RE_CONTENT}</p>
+			                                    </div>
+			                                </div>
+			                            </li>
+		                            </c:forEach>
+	                            </c:when>
+	                            <c:otherwise>
+	                            <!-- Single Comment Area -->
+	                            <li class="single_comment_area" id="nonereply">
+	                                <!-- Comment Content -->
+	                                <div class="comment-content d-flex">
+	                                    <!-- Comment Meta -->
+	                                   <p>등록된 댓글이 없습니다.</p>
+	                                </div>
+	                            </li>
+	                            </c:otherwise>
+                            </c:choose>
+                        </ol>
                     </div>
                 </div>
 

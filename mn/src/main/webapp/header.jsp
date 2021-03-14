@@ -63,7 +63,7 @@
 
         <!-- Navbar Area -->
         <div class="bueno-main-menu" id="sticker">
-            <div class="classy-nav-container breakpoint-off" style="background-color:#F2DAC0;">
+            <div class="classy-nav-container breakpoint-off" style=" background-color:#FAEFE2;">
                 <div class="container">
                     <!-- Menu -->
                     <nav class="classy-navbar justify-content-between" id="buenoNav">
@@ -129,7 +129,7 @@
                                 <div class="login-area">
                                 <c:choose>
                                 	<c:when test="${empty sessionScope.userInfo}">
-                                    	<a href="/mn/login.jsp">Login / Register</a>
+                                    	<a href="/mn/login.jsp">로그인 &nbsp;/&nbsp; 회원가입</a>
                                     </c:when>
                                     <c:otherwise>
                                     	<a href="#">${sessionScope.userInfo.mem_name}님, 안녕하세요!</a>
@@ -174,6 +174,9 @@
 		            </div>
 		        </div>
 	        </c:forEach>
+        </c:when>
+        <c:when test="${empty sessionScope.userInfo.bookmark}">
+        	<h6>북마크가 없습니다.</h6>
         </c:when>
         <c:otherwise>
         	<a href="/mn/login.jsp"><h6>로그인 후 이용해주세요.</h6></a>

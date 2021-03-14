@@ -24,7 +24,8 @@ $('#replyinsert').click(function(){
             html += '<div class="d-flex">';
             html += ' <a class="post-author">'+$('#mem_name').val()+'</a>';
             html += '<a class="post-date">방금 전</a>';
-            html += '<a class="reply">답글 달기</a>';
+            html += '<button class="btn reply-btn modify-btn">수정</button>';
+            html += '<span><button class="btn reply-btn delete-btn" style="left:10px;">삭제</button></span>';
             html += '</div>';
             html += '<p>'+ $('#re_content').val()+'</p>';
             html += '</div>';
@@ -32,7 +33,7 @@ $('#replyinsert').click(function(){
             html += '</li>';
 
             $('#recount').html(recount);
-            $('#addComment_area').html(html);
+            $('#addComment_area').append(html);
             $('#nonereply').detach();
             $('#re_content').val("");
         },

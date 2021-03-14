@@ -252,7 +252,7 @@ public class MainController {
 //		json.put("re_content", result.getRe_content());
 //		System.out.println(json.get("mem_name"));
 		
-		return "댓글 등록이 완료되었습니";
+		return "댓글 등록이 완료되었습니다!";
 	}
 	
 	
