@@ -14,8 +14,8 @@
                 <!-- Single Post Catagory -->
                 <c:forEach items="${ConList}" var="eachCon">
                 <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="${eachCon.con_img}" alt="" style="width: 350px; height: 316px;">
+                    <div class="single-post-catagory mb-30 box">
+                        <img src="${eachCon.con_img}"  class="profile" alt="">
                         <!-- Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
@@ -28,8 +28,8 @@
 
                 <!-- Single Post Catagory -->
                 <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="../resources/bueno/img/bg-img/5.jpg" alt="">
+                    <div class="single-post-catagory mb-30 box">
+                        <img src="../resources/bueno/img/bg-img/5.jpg" class="profile" alt="">
                         <!-- Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
