@@ -75,15 +75,24 @@ var editEvent = function (event, element, view) {
         event.type = editType.val();
         event.backgroundColor = editColor.val();
         event.description = editDesc.val();
+        event.username = editUsername.val();
 
         $("#calendar").fullCalendar('updateEvent', event);
 
         //일정 업데이트
         $.ajax({
             type: "get",
-            url: "",
+            url: "mn/updateSchedule.do",
             data: {
-                //...
+                sch_id : event.sch_id,
+                sch_allDay : event.allDay,
+		        sch_title : event.title,
+		        sch_start : event.start,
+		        sch_end : event.end,
+		        sch_type : event.type,
+		        sch_backgroundColor : event.backgroundColor,
+		        sch_description : event.description,
+		        sch_pname : event.username
             },
             success: function (response) {
                 alert('수정되었습니다.')
@@ -91,25 +100,25 @@ var editEvent = function (event, element, view) {
         });
 
     });
+	// 삭제버튼
+	$('#deleteEvent').on('click', function () {
+	    
+	    //$('#deleteEvent').unbind();
+	    $("#calendar").fullCalendar('removeEvents', $(this).data('id'));
+	    eventModal.modal('hide');
+	
+	    //삭제시
+	    $.ajax({
+	        type: "get",
+	        url: "mn/deleteSchedule.do",
+	        data: {
+	            sch_id : event.sch_id
+	        },
+	        success: function (response) {
+	            alert('삭제되었습니다.');
+	            calendar;
+	        }
+	    });
+	
+	});
 };
-
-// 삭제버튼
-$('#deleteEvent').on('click', function () {
-    
-    $('#deleteEvent').unbind();
-    $("#calendar").fullCalendar('removeEvents', $(this).data('id'));
-    eventModal.modal('hide');
-
-    //삭제시
-    $.ajax({
-        type: "get",
-        url: "",
-        data: {
-            //...
-        },
-        success: function (response) {
-            alert('삭제되었습니다.');
-        }
-    });
-
-});

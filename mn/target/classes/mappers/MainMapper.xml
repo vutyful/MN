@@ -5,13 +5,13 @@
 
 <!-- 정보 글 등록 -->
 <insert id="writeInfo" parameterType="content">
-	insert into content(con_num,con_title,con_cate,con_date,con_content)
-	values(seq_content.NEXTVAL,#{con_title},#{con_cate},sysdate,#{con_content})
+	insert into content(con_num,con_title,con_cate,con_date,con_content,con_img)
+	values(seq_content.NEXTVAL,#{con_title},#{con_cate},sysdate,#{con_content},#{con_img})
 </insert>
 
 <!-- 메인 슬라이더에 띄울 정보 -->
 <select id="getAllContent" resultType="content">
-	select * from content
+	select * from content order by dbms_random.value
 </select>
 
 <!-- // con_id 이용하여 컨텐츠 정보 가져오기(컨텐츠 상세) -->
@@ -28,5 +28,42 @@
 <select id="searchAll" parameterType="String" resultType="content">
 	select * from content where con_content LIKE '%'||#{keyword}||'%'
 </select>
+<!-- mem_num에 해당하는 북마크 가져오기 -->
+<select id="getBookmark" parameterType="String" resultType="String">
+	SELECT bookmark FROM member WHERE mem_num = #{mem_num}
+</select>
+
+<!-- mem_num에 해당하는 북마크 업데이트 -->
+<update id="updateBookmark" parameterType="hashmap">
+	UPDATE member SET bookmark = #{bm} WHERE mem_num = #{mem_num}
+</update>
+
+<!-- 댓글 등록하기 -->
+<insert id="insertReply" parameterType="contentreply">
+	INSERT INTO contentreply(re_num,con_num,re_content,re_date,mem_num)
+	VALUES (seq_contentreply.NEXTVAL,#{con_num},#{re_content},sysdate,#{mem_num})
+</insert>
+
+<!-- con_num에 해당하는 댓글 전부 가져오기 -->
+<select id="getReplyList" parameterType="Integer" resultType="HashMap">
+	SELECT mem_name, contentreply.*
+	FROM contentreply
+	INNER JOIN member
+	ON member.mem_num = contentreply.mem_num
+	WHERE con_num=#{con_num}
+</select>
+
+<!-- 해당 mem_num 의 가장 최근 댓글 가져오기 -->
+<select id="currentReply" parameterType="String" resultType="contentreply">
+	SELECT * 
+	FROM (SELECT member.mem_name mem_name, contentreply.* 
+	FROM contentreply JOIN member 
+	ON contentreply.mem_num= member.mem_num 
+	WHERE member.mem_num=#{mem_num}
+	ORDER BY re_date DESC)
+	WHERE rownum=1
+</select>
 
 </mapper>
+
+
