@@ -1,9 +1,12 @@
 var draggedEventIsAllDay;
 var activeInactiveWeekends = true;
 
-let today = new Date();
+
+let today = new Date();   
+
 let year = today.getFullYear(); // 년도
 let month = today.getMonth() + 1;  // 월
+
 
 var calendar = $('#calendar').fullCalendar({
 
@@ -111,15 +114,17 @@ var calendar = $('#calendar').fullCalendar({
   events: function (start, end, timezone, callback) {
     $.ajax({
       type: "get",
-      url: "resources/FullCalendar/data.json",
+      //url: "resources/FullCalendar/data.json",
+      url: "mn/test.do",
       data: {
         // 화면이 바뀌면 Date 객체인 start, end 가 들어옴
         //startDate : moment(start).format('YYYY-MM-DD'),
         //endDate   : moment(end).format('YYYY-MM-DD')
       },
       success: function (response) {
+      	alert(response);
         var fixedDate = response.map(function (array) {
-          if (array.allDay && array.start !== array.end) {
+          if (array.allDay && array.schstart !== array.end) {
             array.end = moment(array.end).add(1, 'days'); // 이틀 이상 AllDay 일정인 경우 달력에 표기시 하루를 더해야 정상출력
           }
           return array;
@@ -179,7 +184,7 @@ var calendar = $('#calendar').fullCalendar({
     //드롭한 일정 업데이트
     $.ajax({
       type: "get",
-      url: "",
+      url: "resources/FullCalendar/data.json",
       data: {
         //...
       },
