@@ -31,6 +31,11 @@ background-image: none;
 background-color: white;
 }
 
+.col-xl-8 .col-lg-12 .tm-md-12 .tm-sm-12 .tm-col{
+
+
+
+}
 </style>
 
 <body id="reportsPage" class="bg02">
@@ -112,7 +117,7 @@ background-color: white;
 					</div>
 				</div>
 
-				<div class="col-xl-4 col-lg-12 tm-md-12 tm-sm-12 tm-col"></div>
+				<!-- <div class="col-xl-4 col-lg-12 tm-md-12 tm-sm-12 tm-col"></div> -->
 				<footer class="row tm-mt-small">
 					<div class="col-12 font-weight-light">
 						<p class="d-inline-block tm-bg-black text-white py-2 px-4">

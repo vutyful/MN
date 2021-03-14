@@ -34,9 +34,17 @@ public class RegisterServieImpl implements RegisterService {
 	//일반회원 로그인
 	@Override
 	public MemberVO login(MemberVO vo) {
-		
+		System.out.println("login service");
 		return RegisterDaoImpl.login(vo);
 	}
+
+	/*
+	 * //아이디 중복 체크
+	 * 
+	 * @Override public int idCheck(MemberVO vo) throws Exception{ int result =
+	 * RegisterDaoImpl.idCheck(vo); return result; }
+	 */
+	
 	
 	
 

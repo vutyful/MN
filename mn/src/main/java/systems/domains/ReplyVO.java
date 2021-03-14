@@ -3,20 +3,21 @@ package systems.domains;
 public class ReplyVO {
 
 	private int re_num; // 댓글 번호
-	private String bo_num; // 게시글 번호(외래키)
+	private int bo_num; // 게시글 번호(외래키)
 	private String mem_num; // 회원 번호 (외래키)
 	private String re_content; // 댓글 내용
 	private String re_date; // 작성 날짜
+	
 	public int getRe_num() {
 		return re_num;
 	}
 	public void setRe_num(int re_num) {
 		this.re_num = re_num;
 	}
-	public String getBo_num() {
+	public int getBo_num() {
 		return bo_num;
 	}
-	public void setBo_num(String bo_num) {
+	public void setBo_num(int bo_num) {
 		this.bo_num = bo_num;
 	}
 	public String getMem_num() {

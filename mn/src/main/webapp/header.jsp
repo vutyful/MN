@@ -130,9 +130,11 @@
                                 <c:choose>
                                 	<c:when test="${empty sessionScope.userInfo}">
                                     	<a href="/mn/login.jsp">Login / Register</a>
+                                    	
                                     </c:when>
                                     <c:otherwise>
                                     	<a href="#">${sessionScope.userInfo.mem_name}님, 안녕하세요!</a>
+                                    	 <a href="/mn/logout.do">로그아웃</a>
                                     </c:otherwise>
                                 </c:choose>
                                 </div>

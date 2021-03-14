@@ -11,10 +11,13 @@
 <select id="login" parameterType="member" resultType="member">
 	select *
 	from member
-	where mem_email = #{mem_email} and MEM_PASS= #{mem_pass}
+	where mem_email = #{mem_email} and mem_pass= #{mem_pass}
 </select>
 
-
+<select id="idCheck" resultType="member">
+	SELECT COUNT(*) FROM member
+	WHERE mem_email = #{mem_email}
+</select>
 
 
 </mapper>
