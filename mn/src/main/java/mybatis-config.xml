@@ -10,7 +10,9 @@
 			<typeAlias type="systems.domains.ContentVO" alias="content"/>
 			<typeAlias type="systems.domains.ReplyVO" alias="reply"/>
 			<typeAlias type="systems.domains.AdVO" alias="ad"/>
+			<typeAlias type="systems.domains.CalendarVO" alias="calendar"/>
 			<typeAlias type="systems.domains.PetVO" alias="pet"/>
+			<typeAlias type="systems.domains.ContentReplyVO" alias="contentreply"/>
 			
 		</typeAliases>
 		<typeHandlers>

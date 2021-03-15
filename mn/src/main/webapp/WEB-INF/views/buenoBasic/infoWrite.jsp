@@ -14,12 +14,24 @@
     <div class="mb-100"> 
    	<form id="frm" action="writeContent.do" method="post">
         <input type="hidden" id="con_cate" name="con_cate" value="고양이 행동"/>
-    	<input name="con_title" type="text" placeholder="제목" style="width:100%; height: 40px;">
-    	
+        <div style="margin-bottom: 20px;">
+	    	<input name="con_title" type="text" placeholder="제목" style="width:70%; height: 40px; margin-left: 20px;">
+    		<select id="category" style="width:100px;">
+	    		<option value="강아지 음식">강아지 음식</option>
+	            <option value="강아지 행동">강아지 행동</option>
+	            <option value="강아지 건강">강아지 건강</option>
+	            <option value="견종백과">견종백과</option>
+	            <option value="고양이 음식">고양이 음식</option>
+	            <option value="고양이 행동">고양이 행동</option>
+	            <option value="고양이 건강">고양이 건강</option>
+	            <option value="묘종백과">묘종백과</option>
+	        </select>
+	     </div>
+
 		<textarea id="summernote" class="summernote" style="margin:40px;"></textarea>
         <input type="hidden" id="con_content" name="con_content"/>
-        <div style="text-align: center;">
-       		<button class="btn bueno-btn">등록하기</button>
+        <div style="text-align: center; margin-top: 20px;">
+       		<button class="btn bueno-btn" id="info_write" style="border-radius: 15px; font-size: 30px;">등록하기</button>
         </div>
 	</form>
  	</div>
@@ -60,6 +72,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="../resources/bueno/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
     <script src="../resources/bueno/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="../resources/bueno/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="../resources/bueno/js/active.js"></script>
+    
+    <!-- summer note -->
+    <script src="../resources/summernote/summernote.js"></script>
+    <script src="../resources/summernote/summernote2.js"></script>
+    <script src="../resources/summernote/lang/summernote-ko-KR.js"></script>
+    
+    <!-- db 연동에 필요한 js -->
+    <script src="../resources/content/content.js"></script>
+    
+</body>
+
+</html>tstrap.min.js"></script>
     <!-- All Plugins js -->
     <script src="../resources/bueno/js/plugins/plugins.js"></script>
     <!-- Active js -->

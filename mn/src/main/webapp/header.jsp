@@ -63,7 +63,7 @@
 
         <!-- Navbar Area -->
         <div class="bueno-main-menu" id="sticker">
-            <div class="classy-nav-container breakpoint-off" style="background-color:#F2DAC0;">
+            <div class="classy-nav-container breakpoint-off" style=" background-color:#FAEFE2;">
                 <div class="container">
                     <!-- Menu -->
                     <nav class="classy-navbar justify-content-between" id="buenoNav">
@@ -117,7 +117,7 @@
                                     </li>
                                     <li><a href="#">편의기능</a>
                                         <ul class="dropdown">
-                                            <li><a href="/mn/buenoBasic/catagory.do">AR 체험</a></li>
+                                            <li><a href="/mn/Test_v1.html">AR 체험</a></li>
                                             <li><a href="/mn/buenoBasic/hospital.do">내 주변 동물병원</a></li>
                                             <li><a href="/mn/buenoBasic/single-post.do">사운드</a></li>
                                         </ul>
@@ -129,7 +129,7 @@
                                 <div class="login-area">
                                 <c:choose>
                                 	<c:when test="${empty sessionScope.userInfo}">
-                                    	<a href="/mn/login.jsp">Login / Register</a>
+                                    	<a href="/mn/login.jsp">로그인 &nbsp;/&nbsp; 회원가입</a>
                                     </c:when>
                                     <c:otherwise>
                                     	<a href="#">${sessionScope.userInfo.mem_name}님, 안녕하세요!</a>
@@ -150,27 +150,38 @@
     <!-- ##### 내가 쓴 글 ##### -->
     <div class="treading-post-area" id="treadingPost">
         <div class="close-icon">
-            <i class="fa fa-times"></i>
+           <i class="fa fa-times"></i>
         </div>
 
-        <h4>내가 쓴 글</h4>
+        <h4>북마크</h4>
 
         <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="/mn/resources/bueno/img/bg-img/9.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Friend eggs with ham</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
+        <c:choose>
+        <c:when test="${not empty sessionScope.userInfo}">
+	        <c:forEach items="${bookmarks}" var="bms">
+		        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		            <!-- Blog Thumbnail -->
+		            <div class="blog-thumbnail">
+		                <img src="${bms.con_img}" alt="">
+		            </div>
+		            <!-- Blog Content -->
+		            <div class="blog-content">
+		                <a href="#" class="post-tag">${bms.con_cate}</a>
+		                <a href="#" class="post-title">${bms.con_title}</a>
+		                <div class="post-meta">
+		                    <a href="#" class="post-date">${bms.con_date}</a>
+		                </div>
+		            </div>
+		        </div>
+	        </c:forEach>
+        </c:when>
+        <c:when test="${empty sessionScope.userInfo.bookmark}">
+        	<h6>북마크가 없습니다.</h6>
+        </c:when>
+        <c:otherwise>
+        	<a href="/mn/login.jsp"><h6>로그인 후 이용해주세요.</h6></a>
+        </c:otherwise>
+        </c:choose>
 
     </div>
     <!-- ##### Treading Post Area End ##### -->

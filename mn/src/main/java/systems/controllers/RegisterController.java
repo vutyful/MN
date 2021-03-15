@@ -52,36 +52,44 @@ public class RegisterController {
     public String loginpage() {
     	return "login";
     }
+    
+    
+      //로그아웃(메인에 로그아웃 버튼 만들기)
+      @RequestMapping("/logout.do") 
+      public String logout(HttpSession session) {
+      System.out.println(session.getAttribute("mem_name") + "님 로그아웃");
+      session.removeAttribute("mem_name");
+      session.invalidate(); 
+      return "redirect:/main_connection.jsp"; } //end logout
+     
     	
     //일반회원 로그인처리
 	@RequestMapping(value= "/login.do", method=RequestMethod.POST)
 	public String login(MemberVO vo, HttpServletRequest request) {
+		/*
+		 * vo.setMem_email(vo.getMem_email().trim());
+		 * vo.setMem_pass(vo.getMem_pass().trim());
+		 */
 		System.out.println("이메일"+vo.getMem_email());
 		System.out.println("비번"+vo.getMem_pass());
 		
+		//로그인 정보를 메모리에 요청하여 얻어오기 위해 session 사용
 		HttpSession session = request.getSession();
 		  MemberVO loginresult = RegisterServiceImpl.login(vo);
-		  
-		  System.out.println("회원이름"+loginresult.getMem_name());
-		  System.out.println("관리자여부"+loginresult.getMem_check());
-		  System.out.println("회원번호"+loginresult.getMem_num());
-		  System.out.println("회원번호"+loginresult.getMem_tel());
-		  System.out.println("회원비밀번호"+loginresult.getMem_pass());
-		
+
 		if (loginresult!=null) {
 			System.out.println("controller 로그인이  " + loginresult);
 			session.setAttribute("userInfo",loginresult);
-			System.out.println();
+			System.out.println("로그인 성공");
 			return "redirect:buenoBasic/main.do";
 			
 		} else {
 			session.setAttribute("userInfo", null);
 		    System.out.println("controller 일반 로그인 실패");
-			return "/mn/src/main/login.jsp";
+			return "redirect:/login.jsp";
 		}
 	} 
     
-
     //회원가입
 	@RequestMapping(value="/registJoin.do", produces = "application/text;charset=utf-8")
 	public String registerJoin(MemberVO vo) {
@@ -100,5 +108,14 @@ public class RegisterController {
 	}
 	
 	
+	/*
+	 * //아이디 중복 체크
+	 * 
+	 * @RequestMapping(value="", method=RequestMethod.POST) public int
+	 * idCheck(MemberVO vo) throws Exception{ int result =
+	 * RegisterServiceImpl.idCheck_Login(vo); return result;
+	 * 
+	 * }
+	 */
 	
 }
