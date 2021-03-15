@@ -1,13 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: psy
-=======
-<<<<<<< HEAD
-Built-By: kosmo_09
-=======
-Built-By: kosmo_23
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 Build-Jdk: 1.8.0_265
 Created-By: Maven Integration for Eclipse
 
