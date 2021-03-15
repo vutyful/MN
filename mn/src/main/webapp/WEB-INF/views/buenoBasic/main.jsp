@@ -172,7 +172,6 @@
                 <!-- Sidebar Area -->
                 <div class="col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3">
                     <div class="sidebar-area">
-
                         <!-- Single Widget Area -->
                         <div class="single-widget-area add-widget mb-30">
                             <img src="../resources/bueno/img/bg-img/add.png" alt="">

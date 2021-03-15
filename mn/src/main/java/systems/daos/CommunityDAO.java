@@ -16,6 +16,7 @@ public interface CommunityDAO {
 	
 	List<Map> boardDetail(int bo_num); 
 
+	
 
 	
 }
