@@ -15,7 +15,8 @@ public interface BoardService {
 	
 	List<BoardVO> boardToday(BoardVO vo);//관리자페이지 통계 계시판 오늘 글 수
 	
+	int boardHide(BoardVO vo);//관리자게시판 숨기기버튼
+	int boardShow(BoardVO vo);//관리자게시판 나타내기버튼
 	
-	
-	
+	BoardVO boardContent(BoardVO vo);//관리자게시판 게시글관리 - 글내용 뷰페이지
 }

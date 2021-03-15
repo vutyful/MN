@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>관리자페이지 - 광고 관리</title>
+    <title>관리자페이지 - 게시판관리 - 게시판 글내용확인</title>
 
     <!-- Custom fonts for this template -->
     <link href="/mn/resources/manager/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,23 +25,17 @@
 
     <!-- Custom styles for this page -->
     <link href="/mn/resources/manager/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-<style>
-.adimg {
-  max-width: 100%;
-  height: auto !important;
-}
-</style>
+
 </head>
 
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-      		<!-- Sidebar - Brand -->
+        		<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="../buenoBasic/main.do">
@@ -147,13 +141,12 @@
             </li>
             
              -->
-            
-                        <!-- tables 형태  회원관리 -->
+                         <!-- tables 형태  회원관리 -->
 			<li class="nav-item"><a class="nav-link"
 				href="/mn/manager/statistics.do"> 
 				<i class="fas fa-fw fa-chart-area"></i> <span>통계</span></a>
 			</li>
-            
+                         
             <!-- tables 형태  회원관리 -->
             <li class="nav-item">
                 <a class="nav-link" href="member.jsp">
@@ -162,36 +155,18 @@
             </li>
             
              <!-- tables 형태 게시판관리.-->
-            <li class="nav-item">
-                <a class="nav-link" href="/mn/manager/board.do">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>게시판관리</span></a>
-            </li>
-            <!-- tables 형태 광고관리.-->
-       <!--  
-             		<li class="nav-item active"><a class="nav-link"
-				href="/mn/manager/ad.do" data-target="#collapseTwo" 
-				aria-expanded="true" aria-controls="collapseTwo"> 
-				  <i class="fas fa-fw fa-table"></i> <span>광고관리</span></a>
+ 
+            		<li class="nav-item active"><a class="nav-link"
+				href="/mn/manager/board.do" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> 
+				  <i class="fas fa-fw fa-table"></i> <span>게시판관리</span></a>
 			</li>
-             -->
-                     <li class="nav-item active">
-                <a class="nav-link collapsed" href="/mn/manager/ad.do" aria-expanded="true" 
-                data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                     <i class="fas fa-fw fa-table"></i>
-                    <span>광고 관리</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">AD LIST:</h6>
-                        <a class="collapse-item" href="/mn/manager/adInsert.do">광고 등록</a>
-                      
-                    </div>
-                </div>
-            </li>
             
+            <!-- tables 형태 광고관리.-->
+                        <li class="nav-item">
+                <a class="nav-link" href="/mn/manager/ad.do">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>광고관리</span></a>
+            </li>
             <!-- tables 형태 정보관리.-->
                         <li class="nav-item">
                 <a class="nav-link" href="content.jsp">
@@ -242,8 +217,8 @@
                     </form> -->
 
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-<!-- 
+                    <ul class="navbar-nav ml-auto"><!-- 
+
                         Nav Item - Search Dropdown (Visible Only XS)
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -267,9 +242,9 @@
                                 </form>
                             </div>
                         </li>
+                        
  -->
  <!-- 
- 
                         Nav Item - Alerts
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
@@ -385,8 +360,8 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
-                        </li>
- -->
+                        </li> -->
+
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
@@ -431,59 +406,32 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    
-                    <h1 class="h3 mb-2 text-gray-800">광고목록 관리</h1>
-<!--                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                    <h1 class="h3 mb-2 text-gray-800">게시판목록 관리 - 글 내용 확인페이지.</h1>
+                 <!--    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                <!--             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>광고번호</th>
-                                            <th>광고이름</th>
-                                            <th>광고사진</th>
-                                            <th>광고링크</th>
-                                            <th>총클릭수</th>
-                                            <th>시작날짜</th>
-                                            <th>끝날짜</th>
-                                            <th>강아지</th>
-                                            <th>고양이</th>
-                                               <th>광고 삭제</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach items="${adList}" var="ad">
-                                        <tr>
-                                            <td>${ad.ad_num}</td>
-                                            <td>${ad.ad_name}</td>
-                                            <td>
-                                            <img src="/mn/resources/manager/adimg/${ad.ad_img} " style="width:200px; height:100px;"/>
-                                            </td>
-                                            <td>${ad.ad_link}</td>
-                                            <td>${ad.totalclick}</td>
-                                            <td>${ad.startdate}</td>
-                                            <td>${ad.enddate}</td>
-                                            <td>${ad.cat}</td>
-                                            <td>${ad.dog}</td>
-                                             <td><a href="/mn/manager/adDelete.do?ad_num=${ad.ad_num}" onclick="return confirm('정말 삭제하시겠습니까?');" class="btn btn-danger btn-circle" id="deletebtn">
-                                        <i class="fas fa-trash"></i></a></td>
-                                    </a></td>
-                                        </tr>
-                                     </c:forEach>  
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+	<table>
+	<tr>
+			<td>게시글 번호</td>
+			<td>${boardContent.bo_num}</td>
+		</tr>
+		<tr>
+			<td>글 제목</td>
+			<td>${boardContent.bo_title}</td>
+		</tr>
+		<tr>
+			<td>글 내용</td>
+			<td>${boardContent.bo_content}</td>
+		</tr>
+		<tr>
 
+			<td>글 보이기 / 숨기기 상태.</td>
+			<td>${boardContent.bo_state}</td>
+	
+		</tr>
+
+	</table>
                 </div>
                 <!-- /.container-fluid -->
 
