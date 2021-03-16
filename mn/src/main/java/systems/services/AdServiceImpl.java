@@ -13,8 +13,19 @@ public class AdServiceImpl implements AdService{
 	@Autowired
 	private AdDAOImpl adDAO;
 	
-
+	
 	public List<AdVO> adList(AdVO vo){
 		return adDAO.adList(vo);
 	};//관리자 광고게시판 리스트 불러오기
+	
+	//
+	public int adDelete(AdVO vo) {
+		return adDAO.adDelete(vo);
+	};//관리자 광고 글 삭제
+	
+	public int adInsertConfirm(AdVO vo) {
+		
+		return adDAO.adInsertConfirm(vo);
+	};//관리자 광고 글 등록.
+	
 }

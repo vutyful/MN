@@ -8,19 +8,52 @@
     
 </head>
 <body>
-<!-- 지도를 표시할 div 입니다 -->
-<div id="map" style="width:100%;height:350px;"></div>
-
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=934d6274004469e809ca51645ec76eab"></script>
-<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
-
-// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-var map = new kakao.maps.Map(mapContainer, mapOption); 
-</script>
+<form action="modifyContent.do" method="post" enctype="multipart/form-data">
+	<table>
+		<tr>
+			<td>제목</td>
+			<td colspan="2"><input type="text" name="title" id="title" value="${content.title}"/></td>
+		</tr>
+		<tr>
+			<td>카테고리</td>
+			<td>
+				<select id="cate" name="cate">
+					<c:forEach items="${list}" var="category">
+						<option <c:if test="${category == content.cate}">selected</c:if> >${category}</option>
+					</c:forEach>
+					<option value="direct">직접입력</option>
+				</select>
+				<input type="text" id="direct" name="">
+			</td>
+		</tr>
+		<tr>
+			<td>이미지</td>
+			<td colspan="2">
+				<c:if test="${content.img ne null}">
+					<img src="../resources/upload/${content.img}">
+				</c:if>
+			</td>
+		</tr>
+		<tr>
+			<td>내용</td>
+			<td colspan="2"><textarea name="ccontent" id="ccontent">${content.ccontent}</textarea></td>
+		</tr>
+		<tr>
+			<td>파일</td>
+			<td colspan="2"><input type="file" name="file"/></td>
+		</tr>
+		<tr>
+			<td>숨기기</td>
+			<td colspan="2"><input type="checkbox" name="cstate" value="hidden"/></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="수정"/></td>
+			<td><a href="deleteContent.do?connum=${content.connum}" onclick="if(!confirm("삭제하시겠습니까?")){return false;}"><input type="button" value="삭제"/></a></td>
+			<td><a href="getContentsList.do"><input type="button" value="목록"/></a></td>
+		</tr>
+	<input type="hidden" name="connum" value="${content.connum}"/>
+	<input type="hidden" name="memnum" value="${content.memnum}"/>
+	</table>
+</form>
 </body>
 </html>
