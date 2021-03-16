@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@include file = "/header.jsp" %>
 
     <!-- ##### Post Details Area Start ##### -->
@@ -15,17 +16,24 @@
                         	<c:when test="${empty sessionScope.userInfo}"> <!-- 로그인 안했을 때 -->
                        		 <a href="/mn/login.jsp"><img src="/mn/resources/content/img/bm_no.jpg" style="width: 60px; height: 60px;"></a>
                         	</c:when>
+                        	<c:when test="${bmcheck eq 'yes'}">
+                       		 <a href="/mn/login.jsp"><img src="/mn/resources/content/img/bm_ok.jpg" style="width: 60px; height: 60px;"></a>
+                        	</c:when>
                         	<c:otherwise> <!-- 북마크 안했을 때 -->
                        		 <img id="bm_img" src="/mn/resources/content/img/bm_no.jpg" style="width: 60px; height: 60px;">
                         	</c:otherwise>
                         </c:choose>
+                        <c:if test="${sessionScope.userInfo.mem_check == 1 }"> <!-- 관리자 일 때만 수정하기 활성화 -->
+                        <a href="infoModify.do?con_num=${detail.con_num}">수정하기</a>
+                        </c:if>
                        </div>
                        <input type="hidden" id="con_num" value="${detail.con_num}">
                         <div class="blog-content">
                             <a class="post-tag" style="font-size: 20px;">${detail.con_cate}</a>
                             <a class="post-title" style="font-size: 40px;">${detail.con_title}</a>
                             <div class="post-meta mb-50">
-                                <a href="#" class="post-date"> ${detail.con_date} </a>
+                                <a href="#" class="post-date" style="font-size:20px;"> ${fn:substring(detail.con_date,0,16)} </a>
+                                <a href="#" class="post-author" style="font-size:20px;">조회수 ${detail.viewcount} </a>
                             </div>
                             <!-- 글 내용 -->
                             ${detail.con_content}
@@ -64,10 +72,8 @@
                     <div class="comment_area clearfix mb-100">
                         <h4 class="mb-50">댓글 <span id="cCount">${recount}</span>개</h4>
 
-                        <ol>
+                        <ol id="commentarea">
                             <!-- 개별 댓글 -->
-                            <div id="addComment_area">
-	                        </div>
                             <c:choose>
 	                            <c:when test="${not empty replys}">
 		                            <c:forEach items="${replys}" var="re">
@@ -77,16 +83,19 @@
 			                                    <!-- Comment Meta -->
 			                                    <div class="comment-meta">
 			                                        <div class="d-flex">
-			                                            <a class="post-author">${re.MEM_NAME}</a>
-			                                            <a class="post-date">${re.RE_DATE}</a>
+			                                            <a class="post-author" style="font-size:15px;">${re.MEM_NAME}</a>
+			                                            <a class="post-date" style="font-size:15px;">${fn:substring(re.RE_DATE,0,16)}</a>
 			                                           		<c:if test="${re.MEM_NUM eq sessionScope.userInfo.mem_num}">
-				                                            <button class="btn reply-btn modify-btn">수정</button>
+				                                            <button class="btn reply-btn modify">수정</button>
 				                                            <span><button class="btn reply-btn delete-btn" style="left:10px;">삭제</button></span>
 				                                            </c:if>
 			                                        </div>
 			                                        <p> ${re.RE_CONTENT}</p>
 			                                    </div>
 			                                </div>
+			                                        <textarea class="form-control modify-ta" style="width: 100%; height:100px; display: none;">${re.RE_CONTENT}</textarea>
+			                                        <button class="btn reply-btn modify-btn" style="display: none;" >등록</button>
+			                                        <input type="hidden" id="re_num" value="${re.RE_NUM}"/> 
 			                            </li>
 		                            </c:forEach>
 	                            </c:when>
@@ -105,24 +114,17 @@
                     </div>
                 </div>
 
-                <!-- Sidebar Widget -->
+                <!-- 광고 area -->
                 <div class="col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3">
                     <div class="sidebar-area">
                         <!-- Single Widget Area -->
                         <div class="single-widget-area add-widget mb-30" style="margin-top:200px;">
                         </div>
+                        <c:forEach items="${ads}" var="ad">
                         <div class="single-widget-area add-widget mb-30">
-                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
+                            <a href="${ad.ad_link}"><img src="${ad.ad_img }" alt=""></a>
                         </div>
-                        <div class="single-widget-area add-widget mb-30">
-                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
-                        </div>
-                        <div class="single-widget-area add-widget mb-30">
-                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
-                        </div>
-                        <div class="single-widget-area add-widget mb-30">
-                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
-                        </div>
+                        </c:forEach>
                         
                     </div>
                 </div>

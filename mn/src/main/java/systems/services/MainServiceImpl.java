@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import systems.daos.MainDAOImpl;
+import systems.domains.AdVO;
 import systems.domains.ContentReplyVO;
 import systems.domains.ContentVO;
 import systems.domains.MemberVO;
@@ -67,6 +68,44 @@ public class MainServiceImpl implements MainService{
 	public ContentReplyVO currentReply(String mem_num) {
 		return mainDAO.currentReply(mem_num);
 	}
+
+	//con_num에 해당하는 컨텐츠 조회수 1 올리기
+	public void addViewCount(int con_num) {
+		mainDAO.addViewCount(con_num);
+	}
+
+	//조회수 많은 순으로 3개 정보글 얻어오기
+	public List<ContentVO> getpopular() {
+		return mainDAO.getpopular();
+	}
+
+	// 최신글 3개 가져오기 
+	public List<ContentVO> getLatest() {
+		return mainDAO.getLatest();
+	}
+
+	//넘어온 re_content와 re_num으로 해당 댓글 내용 업데이트
+	public void replyupdate(ContentReplyVO vo) {
+		mainDAO.replyupdate(vo);
+	}
+
+	//넘어온 re_num 댓글 삭제
+	public void replydelete(ContentReplyVO vo) {
+		mainDAO.replydelete(vo);
+	}
+
+	//con_num에 해당하는 컨텐츠 수정하기
+	public void updateContent(ContentVO vo) {
+		mainDAO.updateContent(vo);
+	}
+
+	//광고 가져오기
+	public List<AdVO> getAllAD() {
+		return mainDAO.getAllAD();
+	}
+	
+	//최신순으로 3개 정보글 얻어오기
+	
 	
 
 }

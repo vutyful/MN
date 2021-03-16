@@ -7,15 +7,22 @@
     
     <!-- summer note -->
     <div style="padding:30px;">
-    	<h2 style="color:black; text-align: center;">정보글 쓰기</h2>
+    	<h2 style="color:black; text-align: center;">정보글 수정</h2>
     </div>
     <div class="row justify-content-center">
     <div class="col-12 col-lg-8 col-xl-9">
     <div class="mb-100"> 
-   	<form id="frm" action="writeContent.do" method="post">
-        <input type="hidden" id="con_cate" name="con_cate"/>
+    <input type="hidden" id="imsi_cate" value="${content.con_cate}"/>
+    
+   	<form id="frm" action="updateContent.do" method="post">
+   		<input type="hidden" id="con_cate" name="con_cate"/>
+   		<input type="hidden" name="con_num" value="${content.con_num}"/>
         <div style="margin-bottom: 20px;">
-	    	<input name="con_title" type="text" placeholder="제목" style="width:70%; height: 40px; margin-left: 20px;">
+	    	<input id="con_title" 
+	    			name="con_title" 
+	    			type="text" 
+	    			value="${content.con_title}" 
+	    			style="width:70%; height: 40px; margin-left: 20px;">
     		<select id="category" style="width:100px;">
 	    		<option value="강아지 음식">강아지 음식</option>
 	            <option value="강아지 행동">강아지 행동</option>
@@ -28,7 +35,10 @@
 	        </select>
 	     </div>
 
-		<textarea id="summernote" class="summernote" style="margin:40px;"></textarea>
+		<textarea id="summernote" 
+					class="summernote" 
+					style="margin:40px;"
+					value="${content.con_content}"></textarea>
         <input type="hidden" id="con_content" name="con_content"/>
         <div style="text-align: center; margin-top: 20px;">
        		<button class="btn bueno-btn" id="info_write" style="border-radius: 15px; font-size: 30px;">등록하기</button>
@@ -84,23 +94,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     
     <!-- db 연동에 필요한 js -->
     <script src="../resources/content/content.js"></script>
-    
-</body>
-
-</html>
-    <!-- All Plugins js -->
-    <script src="../resources/bueno/js/plugins/plugins.js"></script>
-    <!-- Active js -->
-    <script src="../resources/bueno/js/active.js"></script>
-    
-    <!-- summer note -->
-    <script src="../resources/summernote/summernote.js"></script>
-    <script src="../resources/summernote/summernote2.js"></script>
-    <script src="../resources/summernote/lang/summernote-ko-KR.js"></script>
-    
-    <!-- db 연동에 필요한 js -->
-    <script src="../resources/content/content.js"></script>
-    
+    <script>
+    $('#info_write').click(function(){
+    	if($('#summernote').val().isEmpty()){
+    		alert('내용을 입력하세요.');
+    	}
+    }
+    </script>
 </body>
 
 </html>

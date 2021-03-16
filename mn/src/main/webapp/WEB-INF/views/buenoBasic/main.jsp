@@ -54,52 +54,26 @@
     <!-- ##### 인기글 시작 ##### -->
     <div style=" position:relative; left: 40%; margin-bottom:20px;">
     <div class=".section-padding-70-20" style="text-align: center; width: 20%; background-color:#FAEFE2; color:#DEA361; border:#FAEFE2 solid 3px; border-radius:10px;"><h2 style=" margin-top:8px; 
-    text-align: center;">최신 정보</h2></div>
+    text-align: center;">인기 정보</h2></div>
     </div>
     <div class="post-catagory mb-70">
         <div class="container">
             <div class="row justify-content-center">
-                <!-- Single Post Catagory -->
+                <!-- 인기글 개별 -->
+                <c:forEach items="${popular}" var="pop">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30 box">
-                        <img src="../resources/idximg/comu4.jpg" class = "profile" alt="">
+                        <img src="${pop.con_img}" class = "profile" alt="">
                        <!--  Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">커뮤니티 인기글(예시)</a>
+                                <a href="infoDetail.do?con_num=${pop.con_num}" class="post-tag">${pop.con_cate}</a>
+                                <a href="infoDetail.do?con_num=${pop.con_num}" class="post-title">${pop.con_title}</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-               <!--  Single Post Catagory -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-catagory mb-30 box">
-                        <img src="../resources/idximg/comu3.jpg" class = "profile" alt="">
-                     <!--    Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">커뮤니티 최신글(예시)</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-               <!--  Single Post Catagory -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-catagory mb-30 box">
-                        <img src="../resources/idximg/comu2.jpg" class = "profile" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">커뮤니티 글 링크(예시)</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>
@@ -113,47 +87,21 @@
     <div class="post-catagory mb-70">
         <div class="container">
             <div class="row justify-content-center">
-                <!-- Single Post Catagory -->
+                <!-- 최신글 개별 -->
+                <c:forEach items="${latest}" var="lat">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30 box">
-                        <img src="../resources/idximg/comu4.jpg" class = "profile" alt="">
+                        <img src="${lat.con_img}" class = "profile" alt="">
                        <!--  Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">커뮤니티 인기글(예시)</a>
+                                <a href="infoDetail.do?con_num=${lat.con_num}" class="post-tag">${lat.con_cate}</a>
+                                <a href="infoDetail.do?con_num=${lat.con_num}" class="post-title">${lat.con_title}</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-               <!--  Single Post Catagory -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-catagory mb-30 box">
-                        <img src="../resources/idximg/comu3.jpg" class = "profile" alt="">
-                     <!--    Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">커뮤니티 최신글(예시)</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-               <!--  Single Post Catagory -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-catagory mb-30 box">
-                        <img src="../resources/idximg/comu2.jpg" class = "profile" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">커뮤니티 글 링크(예시)</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>
@@ -365,30 +313,7 @@
     </div> -->
     <!-- ##### Instagram Area End ##### -->
 
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-5">
-                    <!-- Copywrite Text -->
-                    <!-- <p class="copywrite-text"><a href="#">Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p> -->
-                </div>
-                <div class="col-12 col-sm-7">
-                    <!-- Footer Nav -->
-                    <div class="footer-nav">
-                        <ul>
-                            <li ><a href="#">홈</a></li>
-                            <li><a href="../manager/statistics.do">관리자 페이지</a></li>
-                            <li><a href="infoWrite.do">정보글 등록</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ##### Footer Area End ##### -->
+	<%@include file = "/footer.jsp" %>
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->

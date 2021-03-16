@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import systems.domains.AdVO;
 import systems.domains.ContentReplyVO;
 import systems.domains.ContentVO;
 import systems.domains.MemberVO;
@@ -72,7 +73,41 @@ public class MainDAOImpl implements MainDAO{
 		return mybatis.selectList("MainMap.getReplyList", con_num);
 	}
 
+	//con_num에 해당하는 컨텐츠 조회수 1 올리기
+	public void addViewCount(int con_num) {
+		mybatis.update("MainMap.addViewCount", con_num);
+	}
 
+	//조회수 많은 순으로 3개 정보글 얻어오기
+	public List<ContentVO> getpopular() {
+		return mybatis.selectList("MainMap.getpopular");
+	}
+
+	// 최신글 3개 가져오기 
+	public List<ContentVO> getLatest() {
+		return mybatis.selectList("MainMap.getLatest");
+	}
+
+	//넘어온 re_content와 re_num으로 해당 댓글 내용 업데이트
+	public void replyupdate(ContentReplyVO vo) {
+		mybatis.update("MainMap.replyupdate", vo);
+	}
+
+	//넘어온 re_num 댓글 삭제
+	public void replydelete(ContentReplyVO vo) {
+		mybatis.delete("MainMap.replydelete", vo);
+	}
+
+	//con_num에 해당하는 컨텐츠 수정하기
+	public void updateContent(ContentVO vo) {
+		mybatis.update("MainMap.updateContent", vo);
+	}
+
+	//광고 가져오기
+	public List<AdVO> getAllAD() {
+		return mybatis.selectList("MainMap.getAllAD");
+	}
+	
 
 	
 	
