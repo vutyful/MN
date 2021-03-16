@@ -51,9 +51,9 @@ public class CommunityServiceImpl implements CommunityService{
 	
 	//댓글 삭제
 	@Override
-	public void delReply(int re_num) {
+	public int delReply(int re_num) {
 		System.out.println("delReply 댓글삭제 ServiceImpl");
-		CommunityDAO.delReply(re_num);
+		return CommunityDAO.delReply(re_num);
 		
 	}
 

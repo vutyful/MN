@@ -83,7 +83,7 @@ background-color: white;
 												<!-- jstl foreach문으로 목록 내용 불러오기 -->
 											<%-- <td class="tm-product-name">${item.bo_title}</td>  --%>
 											<td><a href='/mn/communityBoard/boardDetail.do?bo_num=${item.bo_num}'/>'${item.bo_title}</a></td>
-											<td class="text-center">${item.bo_num}</td>
+											<td class="text-center">${item.mem_num}</td>
 												<td class="text-center">${item.bo_date}</td>
 											</tr>
 										</c:forEach>

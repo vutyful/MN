@@ -30,6 +30,6 @@ public interface CommunityDAO {
 	public List<HashMap<String, Object>> getReplyList(int bo_num);
 	
 	//댓글 삭제
-	public void delReply(int re_num);
+	public int delReply(int re_num);
 	
 }
