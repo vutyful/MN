@@ -38,17 +38,17 @@ import systems.services.MainServiceImpl;
 
 @Controller
 public class MainController {
-
+	
 	@Autowired
 	private MainServiceImpl mainService;
-	//기본 mvc
+	/**기본 mvc*/
 	@RequestMapping("buenoBasic/{url}.do")
     public String test(@PathVariable String url) {
         System.out.println(url + "실행");
         return "buenoBasic/"+url;
     }
 	
-	// infoWrite -> 정보글 등록하기 -> infoList 
+	/** infoWrite -> 정보글 등록하기 -> infoList*/ 
 	@RequestMapping("buenoBasic/writeContent.do")
 	public String writeinfo(ContentVO vo) {
 		System.out.println("글등록 controller");
@@ -56,9 +56,10 @@ public class MainController {
 		String content = vo.getCon_content();
 		int start = content.indexOf("src=") + 5; // src값의 시작 index
 		int end = content.indexOf("\"", start);
-		vo.setCon_img(content.substring(start, end));
-		System.out.println("뽑아낸 썸네일"+content.substring(start, end));
+		vo.setCon_img(content.substring(start, end)); //썸네일 setting
 		
+		// 글 수정을 위해 content 전체 내용을 div 태그로 한번 묶어주기
+		vo.setCon_content("<div class=\"entry-content entry clearfix\">"+content+"</div>");
 		mainService.writeInfo(vo);
 		String temp = "";
 		try {
@@ -68,35 +69,39 @@ public class MainController {
 		return temp;
 	}
 	
-	//메인페이지 로딩
+	/**메인페이지 로딩*/
 	@RequestMapping("buenoBasic/main.do")
 	public void main(Model m,HttpSession session) {
 		//슬라이더 정보글 가져오기
 		List<ContentVO> result = mainService.getAllContent();
 		m.addAttribute("contents",result);
-		
-		//내 북마크 리스트 로딩
-		//만약 로그인 안되어있으면 패스,
 		MemberVO mem = (MemberVO)session.getAttribute("userInfo");
-		if(mem==null) {
-			
-		}else { //로그인 되어있으면 리스트 가져오기
+		//로그인 된 상태일때만 북마크 리스트 가져오기
+		if(mem!=null) {
+			//내 북마크 리스트 로딩
 			// mem_num으로 북마크 값 가져오기
 			String mem_num = mem.getMem_num();
 			String bm = mainService.getBookmark(mem_num);
-			
-			// 가져온 북마크 파싱
-			String[] bms = bm.split("/");
-			// 북마크들 담을 list
-			List<ContentVO> list = new ArrayList<ContentVO>();
-			for(String con_num:bms) {
-				list.add(mainService.getOneContent(Integer.parseInt(con_num)));
+			if(bm!=null) { //북마크가 있을 때만
+				// 가져온 북마크 파싱
+				String[] bms = bm.split("/");
+				// 북마크들 담을 list
+				List<ContentVO> list = new ArrayList<ContentVO>();
+				for(String con_num:bms) {
+					list.add(mainService.getOneContent(Integer.parseInt(con_num)));
+				}
+				session.setAttribute("bookmarks", list);
 			}
-			m.addAttribute("bookmarks", list);
 		}
+		//인기 정보 3개 가져오기
+		m.addAttribute("popular", mainService.getpopular());
+		//최신 정보 3개 가져오기
+		m.addAttribute("latest", mainService.getLatest());
+		
+		
 	}
 	
-	//infoList 페이지 불러오기(건강, 행동 리스트)
+	/**infoList 페이지 불러오기(건강, 행동 리스트)*/
 	@RequestMapping("buenoBasic/infoList.do")
 	public void infoList(String con_cate, Model m) {
 		// 메인에서 카테고리 이름 받아와서 con_cate 해당 카테고리 목록 가져오기
@@ -105,7 +110,7 @@ public class MainController {
 		m.addAttribute("cate", result.get(0).getCon_cate());
 	}
 	
-	//infoCard 페이지 불러오기 (음식, 백과 리스트)
+	/**infoCard 페이지 불러오기 (음식, 백과 리스트)*/
 	@RequestMapping("buenoBasic/infoCard.do")
 	public void infoCard(String con_cate, Model m) {
 		// 메인에서 카테고리 이름 받아와서 con_cate 해당 카테고리 목록 가져오기
@@ -115,18 +120,41 @@ public class MainController {
 	}
 	
 	
-	//infoDetail 페이지 불러오기 ()
+	/** infoDetail 컨텐츠 상세페이지 불러오기 () */
 	@RequestMapping("buenoBasic/infoDetail.do")
-	public void infoDetail(int con_num,Model m) { //썸네일 클릭 시 컨텐츠 id 가져오기
+	public void infoDetail(int con_num,Model m, HttpSession session) { //썸네일 클릭 시 con_num 가져오기
+		//해당 컨텐츠 조회수 1 올리기
+		mainService.addViewCount(con_num);
+		// 컨텐츠 내용 가져오기
 		ContentVO detail = mainService.getOneContent(con_num);
+		// mem_num으로 북마크 얻어오기
+		MemberVO mem = (MemberVO)session.getAttribute("userInfo");
+		//이미 북마크 했는지 안했는지 여부 판단하여 표시
+	    //북마크 가져와서 받아온 con_num이 포함되어있는지
+		if(mem!=null) {
+			String mem_num = mem.getMem_num();
+			String bm = mainService.getBookmark(mem_num);
+			if(bm != null) 
+			{
+				String[] bms = bm.split("/"); // 바로 arraylist에 넣을 수 없음
+				List<String> list = new ArrayList<String>();
+				Collections.addAll(list, bms); // 배열을 arrayList로 변환
+				if(list.contains(Integer.toString(con_num))) {
+					m.addAttribute("bmcheck", "yes");
+				}
+				
+			}
+		}
 		
-		// 크롤링 시 추가된 불필요한 태그 삭제
-		detail.setCon_content(detail.getCon_content().replace("<div>?</div>", ""));
 		m.addAttribute("detail", detail);
 		// 해당 글 댓글 리스트 가져오기
 		List<Map<String, String>> list = mainService.getReplyList(con_num);
 		m.addAttribute("replys", list);
 		m.addAttribute("recount",list.size());
+		
+		// 광고 가져오기
+		m.addAttribute("ads",mainService.getAllAD());
+		
 	}
 	
 	// 검색된 키워드가 con_content에 포함된 컨텐츠 전부 가져와 검색목록 페이지 불러오기
@@ -138,7 +166,7 @@ public class MainController {
 		
 	}
 	
-	// ajax 연동하여 북마크 추가,삭제
+	/** ajax 연동하여 북마크 추가,삭제*/
 	@RequestMapping(value="buenoBasic/bm.do", produces="application/text;charset=utf-8")
 	@ResponseBody
 	public String bm(String con_num, HttpServletRequest request, Model m) {
@@ -185,7 +213,7 @@ public class MainController {
 		return result;
 	}
 	
-	// 내 북마크 리스트 띄우기
+	/**내 북마크 리스트 띄우기*/
 	@RequestMapping("buenoBasic/bmList.do")
 	public String bmList(Model m,HttpSession session){
 		// mem_num으로 북마크 얻어오기
@@ -205,7 +233,7 @@ public class MainController {
 		return "/mn/header.jsp";
 	}
 	
-	//summernote 이미지 서버에 업로드 후 웹 경로로 리턴해서 summernote에 띄우기
+	/**summernote 이미지 서버에 업로드 후 웹 경로로 리턴해서 summernote에 띄우기*/
 	@RequestMapping(value="buenoBasic/imageUpload.do")
 	@ResponseBody
 	public String imageUpload(@RequestParam("file") MultipartFile file,HttpServletResponse response) throws Exception{
@@ -229,12 +257,14 @@ public class MainController {
 			file.transferTo(f);
 			
 			String webPath = "http://192.168.0.79:8080/mn/resources/upload/"+img_name; //외부에서 접근 가능한 해당 이미지 링크
+			
 			Thread.sleep(4000); //파일 업로드 시간 기다려주기
 			return webPath;
 		}
 		return null;
 	}
 	
+	/**댓글 입력*/
 	@RequestMapping(value="buenoBasic/replyinsert.do", produces = "application/text;charset=utf-8")
 	@ResponseBody
 	public String replyinsert(ContentReplyVO vo,HttpSession session) {
@@ -243,17 +273,64 @@ public class MainController {
 		vo.setMem_num(mem_num);
 		// 댓글 입력
 		mainService.insertReply(vo);
-		// mem_num 이용하여 해당 계정 최신 댓글정보 가져오기
-//		ContentReplyVO result = mainService.currentReply(mem_num);
-//		System.out.println("지금 쓴 댓글"+result.getMem_num());
-//		JSONObject json = new JSONObject();
-//		json.put("mem_name", result.getMem_num());
-//		json.put("re_date",result.getRe_date());
-//		json.put("re_content", result.getRe_content());
-//		System.out.println(json.get("mem_name"));
+		// mem_num 이용하여 댓글정보 가져와서 방금 넣은 댓글 번호 가져오기
+		ContentReplyVO result = mainService.currentReply(mem_num);
+		String re_num = Integer.toString(result.getRe_num());
 		
-		return "댓글 등록이 완료되었습니다!";
+		return re_num;
 	}
+	
+	/**댓글 수정*/
+	@RequestMapping(value="buenoBasic/replyupdate.do", produces = "application/text;charset=utf-8")
+	@ResponseBody
+	public String replyupdate(ContentReplyVO vo) {
+		//넘어온 re_content와 re_num으로 해당 댓글 내용 업데이트
+		mainService.replyupdate(vo);
+		return "댓글이 수정되었습니다.";
+	}
+	
+	/**댓글 삭제*/
+	@RequestMapping(value="buenoBasic/replydelete.do", produces = "application/text;charset=utf-8")
+	@ResponseBody
+	public String replydelete(ContentReplyVO vo) {
+		//넘어온 re_num으로 해당 댓글 내용 업데이트
+		mainService.replydelete(vo);
+		System.out.println("삭제 성공");
+		return "댓글이 삭제되었습니다.";
+	}
+	
+	/** con_num 이용하여 해당 정보글을 summernote에 세팅*/
+	@RequestMapping("buenoBasic/infoModify.do")
+	public void infoModify(int con_num,Model m) {
+		//정보글 내용 가져오기
+		m.addAttribute("content", mainService.getOneContent(con_num));
+	}
+	
+	/** infoModify -> 정보글 수정하기 -> infoList*/ 
+	@RequestMapping("buenoBasic/updateContent.do")
+	public String updateinfo(ContentVO vo) {
+		System.out.println("글수정 controller");
+		// con_content에서 첫번째 img 태그 src값 가져오기
+		String content = vo.getCon_content();
+		int start = content.indexOf("src=") + 5; // src값의 시작 index
+		int end = content.indexOf("\"", start);
+		vo.setCon_img(content.substring(start, end)); //썸네일 setting
+		
+		// 글 수정을 위해 content 전체 내용을 div 태그로 한번 묶어주기
+		vo.setCon_content("<div class=\"entry-content entry clearfix\">"+content+"</div>");
+		//con_num에 해당하는 컨텐츠 업데이트
+		mainService.updateContent(vo);
+		
+		String temp = "";
+		try {
+			// 한글을 쿼리스트링으로 보낼 때 보통 웹에서는 자동 인코딩이 되지만 현재는 수동으로 인코딩 해야함.
+			temp = "redirect:infoList.do?con_cate=" + URLEncoder.encode(vo.getCon_cate(), "UTF-8");
+		}catch (Exception e) {
+		}
+		return temp;
+	}
+	
+	
 	
 	
 	

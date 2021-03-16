@@ -119,7 +119,6 @@
                                         <ul class="dropdown">
                                             <li><a href="/mn/Test_v1.html">AR 체험</a></li>
                                             <li><a href="/mn/buenoBasic/hospital.do">내 주변 동물병원</a></li>
-                                            <li><a href="/mn/buenoBasic/single-post.do">사운드</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="/mn/mypage2.jsp">반려동물</a></li>
@@ -129,10 +128,11 @@
                                 <div class="login-area">
                                 <c:choose>
                                 	<c:when test="${empty sessionScope.userInfo}">
-                                    	<a href="/mn/login.jsp">로그인 &nbsp;/&nbsp; 회원가입</a>
+                                    	<a href="/mn/login.jsp" style="margin-left: 50px;">로그인 &nbsp;/&nbsp; 회원가입</a>
                                     </c:when>
                                     <c:otherwise>
-                                    	<a href="#">${sessionScope.userInfo.mem_name}님, 안녕하세요!</a>
+                                    	<a style="font-size:20px; color:#DEA361; ">${sessionScope.userInfo.mem_name}님, 안녕하세요!</a>
+                                    	<a href="/mn/logout.do">&nbsp;&nbsp;로그아웃</a>
                                     </c:otherwise>
                                 </c:choose>
                                 </div>
@@ -158,25 +158,25 @@
         <!-- Single Blog Post -->
         <c:choose>
         <c:when test="${not empty sessionScope.userInfo}">
-	        <c:forEach items="${bookmarks}" var="bms">
+        	<c:if test="${empty sessionScope.bookmarks}">
+        		<h6>북마크가 없습니다.</h6>
+        	</c:if>
+	        <c:forEach items="${sessionScope.bookmarks}" var="bms">
 		        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
 		            <!-- Blog Thumbnail -->
 		            <div class="blog-thumbnail">
-		                <img src="${bms.con_img}" alt="">
+		                <a href="/mn/buenoBasic/infoDetail.do?con_num=${bms.con_num}"><img src="${bms.con_img}" alt=""></a>
 		            </div>
 		            <!-- Blog Content -->
 		            <div class="blog-content">
-		                <a href="#" class="post-tag">${bms.con_cate}</a>
-		                <a href="#" class="post-title">${bms.con_title}</a>
+		                <a href="/mn/buenoBasic/infoDetail.do?con_num=${bms.con_num}" class="post-tag">${bms.con_cate}</a>
+		                <a href="/mn/buenoBasic/infoDetail.do?con_num=${bms.con_num}" class="post-title">${bms.con_title}</a>
 		                <div class="post-meta">
 		                    <a href="#" class="post-date">${bms.con_date}</a>
 		                </div>
 		            </div>
 		        </div>
 	        </c:forEach>
-        </c:when>
-        <c:when test="${empty sessionScope.userInfo.bookmark}">
-        	<h6>북마크가 없습니다.</h6>
         </c:when>
         <c:otherwise>
         	<a href="/mn/login.jsp"><h6>로그인 후 이용해주세요.</h6></a>
