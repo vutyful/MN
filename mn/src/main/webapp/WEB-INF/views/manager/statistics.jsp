@@ -41,10 +41,8 @@
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="../buenoBasic/main.do">
-				<div class="sidebar-brand-icon rotate-n-15">
-					<i class="fas fa-laugh-wink"></i>
-				</div>
-				
+				<img class="sidebar-card-illustration mb-2"
+					src="../resources/manager/img/2MN_remove_bg.png" alt="" w>
 				<div class="sidebar-brand-text mx-3">메인페이지</div>
 			</a>
 
@@ -146,8 +144,14 @@
             </li>
              								안쓰는 부분-->
 			<!-- tables 형태  통계 -->
-			<li class="nav-item"><a class="nav-link"
-				href="/mn/manager/statistics.do"> <i class="fas fa-fw fa-table"></i> <span>통계</span></a>
+	<!-- 		<li class="nav-item"><a class="nav-link"
+				href="/mn/manager/statistics.do"> 
+				<i class="fas fa-fw fa-chart-area"></i> <span>통계</span></a>
+			</li> -->
+			<!-- tables 형태  통계 collapse 열려잇으면 글씨에 불들어옴.-->
+			<li class="nav-item active"><a class="nav-link"
+				href="/mn/manager/statistics.do" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> 
+				<i class="fas fa-fw fa-chart-area"></i> <span>통계</span></a>
 			</li>
 
 
@@ -159,11 +163,18 @@
 			<!-- tables 형태 게시판관리.-->
 			<li class="nav-item"><a class="nav-link" href="/mn/manager/board.do">
 					<i class="fas fa-fw fa-table"></i> <span>게시판관리</span>
-			</a></li>
+			</a>			
+			</li>
 
 			<!-- tables 형태 광고관리.-->
+
 			<li class="nav-item"><a class="nav-link" href="/mn/manager/ad.do"> <i
-					class="fas fa-fw fa-table"></i> <span>광고관리</span></a></li>
+					class="fas fa-fw fa-table"></i> <span>광고관리</span></a>
+						
+					</li>
+			
+			
+			
 			<!-- tables 형태 정보관리.-->
 			<li class="nav-item"><a class="nav-link" href="content.jsp">
 					<i class="fas fa-fw fa-table"></i> <span>정보관리</span>
@@ -181,7 +192,7 @@
 			<!-- Sidebar Message -->
 			<div class="sidebar-card">
 				<img class="sidebar-card-illustration mb-2"
-					src="../resources/manager/img/MN.png" alt="">
+					src="../resources/manager/img/MN2.png" alt="">
 				<!--  <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a> -->
 			</div>
@@ -223,13 +234,13 @@
 
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
-
-						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+<!-- 
+						Nav Item - Search Dropdown (Visible Only XS)
 						<li class="nav-item dropdown no-arrow d-sm-none"><a
 							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
-						</a> <!-- Dropdown - Messages -->
+						</a> Dropdown - Messages
 							<div
 								class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
 								aria-labelledby="searchDropdown">
@@ -247,14 +258,16 @@
 									</div>
 								</form>
 							</div></li>
-
-						<!-- Nav Item - Alerts -->
+ -->
+ 
+ <!--  오른쪽 상단 +3 메시지표시
+						Nav Item - Alerts
 						<li class="nav-item dropdown no-arrow mx-1"><a
 							class="nav-link dropdown-toggle" href="#" id="alertsDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <i class="fas fa-bell fa-fw"></i> <!-- Counter - Alerts -->
+							aria-expanded="false"> <i class="fas fa-bell fa-fw"></i> Counter - Alerts
 								<span class="badge badge-danger badge-counter">3+</span>
-						</a> <!-- Dropdown - Alerts -->
+						</a> Dropdown - Alerts
 							<div
 								class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="alertsDropdown">
@@ -294,15 +307,16 @@
 								</a> <a class="dropdown-item text-center small text-gray-500"
 									href="#">Show All Alerts</a>
 							</div></li>
-
-						<!-- Nav Item - Messages -->
+ -->
+ <!--   오른쪽 상단 7 메시지표시
+						Nav Item - Messages
 						<li class="nav-item dropdown no-arrow mx-1"><a
 							class="nav-link dropdown-toggle" href="#" id="messagesDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <i class="fas fa-envelope fa-fw"></i>
-								<!-- Counter - Messages --> <span
+								Counter - Messages <span
 								class="badge badge-danger badge-counter">7</span>
-						</a> <!-- Dropdown - Messages -->
+						</a> Dropdown - Messages
 							<div
 								class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="messagesDropdown">
@@ -356,7 +370,9 @@
 								</a> <a class="dropdown-item text-center small text-gray-500"
 									href="#">Read More Messages</a>
 							</div></li>
-
+ -->
+ 
+ 
 						<div class="topbar-divider d-none d-sm-block"></div>
 
 						<!-- Nav Item - User Information -->
@@ -407,7 +423,7 @@
 						<!--
 ${boardTotal}  총 게시물 값 받아옴
 ${boardToday}  오늘의 게시물 값만 받아옴
--->
+		-->
 						<!-- 오늘의 총 게시물 수-->
 						<div class="col-xl-4 col-md-6 mb-2">
 							<div class="card border-left-primary shadow h-100 py-2">
@@ -416,7 +432,7 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 										<div class="col mr-6">
 											<div
 												class="text-l font-weight-bold text-primary text-uppercase mb-3">
-												고객님들의 총 게시판 게시물 수</div>
+												고객님들의 게시판 총 게시물 수</div>
 											<div class="h3 mb-0 font-weight-bold text-gray-800">${boardTotal}</div>
 										</div>
 										<div class="col-auto">

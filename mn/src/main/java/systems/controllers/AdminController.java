@@ -38,7 +38,6 @@ public class AdminController {
 		
 		model.addAttribute("petDog", Dog);
 		model.addAttribute("petCat", Cat);
-
 	}
 	
 

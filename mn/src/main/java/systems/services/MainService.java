@@ -3,6 +3,7 @@ package systems.services;
 import java.util.List;
 import java.util.Map;
 
+import systems.domains.AdVO;
 import systems.domains.ContentReplyVO;
 import systems.domains.ContentVO;
 import systems.domains.MemberVO;
@@ -39,11 +40,26 @@ public interface MainService {
 	//con_num에 해당하는 댓글 리스트 가져오기
 	public List<Map<String, String>> getReplyList(int con_num);
 	
-	//북마크 순으로 인기글 3개 가져오기
+	//con_num에 해당하는 컨텐츠 조회수 1 올리기
+	public void addViewCount(int con_num);
 	
-	// 최신글 3개 가져오기 (같은 날짜에 3개이상이라면 랜덤으로)
+	//조회수 많은 순으로 3개 정보글 얻어오기
+	public List<ContentVO> getpopular();
 	
-	//광고 가져오기
+	// 최신글 3개 가져오기 
+	public List<ContentVO> getLatest();
+	
+	//넘어온 re_content와 re_num으로 해당 댓글 내용 업데이트
+	public void replyupdate(ContentReplyVO vo);
+	
+	//넘어온 re_num 댓글 삭제
+	public void replydelete(ContentReplyVO vo);
+	
+	//con_num에 해당하는 컨텐츠 수정하기
+	public void updateContent(ContentVO vo);
+	
+	// 광고 가져오기
+	public List<AdVO> getAllAD();
 	
 	
 }

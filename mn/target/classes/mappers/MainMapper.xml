@@ -21,12 +21,15 @@
 
 <!-- // con_cate 이용하여 해당 카테고리 정보 모두 가져오기 -->
 <select id="getCateContent" parameterType="String" resultType="content">
-	select * from content where con_cate=#{con_cate}
+	select * from content where con_cate=#{con_cate} order by con_date DESC
 </select>
 
 <!-- keyword 포함하는 컨텐츠 전부 가져오기 -->
 <select id="searchAll" parameterType="String" resultType="content">
-	select * from content where con_content LIKE '%'||#{keyword}||'%'
+	select * 
+	from content 
+	where (con_content LIKE '%'||#{keyword}||'%' OR con_title LIKE '%'||#{keyword}||'%' )
+	order by con_date DESC
 </select>
 <!-- mem_num에 해당하는 북마크 가져오기 -->
 <select id="getBookmark" parameterType="String" resultType="String">
@@ -51,6 +54,7 @@
 	INNER JOIN member
 	ON member.mem_num = contentreply.mem_num
 	WHERE con_num=#{con_num}
+	ORDER BY re_date DESC
 </select>
 
 <!-- 해당 mem_num 의 가장 최근 댓글 가져오기 -->
@@ -62,6 +66,50 @@
 	WHERE member.mem_num=#{mem_num}
 	ORDER BY re_date DESC)
 	WHERE rownum=1
+</select>
+
+<!-- 해당 con_num의 조회수 1 증가시키기 -->
+<update id="addViewCount" parameterType="Integer">
+	UPDATE content SET viewcount = viewcount+1 WHERE con_num = #{con_num}
+</update>
+
+<!-- 조회수 가장 높은 3개 정보글 얻어오기 -->
+<select id="getpopular" resultType="content">
+	<![CDATA[
+	select *
+	from (select * from content order by viewcount desc)
+	where rownum <=3
+	]]>
+</select>
+
+<!-- 가장 최신 정보글 3개 얻어오기 -->
+<select id="getLatest" resultType="content">
+	<![CDATA[
+	select *
+	from (select * from content order by con_date desc)
+	where rownum <=3
+	]]>
+</select>
+
+<!-- 댓글 업데이트 -->
+<update id="replyupdate" parameterType="contentreply">
+	UPDATE contentreply SET re_content = #{re_content} WHERE re_num = #{re_num}
+</update>
+
+<!-- 댓글 삭제 -->
+<delete id="replydelete">
+	DELETE FROM contentreply WHERE re_num=#{re_num}
+</delete>
+
+<!-- 정보글 수정 업데이트 -->
+<update id="updateContent" parameterType="content">
+	UPDATE content 
+	SET con_cate = #{con_cate}, con_title = #{con_title}, con_content = #{con_content}
+	WHERE con_num = #{con_num}
+</update>
+
+<select id="getAllAD" resultType="ad">
+	select * from ad
 </select>
 
 </mapper>

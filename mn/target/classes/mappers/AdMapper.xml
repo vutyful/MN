@@ -8,4 +8,19 @@
 		select *
 		from AD
 	</select>
+	<!-- 광고 삭제 -->
+	<delete id="adDelete" parameterType="ad">
+		delete from ad
+		where
+		ad_num = ${ad_num}
+	</delete>
+	
+	<!-- 광고 등록 이미지까지. date형 날짜 ' '로 처리해줘야지 날짜로 제대로 들어감.  SEQ_AD.nextval
+	' ' 안하면 2021-03-25 뺄셈 값이 insert됨. -->
+	<insert id="adInsertConfirm" parameterType="ad">
+	Insert into ad(ad_num,ad_name,ad_link,startdate,enddate,ad_img)
+	values(SEQ_AD.nextval,'${ad_name}','${ad_link}','${startdate}','${enddate}','${ad_img}')
+	</insert>
+	
+	
 </mapper>

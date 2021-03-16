@@ -28,15 +28,26 @@ public class BoardDAOImpl implements BoardDAO{
 	public List<BoardVO> boardTotal(BoardVO vo) {
 //		System.out.println("===> Mybatis boardTotal() 호출");
 		return mybatis.selectList("BoardMap.boardTotal", vo);
-	}
-	//관리자페이지 통계 게시판 글 총수
+	}//관리자페이지 통계 게시판 글 총수
 	
 	
 	public List<BoardVO> boardToday(BoardVO vo) {
 //		System.out.println("===> Mybatis boardToday() 호출");
 		return mybatis.selectList("BoardMap.boardToday", vo);
-	}
-	//관리자페이지 통계 계시판 오늘 글 수
+	}//관리자페이지 통계 계시판 오늘 글 수
 	
+	
+	public int boardHide(BoardVO vo) {
+		return mybatis.update("BoardMap.boardHide" , vo);
+	}//관리자게시판 글 숨기기버튼
+	
+	public int boardShow(BoardVO vo) {
+		return mybatis.update("BoardMap.boardShow" , vo);
+	}//관리자게시판 글 나타내기버튼
 
+	public BoardVO boardContent(BoardVO vo) {
+		return mybatis.selectOne("BoardMap.boardContent" , vo);
+		
+	};//관리자게시판 게시글관리 - 글내용 뷰페이지
+	
 }
