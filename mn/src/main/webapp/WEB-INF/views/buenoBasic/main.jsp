@@ -3,7 +3,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file = "/header.jsp" %>
 
-
+<!-- Stylesheet -->
+    <link rel="stylesheet" href="/mn/resources/bueno/style2.css">
     <!-- ##### 메인 슬라이더 area ##### -->
     <div class="hero-area" style="margin-top: 100px; margin-bottom: 80px;">
         <!-- Hero Post Slides -->

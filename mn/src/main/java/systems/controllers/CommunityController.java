@@ -74,20 +74,14 @@ public class CommunityController {
 			
 			List<Map> list = CommunityServiceImpl.boardDetail(bo_num);
 			System.out.println("여기"+list.get(0));
+			
 			model.addAttribute("data",list.get(0));
 			
 			
 			//댓글 목록
-			 List<HashMap<String, Object>> replyVO = CommunityServiceImpl.getReplyList(bo_num); 
-			
-			
+			List<HashMap<String, Object>> replyVO = CommunityServiceImpl.getReplyList(bo_num); 
 			System.out.println("댓글목록 getReplyList_controller");
-			 /* System.out.println(replyVO.size());
-			 * System.out.println("작성자"+replyVO.get(0).getRe_num());
-			 * System.out.println("작성날짜"+replyVO.get(0).getRe_date());
-			 * System.out.println("댓글 내용"+replyVO.get(0).getRe_content());
-			 */
-			System.out.println("작성자"+replyVO.get(0).get("mem_name"));
+
 			model.addAttribute("rvo",replyVO);
 			
 			return "communityBoard/communityboard_Reply";
@@ -111,12 +105,16 @@ public class CommunityController {
 				 }
 			return 0; //실패할때
 	};
+	
 		// 댓글 삭제
-		@RequestMapping	(value= "communityBoard/deleteReply.do")	
-		public String deleteReply(int re_num) {
-			
-			CommunityServiceImpl.delReply(re_num);
-			
-			return "0";
+		@RequestMapping	(value= "communityBoard/deleteReply.do")
+		@ResponseBody
+		public int deleteReply(int re_num) {
+			System.out.println("댓글삭제 컨트롤러 :" + re_num);
+			int delresult = CommunityServiceImpl.delReply(re_num);
+			if(delresult==1) {
+				return 1; //댓글 삭제 성공
+			}
+			return 0; // 삭제 실패
 		};
 }

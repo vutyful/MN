@@ -31,6 +31,7 @@ public class RegisterDaoImpl implements RegisterDAO {
 		return mybatis.insert("user.userInsertKaKao", vo);
 	}
 
+	//일반로그인
 	@Override
 	public MemberVO login(MemberVO vo) {
 		System.out.println("mybatis login 호출" + vo.getMem_email()+vo.getMem_pass());
