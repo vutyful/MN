@@ -48,8 +48,4 @@ public class MemberVO {
 	public void setMem_email(String mem_email) {
 		this.mem_email = mem_email;
 	}
-	
-
-
-
 }

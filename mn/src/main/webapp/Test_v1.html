@@ -34,9 +34,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   <body>
     <header>
       <details open>
-        <summary>Hit Test</summary>
+        <summary>증강 현실을 통한 제품의 가상 배치</summary>
         <p>
-          This sample demonstrates use of hit testing to place virtual objects on real-world surfaces.
+          제품을 증강현실을 통해 가상의 현실에 미리 배치해 볼 수 있습니다.
+          WebXR이 지원되는 기기와 브라우저가 필요하며, 지원되지 않을 경우 사용할 수 없습니다.
           <a class="back" href="./">Back</a>
         </p>
       </details>
@@ -90,9 +91,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         xrButton = new WebXRButton({
           onRequestSession: onRequestSession,
           onEndSession: onEndSession,
-          textEnterXRTitle: "START AR",
-          textXRNotFoundTitle: "AR NOT FOUND",
-          textExitXRTitle: "EXIT  AR",
+          textEnterXRTitle: "AR 시작하기",
+          textXRNotFoundTitle: "AR이 지원되지 않는 브라우저 혹은 기기 입니다.",
+          textExitXRTitle: "AR 끝내기",
         });
         document.querySelector('header').appendChild(xrButton.domElement);
 
