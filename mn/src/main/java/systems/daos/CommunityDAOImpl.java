@@ -28,7 +28,8 @@ public class CommunityDAOImpl implements CommunityDAO{
 	}
 	//게시판 목록 
 	@Override
-	public List<BoardVO> getBoardList() {
+	public List<BoardVO> getBoardList(){
+	
 		System.out.println("mybatis getBoardList 호출");
 		return mybatis.selectList("CommuMap.getBoardList");
 	}
@@ -58,14 +59,14 @@ public class CommunityDAOImpl implements CommunityDAO{
 		System.out.println("mybatis getReplyList 호출");
 		
 		List<HashMap<String, Object>> list = mybatis.selectList("CommuMap.getReplyList",bo_num);
-		System.out.println(bo_num);
 		return list; 
 	}
 	//댓글 삭제
 	@Override
-	public void delReply(int re_num) {
-		mybatis.delete("CommuMap.delReply", re_num);
+	public int delReply(int re_num) {
+		int delresult = mybatis.delete("CommuMap.delReply", re_num);
 		System.out.println("mybatis delReply 호출");
+		return delresult;
 	}
 
 	

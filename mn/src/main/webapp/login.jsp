@@ -83,7 +83,7 @@ button{
                     <input type="text" id="mem_name" name="mem_name" class="input-field" placeholder="이름을 입력하세요" required="">
                     <div id = "mem_name_check"></div>
                     
-                    <input type="password" id="mem_pass" name="mem_pass" class="input-field" placeholder="영문 소문자, 특수문자,숫자를 4이상 모두 포함" required="">
+                    <input type="password" id="mem_pass" name="mem_pass" class="input-field" placeholder="영문 소문자, 특수문자,숫자를 5이상 모두 포함" required="">
                     <input placeholder="비밀번호를 다시 입력하세요." id="mem_pass_ck" type="password"  class="input-field">
                     <div id = "mem_pass_check"></div>
                     
