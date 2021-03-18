@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%-- <%@include file = "/header.jsp" %> --%>
+<html lang="ko">
+<head>
+<!-- 네이버 로그인 필요 js -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+<!-- 카카오 로그인 필요 js -->
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
 
 
 <link rel="stylesheet"
@@ -22,6 +28,27 @@ body{
 background-color: white;
 }
 
+@font-face{
+	font-family: "esamanru";
+	src: url("resources/bueno/fonts/esamanru Light.ttf");
+}
+
+button{
+	font-family: esamanru;
+	text-align: center;
+}
+
+#kakao-login-btn{
+	margin-top: 10px; 
+	margin-left: 15px;
+}
+
+#naverIdLogin > a > img{
+	width: 222px;
+	height: 49px;
+	margin-left: 30px;
+}
+
 </style>
 </head>
 
@@ -31,8 +58,8 @@ background-color: white;
             <div class="form-wrap">
                 <div class="button-wrap">
                     <div id="all_btn"></div>
-                    <button type="button" class="togglebtn" onclick="login()">LOG IN</button>
-                    <button type="button" class="togglebtn" onclick="register()">REGISTER</button>
+                    <button type="button" class="togglebtn" onclick="login()">&nbsp;&nbsp;&nbsp;&nbsp;로그인</button>
+                    <button type="button" class="togglebtn" onclick="register()">회원가입</button>
                 </div>
 <!--                 <div class="social-icons">
                     <img src="img/fb.png" alt="facebook">
@@ -43,8 +70,12 @@ background-color: white;
                     <input name="mem_email" type="text" class="input-field" placeholder="아이디:sy10201220@naver.com" required>
                     <input name="mem_pass"  type="password" class="input-field" placeholder="비번:qqq111!!" required="">
                    
-                    <button id="last_login_btn"class="submit">Login</button>
-                    
+                    <button id="last_login_btn"class="submit">로그인</button>
+                    <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+                    <div id="naverIdLogin" style="margin-top: 15px;"></div>
+                    <!-- 카카오계정으로 로그인 버튼 노출 영역 -->
+                    <a id="kakao-login-btn"></a>
+  					<a href="http://developers.kakao.com/logout"></a>
                 </form>
                 <!-- <p id="token-result"></p> -->
 	
@@ -62,7 +93,7 @@ background-color: white;
                     
                     <input placeholder="핸드폰 번호를 입력하세요'-'는 제외"name="mem_tel" type="tel" class="input-field">
                     <div id = "mem_tel_check"></div>
-                    <button id="last_register_btn" name="last_register_btn"class="submit">REGISTER</button>
+                    <button id="last_register_btn" name="last_register_btn"class="submit">가입하기</button>
                 </form>
         </div>
             
@@ -78,8 +109,55 @@ background-color: white;
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <!-- validate 유효성  -->
 <script src="resources/js/jquery.validate.min.js" type="text/javascript"></script>
+
+<!-- 네이버아디디로로그인 초기화 Script -->
+<script type="text/javascript">
+	var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "aCUzCh7VHWRdUn3uzB77",
+			callbackUrl: "http://192.168.0.79:8080/mn/naverLogin.jsp",
+			isPopup: false, /* 팝업을 통한 연동처리 여부 */
+			loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+		}
+	);
+	
+	/* 설정정보를 초기화하고 연동을 준비 */
+	naverLogin.init();
+	
+</script>
+
+<!-- 카카오톡 로그인 -->
+<script type="text/javascript">
+// 사용할 앱의 JavaScript 키를 설정해 주세요.
+Kakao.init('965db0eb53584dc6dd507e3f0ba041f9');
+// 카카오 로그인 버튼을 생성합니다.
+Kakao.Auth.createLoginButton({
+    container: '#kakao-login-btn',
+    success: function (authObj) {
+        alert(JSON.stringify(authObj));
+        console.log(JSON.stringify(authObj));
+        // access_token으로 사용자 정보 요청하기
+    	Kakao.API.request({
+			url : '/v2/user/me',
+			success : function(res) {
+				alert(JSON.stringify(res))
+				var mem_email = res.kakao_account.email; //유저의 이메일
+				
+				window.location.replace("http://"+window.location.hostname + 
+						((location.port==""||location.port==undefined)?"":":"+location.port)+
+						"/mn/buenoBasic/main.do?mem_email="+mem_email); 
+				}
+			})
+    },
+    fail: function (err) {
+        alert(JSON.stringify(err));
+    }
+});
+
+</script>
+
 <!-- jquery 시작 -->
-	<script type="text/javascript">
+<script type="text/javascript">
 	
     var loginBtn = document.getElementById("login");
     var registerBtn = document.getElementById("register");
@@ -98,65 +176,7 @@ background-color: white;
     	all_btn.style.left = "110px";
     }
 		
-/*  		window.Kakao.init("b5962eb8bac4b1582f7add2df8a18c37");
-
-		Kakao.Auth.createLoginButton({
-			container : '#kakao-login-btn',
-			success : function(authObj) {
-				Kakao.API.request({
-					url : '/v2/user/me',
-					success : function(res) {
-						alert(JSON.stringify(res))
-
-						var username = res.id; //유저의 카카오톡 고유 id
-						var m_Email = res.kakao_account.email; //유저의 이메일
-						var m_Name = res.properties.nickname; //유저가 등록한 별명
-
-						console.log(username);
-						console.log(m_Email);
-						console.log(m_Name);
-
-						var objPrmtr = new Object(); //key, value형태로 저장할 Object
-
-						objPrmtr.username = username;
-						objPrmtr.m_Email = m_Email;
-						objPrmtr.m_Name = m_Name;
-						//여기까지가 계정 정보를 받아온거니까.
-						
-						//뭐로비교하지 
-						
-						/* $.ajax({
-							type : 'post',
-							url : '/mn/userInsertKaKao.do',
-							contentType : 'application/json; charset=UTF-8',
-							traditional : true,
-							data : JSON.stringify(objPrmtr),
-							dataType : 'json',
-							success : function(data) {
-								alert('로그인이 완료 되었습니다.');
-								location.href = "/index.jsp";
-							},
-							error : function(err) {
-								//err msg 출력
-								alert("로그인 실패하였습니다.");
-
-								console.log(err)
-							}
-						}) 
-					},
-					fail : function(error) {
-						alert("로그인 실패하였습니다.");
-						//   alert(JSON.stringify(error));
-					}
-				});
-			},
-			fail : function(err) {
-				alert(JSON.stringify(err));
-			}
-		});
-		  */
-		
-//회원가입
+	//회원가입 & 로그인
 	$(function() {
  		//회원가입 form에 기입을 배열로 처리하여 입력 여부 결정
  		var inval_Arr = new Array(4).fill(false);   //Array()안에 숫자는 fill함수 안에 인자 값의 수 
