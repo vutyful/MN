@@ -19,8 +19,11 @@ public interface MainService {
 	// con_num 이용하여 컨텐츠 정보 가져오기(컨텐츠 상세)
 	public ContentVO getOneContent(int con_id);
 	
-	// con_cate 이용하여 해당 카테고리의 컨텐츠 가져오기
-	public List<ContentVO> getCateContent(String con_cate);
+	// con_cate,pageNo 이용하여 해당 카테고리, 해당 페이지의 레코드 9개 가져오기
+	public List<ContentVO> getCateContent(String con_cate,int pageNo);
+	
+	// con_cate 이용하여 해당 카테고리의 총 페이지 갯수 구하기
+	public int getTotalPage(String con_cate);
 	
 	//keyword 포함하는 컨텐츠 전부 가져오기
 	public List<ContentVO> searchAll(String keyword);
@@ -61,5 +64,15 @@ public interface MainService {
 	// 광고 가져오기
 	public List<AdVO> getAllAD();
 	
+	// 네이버로 로그인 시 회원 정보 입력
+	public void naverRegist(MemberVO vo);
 	
+	//mem_num으로 회원정보 가져오기
+	public MemberVO getMember(String mem_num);
+	
+	// 네이버 로그인 정보 저장 직후 현재 seq_mem 얻어오기
+	public String getNowSeq();
+	
+	// 네이버 로그인 시 회원가입 여부 확인
+	public Object naverCheck(String mem_email);
 }

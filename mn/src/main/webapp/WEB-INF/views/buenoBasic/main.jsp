@@ -109,51 +109,7 @@
     <!-- ##### 최신글 끝 ##### -->
 
     <!-- ##### Big Posts Area Start ##### -->
-     <div class="big-posts-area mb-50">
-        <div class="container">
-            <!-- Single Big Post Area -->
-            <div class="row align-items-center">
-                <div class="col-12 col-md-6">
-                    <div class="big-post-thumbnail mb-50">
-                        <img src="/mn/resources/bueno/img/bg-img/7.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="big-post-content text-center mb-50">
-                        <a href="#" class="post-tag">Healthy</a>
-                        <a href="#" class="post-title">Friend eggs with ham</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt augue pellentesque. Suspendisse vestibulum sem in eros maximus, pretium commodo turpis convallis. Aenean scelerisque orci quis urna tempus, vitae interdum velit aliquet.</p>
-                        <a href="#" class="btn bueno-btn">Read More</a>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Single Big Post Area -->
-            <div class="row align-items-center">
-                <div class="col-12 col-md-6">
-                    <div class="big-post-content text-center mb-50">
-                        <a href="#" class="post-tag">The Best</a>
-                        <a href="#" class="post-title">Steak with boiled vegetables</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt augue pellentesque. Suspendisse vestibulum sem in eros maximus, pretium commodo turpis convallis. Aenean scelerisque orci quis urna tempus, vitae interdum velit aliquet.</p>
-                        <a href="#" class="btn bueno-btn">Read More</a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="big-post-thumbnail mb-50">
-                        <img src="/mn/resources/bueno/img/bg-img/8.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- ##### Big Posts Area End ##### -->
 
     <!-- ##### Posts Area End ##### -->
@@ -195,7 +151,6 @@
             </div>
         </div>
     </div> -->
-
     <!-- ##### Posts Area End ##### -->
 
     <!-- ##### Instagram Area Start ##### -->

@@ -71,52 +71,95 @@ public class MainController {
 	
 	/**메인페이지 로딩*/
 	@RequestMapping("buenoBasic/main.do")
-	public void main(Model m,HttpSession session) {
+	public void main(String mem_email,Model m,HttpSession session) {
+		//sns (카카오,네이버)로 로그인 시 db에 저장 후 세션에 저장
+		if(mem_email != null) {
+			Object check= mainService.naverCheck(mem_email);
+			// 등록되지 않은 네이버 아이디라면 회원정보 등록 후 세션 저장, 북마크까지 가져오기
+			if(check == null) {
+				System.out.println("네이버 이메일"+mem_email);
+				MemberVO vo = new MemberVO();			
+				
+				vo.setMem_email(mem_email);
+				vo.setMem_name(mem_email.substring(0, mem_email.indexOf("@")));
+				
+				// db에 입력 후 해당 mem_num 가져오기
+				mainService.naverRegist(vo);
+				String mem_num = vo.getMem_num();
+				//세션에 회원정보 저장
+				session.setAttribute("userInfo", mainService.getMember(mem_num));
+			}else { //이미 있는 아이디면 해당 mem_num으로 레코드 가져와서 세션에 바로 저장
+				session.setAttribute("userInfo", (MemberVO)check);
+			}
+		}
 		//슬라이더 정보글 가져오기
 		List<ContentVO> result = mainService.getAllContent();
 		m.addAttribute("contents",result);
-		MemberVO mem = (MemberVO)session.getAttribute("userInfo");
-		//로그인 된 상태일때만 북마크 리스트 가져오기
-		if(mem!=null) {
-			//내 북마크 리스트 로딩
-			// mem_num으로 북마크 값 가져오기
-			String mem_num = mem.getMem_num();
-			String bm = mainService.getBookmark(mem_num);
-			if(bm!=null) { //북마크가 있을 때만
-				// 가져온 북마크 파싱
-				String[] bms = bm.split("/");
-				// 북마크들 담을 list
-				List<ContentVO> list = new ArrayList<ContentVO>();
-				for(String con_num:bms) {
-					list.add(mainService.getOneContent(Integer.parseInt(con_num)));
-				}
-				session.setAttribute("bookmarks", list);
-			}
-		}
 		//인기 정보 3개 가져오기
 		m.addAttribute("popular", mainService.getpopular());
 		//최신 정보 3개 가져오기
 		m.addAttribute("latest", mainService.getLatest());
-		
+		// 북마크 처리
+			MemberVO mem = (MemberVO)session.getAttribute("userInfo");
+			//로그인 된 상태일때만 북마크 리스트 가져오기
+			if(mem!=null) {
+				//내 북마크 리스트 로딩
+				// mem_num으로 북마크 값 가져오기
+				String mem_num = mem.getMem_num();
+				String bm = mainService.getBookmark(mem_num);
+				if(bm!=null) { //북마크가 있을 때만
+					// 가져온 북마크 파싱
+					String[] bms = bm.split("/");
+					// 북마크들 담을 list
+					List<ContentVO> list = new ArrayList<ContentVO>();
+					for(String con_num:bms) {
+						list.add(mainService.getOneContent(Integer.parseInt(con_num)));
+					}
+					session.setAttribute("bookmarks", list);
+				}
+			}
 		
 	}
 	
 	/**infoList 페이지 불러오기(건강, 행동 리스트)*/
 	@RequestMapping("buenoBasic/infoList.do")
-	public void infoList(String con_cate, Model m) {
-		// 메인에서 카테고리 이름 받아와서 con_cate 해당 카테고리 목록 가져오기
-		List<ContentVO> result = mainService.getCateContent(con_cate);
+	public void infoList(String con_cate,int pageNo, Model m) {
+		int totalpage = mainService.getTotalPage(con_cate); // 총 페이지 갯수
+		System.out.println("페이지번호"+pageNo);
+		// 총 페이지 갯수보다 페이지 번호가 크다면 페이지는 총 페이지 갯수
+		if(totalpage < pageNo) {
+			pageNo = totalpage;
+		}
+		// 화면에 띄울 페이지 갯수 10개
+		int pagecount = 10;
+		
+		int startpage = ((pageNo-1)/pagecount) * pagecount +1;
+		int endpage = startpage + pagecount - 1;
+		
+		// con_cate, pageNo 받아 해당 카테고리 목록 가져오기 (메인에서 접근시 pageNo = 1)
+		List<ContentVO> result = mainService.getCateContent(con_cate,pageNo);
 		m.addAttribute("ConList", result);
-		m.addAttribute("cate", result.get(0).getCon_cate());
+		m.addAttribute("cate", con_cate);
+		// 페이지 10개씩 띄우기
+		m.addAttribute("start",startpage);
+		m.addAttribute("end",endpage);
+		m.addAttribute("total", totalpage);
+		m.addAttribute("now", pageNo);
+		
 	}
 	
 	/**infoCard 페이지 불러오기 (음식, 백과 리스트)*/
 	@RequestMapping("buenoBasic/infoCard.do")
-	public void infoCard(String con_cate, Model m) {
-		// 메인에서 카테고리 이름 받아와서 con_cate 해당 카테고리 목록 가져오기
-		List<ContentVO> result = mainService.getCateContent(con_cate);
+	public void infoCard(String con_cate, int pageNo,Model m) {
+		
+		// con_cate, pageNo 받아 해당 카테고리 목록 가져오기 (메인에서 접근시 pageNo = 1)
+		List<ContentVO> result = mainService.getCateContent(con_cate,pageNo);
 		m.addAttribute("ConList", result);
 		m.addAttribute("cate", result.get(0).getCon_cate());
+		
+		// 페이지 갯수 띄우기
+		int totalpage = mainService.getTotalPage(con_cate);
+		m.addAttribute("pages", totalpage);
 	}
 	
 	
