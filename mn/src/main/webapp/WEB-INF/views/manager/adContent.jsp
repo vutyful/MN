@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>관리자페이지 - 게시판관리</title>
+<title>관리자페이지 - 광고 열람/수정</title>
 
 <!-- Custom fonts for this template -->
 <link
@@ -31,7 +31,12 @@
 <link
 	href="/mn/resources/manager/vendor/datatables/dataTables.bootstrap4.min.css"
 	rel="stylesheet">
-
+<style>
+.adimg {
+	max-width: 100%;
+	height: auto !important;
+}
+</style>
 </head>
 
 <body id="page-top">
@@ -65,27 +70,27 @@
 
 
 			<!-- tables 형태 게시판관리.-->
-			<li class="nav-item active"><a class="nav-link"
+			<li class="nav-item"><a class="nav-link"
 				href="/mn/manager/board.do"> <i class="fas fa-fw fa-table"></i>
 					<span>게시판 관리</span>
 			</a></li>
 
 			<!-- tables 형태 광고관리.-->
 
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
+			<li class="nav-item active"><a class="nav-link" href="#"
 				data-toggle="collapse" data-target="#collapsePages"
 				aria-expanded="true" aria-controls="collapsePages"> <i
 					class="fas fa-fw fa-folder"></i> <span>광고 관리</span></a>
-				<div id="collapsePages" class="collapse"
-					aria-labelledby="headingPages" data-parent="#accordionSidebar">
+				<div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">MANAGE LIST:</h6>
-						<a class="collapse-item" href="/mn/manager/ad.do">광고 목록</a> <a
-							class="collapse-item" href="/mn/manager/adInsert.do">광고 등록</a>
+							<a class="collapse-item active" href="/mn/manager/ad.do">광고
+							목록</a>
+						<a class="collapse-item" href="/mn/manager/adInsert.do">광고
+							등록</a>
 					</div>
 				</div></li>
-
-
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
@@ -99,7 +104,6 @@
 						<h6 class="collapse-header">MANAGE LIST:</h6>
 						<a class="collapse-item" href="/mn/manageContents/ContentsList.do">컨텐츠
 							목록</a>
-
 					</div>
 				</div></li>
 
@@ -144,23 +148,23 @@
 			<!-- Main Content -->
 			<div id="content">
 
-				<!-- Topbar -->
+						<!-- Topbar -->
 				<nav
 					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
 					<!-- Page Heading -->
 					<h1 class="h3 mb-4 text-gray-800"
-						style="margin-bottom: 0.5rem !important">게시판 관리</h1>
+						style="margin-bottom: 0.5rem !important">광고 관리</h1>
 				</nav>
-				<!-- Sidebar Toggle (Topbar) -->
-				<form class="form-inline">
-					<button id="sidebarToggleTop"
-						class="btn btn-link d-md-none rounded-circle mr-3">
-						<i class="fa fa-bars"></i>
-					</button>
-				</form>
+					<!-- Sidebar Toggle (Topbar) -->
+					<form class="form-inline">
+						<button id="sidebarToggleTop"
+							class="btn btn-link d-md-none rounded-circle mr-3">
+							<i class="fa fa-bars"></i>
+						</button>
+					</form>
 
-				<!--             Topbar Search
+					<!--             Topbar Search
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
@@ -174,63 +178,41 @@
                         </div>
                     </form> -->
 
-				<!-- Topbar Navbar -->
-				<ul class="navbar-nav ml-auto">
-					<!-- 
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">
+					
+						<div class="topbar-divider d-none d-sm-block"></div>
 
-                        Nav Item - Search Dropdown (Visible Only XS)
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+						<!-- Nav Item - User Information -->
+						<li class="nav-item dropdown no-arrow">
+							<!--                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            Dropdown - Messages
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-                        
- -->
-	
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a> --> <!-- Dropdown - User Information -->
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<a class="dropdown-item" href="#"> <i
+									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+								</a> <a class="dropdown-item" href="#"> <i
+									class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+									Settings
+								</a> <a class="dropdown-item" href="#"> <i
+									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+									Activity Log
+								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									Logout
+								</a>
+							</div>
+						</li>
 
-					<div class="topbar-divider d-none d-sm-block"></div>
-
-					<!-- Nav Item - User Information -->
-					<li class="nav-item dropdown no-arrow">
-			
-						<div
-							class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-							aria-labelledby="userDropdown">
-							<a class="dropdown-item" href="#"> <i
-								class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-							</a> <a class="dropdown-item" href="#"> <i
-								class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings
-							</a> <a class="dropdown-item" href="#"> <i
-								class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity
-								Log
-							</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#" data-toggle="modal"
-								data-target="#logoutModal"> <i
-								class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-								Logout
-							</a>
-						</div>
-					</li>
-
-				</ul>
+					</ul>
 
 				</nav>
 				<!-- End of Topbar -->
@@ -239,70 +221,76 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-2 text-gray-800">게시판 목록</h1>
-					<p class="mb-4">현재 등록된 게시글의 목록을 볼 수 있습니다.</p>
-					<!--    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+
+					<h1 class="h3 mb-2 text-gray-800">광고 열람 / 수정</h1>
+				<p class="mb-4">광고의 내용을 열람하거나 수정 할 수 있습니다.</p>
+					<!--                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<!--           <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
+							<!--             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
 						</div>
 						<div class="card-body">
-							<div class="table-responsive">
-								<table class="table table-bordered" id="dataTable" width="100%"
-									cellspacing="0">
-									<thead>
-										<tr>
-											<th>게시글 번호</th>
-											<th>글 제목</th>
-											<th>카테고리</th>
-											<th>작성일</th>
-											<!--     <th>글 내용</th> -->
-											<th>멤버아이디</th>
-											<th>글삭제</th>
-											<th>글 숨기기</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach items="${boardList}" var="board">
-											<tr>
-												<td>${board.bo_num}</td>
-												<td><a
-													href="/mn/manager/boardContent.do?bo_num=${board.bo_num}">${board.bo_title}</a></td>
-												<td>${board.bo_cate}</td>
-												<td>${board.bo_date}</td>
-												<%--  <td>${board.bo_content}</td> --%>
-												<td>${board.mem_num}</td>
-												<!--  광고 삭제 버튼-->
-												<td><a
-													href="/mn/manager/boardDelete.do?bo_num=${board.bo_num}"
-													onclick="return confirm('정말 삭제하시겠습니까?');"
-													class="btn btn-danger btn-circle" id="deletebtn"> <i
-														class="fas fa-trash"></i></a></td>
+							<form action="/mn/manager/adModify.do" name='form'
+								enctype="multipart/form-data" method='post'>
+								<table border="3">
+									<tr>
+										<!-- 	<input type="hidden" name="ad_num" >  -->
+										<!-- 			<td>광고번호</td>
+										<td><input type="text" name="ad_num"></td>  -->
+									</tr>
+									<tr>
+										<td>광고이름</td>
+										<td><input type="text" name="ad_name"
+											value="${adContent.ad_name}"></td>
+									</tr>
+									<tr>
+										<td>광고링크주소</td>
+										<td><input type="text" name="ad_link"
+											value="${adContent.ad_link}"></td>
+									</tr>
+									<tr>
+										<td>광고이미지</td>
+										<td><input type="file" name="file">수정전 파일명 :
+											${adContent.ad_img}</td>
+									</tr>
+									<tr>
+										<td>광고시작일</td>
+										<td><input type="date" name="startdate"
+											value="${adContent.startdate}"></td>
+									</tr>
+									<tr>
+										<td>광고종료일</td>
+										<td><input type="date" name="enddate"
+											value="${adContent.enddate}"></td>
+									</tr>
+									<tr>
+										<input type="hidden" name="ad_num" value="${adContent.ad_num}">
+									</tr>
 
-												<td>
-													<!-- 글 숨기기버튼 or 보여주기 버튼 c choose태그를 사용 --> <c:choose>
-														<c:when test="${board.bo_state eq 'y'}">
-															<a href="/mn/manager/boardHide.do?bo_num=${board.bo_num}"
-																class="btn btn-info btn-circle"> <i
-																class="fas fa-info-circle"></i></a>
-														</c:when>
-
-														<c:when test="${board.bo_state eq 'n'}">
-															<a href="/mn/manager/boardShow.do?bo_num=${board.bo_num}"
-																class="btn btn-warning btn-circle"> <i
-																class="fas fa-exclamation-triangle"></i></a>
-														</c:when>
-													</c:choose>
-												</td>
-											</tr>
-										</c:forEach>
-									</tbody>
+									<td colspan="2" align="center"><input type="submit"
+										value="광고수정" onclick="return confirm('수정하시겠습니까?');" /></td>
 								</table>
-							</div>
+
+                <!--                   <a href="#" class="btn btn-primary btn-icon-split" onclick="$('#myform').submit();">
+	                                        <span class="icon text-white-50">
+	                                            <i class="fas fa-check"></i>
+	                                        </span>
+	                                        <span class="text">수정하기</span>
+	                                    </a> -->
+
+								<a href="/mn/manager/ad.do"
+									" class="btn btn-secondary btn-icon-split"> <span
+									class="icon text-white-50"> <i
+										class="fas fa-arrow-right"></i>
+								</span> <span class="text">목록으로</span>
+								</a>
+
+							</form>
+
 						</div>
 					</div>
 

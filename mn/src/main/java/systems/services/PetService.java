@@ -10,5 +10,15 @@ public interface PetService {
 	
 	List<PetVO> petCat(PetVO vo);//관리자페이지 펫 등록 고양이 수 파이차트
 	
+	//////////////////////////////////////////////////////////////////
+	
+	
+	
+	PetVO petList(PetVO vo);//반려동물 정보
+	
+	int petModify(PetVO vo);//반려동물 수정
+	
+	
+	int petDelete(PetVO vo);//반려동물 삭제
 
 }

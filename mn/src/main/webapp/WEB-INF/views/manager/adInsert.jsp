@@ -60,151 +60,83 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
-			<!-- 
-            Nav Item - Dashboard
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
 
-            Divider
-            <hr class="sidebar-divider">
-
-            Heading
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            Nav Item - Pages Collapse Menu
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.jsp">Buttons</a>
-                        <a class="collapse-item" href="cards.jsp">Cards</a>
-                    </div>
-                </div>
-            </li>
-
-            Nav Item - Utilities Collapse Menu
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
-
-            Divider
-            <hr class="sidebar-divider">
-
-            Heading
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
-            Nav Item - Pages Collapse Menu
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            Nav Item - Charts
-            <li class="nav-item">
-                <a class="nav-link" href="charts.jsp">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            Nav Item - Tables
-            <li class="nav-item">
-                <a class="nav-link" href="tables.jsp">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables </span></a>
-            </li>
-            
-             -->
-
-			<!-- tables 형태  회원관리 -->
+			<!-- tables 형태  통계 collapse 열려잇으면 글씨에 불들어옴.-->
 			<li class="nav-item"><a class="nav-link"
-				href="/mn/manager/statistics.do"> <i
+				href="/mn/manager/statistics.do" data-target="#collapseTwo"
+				aria-expanded="true" aria-controls="collapseTwo"> <i
 					class="fas fa-fw fa-chart-area"></i> <span>통계</span></a></li>
 
-			<!-- tables 형태  회원관리 -->
-			<li class="nav-item"><a class="nav-link" href="member.jsp">
-					<i class="fas fa-fw fa-table"></i> <span>회원관리</span>
-			</a></li>
+
 
 			<!-- tables 형태 게시판관리.-->
 			<li class="nav-item"><a class="nav-link"
 				href="/mn/manager/board.do"> <i class="fas fa-fw fa-table"></i>
-					<span>게시판관리</span></a></li>
+					<span>게시판 관리</span>
+			</a></li>
+
 			<!-- tables 형태 광고관리.-->
-			<!--  
-             		<li class="nav-item active"><a class="nav-link"
-				href="/mn/manager/ad.do" data-target="#collapseTwo" 
-				aria-expanded="true" aria-controls="collapseTwo"> 
-				  <i class="fas fa-fw fa-table"></i> <span>광고관리</span></a>
-			</li>
-             -->
-			<li class="nav-item active"><a class="nav-link collapsed"
-				href="/mn/manager/ad.do" aria-expanded="true" data-toggle="collapse"
-				data-target="#collapseUtilities" aria-expanded="true"
-				aria-controls="collapseUtilities"> <i class="fas fa-fw fa-table"></i>
-					<span>광고 관리</span>
+
+			<li class="nav-item active"><a class="nav-link" href="#"
+				data-toggle="collapse" data-target="#collapsePages"
+				aria-expanded="true" aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-folder"></i> <span>광고 관리</span></a>
+				<div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">MANAGE LIST:</h6>
+							<a class="collapse-item" href="/mn/manager/ad.do">광고
+							목록</a>
+						<a class="collapse-item active" href="/mn/manager/adInsert.do">광고
+							등록</a>
+					</div>
+				</div></li>
+
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapseTwo"
+				aria-expanded="true" aria-controls="collapseTwo"> <i
+					class="fas fa-fw fa-folder"></i> <span>컨텐츠 관리</span>
+			</a>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">MANAGE LIST:</h6>
+						<a class="collapse-item" href="/mn/manageContents/ContentsList.do">컨텐츠
+							목록</a>
+					</div>
+				</div></li>
+
+			<!-- Nav Item - Utilities Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapseUtilities"
+				aria-expanded="true" aria-controls="collapseUtilities"> <i
+					class="fas fa-fw fa-cog"></i> <span>회원 관리</span>
 			</a>
 				<div id="collapseUtilities" class="collapse"
 					aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">AD LIST:</h6>
-						<a class="collapse-item" href="/mn/manager/adInsert.do">광고 등록</a>
-
+						<h6 class="collapse-header">MANAGE LIST:</h6>
+						<a class="collapse-item" href="/mn/manageMembers/MembersList.do">회원
+							목록</a>
 					</div>
 				</div></li>
-
-			<!-- tables 형태 정보관리.-->
-			<li class="nav-item"><a class="nav-link" href="content.jsp">
-					<i class="fas fa-fw fa-table"></i> <span>정보관리</span>
-			</a></li>
 
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
 
-			<!-- Sidebar Toggler (Sidebar) -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			<!--             Sidebar Toggler (Sidebar)
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div> -->
+
+			<!-- Sidebar Message -->
+			<div class="sidebar-card">
+				<img class="sidebar-card-illustration mb-2"
+					src="../resources/manager/img/MN2.png" alt="">
+				<!--  <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a> -->
 			</div>
 
 		</ul>
@@ -220,6 +152,10 @@
 				<nav
 					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
+					<!-- Page Heading -->
+					<h1 class="h3 mb-4 text-gray-800"
+						style="margin-bottom: 0.5rem !important">광고 관리</h1>
+				</nav>
 					<!-- Sidebar Toggle (Topbar) -->
 					<form class="form-inline">
 						<button id="sidebarToggleTop"
@@ -243,7 +179,8 @@
                     </form> -->
 
 					<!-- Topbar Navbar -->
-					<ul class="navbar-nav ml-auto"><!-- 
+					<ul class="navbar-nav ml-auto">
+						<!-- 
 
 						Nav Item - Search Dropdown (Visible Only XS)
 						<li class="nav-item dropdown no-arrow d-sm-none"><a
@@ -268,7 +205,7 @@
 									</div>
 								</form>
 							</div></li> -->
-<!-- 
+						<!-- 
 						Nav Item - Alerts
 						<li class="nav-item dropdown no-arrow mx-1"><a
 							class="nav-link dropdown-toggle" href="#" id="alertsDropdown"
@@ -420,6 +357,7 @@
 					<!-- Page Heading -->
 
 					<h1 class="h3 mb-2 text-gray-800">광고 등록</h1>
+				<p class="mb-4">광고를 등록 할 수 있습니다.</p>
 					<!--                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p> -->
@@ -429,41 +367,57 @@
 						<div class="card-header py-3">
 							<!--             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
 						</div>
-						<div class="card-body">    
+						<div class="card-body">
 							<form action="/mn/manager/adInsertConfirm.do" name='form'
-								enctype="multipart/form-data" method='post' >
+								enctype="multipart/form-data" method='post'>
 								<table border="3">
 									<tr>
-							 	<!-- 	<input type="hidden" name="ad_num" >  -->
-							<!-- 			<td>광고번호</td>
+										<!-- 	<input type="hidden" name="ad_num" >  -->
+										<!-- 			<td>광고번호</td>
 										<td><input type="text" name="ad_num"></td>  -->
 									</tr>
 									<tr>
-										<td>광고이름</td>
+										<td>광고 이름</td>
 										<td><input type="text" name="ad_name"></td>
 									</tr>
 									<tr>
-										<td>광고링크주소</td>
+										<td>광고 링크주소</td>
 										<td><input type="text" name="ad_link"></td>
 									</tr>
 									<tr>
-			 							<td>광고이미지</td>
-										<td><input type="file" name="file"></td> 
+										<td>광고 이미지</td>
+										<td><input type="file" name="file"></td>
 									</tr>
 									<tr>
-										<td>광고시작일</td>
+										<td>광고 시작일</td>
 										<td><input type="date" name="startdate"></td>
 									</tr>
 									<tr>
-										<td>광고종료일</td>
+										<td>광고 종료일</td>
 										<td><input type="date" name="enddate"></td>
+									</tr>
+												<tr>
+										<td>광고 수익</td>
+										<td><input type="number" name="revenue"></td>
 									</tr>
 									<tr>
 										<td colspan="2" align="center"><input type="submit"
 											value="광고등록" onclick="return confirm('등록하시겠습니까?');" /></td>
 								</table>
-
-								<a href="/mn/manager/ad.do">뒤로가기</a>
+								
+		<!-- 						
+								<a href="#" class="btn btn-primary btn-icon-split"
+									onclick="$('#myform').submit();"> <span
+									class="icon text-white-50"> <i class="fas fa-check"></i>
+								</span> <span class="text">등록하기</span>
+								 -->
+								
+								</a> <a href="/mn/manager/ad.do"
+									" class="btn btn-secondary btn-icon-split"> <span
+									class="icon text-white-50"> <i
+										class="fas fa-arrow-right"></i>
+								</span> <span class="text">목록으로</span>
+								</a>
 							</form>
 
 						</div>
