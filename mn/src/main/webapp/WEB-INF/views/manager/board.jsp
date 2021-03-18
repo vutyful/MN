@@ -36,13 +36,14 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../buenoBasic/main.do">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">메인페이지 </div>
-            </a>
+        		<!-- Sidebar - Brand -->
+			<a
+				class="sidebar-brand d-flex align-items-center justify-content-center"
+				href="../buenoBasic/main.do">
+				<img class="sidebar-card-illustration mb-2"
+					src="../resources/manager/img/2MN_remove_bg.png" alt="" w>
+				<div class="sidebar-brand-text mx-3">메인페이지</div>
+			</a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -143,7 +144,8 @@
              -->
                          <!-- tables 형태  회원관리 -->
 			<li class="nav-item"><a class="nav-link"
-				href="/mn/manager/statistics.do"> <i class="fas fa-fw fa-table"></i> <span>통계</span></a>
+				href="/mn/manager/statistics.do"> 
+				<i class="fas fa-fw fa-chart-area"></i> <span>통계</span></a>
 			</li>
                          
             <!-- tables 형태  회원관리 -->
@@ -154,11 +156,12 @@
             </li>
             
              <!-- tables 형태 게시판관리.-->
-            <li class="nav-item">
-                <a class="nav-link" href="/mn/manager/board.do">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>게시판관리</span></a>
-            </li>
+ 
+            		<li class="nav-item active"><a class="nav-link"
+				href="/mn/manager/board.do" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> 
+				  <i class="fas fa-fw fa-table"></i> <span>게시판관리</span></a>
+			</li>
+            
             <!-- tables 형태 광고관리.-->
                         <li class="nav-item">
                 <a class="nav-link" href="/mn/manager/ad.do">
@@ -215,15 +218,15 @@
                     </form> -->
 
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto"><!-- 
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        Nav Item - Search Dropdown (Visible Only XS)
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- Dropdown - Messages -->
+                            Dropdown - Messages
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
@@ -240,16 +243,18 @@
                                 </form>
                             </div>
                         </li>
-
-                        <!-- Nav Item - Alerts -->
+                        
+ -->
+ <!-- 
+                        Nav Item - Alerts
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
+                                Counter - Alerts
                                 <span class="badge badge-danger badge-counter">3+</span>
                             </a>
-                            <!-- Dropdown - Alerts -->
+                            Dropdown - Alerts
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
@@ -292,15 +297,15 @@
                             </div>
                         </li>
 
-                        <!-- Nav Item - Messages -->
+                        Nav Item - Messages
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
+                                Counter - Messages
                                 <span class="badge badge-danger badge-counter">7</span>
                             </a>
-                            <!-- Dropdown - Messages -->
+                            Dropdown - Messages
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
@@ -356,7 +361,7 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
-                        </li>
+                        </li> -->
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -421,23 +426,39 @@
                                             <th>글 제목</th>
                                             <th>카테고리</th>
                                             <th>작성일</th>
-                                            <th>글 내용</th>
+                                        <!--     <th>글 내용</th> -->
                                             <th>멤버아이디</th>
-                                            <th>삭제버튼</th>
+                                            <th>글삭제</th>
+                                            <th>글 숨기기</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach items="${boardList}" var="board">
                                         <tr>
                                             <td>${board.bo_num}</td>
-                                            <td>${board.bo_title}</td>
+                                            <td><a href="/mn/manager/boardContent.do?bo_num=${board.bo_num}">${board.bo_title}</a></td>
                                             <td>${board.bo_cate}</td>
                                             <td>${board.bo_date}</td>
-                                            <td>${board.bo_content}</td>
+                                           <%--  <td>${board.bo_content}</td> --%>
                                             <td>${board.mem_num}</td>
-                                            <td><a href="/mn/boardDelete.do?bo_id=${board.bo_num}" onclick="return confirm('정말 삭제하시겠습니까?');" class="btn btn-danger btn-circle" id="deletebtn">
-                                        <i class="fas fa-trash"></i>
-                                    </a></td>
+                                            <!--  광고 삭제 버튼-->
+                                            <td><a href="/mn/manager/boardDelete.do?bo_num=${board.bo_num}" onclick="return confirm('정말 삭제하시겠습니까?');" class="btn btn-danger btn-circle" id="deletebtn">
+                                        <i class="fas fa-trash"></i></a></td>
+                                        
+                                        <td>
+                                        <!-- 글 숨기기버튼 or 보여주기 버튼 c choose태그를 사용 -->
+                                        <c:choose>
+                                        	<c:when test="${board.bo_state eq 'y'}">
+                                        	<a href="/mn/manager/boardHide.do?bo_num=${board.bo_num}" class="btn btn-info btn-circle">
+                                        	<i class="fas fa-info-circle"></i></a>
+                                        </c:when>
+                                       
+                                         <c:when test="${board.bo_state eq 'n'}">
+                                        <a href="/mn/manager/boardShow.do?bo_num=${board.bo_num}" class="btn btn-warning btn-circle">
+                                        <i class="fas fa-exclamation-triangle"></i></a>
+                                        </c:when>
+                                        </c:choose>
+                                        </td>
                                         </tr>
                                      </c:forEach>  
                                     </tbody>

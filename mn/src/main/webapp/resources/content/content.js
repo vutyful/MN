@@ -12,5 +12,5 @@ alert($('#con_content').val());
 
 $('#frm').submit();
 
-});
 
+});

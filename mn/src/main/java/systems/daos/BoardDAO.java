@@ -13,6 +13,8 @@ public interface BoardDAO {
 	
 	public List<BoardVO> boardToday(BoardVO vo);//관리자페이지 통계 계시판 오늘 글 수
 	
+	public int boardHide(BoardVO vo);//관리자게시판 글 숨기기 기능
+	public int boardShow(BoardVO vo);//관리자게시판 글 나타내기 기능
 	
-	
+	public BoardVO boardContent(BoardVO vo) ;//관리자게시판 게시글관리 - 글내용 뷰페이지
 }
