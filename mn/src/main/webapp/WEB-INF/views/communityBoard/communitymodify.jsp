@@ -28,18 +28,19 @@
 							<!-- <img src="../resources/bueno/img/bg-img/cat_shower.png" alt=""> -->
 						</div>
 						<!-- summernote -->
-						<form action="CommunityInsert.do"method="post">
-							<h4 class="mb-50">게시판 등록하기</h4>
+						<form action="commuUpate.do"method="post">
+							<h4 class="mb-50">게시판 수정하기</h4>
 
-							<input placeholder="제목을 입력해 주세요." name="bo_title"
-								id="bo_title" style="height: 50px; width: 100%"></input>
+							
+							제목: <input type="text" name="bo_title" style="width: 40%;" value="${modifyResult.bo_title}"/>
+							 	<input type="hidden" name="bo_num" id="bo_num" value="${modifyResult.bo_num}">
 							<!-- summernote  -->
-							<textarea id="summernote" name="bo_content"></textarea>
+							<textarea id="summernote" name="bo_content" value="${modifyResult.bo_content}"></textarea>
 							<input type="hidden" name="mem_num" value="${sessionScope.userInfo.mem_num }">
 
 							<div class="col-12"><!--  /mn/communityBoard/CommunityInsert.do -->
-								<input id="insert_btn" class="btn bueno-btn mt-30"
-									type="submit" value="등록">
+								<input id="modify_btn" class="btn bueno-btn mt-30"
+									type="submit" value="수정완료">
 							</div>
 						</form>
 
@@ -105,10 +106,13 @@
 $(function() {
 	
 	//등록버튼을 눌렀을 시
-	$('#insert_btn').click(function () {
-		alert("등록하시겠습니까?")
+	$('#modify_btn').click(function () {
+		
+		if($('#summernote').val().isEmpty()){
+    		alert('내용을 입력하세요.');
+    	}
+		
 	});
-	
 	
 	//summernote
 $(function (){
@@ -122,7 +126,7 @@ $(function (){
     });
 })
 
-})
+})//function of end
 </script>
 </body>
 </html>

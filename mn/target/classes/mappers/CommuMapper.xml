@@ -13,7 +13,7 @@
 	</insert>
 
 	<!-- 게시글 목록 -->
-	<select id="getBoardList" resultType="board">
+	<select id="getBoardList" resultType="HashMap">
 		select member.mem_name
 		mem_name, board.bo_title bo_title,board.bo_num bo_num, board.bo_date
 		bo_date
@@ -32,14 +32,33 @@
 		board.mem_num = member.mem_num
 		WHERE board.bo_num=#{bo_num}
 	</select>
+	
+	<!-- 게시글 수정 -->
 
+	<select id="selectReply" resultType="board" parameterType="board">
+		select * from board  
+		WHERE bo_num = ${bo_num}
+	</select>
+	
+	<!-- 게시글 수정완료 -->
+
+	<update id="commuUpdate" parameterType="board" >
+		UPDATE board SET
+		bo_content = #{bo_content}, bo_title = #{bo_title}
+		WHERE bo_num = #{bo_num}
+	</update>
+	
 	<!-- 댓글 등록 -->
 	<insert id="createReply" parameterType="reply">
+		<!-- 현재 댓글 시퀀스 얻어오기 -->
+		<selectKey keyProperty="re_num" resultType="int" order="AFTER">
+			SELECT seq_reply.CURRVAL FROM DUAL
+		</selectKey>
 		insert into reply
 		(re_num,bo_num, mem_num, re_content, re_date)
 		values(seq_reply.nextval,#{bo_num},#{mem_num},#{re_content},sysdate)
 	</insert>
-
+	
 	<!-- 댓글 목록 보기 -->
 	<select id="getReplyList" resultType="hashmap"
 		parameterType="Integer">
@@ -56,4 +75,7 @@
 		delete from reply where
 		re_num = #{re_num}
 	</delete>
+	
+
+
 </mapper>

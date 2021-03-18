@@ -25,7 +25,7 @@ public class CommunityServiceImpl implements CommunityService{
 	}
 	//게시판 목록 보기
 	@Override
-	public List<BoardVO> getBoardList() {
+	public List<HashMap<String, Object>> getBoardList() {
 		System.out.println("getBoardList 게시판목록 CommunityServiceImpl");
 		return CommunityDAO.getBoardList();
 	}
@@ -36,6 +36,22 @@ public class CommunityServiceImpl implements CommunityService{
 		return CommunityDAO.boardDetail(bo_num);
 	}
 	
+	//게시글 수정
+	//1)게시글 수정 select로 원본을 받아온다.
+	@Override
+	public BoardVO selectReply(BoardVO vo) {
+		System.out.println("selectReply 게시글 수정 ServiceImpl");
+		/* BoardVO result = CommunityDAO.updateReply(vo); */
+		return CommunityDAO.selectReply(vo);
+		
+	}
+	
+	//게시글 수정등록
+	@Override
+	public int commuUpate(BoardVO vo, int bo_num) {
+		System.out.println("commuUpate 수정 완료 ServiceImpl");
+		return CommunityDAO.commuUpdate(vo, bo_num);
+	}
 	//댓글
 	//댓글 등록
 	@Override

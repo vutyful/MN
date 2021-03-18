@@ -195,49 +195,7 @@
             </div>
         </div>
     </div> -->
-<<<<<<< HEAD
-    <!-- ##### Big Posts Area End ##### -->
 
-    <!-- ##### Posts Area End ##### -->
-    <div class="bueno-post-area mb-70">
-        <div class="container">
-        	
-        	<!-- <img src="./resources/idximg/qna2.jpg" alt=""> -->
-        	
-            <div class="row justify-content-center">
-                <!-- Post Area -->
-                <div class="col-12 col-lg-8 col-xl-9">
-                    <!-- Single Blog Post  -->
-                    <!-- 1<div class="single-blog-post style-1 d-flex flex-wrap mb-30"> -->
-                        <!-- Blog Thumbnail -->
-                        <div class="blog-thumbnail">
-                            <!-- <img src="./resources/bueno/img/bg-img/9.jpg" alt=""> -->
-                            <img src="../resources/idximg/qna.jpg" alt="">
-                        </div>
-
-                    <!-- Single Blog Post -->
-                </div>
-
-                <!-- Sidebar Area -->
-                <div class="col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3">
-                    <div class="sidebar-area">
-                        <!-- Single Widget Area -->
-                        <div class="single-widget-area add-widget mb-30">
-                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
-                        </div>
-                        <div class="single-widget-area add-widget mb-30">
-                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
-                        </div>
-                        <div class="single-widget-area add-widget mb-30">
-                            <img src="../resources/bueno/img/bg-img/add.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-=======
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
     <!-- ##### Posts Area End ##### -->
 
     <!-- ##### Instagram Area Start ##### -->
