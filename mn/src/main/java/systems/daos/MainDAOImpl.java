@@ -35,8 +35,13 @@ public class MainDAOImpl implements MainDAO{
 	}
 
 	// con_cate 이용하여 해당 카테고리의 컨텐츠 가져오기
-	public List<ContentVO> getCateContent(String con_cate) {
-		return mybatis.selectList("MainMap.getCateContent", con_cate);
+	public List<ContentVO> getCateContent(String con_cate,int firstRow,int endRow) {
+		HashMap map = new HashMap();
+		map.put("con_cate", con_cate);
+		map.put("firstRow", firstRow);
+		map.put("endRow", endRow);
+		
+		return mybatis.selectList("MainMap.getCateContent", map);
 	}
 
 	//keyword 포함하는 컨텐츠 전부 가져오기
@@ -106,6 +111,31 @@ public class MainDAOImpl implements MainDAO{
 	//광고 가져오기
 	public List<AdVO> getAllAD() {
 		return mybatis.selectList("MainMap.getAllAD");
+	}
+
+	// 해당 카테고리의 전체 레코드 수 얻어오기
+	public int totalCateRec(String con_cate) {
+		return mybatis.selectOne("MainMap.totalCateRec", con_cate);
+	}
+
+	// 네이버로 로그인 시 회원 정보 입력
+	public void naverRegist(MemberVO vo) {
+		mybatis.insert("MainMap.naverRegist", vo);
+	}
+
+	//mem_num으로 회원정보 가져오기
+	public MemberVO getMember(String mem_num) {
+		return mybatis.selectOne("MainMap.getMember", mem_num);
+	}
+
+	// 네이버 로그인 정보 저장 직후 현재 seq_mem 얻어오기
+	public String getNowSeq() {
+		return mybatis.selectOne("MainMap.getNowSeq");
+	}
+
+	// 네이버 로그인 시 회원가입 여부 확인
+	public Object naverCheck(String mem_email) {
+		return mybatis.selectOne("MainMap.naverCheck", mem_email);
 	}
 	
 

@@ -7,10 +7,10 @@
 <title>클라이언트 메인 요청</title>
 <script type="text/javascript">
  window.self.location="buenoBasic/main.do"
-
 </script>
 </head>
 <body>
 
 </body>
 </html>
+

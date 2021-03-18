@@ -87,7 +87,6 @@ public class CommunityController {
 			 * System.out.println("작성날짜"+replyVO.get(0).getRe_date());
 			 * System.out.println("댓글 내용"+replyVO.get(0).getRe_content());
 			 */
-			System.out.println("작성자"+replyVO.get(0).get("mem_name"));
 			model.addAttribute("rvo",replyVO);
 			
 			return "communityBoard/communityboard_Reply";

@@ -89,18 +89,18 @@
                                 <ul>
                                     <li><a href="#">강아지</a>
                                             <ul class="dropdown">
-                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=강아지 음식">- 강아지 음식</a></li>
-                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=강아지 행동">- 강아지 행동</a></li>
-                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=강아지 건강">- 강아지 건강</a></li>
-                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=견종백과">- 견종백과</a></li>
+                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=강아지 음식&pageNo=1">- 강아지 음식</a></li>
+                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=강아지 행동&pageNo=1">- 강아지 행동</a></li>
+                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=강아지 건강&pageNo=1">- 강아지 건강</a></li>
+                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=견종백과&pageNo=1">- 견종백과</a></li>
                                             </ul>
                                     </li>
                                     <li><a href="#">고양이</a>
                                             <ul class="dropdown">
-                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=고양이 음식">- 고양이 음식</a></li>
-                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=고양이 행동">- 고양이 행동</a></li>
-                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=고양이 건강">- 고양이 건강</a></li>
-                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=묘종백과">- 묘종백과</a></li>
+                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=고양이 음식&pageNo=1">- 고양이 음식</a></li>
+                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=고양이 행동&pageNo=1">- 고양이 행동</a></li>
+                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=고양이 건강&pageNo=1">- 고양이 건강</a></li>
+                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=묘종백과&pageNo=1">- 묘종백과</a></li>
                                             </ul>
                                     </li>
                                     <li><a href="#">커뮤니티</a>

@@ -17,12 +17,7 @@ public interface CommunityDAO {
 	//게시판 상세페이지
 	
 	List<Map> boardDetail(int bo_num); 
-
-<<<<<<< HEAD
-	
-=======
 	//댓글 등록 
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 
 	public int createReply(ReplyVO replyVO);
 

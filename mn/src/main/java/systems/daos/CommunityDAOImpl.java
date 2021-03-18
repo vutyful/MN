@@ -59,9 +59,6 @@ public class CommunityDAOImpl implements CommunityDAO{
 		
 		List<HashMap<String, Object>> list = mybatis.selectList("CommuMap.getReplyList",bo_num);
 		System.out.println(bo_num);
-		System.out.println(list.get(0).get("MEM_NAME"));
-		System.out.println(list.size());
-		System.out.println(list.get(0));
 		return list; 
 	}
 	//댓글 삭제

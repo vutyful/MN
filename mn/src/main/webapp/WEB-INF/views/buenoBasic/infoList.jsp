@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@include file = "/header.jsp" %>
 
     <!-- 정보글 시작 -->
@@ -8,7 +9,7 @@
     <div class="catagory-post-area">
         <div class="container">
     		<div style="padding:80px;">
-    			<h2 style="color:black; text-align: center;"> ${cate} </h2> 
+    			<h2 style="color:#DEA361; text-align: center;"> ${cate} </h2> 
     		</div>
             <div class="row justify-content-center">
                 <!-- Post Area -->
@@ -17,50 +18,39 @@
                     <c:forEach items="${ConList}" var="eachCon">
                     <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
                         <!-- Blog Thumbnail -->
-                        <div class="blog-thumbnail">
-                            <a href="infoDetail.do?con_num=${eachCon.con_num}"><img src="${eachCon.con_img}" alt="" style="width: 600px; height: 280px;"></a>
+                        <div class="blog-thumbnail box">
+                            <a href="infoDetail.do?con_num=${eachCon.con_num}"><img src="${eachCon.con_img}" class="profile"></a>
                         </div>
                         <!-- Blog Content -->
-                        <div class="blog-content">
+                        <div class="blog-content" style="padding-top:80px;">
                             <a href="infoDetail.do?con_num=${eachCon.con_num}" class="post-title">${eachCon.con_title}</a>
                             <div class="post-meta">
-                                <a href="#" class="post-date">${eachCon.con_date}</a>
+                                <a href="#" class="post-date">${fn:substring(eachCon.con_date,0,16)}</a>
+                                <a href="#" class="post-date">조회수 ${eachCon.viewcount}</a>
                             </div>
                             ${eachCon.con_head}
                         </div>
                     </div>
                     </c:forEach>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-                        <!-- Blog Thumbnail -->
-                        <div class="blog-thumbnail">
-                            <img src="../resources/bueno/img/bg-img/11.jpg" alt="">
-                        </div>
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <a href="#" class="post-tag">The Best</a>
-                            <a href="#" class="post-title">Birthday cake with chocolate</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-date">July 11, 2018</a>
-                                <a href="#" class="post-author">By Julia Stiles</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Sidebar Area -->
             </div>
-
+			<!-- 페이징 처리 -->
             <div class="row">
                 <div class="col-12">
-                    <div class="pagination-area mt-70">
+                    <div class="pagination-area" style="margin: 40px 0px; padding-left:25%;">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">01</a></li>
-                                <li class="page-item active"><a class="page-link" href="#">02</a></li>
-                                <li class="page-item"><a class="page-link" href="#">03</a></li>
+                            <a class="page-link" href="infoList.do?con_cate=${cate}&pageNo=1" style="color:#DEA361;">처음</a>
+                            <a class="page-link" href="infoList.do?con_cate=${cate}&pageNo=${now-1}" style="color:#DEA361;">이전</a>
+                            <c:forEach var="i" begin="${start}" end="${end}">
+                                <li class="page-item">
+                                	<a class="page-link button" style="margin-left:5px;" href="infoList.do?con_cate=${cate}&pageNo=${i}">${i}</a>
+                                </li>
+                            </c:forEach>
+                            <a class="page-link" href="infoList.do?con_cate=${cate}&pageNo=${now+1}" style="color:#DEA361;">다음</a>
+                            <a class="page-link" href="infoList.do?con_cate=${cate}&pageNo=${total}" style="color:#DEA361;">끝</a>
                             </ul>
                         </nav>
                     </div>
@@ -108,6 +98,13 @@ Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p
     <script src="../resources/bueno/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="../resources/bueno/js/active_main.js"></script>
+    <script>
+    	$('.page-item').click(function(){
+    		alert('색깔 안바뀌니?')
+    		$(this).css('background-color','#DEA361');
+    		$(this).css('color','white');
+    	})
+    </script>
 </body>
 
 </html>
