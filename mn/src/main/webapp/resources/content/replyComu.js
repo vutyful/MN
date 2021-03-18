@@ -6,22 +6,26 @@ $('#login').click(function(){
 // 댓글 작성하기
 
 $('#replyinsert').click(function(){
+console.log($('#mem_num').val())
+console.log($('#bo_num').val())
+console.log($('#re_content').val().replace('\n','<br/>'))
+
     //댓글을 입력하지 않았다면
     if($('#re_content').val() == ""){
         alert('내용을 입력해 주세요.');
     }else{
-		console.log("여기까진오나?")
+		alert('등록?')
+		console.log("이런 ")
         $.ajax({
             type: 'post',
-            url : 'replyinsert.do',
-            data : {'con_num':$('#con_num').val(),'re_content':$('#re_content').val().replace('\n','<br/>')},
-            contentType : 'application/x-www-form-urlencoded;charset=utf-8',
+            url : 'CommunityReply.do',
+            data : {'mem_num':$('#mem_num').val(),'bo_num':$('#bo_num').val(),'re_content':$('#re_content').val().replace('\n','<br/>')},
+            contentType : 'application/json',
             success: function(data){
                 alert('댓글 등록이 완료되었습니다!');
                 //새로 쓴 댓글 리스트 밑에 추가하기
                 var html = "";
                 var recount = Number($('#cCount').text())+1;
-
                 html += '<li class="single_comment_area">';
                 html += '<div class="comment-content d-flex">';
                 html += '<div class="comment-meta">';
@@ -44,7 +48,8 @@ $('#replyinsert').click(function(){
                 $('#nonereply').detach();
                 $('#re_content').val("");
             },
-            error:function (){
+            error:function (e){
+            alert(e)
                 alert('실패스')
             }
         });

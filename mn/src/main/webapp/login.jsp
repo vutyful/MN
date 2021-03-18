@@ -67,8 +67,8 @@ button{
                     <img src="img/gl.png" alt="google">
                 </div> -->
                 <form id="login" action="/mn/login.do" method="post" class="input-group">
-                    <input name="mem_email" type="text" class="input-field" placeholder="아이디:sy10201220@naver.com" required>
-                    <input name="mem_pass"  type="password" class="input-field" placeholder="비번:qqq111!!" required="">
+                    <input id="mem_email" name="mem_email" value='sachawon@gmail.com' type="text" class="input-field" placeholder="아이디:jingang@gmail.com" required>                  
+                    <input name="mem_pass"  type="password" value='aaa111!!' class="input-field" placeholder="비번:aaa111!!" required="">
                    
                     <button id="last_login_btn"class="submit">로그인</button>
                     <!-- 네이버아이디로로그인 버튼 노출 영역 -->
@@ -81,6 +81,7 @@ button{
 	
                 <form id="register" action="/mn/registJoin.do" class="input-group">
                     <input type="text" id="mem_name" name="mem_name" class="input-field" placeholder="이름을 입력하세요" required="">
+                    
                     <div id = "mem_name_check"></div>
                     
                     <input type="password" id="mem_pass" name="mem_pass" class="input-field" placeholder="영문 소문자, 특수문자,숫자를 5이상 모두 포함" required="">
@@ -89,6 +90,8 @@ button{
                     
                     <input type="email"id="mem_email" name="mem_email" class="input-field" placeholder="이메일을 입력하세요" required="">
                     <div id = "mem_email_check"></div>
+                   <!--  <button type="button" class="id_overlap_button" onclick="id_check()">중복검사</button>
+                    <img id="id_check_sucess" style="display: none;"> -->
                     
                     
                     <input placeholder="핸드폰 번호를 입력하세요'-'는 제외"name="mem_tel" type="tel" class="input-field">
@@ -175,6 +178,9 @@ Kakao.Auth.createLoginButton({
     	registerBtn.style.left = "50px";
     	all_btn.style.left = "110px";
     }
+    
+
+    
 		
 	//회원가입 & 로그인
 	$(function() {

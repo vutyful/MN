@@ -563,14 +563,12 @@ h3 {
         font-weight: 600;
         text-transform: capitalize;
         font-size: 20px;
-        padding: 0 10px;
         color: #46382C; }
         .header-area .bueno-main-menu .classy-navbar .classynav ul li a:hover, .header-area .bueno-main-menu .classy-navbar .classynav ul li a:focus {
           color: #DEA361; }
       .header-area .bueno-main-menu .classy-navbar .classynav ul li ul li a {
         color: #404040;
-        font-size: 14px;
-        padding: 0 20px; }
+        font-size: 14px;}
     .header-area .bueno-main-menu .login-area {
       position: relative;
       z-index: 1;
