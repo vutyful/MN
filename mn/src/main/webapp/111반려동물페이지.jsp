@@ -8,14 +8,9 @@
 </head>
 <body>
 
-<a href="/mn/manageContents/ContentsList.do"><h1>contents list 컨텐츠 관리</h1></a>
-<a href="/mn/manageMembers/MembersList.do"><h1>members list 회원 관리</h1></a>
+<a href="/mn/pet/petList.do"><h1>반려동물 페이지로 이동</h1></a>
+
 
 
 </body>
 </html>
-
-
-
-
-

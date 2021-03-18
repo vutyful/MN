@@ -246,7 +246,6 @@
             </div>
         </div>
     </div> -->
-<<<<<<< HEAD
     <!-- ##### Big Posts Area End ##### -->
 
     <!-- ##### Posts Area End ##### -->
@@ -287,8 +286,6 @@
             </div>
         </div>
     </div>
-=======
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
     <!-- ##### Posts Area End ##### -->
 
     <!-- ##### Instagram Area Start ##### -->

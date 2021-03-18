@@ -55,12 +55,8 @@ public class BoardController {
 			System.out.println("관리자 - 글 내용 페이지");
 			
 			BoardVO temp = boardService.boardContent(vo);
-			System.out.println(vo.getBo_content());
-			System.out.println(vo.getBo_num());
-			
 			model.addAttribute("boardContent",temp);
-			System.out.println(vo.getBo_content());
-			System.out.println(vo.getBo_num());
+
 		};
 	
 }
