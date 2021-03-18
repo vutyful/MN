@@ -13,7 +13,7 @@
     <div class="col-12 col-lg-8 col-xl-9">
     <div class="mb-100"> 
    	<form id="frm" action="writeContent.do" method="post">
-        <input type="hidden" id="con_cate" name="con_cate" value="고양이 행동"/>
+        <input type="hidden" id="con_cate" name="con_cate"/>
         <div style="margin-bottom: 20px;">
 	    	<input name="con_title" type="text" placeholder="제목" style="width:70%; height: 40px; margin-left: 20px;">
     		<select id="category" style="width:100px;">
@@ -87,7 +87,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     
 </body>
 
-</html>tstrap.min.js"></script>
+</html>
     <!-- All Plugins js -->
     <script src="../resources/bueno/js/plugins/plugins.js"></script>
     <!-- Active js -->

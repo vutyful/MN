@@ -25,20 +25,6 @@
                     </div>
                 </div>
                 </c:forEach>
-
-                <!-- Single Post Catagory -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-post-catagory mb-30 box">
-                        <img src="../resources/bueno/img/bg-img/5.jpg" class="profile" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Organic Cuisine</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="row">
@@ -46,9 +32,11 @@
                     <div class="pagination-area mt-70">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">01</a></li>
-                                <li class="page-item active"><a class="page-link" href="#">02</a></li>
-                                <li class="page-item"><a class="page-link" href="#">03</a></li>
+                            <c:forEach var="i" begin="1" end="${pages}">
+                                <li class="page-item">
+                                	<a class="page-link" href="infoCard.do?con_cate=${cate}&pageNo=${i}"> ${i}</a>
+                                </li>
+                            </c:forEach>
                             </ul>
                         </nav>
                     </div>

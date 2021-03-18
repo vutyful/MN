@@ -3,6 +3,7 @@ package systems.daos;
 import java.util.List;
 import java.util.Map;
 
+import systems.domains.AdVO;
 import systems.domains.ContentReplyVO;
 import systems.domains.ContentVO;
 import systems.domains.MemberVO;
@@ -19,7 +20,7 @@ public interface MainDAO {
 	public ContentVO getOneContent(int con_id);
 	
 	// con_cate 이용하여 해당 카테고리의 컨텐츠 가져오기
-	public List<ContentVO> getCateContent(String con_cate);
+	public List<ContentVO> getCateContent(String con_cate,int firstRow, int endRow);
 	
 	//keyword 포함하는 컨텐츠 전부 가져오기
 	public List<ContentVO> searchAll(String keyword);
@@ -39,12 +40,40 @@ public interface MainDAO {
 	//con_num에 해당하는 댓글 리스트 가져오기
 	public List<Map<String, String>> getReplyList(int con_num);
 	
-		
-	//북마크 순으로 인기글 3개 가져오기
+	//con_num에 해당하는 컨텐츠 조회수 1 올리기
+	public void addViewCount(int con_num);
 	
-	// 최신글 3개 가져오기 (같은 날짜에 3개이상이라면 랜덤으로)
+	//조회수 많은 순으로 3개 정보글 얻어오기
+	public List<ContentVO> getpopular();
+		
+	// 최신글 3개 가져오기 
+	public List<ContentVO> getLatest();
+	
+	//넘어온 re_content와 re_num으로 해당 댓글 내용 업데이트
+	public void replyupdate(ContentReplyVO vo);
+	
+	//넘어온 re_num 댓글 삭제
+	public void replydelete(ContentReplyVO vo);
+	
+	//con_num에 해당하는 컨텐츠 수정하기
+	public void updateContent(ContentVO vo);
 	
 	// 광고 가져오기
-
+	public List<AdVO> getAllAD();
+	
+	// 해당 카테고리의 전체 레코드 수 얻어오기
+	public int totalCateRec(String con_cate);
+	
+	// 네이버로 로그인 시 회원 정보 입력
+	public void naverRegist(MemberVO vo);
+	
+	//mem_num으로 회원정보 가져오기
+	public MemberVO getMember(String mem_num);
+	
+	// 네이버 로그인 정보 저장 직후 현재 seq_mem 얻어오기
+	public String getNowSeq();
+	
+	// 네이버 로그인 시 회원가입 여부 확인
+	public Object naverCheck(String mem_email);
 	
 }

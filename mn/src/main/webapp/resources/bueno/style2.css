@@ -16,7 +16,7 @@
   
 @font-face{
 	font-family: "esamanru";
-	src: url("font/esamanru Light.ttf");
+	src: url("fonts/esamanru Light.ttf");
 }
 
 body {
@@ -67,9 +67,10 @@ img {
 /*메인 인기글 이미지 모서리 둥글게*/
 .box{
 	width: 350px;
-	height: 350px;
+	height: 330px;
 	border-radius: 20%;
 	overflow: hidden;
+	border: solid #FAEFE2 2px;
 }
 .profile{
 	width: 100%;
@@ -562,18 +563,16 @@ h3 {
         font-weight: 600;
         text-transform: capitalize;
         font-size: 20px;
-        padding: 0 10px;
         color: #46382C; }
         .header-area .bueno-main-menu .classy-navbar .classynav ul li a:hover, .header-area .bueno-main-menu .classy-navbar .classynav ul li a:focus {
           color: #DEA361; }
       .header-area .bueno-main-menu .classy-navbar .classynav ul li ul li a {
         color: #404040;
-        font-size: 14px;
-        padding: 0 20px; }
+        font-size: 14px;}
     .header-area .bueno-main-menu .login-area {
       position: relative;
       z-index: 1;
-      margin-left: 100px; }
+      margin-left: 50px; }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .header-area .bueno-main-menu .login-area {
           margin-left: 10px;
@@ -951,8 +950,12 @@ h3 {
   display: inline-block;
   border-radius: 0;
   padding: 0;
-  margin-right: 5px;
+  margin-right: 4px;
   border: none; }
+  .page-link:target{
+  	background-color: #DEA361;
+    color: #ffffff;
+  }
   .pagination .page-item .page-link:hover, .pagination .page-item .page-link:focus {
     background-color: #DEA361;
     color: #ffffff; }
@@ -1463,7 +1466,7 @@ h3 {
       z-index: 1;
       margin-bottom: 5px;
       display: inline-block;
-      font-size: 14px;
+      font-size: 20px;
       color: #272727;
       margin-right: 30px; }
       @media only screen and (max-width: 767px) {

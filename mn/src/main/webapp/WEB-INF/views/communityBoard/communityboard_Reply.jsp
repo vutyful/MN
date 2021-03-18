@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@include file = "/header.jsp" %>
 <style>
 .blog-thumbnail .mb-50{
@@ -9,10 +10,10 @@
 
 .bueno-btn{
 	position:relative;
-	top:-50px;
-	min-width: 30px;
-}
+	background-color: lightpink;
+    margin-left: 700px;
 
+}
 
 </style>
 
@@ -29,7 +30,7 @@
 
 						<div class="post-meta mb-50">
 							<a href="#"class="post-author">작성자: ${data.MEM_NAME}</a>
-							<a href="#" class="post-date">작성날짜: ${data.BO_DATE} </a> 
+							<a href="#" class="post-date">작성날짜: ${fn:substring(data.BO_DATE,0,16)} </a> 
 						</div>
 					</div>
 				</div>
@@ -49,19 +50,21 @@
 							${data.BO_CONTENT}
 						</div>
 						<!--회원 비회원을 위한 코드를 위해 남겨 놓음 -->
-						
+				 <form id="frm" action="../communityBoard/boardUpdate.do">
+				 <input type="hidden" name="bo_num" id="bo_num" value="${bo_num}"/>
+				  <div id="test4">
 					<c:choose>
 						<c:when test="${sessionScope.userInfo.mem_num  eq data.MEM_NUM}">
-							<div class="col-12">
-								<input type="submit" id="update_btn" value="수정" class="btn bueno-btn mt-30"/>
-								<input type="submit" id="delect_btn" value="삭제" class="btn bueno-btn mt-30"/>
+							<div class="col-12" style="align-content: right;">
+							<a id="update_btn" value="수정" class="btn bueno-btn mt-30 updateBtn">수정</a>
 						</c:when>
 						<c:otherwise>
 							<div class="col-12">
 							</div>
 						</c:otherwise>
 					</c:choose>
-						
+				 </div>
+				 </form>
 					</div>
 					<h4 class="mb-50">댓글</h4>
 					<div class="comment_area clearfix mb-100">
@@ -78,13 +81,14 @@
 									<div class="comment-meta">
 										<div class="d-flex"><!-- hashmap은 대문자로 컬럼명을 써야한다. -->
 											<a href="#" id="mam_name" name="mam_name" class="post-author">작성자:${items.MEM_NAME}</a> 
-											<a href="#" id="re_date" name="re_date"class="post-date">작성 날짜:${items.RE_DATE}</a> 
+											<a href="#" id="re_date" name="re_date"class="post-date">작성 날짜:${fn:substring(items.RE_DATE,0,16)}</a>
 										</div>
 										<p><a href="#" id="re_content" name="re_content"class="reply">댓글 내용:${items.RE_CONTENT}</a></p>
 										<!-- 삭제 if문-->
 										<input type="hidden" id="re_num" name="re_num"value='${items.RE_NUM}'/>
 										<c:if test="${sessionScope.userInfo.mem_num eq items.MEM_NUM}">
-											<button class="btn bueno-btn mt-30">삭제</button>
+											<!-- <button id = "modi_btn"  class="btn bueno-btn mt-30">수정</button> -->
+											<button id = "del_btn"  class="btn bueno-btn mt-30">삭제</button>
 										</c:if>
 									</div>
 								</div>
@@ -169,15 +173,25 @@
 	<script src="../resources/bueno/js/active.js"></script>
 
 	<script type="text/javascript">
-//	$(function() {
-	//수정버튼을 눌렀을 시
-	$('.bueno-btn').click(function () {
-		alert("게시글 삭제")
-		$(this).parent().parent().parent().parent().remove();
+	$(function() {
+	
+	//게시글 수정버튼 눌렀을 시
+	
+	$('#update_btn').click(function () {
+		alert('수정 버튼 클릭');
+		$('#frm').submit();
+		
+		
+	})
+		
+	//(댓글)삭제버튼을 눌렀을 시
+	$(document).on('click','#del_btn',function(){
+ 		alert("삭제버튼 클릭"); 
 		alert($(this).prev().val());
 		
-	$.ajax({
-		type:"delete",
+		
+   	$.ajax({
+		type:"get",
 		url:"/mn/communityBoard/deleteReply.do",
 		contentType:'application/x-www-form-urlencoded;charset=utf-8',
 		dataType:"json",
@@ -187,33 +201,38 @@
 			success: function(delresult) {
 				console.log(delresult);
 				if(delresult==1){
-					alert("댓글 삭제");
+					alert("삭제되었습니다");
+					
 				}
-				
-				
-			}
+			},
+				error: function(){
+					alert("댓글삭제 실패");
+				}
 		
-	})	
-		
-		
-	});
-		
-	//만약 로그인이 안됐을 경우에 로그인 alert 로그인 창을 띄운다
+		});	 //삭제 ajax of end
+ 	 	$(this).parent().parent().parent().parent().remove();
+
+	}); //삭제 of end
 	
-	//리플 달때 로그인이 안될경우 alet or 로그인이 됐을 경우 글 내용을 입력 alert
 	
- 	$('#re_insert').click(function () {
-      	alert("댓글을 입력해 주세요") 
-      	/*
-		if($.trim($("${sessionScope.userInfo.mem_name}")==null)){
+	//댓글 수정
+	$
+		
+	//댓글 등록		
+ 	$(document).on('click','#re_insert',function(){
+ /* 		alert('클릭'); */
+      	
+/* 		if($.trim($("#mem_num").val()) == null)){
 			alert("로그인을 하세요");
 		}
-		else($.trim($(".re_content").val())==""){
-			alert("글 내용을 입력해주세요");
-		}  */
+		else($.trim($(".form-control")).val())=="")
+		
+      		alert("댓글을 입력해 주세요");  */
+		  
 		console.log($("#mem_num").val())
 		console.log($("#bo_num").val())
-		console.log($("#re_content").val())
+		console.log($(".form-control").val())
+		
 	//댓글 비동기식 처리 ajax
 	$.ajax({
 		type: "POST",
@@ -224,49 +243,57 @@
 		data:{	//id 값이 필요함, ajax는  form에 action이 필요가 없다.
 				'mem_num':$("#mem_num").val(),  //회원번호
 				'bo_num':$("#bo_num").val(),	//게시판번호
-				're_content':$("#re_content").val()	//내용
+				're_content':$(".form-control").val()	//내용
 				
 			},
-		success: function(result) {
+			success: function(result) {
+			/* 	alert('들어왓니?') */
 
 			console.log(result);//0
 			console.log(typeof result); //js 'typeof'을 보는 방법
 			
-			if(result==1){ // 1 (int ) 비교 "1" (string ) 되지 않도록 실수 주의
-			alert("댓글 등록 완료");
-			//1)내용이 지워주고 화면을 찾아서 추가할 수 있게 2)자바스크립트에서 ol 한번 더 만듦어줌 mb-50의 자식으로 append 함수 사용
-			$('.comment_area').prepend('<ol>'
-					+'<li class="single_comment_area">'
-					+'<div class="comment-content d-flex">'
-					+'<div class="comment-meta">'
-					+'<div class="d-flex">'
-					+'<input type="hidden"  name="mem_num" value="'
-					+$(".mem_name").val()
-					+'">'
-					+'<input type="hidden"  name="bo_num" value="${param.bo_num}">'
-					+'<a href="#" class="post-author">작성자:'
-					+$(".mem_name").val()
-					+'</a>' 
-					+'<a href="#" class="post-date">작성 날짜:방금전</a>'
-					+'</div>'
-					+'<p><a href="#" class="reply">댓글 내용:'
-					+$("#re_content").val()
-						+'</a></p>'					
-					+'</div>'
-					+'</div>'
+				if(result==1){ // 1 (int ) 비교 "1" (string ) 되지 않도록 실수 주의
+				alert("댓글 등록 완료");
+				//1)내용이 지워주고 화면을 찾아서 추가할 수 있게 2)자바스크립트에서 ol 한번 더 만듦어줌 mb-50의 자식으로 append 함수 사용
+				$('.comment_area').prepend('<ol>'
+						+'<li class="single_comment_area">'
+						+'<div class="comment-content d-flex">'
+						+'<div class="comment-meta">'
+						+'<div class="d-flex">'
+						+'<input type="hidden"  name="mem_num" value="'
+						+$(".mem_name").val()
+						+'">'
+						+'<input type="hidden"  name="bo_num" value="${param.bo_num}">'
+						+'<a href="#" class="post-author">작성자:'
+						+$(".mem_name").val()
+						+'</a>' 
+						+'<a href="#" class="post-date">작성 날짜:방금전</a>'
+						+'</div>'
+						+'<p><a href="#" class="reply">댓글 내용:'
+						+$(".form-control").val()
+							+'</a></p>'	
+							+ '<input type="hidden" id="re_num" name="re_num"value='+result+'/>'
+							+'<button id = "del_btn"  class="btn bueno-btn mt-30">삭제</button>'
+						+'</div>'
+						+'</div>'
+	
+						+'</li>'
+						+'</ol>');
+				
+						$('.form-control').val('');
+				
+					} 
 
-					+'</li>'
-					+'</ol>');
-			$("#re_content").val("");
-			
-			} 
-		},
-			error: function(){
-				alert("댓글등록 실패");
+				},
+					error: function(){
+						alert("댓글등록 실패");
+						
 			}
-	});
- 	}); 
-//})
+		}); //댓글 ajax of end
+ 	}); //댓글 입력end
+	
+ 	
+})//end
 	</script>
 </body>
 	</html>
