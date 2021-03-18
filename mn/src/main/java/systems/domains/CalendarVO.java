@@ -12,9 +12,15 @@ public class CalendarVO {
 	String sch_backgroundColor;
 	String sch_textColor;
 	String sch_allDay;
-	
 	int pet_num;
-	int mem_num;
+	
+	int sch_walk;
+	int sch_expenditure;
+	String sch_exDetails;
+	int sch_petWeight;
+	
+	
+	String mem_num;
 	
 	
 	public int getSch_id() {
@@ -83,11 +89,35 @@ public class CalendarVO {
 	public void setPet_num(int pet_num) {
 		this.pet_num = pet_num;
 	}
-	public int getMem_num() {
+	public String getMem_num() {
 		return mem_num;
 	}
-	public void setMem_num(int mem_num) {
+	public void setMem_num(String mem_num) {
 		this.mem_num = mem_num;
+	}
+	public int getSch_walk() {
+		return sch_walk;
+	}
+	public void setSch_walk(int sch_walk) {
+		this.sch_walk = sch_walk;
+	}
+	public int getSch_expenditure() {
+		return sch_expenditure;
+	}
+	public void setSch_expenditure(int sch_expenditure) {
+		this.sch_expenditure = sch_expenditure;
+	}
+	public String getSch_exDetails() {
+		return sch_exDetails;
+	}
+	public void setSch_exDetails(String sch_exDetails) {
+		this.sch_exDetails = sch_exDetails;
+	}
+	public int getSch_petWeight() {
+		return sch_petWeight;
+	}
+	public void setSch_petWeight(int sch_petWeight) {
+		this.sch_petWeight = sch_petWeight;
 	}
 	
 	

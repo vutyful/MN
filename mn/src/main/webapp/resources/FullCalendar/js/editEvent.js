@@ -34,6 +34,37 @@ var editEvent = function (event, element, view) {
     addBtnContainer.hide();
     modifyBtnContainer.show();
     eventModal.modal('show');
+    
+    
+    
+    function categoryHide(){
+    		$(".sch_walk").hide();
+    		$(".sch_ex").hide();
+    		//$("#sch_exDetails").hide();
+    		$(".sch_weight").hide();
+    };
+    categoryHide();
+    function walkShow(){
+    	$(".sch_walk").show();
+    };
+    function exShow(){
+    	$(".sch_ex").show();
+    };
+    function weightShow(){
+    	$(".sch_weight").show();
+    };
+    
+	if(editType.val() == "산책"){
+		//categoryHide();
+		walkShow();
+	}else if (editType.val() == "지출"){
+		//categoryHide();
+		exShow();
+	}else if (editType.val() == "몸무게 측정"){
+		weightShow();
+	};
+	
+    
 
     //업데이트 버튼 클릭시
     $('#updateEvent').unbind();
@@ -47,6 +78,28 @@ var editEvent = function (event, element, view) {
         if (editTitle.val() === '') {
             alert('일정명은 필수입니다.')
             return false;
+        }
+        
+        
+        if (editType.val() == "산책"){
+        	if (editWalk.val() ==''){
+        		alert('산책시간을 입력해주세요');
+	            return false;
+        	}
+        }
+        
+        if (editType.val() == "지출"){
+        	if (editExDetails.val() ==''){
+        		alert('지출내역을 입력해주세요');
+	            return false;
+        	}
+        }
+        
+        if (editType.val() == "몸무게 측정"){
+        	if (editPetWeight.val() == ''){
+        		alert('몸무게를 입력해주세요');
+	            return false;
+	        }
         }
 
         var statusAllDay;

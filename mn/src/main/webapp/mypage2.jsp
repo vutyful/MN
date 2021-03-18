@@ -38,6 +38,10 @@
             </div>
             <!-- header end -->
             
+            
+            <!-- 세션확인용 -->
+            <a href="#">회원 seq : ${sessionScope.userInfo.mem_num}</a>
+            
             <!-- row -->
             <div class="row tm-content-row tm-mt-big">
                 <div class="tm-col tm-col-big">
@@ -52,12 +56,25 @@
                         <canvas id="barChart"></canvas>
                     </div>
                 </div>
+                
                 <div class="tm-col tm-col-small">
+                    <div class="bg-white tm-block h-100">
+                        <h2 class="tm-block-title">세부일정</h2>
+                        <ol class="tm-list-group">
+                            <li class="tm-list-group-item">oo</li>
+                            <li class="tm-list-group-item">Lorem ipsum doloe</li>
+                            <li class="tm-list-group-item">Read reports</li>
+                            <li class="tm-list-group-item">Write email</li>
+                                                    </ol>
+                    </div>
+                </div>
+                
+                <%-- <div class="tm-col tm-col-small">
                     <div class="bg-white tm-block h-100">
                         <!-- <h2 class="tm-block-title">파이차트~</h2> -->
                         <canvas id="pieChart" class="chartjs-render-monitor"></canvas>
                     </div>
-                </div>
+                </div> --%>
 
 
 				<!-- 
@@ -166,7 +183,7 @@
             configBar,
             configPie,
             lineChart;
-        barChart, pieChart;
+       		barChart;
         // DOM is ready
         $(function () {
             updateChartOptions();
@@ -211,10 +228,12 @@
         <div id="contextMenu" class="dropdown clearfix">
             <ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu"
                 style="display:block;position:static;margin-bottom:5px;">
-                <li><a tabindex="-1" href="#">카테고리1</a></li>
-                <li><a tabindex="-1" href="#">카테고리2</a></li>
-                <li><a tabindex="-1" href="#">카테고리3</a></li>
-                <li><a tabindex="-1" href="#">카테고리4</a></li>
+                <li><a tabindex="-1" href="#">산책</a></li>
+                <li><a tabindex="-1" href="#">목욕</a></li>
+                <li><a tabindex="-1" href="#">몸무게 측정</a></li>
+                <li><a tabindex="-1" href="#">접종</a></li>
+                <li><a tabindex="-1" href="#">지출</a></li>
+                <li><a tabindex="-1" href="#">기타</a></li>
                 <li class="divider"></li>
                 <li><a tabindex="-1" href="#" data-role="close">Close</a></li>
             </ul>
@@ -267,17 +286,60 @@
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-type">구분</label>
                                 <select class="inputModal" type="text" name="edit-type" id="edit-type">
-                                    <option value="카테고리1">카테고리1</option>
-                                    <option value="카테고리2">카테고리2</option>
-                                    <option value="카테고리3">카테고리3</option>
-                                    <option value="카테고리4">카테고리4</option>
+                                    <option value="산책">산책</option>
+		                            <option value="목욕">목욕</option>
+		                            <option value="몸무게 측정">몸무게 측정</option>
+		                            <option value="접종">접종</option>
+		                            <option value="지출">지출</option>
+		                            <option value="기타">기타</option>
                                 </select>
                             </div>
                         </div>
                         
+                        
+                        
+                        <div class="row sch_walk">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-title">산책시간</label> <!--  -->
+                                <input class="inputModal" type="time" name="sch_walk" id="sch_walk"
+                                    required="required" />
+                            </div>
+                        </div>
+                        
+                        <div class="row sch_ex">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-type">지출항목</label>
+                                <select class="inputModal" type="text" name="sch_expenditure" id="sch_expenditure">
+                                    <option value="사료/간식">사료/간식</option>
+		                            <option value="장난감">장난감</option>
+		                            <option value="병원">병원</option>
+		                            <option value="미용/의류">미용/의류</option>
+		                            <option value="기타">기타</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row sch_ex">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-title">지출내역</label> <!-- 숫자만 쓸수있게 -->
+                                <input class="inputModal" type="number" name="sch_exDetails" id="sch_exDetails"
+                                    required="required" />
+                            </div>
+                        </div>
+
+                        <div class="row sch_weight">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-title">몸무게</label> <!-- 숫자만 쓸수있게 -->
+                                <input class="inputModal" type="number" name="sch_petWeight" id="sch_petWeight"
+                                    required="required" />
+                            </div>
+                        </div>
+                        
+                        
+                        
                         <div class="row">
                             <div class="col-xs-12">
-                                <label class="col-xs-4" for="edit-username">구분</label>
+                                <label class="col-xs-4" for="edit-username">반려동물</label>
                                 <select class="inputModal" type="text" name="edit-username" id="edit-username">
                                     <option value="강아지1">강아지1</option>
                                     <option value="강아지2">강아지2</option>
@@ -337,10 +399,12 @@
                     <label for="calendar_view">구분별</label>
                     <div class="input-group">
                         <select class="filter" id="type_filter" multiple="multiple">
-                            <option value="카테고리1">카테고리1</option>
-                            <option value="카테고리2">카테고리2</option>
-                            <option value="카테고리3">카테고리3</option>
-                            <option value="카테고리4">카테고리4</option>
+                            <option value="산책">산책</option>
+                            <option value="목욕">목욕</option>
+                            <option value="몸무게 측정">몸무게 측정</option>
+                            <option value="접종">접종</option>
+                            <option value="지출">지출</option>
+                            <option value="기타">기타</option>
                         </select>
                     </div>
                 </div>
@@ -379,6 +443,42 @@
     <script src="./resources/FullCalendar/js/addEvent.js"></script>
     <script src="./resources/FullCalendar/js/editEvent.js"></script>
     <script src="./resources/FullCalendar/js/etcSetting.js"></script>
+    
+    <script type="text/javascript">
+	
+    
+    	function categoryHide(){
+    		$(".sch_walk").hide();
+    		$(".sch_ex").hide();
+    		//$("#sch_exDetails").hide();
+    	};
+    	categoryHide();
+
+    	function walkShow(){
+    		$(".sch_walk").show();
+    	}
+    	function exShow(){
+    		$(".sch_ex").show();
+    	}
+    	
+    	
+    	$("#edit-type").change(function(){
+    	    var sch_type =  $(this).val();
+    	    alert(sch_type);
+    	    if (sch_type == "산책"){
+    	    	categoryHide();
+    	    	walkShow();
+    	    }else if (sch_type == "지출"){
+    	    	categoryHide();
+    	    	esShow();
+    	    }else{
+    	    	categoryHide();
+    	    }
+    	});
+	
+
+    </script>
+    
 </body>
 
 </html>
