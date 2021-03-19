@@ -63,7 +63,7 @@ public class MainController {
 		mainService.writeInfo(vo);
 		String temp = "";
 		try {
-			temp = "redirect:infoList.do?con_cate=" + URLEncoder.encode(vo.getCon_cate(), "UTF-8");
+			temp = "redirect:infoList.do?con_cate=" + URLEncoder.encode(vo.getCon_cate(), "UTF-8")+"&pageNo=1";
 		}catch (Exception e) {
 		}
 		return temp;
@@ -124,6 +124,7 @@ public class MainController {
 	/**infoList 페이지 불러오기(건강, 행동 리스트)*/
 	@RequestMapping("buenoBasic/infoList.do")
 	public void infoList(String con_cate,int pageNo, Model m) {
+		
 		int totalpage = mainService.getTotalPage(con_cate); // 총 페이지 갯수
 		System.out.println("페이지번호"+pageNo);
 		// 총 페이지 갯수보다 페이지 번호가 크다면 페이지는 총 페이지 갯수

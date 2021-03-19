@@ -25,6 +25,7 @@
 .button-wrap {
     width: 280px;
     margin: 35px auto;
+    margin-bottom:0px;
     position: relative;
     box-shadow: 0 0 600px 9px #fcae8f;
     border-radius: 30px;
@@ -48,7 +49,6 @@
     transition: .5s;
 }
 .social-icons {
-    margin: 30px auto;
     text-align: center;
 }
 .social-icons img {
@@ -56,10 +56,11 @@
     cursor: pointer;
 }
 .input-group {
-    top: 180px;
+    top: 150px;
     position: absolute;
     width: 280px;
     transition: .5s;
+    padding-left:5px;
 }
 .input-field {
     width: 100%;

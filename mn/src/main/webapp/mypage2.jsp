@@ -2,15 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file = "/header.jsp" %>
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>멍냥 마이페이지</title>
-    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
     <!-- https://fonts.google.com/specimen/Open+Sans -->
     <link rel="stylesheet" href="resources/dashboard/css/fontawesome.min.css">
@@ -21,13 +14,52 @@
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="resources/dashboard/css/tooplate.css">
     <style type="text/css">
+    	.tm-block-title{
+    		text-align: center;
+    		background-color:#FAEFE2;
+    		font-size: 20px;
+    		font-family: esamanru; 
+    		margin-top: -20px;
+    		margin-bottom: -30px;
+    		padding: 10px 0px;
+    		margin-bottom: 10px;
+    		border-radius: 10px;
+    	}
+    		/* 반려동물 프로필 css*/
+		.pet_box{
+			 width: 70px;
+		    height: 70px; 
+		    border-radius: 70%;
+		    overflow: hidden;
+			border: solid #FAEFE2 2px;
+		}
+		.pet_profile{
+			width: 100%;
+			height: 100%;
+			object-fit:cover;
+		}
+    </style>
+    <style type="text/css">
     
     
     </style>
+    <script type="text/javascript">
+    </script>
 </head>
 
 <body id="reportsPage">
     <div class="" id="home">
+    	<input type="hidden" id="session" value="${sessionScope.userInfo}">
+    	
+    	<div style="margin-top: 30px; left:70%; padding-left: 1100px; height: 70px;">
+    		<div style="float: left">
+	    		<div class="pet_box">
+	    			<img class="pet_profile" src="/mn/resources/petimg/basic_pet.png"  style="left:70%; font-family: esamanru;">
+	    		</div>
+    		</div>
+    		<div style="display: inline-block;padding-top: 30px; padding-left: 10px;"><span style="left:73%;;">반려동물을 등록해주세요</span></div>
+    		<div style="display:inline-block;margin-top: -20px; "><button id="petRegist" class="btn bueno-btn" style="left:20px;" onclick="location.href='/mn/pet/petList.do'">반려동물 등록</button></div>
+    	</div>
         <div class="container">
         
         	<!-- header start -->
@@ -45,20 +77,20 @@
             <!-- row -->
             <div class="row tm-content-row tm-mt-big">
                 <div class="tm-col tm-col-big">
-                    <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">[동물이름] 몸무게</h2>
+                    <div class="bg-white h-100">
+                        	<h2 class="tm-block-title">[동물이름] 몸무게</h2>
                         <canvas id="lineChart"></canvas>
                     </div>
                 </div>
                 <div class="tm-col tm-col-big">
-                    <div class="bg-white tm-block h-100">
+                    <div class="bg-white h-100">
                         <h2 class="tm-block-title">이번달 지출내역</h2>
                         <canvas id="barChart"></canvas>
                     </div>
                 </div>
                 
                 <div class="tm-col tm-col-small">
-                    <div class="bg-white tm-block h-100">
+                    <div class="bg-white h-100">
                         <h2 class="tm-block-title">세부일정</h2>
                         <ol class="tm-list-group">
                             <li class="tm-list-group-item">oo</li>
@@ -240,6 +272,7 @@
         </div>
 
         <div id="wrapper">
+        <h2 class="tm-block-title">세부일정</h2>
             <div id="loading"></div>
             <div id="calendar"></div>
         </div>
@@ -476,6 +509,15 @@
     	    }
     	});
 	
+    	
+    	// 반려동물 등록 버튼 클릭 시
+/*     	$('#petRegist').click(function () {
+			if(('#session').val()==null){ // 로그인 하지 않았다면
+				alert('로그인 후 이용해주세요.');
+			}else{
+			location.href='/mn/pet/petList.do';
+			}
+		}) */
 
     </script>
     

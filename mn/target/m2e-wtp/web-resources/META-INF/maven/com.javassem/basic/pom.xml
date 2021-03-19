@@ -52,12 +52,6 @@
 			<artifactId>jackson-databind</artifactId> 
 			<version>2.9.8</version> 
 		</dependency>
-<<<<<<< HEAD
-=======
-		
-
-
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 		<!-- 트랜잭션 관리를 위한 라이브러리 -->
 		<dependency>
 			<groupId>org.springframework</groupId>

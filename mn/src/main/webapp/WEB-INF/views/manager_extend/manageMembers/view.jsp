@@ -145,7 +145,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">회원 정보 수정</h1>
+                    <h1 class="h3 mb-2 text-gray-800">회원 정보 수정 ${sessionScope.userInfo.mem_check}</h1>
                     <p class="mb-4">회원의 정보를 수정하거나 삭제 할 수 있습니다.</p>
                     
                     <div class="row">
@@ -156,22 +156,20 @@
                             	<form class="user" id="myform" action="modifyMember.do" method="post">
 	                                <div class="card-body">
 	                                    <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">아이디</h6>
-										<input type="text" name="id" value="${member.mem_email}"/>
+										<input type="text" name="mem_email" value="${member.mem_email}"/>
 	                                    <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">이 름</h6>
-										<input type="text" name="name" value="${member.mem_name}"/>
+										<input type="text" name="mem_name" value="${member.mem_name}"/>
 	                                    <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">이메일</h6>
 										<p>${member.mem_email}</p>
 	                                    <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">생년월일</h6>
 										<p>?</p>
 	                                    <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">성 별</h6>
-										<p>?</p>
+										<p>${member.mem_check}</p>
 		                                <h6 class="m-0 font-weight-bold text-primary"style="margin-bottom: 0.5rem !important">권 한</h6>
 										<select name="mem_check">
-										<!-- 
-											<option <c:if test="${member.mem_check == 1}">selected</c:if> value="1">일반</option>
-											<option <c:if test="${member.mem_check == 5}">selected</c:if> value="5">에디터</option>
-											<option <c:if test="${member.mem_check == 10}">selected</c:if> value="10">서브 관리자</option>
-										-->
+											<c:if test="${member.mem_check != 2}"><option <c:if test="${member.mem_check == 0}">selected</c:if> value="0">일반</option></c:if>
+											<c:if test="${sessionScope.userInfo.mem_check == 2 && member.mem_check != 2}"><option <c:if test="${member.mem_check == 1}">selected</c:if> value="1">서브 관리자</option></c:if>
+											<c:if test="${sessionScope.userInfo.mem_check >= 1 && member.mem_check == 2}"><option <c:if test="${member.mem_check == 1}">selected</c:if> value="1">메인 관리자</option></c:if>											
 										</select>
 	                                	<h6 class="m-0 font-weight-bold text-primary" style="margin: 0.5rem 0 !important">프로필 이미지</h6>
 	                                	<%--
