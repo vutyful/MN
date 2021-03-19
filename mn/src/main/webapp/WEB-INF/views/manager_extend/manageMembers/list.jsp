@@ -176,7 +176,8 @@
 												<td>${member.mem_tel}</td>
 												<td>
 												<c:choose>
-													<c:when test="${member.mem_check == 1}">관리자</c:when>
+													<c:when test="${member.mem_check == 1}">서브 관리자</c:when>
+													<c:when test="${member.mem_check == 2}">메인 관리자</c:when>
 													<c:otherwise>일반회원</c:otherwise>										
 												</c:choose>
 												</td>

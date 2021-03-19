@@ -76,6 +76,12 @@ public class AdminController {
 				Revenue.add(temp);
 				continue;
 			}
+			catch(NullPointerException err)
+			{
+				Revenue = new ArrayList<AdVO>();
+				AdVO temp = new AdVO();
+				Revenue.add(temp);
+			}
 		}
 		//Revenue.get(i) for문으로 12개 돌려서 각 revenue 값만 list에 추가
 		
