@@ -20,7 +20,7 @@ a:hover, a:focus
 			<div class="row justify-content-center">
 				<div class="col-12 col-lg-8 col-xl-9">
 					<div class="contact-content mb-100">
-						<h2 class="mb-50" style="text-align: center;">지역별 동물병원</h2>
+						<h2 class="mb-50" style="text-align: center; color:#DEA361;">지역별 동물병원</h2>
 					</div>
 				</div>
 			</div>

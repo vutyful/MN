@@ -49,6 +49,11 @@ button{
 	margin-left: 30px;
 }
 
+#register > input{
+	font-size: 15px;
+}
+
+
 </style>
 </head>
 
@@ -61,18 +66,13 @@ button{
                     <button type="button" class="togglebtn" onclick="login()">&nbsp;&nbsp;&nbsp;&nbsp;로그인</button>
                     <button type="button" class="togglebtn" onclick="register()">회원가입</button>
                 </div>
-<!--                 <div class="social-icons">
-                    <img src="img/fb.png" alt="facebook">
-                    <img src="img/tw.png" alt="twitter">
-                    <img src="img/gl.png" alt="google">
-                </div> -->
                 <form id="login" action="/mn/login.do" method="post" class="input-group">
                     <input id="mem_email" name="mem_email" value='sachawon@gmail.com' type="text" class="input-field" placeholder="아이디:jingang@gmail.com" required>                  
                     <input name="mem_pass"  type="password" value='aaa111!!' class="input-field" placeholder="비번:aaa111!!" required="">
                    
-                    <button id="last_login_btn"class="submit">로그인</button>
+                    <button id="last_login_btn"class="submit" style="margin-top: 20px;">로그인</button>
                     <!-- 네이버아이디로로그인 버튼 노출 영역 -->
-                    <div id="naverIdLogin" style="margin-top: 15px;"></div>
+                    <div id="naverIdLogin" style="margin-top: 30px;"></div>
                     <!-- 카카오계정으로 로그인 버튼 노출 영역 -->
                     <a id="kakao-login-btn"></a>
   					<a href="http://developers.kakao.com/logout"></a>
@@ -80,12 +80,12 @@ button{
                 <!-- <p id="token-result"></p> -->
 	
                 <form id="register" action="/mn/registJoin.do" class="input-group">
-                    <input type="text" id="mem_name" name="mem_name" class="input-field" placeholder="이름을 입력하세요" required="">
+                    <input type="text" id="mem_name" name="mem_name" class="input-field" placeholder="닉네임을 입력하세요" required="">
                     
                     <div id = "mem_name_check"></div>
                     
-                    <input type="password" id="mem_pass" name="mem_pass" class="input-field" placeholder="영문 소문자, 특수문자,숫자를 5이상 모두 포함" required="">
-                    <input placeholder="비밀번호를 다시 입력하세요." id="mem_pass_ck" type="password"  class="input-field">
+                    <input type="password" id="mem_pass" name="mem_pass" class="input-field" placeholder="비밀번호(소문자,특수문자,숫자 포함 5자)" required="">
+                    <input placeholder="비밀번호 확인" id="mem_pass_ck" type="password"  class="input-field">
                     <div id = "mem_pass_check"></div>
                     
                     <input type="email"id="mem_email" name="mem_email" class="input-field" placeholder="이메일을 입력하세요" required="">
@@ -94,9 +94,9 @@ button{
                     <img id="id_check_sucess" style="display: none;"> -->
                     
                     
-                    <input placeholder="핸드폰 번호를 입력하세요'-'는 제외"name="mem_tel" type="tel" class="input-field">
+                    <input placeholder="핸드폰 번호를 입력하세요('-' 제외)"name="mem_tel" type="tel" class="input-field">
                     <div id = "mem_tel_check"></div>
-                    <button id="last_register_btn" name="last_register_btn"class="submit">가입하기</button>
+                    <button id="last_register_btn" name="last_register_btn"class="submit" style="margin-top: 20px;">가입하기</button>
                 </form>
         </div>
             
@@ -137,13 +137,11 @@ Kakao.init('965db0eb53584dc6dd507e3f0ba041f9');
 Kakao.Auth.createLoginButton({
     container: '#kakao-login-btn',
     success: function (authObj) {
-        alert(JSON.stringify(authObj));
         console.log(JSON.stringify(authObj));
         // access_token으로 사용자 정보 요청하기
     	Kakao.API.request({
 			url : '/v2/user/me',
 			success : function(res) {
-				alert(JSON.stringify(res))
 				var mem_email = res.kakao_account.email; //유저의 이메일
 				
 				window.location.replace("http://"+window.location.hostname + 
