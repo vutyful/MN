@@ -158,22 +158,22 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-											<th>가입일</th>
+										
 											<th>회원번호</th>
 											<th>아이디</th>
 											<th>이름</th>
-											<th>상태</th>
+											<th>전화번호</th>
 											<th>권한</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 										<c:forEach items="${membersList}" var="member">
 											<tr>
-												<td>?</td>
+											
 												<td>${member.mem_num}</td>
 												<td><a href='view.do?mem_num=${member.mem_num}'>${member.mem_email}</a></td>
 												<td>${member.mem_name}</td>
-												<td>?</td>
+												<td>${member.mem_tel}</td>
 												<td>
 												<c:choose>
 													<c:when test="${member.mem_check == 1}">서브 관리자</c:when>

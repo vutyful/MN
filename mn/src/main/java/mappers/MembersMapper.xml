@@ -37,4 +37,11 @@
 		SELECT * FROM member WHERE NVL(state, 'normal') = '탈퇴'
 	</select>
  	-->
+ 	
+ 	
+ 	<!--관리자 페이지 총 멤버수 통계페이지 사용  -->
+ 	<select id="memberTotal" resultType="int">
+ 	select count(*)
+ 	from member
+ 	</select>
 </mapper>

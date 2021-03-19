@@ -37,5 +37,9 @@ public class MembersServiceImpl implements MembersService
 		System.out.println("Service : getWithdrawalList");
 		return MembersDAO.getWithdrawalList();
 	}
+	@Override
+	public List<MemberVO> memberTotal(MemberVO vo){
+		return MembersDAO.memberTotal(vo);
+	};// 관리자페이지 통계 총 회원수
 	
 }

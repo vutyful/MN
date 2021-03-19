@@ -37,5 +37,10 @@ public class MembersDAOImpl implements MembersDAO
 		System.out.println("DAO : getWithdrawalList");
 		return mybatis.selectList("MembersMAP.getWithdrawalList");
 	}
+	
+	@Override
+	public List<MemberVO> memberTotal(MemberVO vo){
+		return mybatis.selectList("MembersMAP.memberTotal");
+	};//관리자페이지 통계 멤버수
 
 }
