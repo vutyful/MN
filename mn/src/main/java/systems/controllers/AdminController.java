@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import systems.domains.AdVO;
 import systems.domains.BoardVO;
+import systems.domains.MemberVO;
 import systems.domains.PetVO;
 import systems.services.AdService;
 import systems.services.BoardService;
+import systems.services.MembersService;
 import systems.services.PetService;
 
 @Controller
@@ -26,10 +28,13 @@ public class AdminController {
 	
 	@Autowired
 	private AdService adService;
+	
+	@Autowired
+	private MembersService membersService;
 
 	// 첫 통계페이지에서 바로 통계화면
 	@RequestMapping(value="manager/statistics.do")
-	public void admin2(BoardVO boardvo,PetVO petvo,AdVO advo, Model model) {
+	public void admin2(BoardVO boardvo,PetVO petvo,AdVO advo,MemberVO membervo, Model model) {
 		System.out.println("통계페이지");
 
 		List<BoardVO> Total = boardService.boardTotal(boardvo); // 총 게시물 수
@@ -44,6 +49,9 @@ public class AdminController {
 		
 		model.addAttribute("petDog", Dog);
 		model.addAttribute("petCat", Cat);
+		
+		List<MemberVO> Member = membersService.memberTotal(membervo);
+		model.addAttribute("memberTotal", Member);
 		
 		List<AdVO> Revenue = adService.adRevenue(advo);
 		for(int i=0; i<12; i++)

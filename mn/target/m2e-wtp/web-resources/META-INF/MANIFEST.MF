@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: psy
-=======
-Built-By: user
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 Build-Jdk: 1.8.0_265
 Created-By: Maven Integration for Eclipse
 
