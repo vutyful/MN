@@ -1,5 +1,5 @@
 $(function (){
-    $('#summernote').summernote({
+    $('#summernote').summernote({ // summernote 생성
         height: 800,
         minHeight: 600,
         maxHeight: null,

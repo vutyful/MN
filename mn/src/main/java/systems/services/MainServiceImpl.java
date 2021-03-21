@@ -30,9 +30,6 @@ public class MainServiceImpl implements MainService{
 				totalRecCount 	pageTotalCount
 				*  			 9 - 3
 				* 			10 - 4
-							11 - 4
-							12 - 4
-							13 - 5
 				* */
 		pageTotalCount = totalRecCount/countPerPage;
 		if(totalRecCount % countPerPage !=0) {
@@ -47,8 +44,6 @@ public class MainServiceImpl implements MainService{
 		pageNo(페이지번호) 	(firstRow)시작레코드번호  	(endRow)끝레코드번호
 				1					1					9
 				2					10					18
-				3					19					27
-				4					28					37
 		*/
 		int firstRow = (pageNo-1) * countPerPage + 1;
 		int endRow = pageNo * countPerPage;
