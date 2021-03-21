@@ -17,4 +17,6 @@ public interface AdDAO {
 	
 	public List<AdVO> adRevenue(AdVO vo); //광고수익 그래프
 	
+	public int adClick(AdVO vo);//광고 클릭수
+	
 }
