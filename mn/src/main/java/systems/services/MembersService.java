@@ -9,4 +9,8 @@ public interface MembersService {
 	MemberVO getMember(MemberVO vo);
 	List<MemberVO> getMembersList();
 	List<MemberVO> getWithdrawalList();
+	
+	
+	List<MemberVO> memberTotal(MemberVO vo);// 관리자페이지 통계 총 회원수
+	
 }

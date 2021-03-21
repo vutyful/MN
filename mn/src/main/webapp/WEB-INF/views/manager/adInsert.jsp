@@ -401,18 +401,18 @@
 										<td><input type="number" name="revenue"></td>
 									</tr>
 									<tr>
-										<td colspan="2" align="center"><input type="submit"
-											value="광고등록" onclick="return confirm('등록하시겠습니까?');" /></td>
+										<!-- <td colspan="2" align="center"><input type="submit"
+											value="광고등록" onclick="return confirm('등록하시겠습니까?');" /></td> -->
 								</table>
-								
-		<!-- 						
+								<br/>
+						
 								<a href="#" class="btn btn-primary btn-icon-split"
-									onclick="$('#myform').submit();"> <span
+									onclick="$('form').submit();"> <span
 									class="icon text-white-50"> <i class="fas fa-check"></i>
 								</span> <span class="text">등록하기</span>
-								 -->
+								 </a>
 								
-								</a> <a href="/mn/manager/ad.do"
+								 <a href="/mn/manager/ad.do"
 									" class="btn btn-secondary btn-icon-split"> <span
 									class="icon text-white-50"> <i
 										class="fas fa-arrow-right"></i>
