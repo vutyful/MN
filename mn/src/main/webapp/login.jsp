@@ -49,6 +49,11 @@ button{
 	margin-left: 30px;
 }
 
+#register > input{
+	font-size: 15px;
+}
+
+
 </style>
 </head>
 
@@ -61,18 +66,14 @@ button{
                     <button type="button" class="togglebtn" onclick="login()">&nbsp;&nbsp;&nbsp;&nbsp;로그인</button>
                     <button type="button" class="togglebtn" onclick="register()">회원가입</button>
                 </div>
-<!--                 <div class="social-icons">
-                    <img src="img/fb.png" alt="facebook">
-                    <img src="img/tw.png" alt="twitter">
-                    <img src="img/gl.png" alt="google">
-                </div> -->
                 <form id="login" action="/mn/login.do" method="post" class="input-group">
                     <input id="mem_email" name="mem_email" value='sy10201220@naver.com' type="text" class="input-field" placeholder="아이디:jingang@gmail.com" required>                  
                     <input name="mem_pass"  type="password" value='qqq111!!' class="input-field" placeholder="비번:aaa111!!" required="">
                    
-                    <button id="last_login_btn"class="submit">로그인</button>
+                    <button id="last_login_btn"class="submit" style="margin-top: 20px;">로그인</button>
                     <!-- 네이버아이디로로그인 버튼 노출 영역 -->
-                    <div id="naverIdLogin" style="margin-top: 15px;"></div>
+                    <div id="naverIdLogin" style="margin-top: 30px;"></div>
+                    
                     <!-- 카카오계정으로 로그인 버튼 노출 영역 -->
                     <a id="kakao-login-btn"></a>
   					<a href="http://developers.kakao.com/logout"></a>
@@ -84,17 +85,17 @@ button{
                     
                     <div id = "mem_name_check"></div>
                     
-                    <input type="password" id="mem_pass" name="mem_pass" class="input-field" placeholder="영문 소문자, 특수문자,숫자를 5이상 모두 포함" required="">
-                    <input placeholder="비밀번호를 다시 입력하세요." id="mem_pass_ck" type="password"  class="input-field">
+                    <input type="password" id="mem_pass" name="mem_pass" class="input-field" placeholder="비밀번호(소문자,특수문자,숫자 포함 5자)" required="">
+                    <input placeholder="비밀번호 확인" id="mem_pass_ck" type="password"  class="input-field">
                     <div id = "mem_pass_check"></div>
                     
                     <input type="email" id="mem_email2" name="mem_email" class="input-field" placeholder="이메일을 입력하세요" required="">
                     <div id = "mem_email_check"></div>
               
                     
-                    <input placeholder="핸드폰 번호를 입력하세요'-'는 제외"name="mem_tel" type="tel" class="input-field">
+                    <input placeholder="핸드폰 번호를 입력하세요('-' 제외)"name="mem_tel" type="tel" class="input-field">
                     <div id = "mem_tel_check"></div>
-                    <button id="last_register_btn" name="last_register_btn"class="submit">가입하기</button>
+                    <button id="last_register_btn" name="last_register_btn"class="submit" style="margin-top: 20px;">가입하기</button>
                 </form>
         </div>
             
@@ -118,10 +119,10 @@ button{
 			clientId: "aCUzCh7VHWRdUn3uzB77",
 			callbackUrl: "http://192.168.0.79:8080/mn/naverLogin.jsp",
 			isPopup: false, /* 팝업을 통한 연동처리 여부 */
-			loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+			/* 로그인 버튼의 타입을 지정 */
+			loginButton: {color: "green", type: 3, height: 60} 
 		}
 	);
-	
 	/* 설정정보를 초기화하고 연동을 준비 */
 	naverLogin.init();
 	
@@ -129,6 +130,7 @@ button{
 
 <!-- 카카오톡 로그인 -->
 <script type="text/javascript">
+<<<<<<< HEAD
 	// 사용할 앱의 JavaScript 키를 설정해 주세요.
 	Kakao.init('965db0eb53584dc6dd507e3f0ba041f9');
 	// 카카오 로그인 버튼을 생성합니다.
@@ -154,6 +156,31 @@ button{
 	        alert(JSON.stringify(err));
 	    }
 	});
+=======
+// 사용할 앱의 JavaScript 키를 설정해 주세요.
+Kakao.init('965db0eb53584dc6dd507e3f0ba041f9');
+// 카카오 로그인 버튼을 생성합니다.
+Kakao.Auth.createLoginButton({
+    container: '#kakao-login-btn',
+    success: function (authObj) {
+        console.log(JSON.stringify(authObj));
+        // access_token으로 사용자 정보 요청하기
+    	Kakao.API.request({
+			url : '/v2/user/me',
+			success : function(res) {
+				var mem_email = res.kakao_account.email; //유저의 이메일
+				
+				window.location.replace("http://"+window.location.hostname + 
+						((location.port==""||location.port==undefined)?"":":"+location.port)+
+						"/mn/buenoBasic/main.do?mem_email="+mem_email); 
+				}
+			})
+    },
+    fail: function (err) {
+        alert(JSON.stringify(err));
+    }
+});
+>>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 
 </script>
 

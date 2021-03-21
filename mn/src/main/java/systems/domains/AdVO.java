@@ -18,6 +18,7 @@ public class AdVO {
 	private String enddate; // 광고 마감일
 	private String cat; // 반려묘 있는 사람의 클릭 수
 	private String dog; // 반려견 있는 사람의 클릭 수
+	private int revenue; // 광고 수익
 	
 	// C:\Users\psy\git\MN\mn\src\main\webapp\resources\manager File f = new
 	// File("C:\\Users\\psy\\git\\MN\\mn\\src\\main\\webapp\\resources\\manager\\adimg\\"+ad_img);
@@ -124,5 +125,12 @@ public class AdVO {
 	public void setDog(String dog) {
 		this.dog = dog;
 	}
+	public int getRevenue() {
+		return revenue;
+	}
+	public void setRevenue(int revenue) {
+		this.revenue = revenue;
+	}
+	
 
 }

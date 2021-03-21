@@ -13,6 +13,7 @@ COLOR CODES
   
 */
 
+<<<<<<< HEAD
 div.classynav>ul{
 	position: relative;
 	right:220px;
@@ -22,13 +23,20 @@ a{
 	
 	
 }
+=======
+@font-face{
+	font-family: "esamanru";
+	src: url("/mn/resources/bueno/fonts/esamanru Light.ttf");
+}
+
+>>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 
 html {
   font-size: 17px;
 }
 
 body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: "esamanru", sans-serif;
   overflow-x: hidden;
 }
 
@@ -473,9 +481,7 @@ footer {
     min-height: 383px;
     height: auto;
   }
-  .tm-block {
-    padding: 30px;
-  }
+  
 
   .tm-table-actions-row {
     display: block;
@@ -526,8 +532,6 @@ footer {
   }
 
   body {
-    padding-left: 15px;
-    padding-right: 15px;
   }
 
   .tm-site-title {

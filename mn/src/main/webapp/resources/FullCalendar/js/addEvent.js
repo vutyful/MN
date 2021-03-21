@@ -12,6 +12,13 @@ var editDesc = $('#edit-desc');
 var editUsername = $('#edit-username');
 
 
+
+var editWalk = $('#sch_walk');
+var editExpenditure = $('#sch_expenditure');
+var editExDetails = $('#sch_exDetails');
+var editPetWeight = $('#sch_petWeight');
+
+
 var addBtnContainer = $('.modalBtnContainer-addEvent');
 var modifyBtnContainer = $('.modalBtnContainer-modifyEvent');
 
@@ -34,6 +41,37 @@ var newEvent = function (start, end, eventType) {
     modifyBtnContainer.hide();
     eventModal.modal('show');
 
+	
+	
+	function categoryHide(){
+    		$(".sch_walk").hide();
+    		$(".sch_ex").hide();
+    		//$("#sch_exDetails").hide();
+    		$(".sch_weight").hide();
+    };
+    categoryHide();
+    function walkShow(){
+    	$(".sch_walk").show();
+    };
+    function exShow(){
+    	$(".sch_ex").show();
+    };
+    function weightShow(){
+    	$(".sch_weight").show();
+    };
+    
+	if(editType.val() == "산책"){
+		//categoryHide();
+		walkShow();
+	}else if (editType.val() == "지출"){
+		//categoryHide();
+		exShow();
+	}else if (editType.val() == "몸무게 측정"){
+		weightShow();
+	};
+	
+
+    	
     /******** 임시 RAMDON ID - 실제 DB 연동시 삭제 **********/
     //var eventId = 1 + Math.floor(Math.random() * 1000);
     /******** 임시 RAMDON ID - 실제 DB 연동시 삭제 **********/
@@ -52,7 +90,12 @@ var newEvent = function (start, end, eventType) {
             username: editUsername.val(),
             backgroundColor: editColor.val(),
             textColor: '#ffffff',
-            allDay: false
+            allDay: false,
+            
+            walk : editWalk.val(),
+			expenditure : editExpenditure.val(),
+			exDetails : editExDetails.val(),
+			petWeight : editPetWeight.val()
         };
 
         if (eventData.start > eventData.end) {
@@ -64,6 +107,24 @@ var newEvent = function (start, end, eventType) {
             alert('일정명은 필수입니다.');
             return false;
         }
+        
+        if (eventData.type == '산책') {
+        	if (eventData.walk == ''){
+        		alert('산책시간을 입력해주세요');
+	            return false;
+        	}
+        }else if (eventData.type == '지출'){
+        	if (eventData.exDetails == ''){
+        		alert('지출내역을 입력해주세요');
+	            return false;
+        	}
+        }else if (eventData.type == '몸무게 측정'){
+        	if (eventData.petWeight == ''){
+        		alert('몸무게를 입력해주세요');
+	            return false;
+        	}
+        }
+                
 
         var realEndDay;
 

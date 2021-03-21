@@ -7,24 +7,49 @@
 	<select id="test" parameterType="calendar" resultType="calendar">
 		SELECT sch_id, sch_title, sch_description , sch_start, sch_end, sch_type, sch_pname, sch_backgroundColor, sch_textColor, sch_allDay
 		FROM schedule
+		WHERE pet_num in (select pet_num from pet where mem_num = #{mem_num})
 	</select>
 
 	<!-- 스케쥴러 일정 추가하기 -->
 	<insert id="addSchedule" parameterType="calendar">
 		INSERT INTO schedule
-		(sch_id, sch_title, sch_start, sch_end, sch_type, sch_pname, sch_backgroundColor, sch_textColor, sch_allDay
+		(sch_id, sch_title, sch_start, sch_end, sch_type, sch_pname, sch_backgroundColor, sch_textColor, sch_allDay, pet_num
 		
 		<if test = "sch_description != null">
 		,sch_description
 		</if>
 		
+		<choose>
+			<when test="sch_walk  != null">
+			,sch_walk
+			</when>
+			<when test="sch_expenditure != null and sch_exDetails != null ">
+			,sch_expenditure, sch_exDetails
+			</when>
+			<when test="sch_weight != null">
+			,sch_weight
+			</when>
+		</choose>
+		
 		)
 		VALUES
-		(seq_sch.NEXTVAL, #{sch_title}, #{sch_start}, #{sch_end}, #{sch_type}, #{sch_pname}, #{sch_backgroundColor}, #{sch_textColor}, #{sch_allDay} 
+		(seq_sch.NEXTVAL, #{sch_title}, #{sch_start}, #{sch_end}, #{sch_type}, #{sch_pname}, #{sch_backgroundColor}, #{sch_textColor}, #{sch_allDay}, (select  pet_num from pet where mem_num = #{mem_num} and pet_name = #{sch_pname}) 
 		
 		<if test = "sch_description != null">
 		,#{sch_description}
 		</if>
+		
+		<choose>
+			<when test="sch_walk  != null">
+			,#{sch_walk}
+			</when>
+			<when test="sch_expenditure != null and sch_exDetails != null ">
+			,#{sch_expenditure}, #{sch_exDetails}
+			</when>
+			<when test="sch_weight != null">
+			,#{sch_weight}
+			</when>
+		</choose>
 		
 		)
 	
@@ -35,13 +60,18 @@
 		UPDATE schedule
 		SET
 		sch_title = #{sch_title},
-		sch_description = #{sch_description},
 		sch_start = #{sch_start},
 		sch_end = #{sch_end},      
 		sch_type = #{sch_type},       
 		sch_pname = #{sch_pname},        
 		sch_backgroundColor = #{sch_backgroundColor}, 
-		sch_allDay = #{sch_allDay}
+		sch_allDay = #{sch_allDay},
+		pet_num = (select pet_num from pet where mem_num = #{mem_num} and pet_name = #{sch_pname})
+		
+		
+		<if test = "sch_description != null">
+		,sch_description = #{sch_description}
+		</if>
 		WHERE
 		sch_id = #{sch_id}
 	</update>
