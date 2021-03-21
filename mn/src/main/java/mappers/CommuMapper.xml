@@ -8,24 +8,22 @@
 	<insert id="CommunityInsert" parameterType="board">
 		insert into
 		board(bo_num,bo_title,bo_content,bo_date,bo_cate, mem_num)
-		values(seq_board.NEXTVAL,#{bo_title},#{bo_content},sysdate,'테스트',
-		#{mem_num})
+		values(seq_board.NEXTVAL,#{bo_title},#{bo_content},sysdate,#{bo_cate},#{mem_num})
 	</insert>
 
 	<!-- 게시글 목록 -->
-	<select id="getBoardList" resultType="HashMap">
-		select member.mem_name
+	<select id="getBoardList" parameterType="String" resultType="HashMap">
+		select member.mem_name,
 		mem_name, board.bo_title bo_title,board.bo_num bo_num, board.bo_date
-		bo_date
+		bo_date,  board.bo_cate bo_cate
 		from board
-		inner join member on board.mem_num = member.mem_num order by bo_date
+		inner join member on board.mem_num = member.mem_num where bo_cate=#{bo_cate} order by bo_date
 		desc
 	</select>
 
 	<!-- 게시글 상세페이지 -->
-	<select id="boardDetail" parameterType="board" resultType="map"><!-- p= 
-			getter/ r= setter -->
-		SELECT bo_title, bo_content, mem_email, bo_date, mem_name,
+	<select id="boardDetail" parameterType="board" resultType="map">
+		SELECT bo_cate,bo_title, bo_content, mem_email, bo_date, mem_name,
 		member.mem_num mem_num
 		FROM board
 		FULL OUTER JOIN member ON
@@ -34,14 +32,12 @@
 	</select>
 	
 	<!-- 게시글 수정 -->
-
 	<select id="selectReply" resultType="board" parameterType="board">
 		select * from board  
 		WHERE bo_num = ${bo_num}
 	</select>
 	
 	<!-- 게시글 수정완료 -->
-
 	<update id="commuUpdate" parameterType="board" >
 		UPDATE board SET
 		bo_content = #{bo_content}, bo_title = #{bo_title}
@@ -54,8 +50,7 @@
 		<selectKey keyProperty="re_num" resultType="int" order="AFTER">
 			SELECT seq_reply.CURRVAL FROM DUAL
 		</selectKey>
-		insert into reply
-		(re_num,bo_num, mem_num, re_content, re_date)
+		insert into reply (re_num,bo_num, mem_num, re_content, re_date) 
 		values(seq_reply.nextval,#{bo_num},#{mem_num},#{re_content},sysdate)
 	</insert>
 	

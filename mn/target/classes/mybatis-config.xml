@@ -14,9 +14,11 @@
 			<typeAlias type="systems.domains.PetVO" alias="pet"/>
 			<typeAlias type="systems.domains.ContentReplyVO" alias="contentreply"/>
 			
+			
 		</typeAliases>
 		<typeHandlers>
 	        <typeHandler handler="systems.domains.CLOBHandler" javaType="String" jdbcType="LONGVARCHAR"/>
 	    </typeHandlers>
+	    
 	
 	</configuration>

@@ -44,9 +44,15 @@ background-color: white;
 <body id="reportsPage" class="bg02">
 		<div class="container">
 		<div style=" position:relative; left: 40%; margin-top: 50px;">
-		    <div class=".section-padding-70-20" style="text-align: center; width: 20%; background-color:#FAEFE2; border:#FAEFE2 solid 3px; border-radius:10px;"><h2 style=" margin-top:8px; 
-		    text-align: center; font-family: esamanru;">커뮤니티 게시판</h2></div>
-   		</div>
+		
+					<div class=".section-padding-70-20"
+						style="text-align: center; width: 20%; background-color: #FAEFE2; border: #FAEFE2 solid 3px; border-radius: 10px;">
+						<h2
+							style="margin-top: 8px; text-align: center; font-family: esamanru;">${cate}게시판</h2>
+					</div>
+			
+
+		</div>
 			<!-- row -->
 			<div class="row tm-content-row tm-mt-big" style="width: 100%;">
 					<div class="bg-white tm-block h-100" style="padding-left: 250px; padding-top: 0px;">
@@ -58,7 +64,7 @@ background-color: white;
 								<!-- 등록하기 버튼 누를시 회원과 비회원 구분하도록 하기 -->
 								<c:choose>
 									<c:when test="${empty sessionScope.userInfo}">
-									<a href="/mn/login.jsp?"class="btn btn-small btn-primary" style="border-radius: 10px;">글쓰기</a>
+									<a href="/mn/login.jsp?"class="btn btn-small btn-primary" style="border-radius: 10px;">로그인</a>
 									</c:when>
 									<c:otherwise>
 									<a href="/mn/communityBoard/commuWriting.do"class="btn btn-small btn-primary" style="border-radius: 10px;">글쓰기</a>
@@ -74,6 +80,7 @@ background-color: white;
 									<thead>
 										<tr style="background-color: #DEA361; color: white;">
 											<th scope="col">&nbsp;</th>
+											<th scope="col" style="width: 100px;">번호</th>
 											<th scope="col" style="width: 500px;">목록</th>
 											<th scope="col" style="width: 300px;">작성자</th>
 											<th scope="col" style="width: 200px;">날짜</th>
@@ -85,7 +92,7 @@ background-color: white;
 											<tr>
 												<th scope="row"></th>
 												<!-- jstl foreach문으로 목록 내용 불러오기 -->
-											<%-- <td class="tm-product-name">${item.bo_title}</td>  --%>
+											 <td class="tm-product-name">${bo.BO_NUM}</td> 
 											<td><a href='/mn/communityBoard/boardDetail.do?bo_num=${bo.BO_NUM}'/>'${bo.BO_TITLE}</a></td>
 											<td class="text-center">${bo.MEM_NAME}</td>
 												<td class="text-center">${fn:substring(bo.BO_DATE,0,16)}</td>

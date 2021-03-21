@@ -12,7 +12,9 @@
 	position:relative;
 	background-color: lightpink;
     margin-left: 700px;
-
+}
+.post-author .post-date .reply{
+font-size: 15px;
 }
 
 </style>
@@ -31,6 +33,7 @@
 						<div class="post-meta mb-50">
 							<a href="#"class="post-author">작성자: ${data.MEM_NAME}</a>
 							<a href="#" class="post-date">작성날짜: ${fn:substring(data.BO_DATE,0,16)} </a> 
+							<a href="#"class="post-author"> 종류: ${data.BO_CATE}</a>
 						</div>
 					</div>
 				</div>
@@ -56,7 +59,7 @@
 					<c:choose>
 						<c:when test="${sessionScope.userInfo.mem_num  eq data.MEM_NUM}">
 							<div class="col-12" style="align-content: right;">
-							<a id="update_btn" value="수정" class="btn bueno-btn mt-30 updateBtn">수정</a>
+							<a id="update_btn" value="수정" class="btn bueno-btn mt-30 updateBtn">게시글수정</a>
 						</c:when>
 						<c:otherwise>
 							<div class="col-12">
@@ -79,15 +82,15 @@
 								<div class="comment-content d-flex">
 									<!-- Comment Meta -->
 									<div class="comment-meta">
-										<div class="d-flex"><!-- hashmap은 대문자로 컬럼명을 써야한다. -->
-											<a href="#" id="mam_name" name="mam_name" class="post-author">작성자:${items.MEM_NAME}</a> 
-											<a href="#" id="re_date" name="re_date"class="post-date">작성 날짜:${fn:substring(items.RE_DATE,0,16)}</a>
+										<div class="d-flex" style="font-size: 15px;"><!-- hashmap은 대문자로 컬럼명을 써야한다. -->
+											<a href="#" id="mam_name" name="mam_name" class="post-author">${items.MEM_NAME}</a> 
+											<a href="#" id="re_date" name="re_date"class="post-date">${fn:substring(items.RE_DATE,0,16)}</a>
 										</div>
-										<p><a href="#" id="re_content" name="re_content"class="reply">댓글 내용:${items.RE_CONTENT}</a></p>
+										<p style="font-size: 15px;"><a href="#" id="re_content" name="re_content"class="reply">댓글 내용:${items.RE_CONTENT}</a></p>
 										<!-- 삭제 if문-->
 										<input type="hidden" id="re_num" name="re_num"value='${items.RE_NUM}'/>
 										<c:if test="${sessionScope.userInfo.mem_num eq items.MEM_NUM}">
-											<!-- <button id = "modi_btn"  class="btn bueno-btn mt-30">수정</button> -->
+										<%-- 	<button id = "modi_btn${items.RE_NUM}"  class="btn bueno-btn mt-30 re_modify ">댓글수정</button> --%>
 											<button id = "del_btn"  class="btn bueno-btn mt-30">삭제</button>
 										</c:if>
 									</div>
@@ -99,7 +102,7 @@
 					</div>
 
 					<div class="post-a-comment-area mb-30 clearfix">
-						<h4 class="mb-50">리플남기기</h4>
+						<h4 class="mb-50">댓글 남기기</h4>
 
 						<!-- Reply Form -->
 						<div class="contact-form-area">
@@ -115,8 +118,18 @@
 										<textarea id="re_content" name="re_content" class="form-control"
 											cols="30" rows="10" placeholder="내용"></textarea>  <!-- 등록시에는 vo값을 받을 필요가 없다. -->
 										<div class="col-12">
-										<button id="re_insert" class="btn bueno-btn mt-30" type="button">등록</button> <!-- ajax시에는 javascript에서 function을 걸어서 submit함 -->
-									</div> 
+											<c:choose>
+												<c:when test="${empty sessionScope.userInfo}">
+													<a href="/mn/login.jsp?"class="btn bueno-btn mt-30"
+														type="button"">로그인</a>
+												</c:when>
+												<c:otherwise>
+													<button id="re_insert" class="btn bueno-btn mt-30"
+														type="button">등록</button>
+													<!-- ajax시에는 javascript에서 function을 걸어서 submit함 -->
+												</c:otherwise>
+											</c:choose>
+										</div> 
 									</div> 
 					
 								</div>
@@ -181,14 +194,12 @@
 		alert('수정 버튼 클릭');
 		$('#frm').submit();
 		
-		
 	})
 		
 	//(댓글)삭제버튼을 눌렀을 시
 	$(document).on('click','#del_btn',function(){
  		alert("삭제버튼 클릭"); 
 		alert($(this).prev().val());
-		
 		
    	$.ajax({
 		type:"get",
@@ -202,37 +213,20 @@
 				console.log(delresult);
 				if(delresult==1){
 					alert("삭제되었습니다");
-					
 				}
 			},
-				error: function(){
+			error: function(){
 					alert("댓글삭제 실패");
 				}
-		
 		});	 //삭제 ajax of end
  	 	$(this).parent().parent().parent().parent().remove();
 
 	}); //삭제 of end
+
 	
-	
-	//댓글 수정
-	$
-		
 	//댓글 등록		
  	$(document).on('click','#re_insert',function(){
- /* 		alert('클릭'); */
-      	
-/* 		if($.trim($("#mem_num").val()) == null)){
-			alert("로그인을 하세요");
-		}
-		else($.trim($(".form-control")).val())=="")
-		
-      		alert("댓글을 입력해 주세요");  */
-		  
-		console.log($("#mem_num").val())
-		console.log($("#bo_num").val())
-		console.log($(".form-control").val())
-		
+
 	//댓글 비동기식 처리 ajax
 	$.ajax({
 		type: "POST",
@@ -244,17 +238,11 @@
 				'mem_num':$("#mem_num").val(),  //회원번호
 				'bo_num':$("#bo_num").val(),	//게시판번호
 				're_content':$(".form-control").val()	//내용
-				
 			},
 			success: function(result) {
-			/* 	alert('들어왓니?') */
-
-			console.log(result);//0
-			console.log(typeof result); //js 'typeof'을 보는 방법
 			
 				if(result==1){ // 1 (int ) 비교 "1" (string ) 되지 않도록 실수 주의
-				alert("댓글 등록 완료");
-				//1)내용이 지워주고 화면을 찾아서 추가할 수 있게 2)자바스크립트에서 ol 한번 더 만듦어줌 mb-50의 자식으로 append 함수 사용
+
 				$('.comment_area').prepend('<ol>'
 						+'<li class="single_comment_area">'
 						+'<div class="comment-content d-flex">'
@@ -279,7 +267,6 @@
 	
 						+'</li>'
 						+'</ol>');
-				
 						$('.form-control').val('');
 				
 					} 

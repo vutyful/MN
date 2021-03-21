@@ -22,16 +22,17 @@ public class CommunityDAOImpl implements CommunityDAO{
 	//게시판 등록
 	@Override
 	public void CommunityInsert(BoardVO vo) {
+		System.out.println("bo_cate:"+vo.getBo_cate());
 		System.out.println("mybatis CommunityInsert 호출");
 		mybatis.insert("CommuMap.CommunityInsert", vo);   //mapper안에 있는 특정 select, insert,등등 아이디 값을 부름
 		
 	}
 	//게시판 목록 
 	@Override
-	public List<HashMap<String, Object>> getBoardList(){
+	public List<HashMap<String, Object>> getBoardList(String bo_cate){
 	
-		System.out.println("mybatis getBoardList 호출");
-		return mybatis.selectList("CommuMap.getBoardList");
+		System.out.println("mybatis getBoardList bo_cate:"+bo_cate);
+		return mybatis.selectList("CommuMap.getBoardList", bo_cate);
 	}
 	
 	//게시판 상세페이지

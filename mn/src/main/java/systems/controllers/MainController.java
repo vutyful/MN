@@ -69,7 +69,7 @@ public class MainController {
 		return temp;
 	}
 	
-	/**메인페이지 로딩*/
+	/** 메인페이지 로딩 */
 	@RequestMapping("buenoBasic/main.do")
 	public void main(String mem_email,Model m,HttpSession session) {
 		//sns (카카오,네이버)로 로그인 시 db에 저장 후 세션에 저장
@@ -121,7 +121,7 @@ public class MainController {
 		
 	}
 	
-	/**infoList 페이지 불러오기(건강, 행동 리스트)*/
+	/** infoList 페이지 불러오기(건강, 행동 리스트) */
 	@RequestMapping("buenoBasic/infoList.do")
 	public void infoList(String con_cate,int pageNo, Model m) {
 		
@@ -149,7 +149,7 @@ public class MainController {
 		
 	}
 	
-	/**infoCard 페이지 불러오기 (음식, 백과 리스트)*/
+	/** infoCard 페이지 불러오기 (음식, 백과 리스트) */
 	@RequestMapping("buenoBasic/infoCard.do")
 	public void infoCard(String con_cate, int pageNo,Model m) {
 		
@@ -164,7 +164,7 @@ public class MainController {
 	}
 	
 	
-	/** infoDetail 컨텐츠 상세페이지 불러오기 () */
+	/** infoDetail 컨텐츠 상세페이지 불러오기 */
 	@RequestMapping("buenoBasic/infoDetail.do")
 	public void infoDetail(int con_num,Model m, HttpSession session) { //썸네일 클릭 시 con_num 가져오기
 		//해당 컨텐츠 조회수 1 올리기
@@ -223,7 +223,6 @@ public class MainController {
 		String bm = mainService.getBookmark(mem_num);
 		// 파싱하여 con_num 포함되어있는지 확인
 		if(bm==null) { // 북마크가 없다면
-			System.out.println("북마크 처음 넣기! controller");
 			bm = con_num;
 			// mem_num과 bm 가지고 updateBookmark
 			mainService.updateBookmark(mem_num, bm);
@@ -237,7 +236,6 @@ public class MainController {
 		
 		if(!(bm.isEmpty())) {
 			if(list.contains(con_num)) { //이미 북마크한 정보글이라면
-				System.out.println("이미했던거네!");
 				list.remove(con_num); //북마크 리스트에서 지우기
 				result = "no";
 			}else {
@@ -281,10 +279,6 @@ public class MainController {
 	@RequestMapping(value="buenoBasic/imageUpload.do")
 	@ResponseBody
 	public String imageUpload(@RequestParam("file") MultipartFile file,HttpServletResponse response) throws Exception{
-		System.out.println("이미지컨트롤러 왔니?"+file.getOriginalFilename());
-//		response.setContentType("application/json");
-//		PrintWriter out = response.getWriter();
-		
 		Date now = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyMMddhhmmss");
 		// 업로드 파일 접근
@@ -293,7 +287,6 @@ public class MainController {
 			//파일 이름
 			img_name = format.format(now)+ file.getOriginalFilename();
 			String path = "C:\\Users\\Kosmo_22\\git\\MN\\mn\\src\\main\\webapp\\resources\\upload\\"+ img_name;
-			
 			//***********************************************
 			// 해당 경로로 변경
 			File f = new File(path);
