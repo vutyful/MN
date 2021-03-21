@@ -12,8 +12,8 @@ public interface CommunityService{
 	//게시판 등록
 	public void CommunityInsert(BoardVO vo);
 	
-	//게시판 목록 보기
-	public List<HashMap<String,Object>> getBoardList();
+	//게시판 목록 보기(강아지, 고양이 bo_cate 분류하여 받기)
+	public List<HashMap<String,Object>> getBoardList(String bo_cate);
 	
 	//게시판 상세페이지 
 	
@@ -32,10 +32,8 @@ public interface CommunityService{
 	
 	//댓글 삭제
 	public int delReply(int re_num);
-
-	/*
-	 * //현재 댓글 시퀀스 가져오기 public String getReCurrval();
-	 */
 	
+	//
+
 }
 

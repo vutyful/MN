@@ -11,8 +11,8 @@ public interface CommunityDAO {
 	
 	public void CommunityInsert(BoardVO vo);
 	
-	//게시판 리스트 불러오기
-	public List<HashMap<String, Object>> getBoardList();
+	//게시판 리스트 불러오기(강아지, 고양이 bo_cate 분류하여 받기)
+	public List<HashMap<String, Object>> getBoardList(String bo_cate);
 	
 	//게시판 상세페이지
 	

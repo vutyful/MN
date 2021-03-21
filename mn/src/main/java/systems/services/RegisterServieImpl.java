@@ -38,14 +38,21 @@ public class RegisterServieImpl implements RegisterService {
 		return RegisterDaoImpl.login(vo);
 	}
 
-	/*
-	 * //아이디 중복 체크
-	 * 
-	 * @Override public int idCheck(MemberVO vo) throws Exception{ int result =
-	 * RegisterDaoImpl.idCheck(vo); return result; }
-	 */
+	//아이디 중복수정
+	@Override
+	public MemberVO nickCheck(MemberVO vo) {
+		System.out.println("아이디 중복확인s RegisterServieImpl ");
+		return RegisterDaoImpl.nickCheck(vo);
+	}
 	
-	
+	//이메일 중복수정
+	@Override
+	public MemberVO emailCheck(MemberVO vo) {
+		System.out.println("이메일 중복확인s RegisterServieImpl ");
+		return RegisterDaoImpl.emailCheck(vo);
+	}
+
+
 	
 
 }

@@ -16,9 +16,11 @@
 			<typeAlias type="systems.domains.ContentReplyVO" alias="contentreply"/>
 			<typeAlias type="systems.domains.ProductVO" alias="product"/>
 			
+			
 		</typeAliases>
 		<typeHandlers>
 	        <typeHandler handler="systems.domains.CLOBHandler" javaType="String" jdbcType="LONGVARCHAR"/>
 	    </typeHandlers>
+	    
 	
 	</configuration>
