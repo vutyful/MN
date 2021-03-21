@@ -10,5 +10,11 @@ public interface PetDAO {
 	
 	public List<PetVO> petCat(PetVO vo);//관리자페이지 통계 계시판 오늘 글 수
 	
+	/////////////////////////////////////////////////////////
 	
+	public PetVO petList(PetVO vo);//반려동물 정보
+	
+	public int petModify(PetVO vo);//반려동물 수정
+	
+	public int petDelete(PetVO vo);//반려동물 삭제
 }

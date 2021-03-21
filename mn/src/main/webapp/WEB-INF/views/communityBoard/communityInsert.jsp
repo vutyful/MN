@@ -106,7 +106,7 @@ $(function() {
 	
 	//등록버튼을 눌렀을 시
 	$('#insert_btn').click(function () {
-		alert("커뮤니티 등록")
+		alert("등록하시겠습니까?")
 	});
 	
 	

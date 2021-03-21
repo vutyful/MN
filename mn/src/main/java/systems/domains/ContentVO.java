@@ -9,6 +9,15 @@ public class ContentVO {
 	private String con_img; // 썸네일 이미지
 	private String con_head; // 머릿말(간략 글)
 	private String con_state; // 정보글 상태 (y/n)
+	private int viewcount;
+	
+	
+	public int getViewcount() {
+		return viewcount;
+	}
+	public void setViewcount(int viewcount) {
+		this.viewcount = viewcount;
+	}
 	public String getCon_num() {
 		return con_num;
 	}

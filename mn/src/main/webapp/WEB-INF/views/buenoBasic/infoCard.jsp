@@ -8,14 +8,14 @@
     <div class="post-catagory section-padding-100">
         <div class="container">
             <div style="padding-bottom: 40px;">
-        		<h2 style="color:black; text-align: center;">${cate}</h2>
+        		<h2 style="color:#DEA361; text-align: center;">${cate}</h2>
         	</div>
             <div class="row">
                 <!-- Single Post Catagory -->
                 <c:forEach items="${ConList}" var="eachCon">
                 <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="${eachCon.con_img}" alt="" style="width: 350px; height: 316px;">
+                    <div class="single-post-catagory mb-30 box">
+                        <img src="${eachCon.con_img}"  class="profile" alt="">
                         <!-- Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
@@ -25,20 +25,6 @@
                     </div>
                 </div>
                 </c:forEach>
-
-                <!-- Single Post Catagory -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-post-catagory mb-30">
-                        <img src="../resources/bueno/img/bg-img/5.jpg" alt="">
-                        <!-- Content -->
-                        <div class="catagory-content-bg">
-                            <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Organic Cuisine</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="row">
@@ -46,9 +32,11 @@
                     <div class="pagination-area mt-70">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">01</a></li>
-                                <li class="page-item active"><a class="page-link" href="#">02</a></li>
-                                <li class="page-item"><a class="page-link" href="#">03</a></li>
+                            <c:forEach var="i" begin="1" end="${pages}">
+                                <li class="page-item">
+                                	<a class="page-link" href="infoCard.do?con_cate=${cate}&pageNo=${i}"> ${i}</a>
+                                </li>
+                            </c:forEach>
                             </ul>
                         </nav>
                     </div>

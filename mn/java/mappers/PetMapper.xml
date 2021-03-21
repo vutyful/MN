@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PetMap">
+
+
+	<!-- 관리자페이지 펫 등록 강아지 수 파이차트-->
+	<select id="petDog" resultType="int">  
+		select count(*)
+		from pet
+		where pet_dogcat like '%강아지%'
+	</select>
+
+	<!-- 관리자페이지 펫 등록 고양이 수 파이차트-->
+	<select id="petCat" resultType="int">
+
+		select count(*)
+		from pet
+		where pet_dogcat like '%고양이%'
+	</select>
+
+</mapper>

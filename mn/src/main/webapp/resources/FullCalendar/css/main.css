@@ -1,6 +1,11 @@
+@font-face{
+	font-family: "esamanru";
+	src: url("/mn/resources/bueno/fonts/esamanru Light.ttf");
+}
+
+
 body {
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-  padding: 30px;
+  font-family: "esamanru", sans-serif;
 }
 
 .dropNewEvent {
@@ -186,7 +191,7 @@ body {
 .fc-unthemed .fc-event .fc-content,
 .fc-unthemed .fc-event-dot .fc-content {
   padding: 5px 10px 5px 10px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'esamanru', sans-serif;
   margin-left: -1px;
   height: 100%;
 }

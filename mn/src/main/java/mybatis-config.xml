@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -12,6 +13,8 @@
 			<typeAlias type="systems.domains.AdVO" alias="ad"/>
 			<typeAlias type="systems.domains.CalendarVO" alias="calendar"/>
 			<typeAlias type="systems.domains.PetVO" alias="pet"/>
+			<typeAlias type="systems.domains.ContentReplyVO" alias="contentreply"/>
+			<typeAlias type="systems.domains.ProductVO" alias="product"/>
 			
 		</typeAliases>
 		<typeHandlers>

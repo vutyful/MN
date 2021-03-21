@@ -31,10 +31,23 @@ public class RegisterDaoImpl implements RegisterDAO {
 		return mybatis.insert("user.userInsertKaKao", vo);
 	}
 
+	//일반로그인
 	@Override
 	public MemberVO login(MemberVO vo) {
-		System.out.println("mybatis login 호출" + vo.getMem_num());
-		return mybatis.selectOne("RegisterMap.login",vo);
+		System.out.println("mybatis login 호출" + vo.getMem_email()+vo.getMem_pass());
+		MemberVO result = mybatis.selectOne("RegisterMap.login",vo);
+		System.out.println(result);
+		return result;
 	}
 
+	/*
+	 * //아이디(이메일) 중복체크
+	 * 
+	 * @Override public int idCheck(MemberVO vo) throws Exception { int result =
+	 * mybatis.selectOne("RegisterMap.idCheck", vo); return result; }
+	 */
+
+	
+	
+	
 }

@@ -15,5 +15,9 @@ public interface RegisterDAO {
 
 	//일반회원 로그인
 	public MemberVO login(MemberVO vo);
+	
+	/*
+	 * //아이디 중복체크 public int idCheck(MemberVO vo);
+	 */
 
 }
