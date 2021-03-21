@@ -20,9 +20,9 @@
 	<insert id="adInsertConfirm" parameterType="ad">
 	<!-- Insert into ad(ad_num,ad_name,ad_link,startdate,enddate,ad_img, dog, cat, revenue)
 	values(SEQ_AD.nextval,'${ad_name}','${ad_link}','${startdate}','${enddate}','${ad_img}',0,0,${revenue}) -->
-	Insert into ad(ad_num,ad_name,ad_link,startdate,enddate,ad_img, dog, cat, revenue)
+	Insert into ad(ad_num,ad_name,ad_link,startdate,enddate,ad_img, revenue)
 	values(SEQ_AD.nextval,#{ad_name},#{ad_link},
-	#{startdate},#{enddate},#{ad_img},0,0,#{revenue})
+	#{startdate},#{enddate},#{ad_img},#{revenue})
 	
 	
 	</insert>
