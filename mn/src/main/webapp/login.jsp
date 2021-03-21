@@ -73,6 +73,7 @@ button{
                     <button id="last_login_btn"class="submit" style="margin-top: 20px;">로그인</button>
                     <!-- 네이버아이디로로그인 버튼 노출 영역 -->
                     <div id="naverIdLogin" style="margin-top: 30px;"></div>
+                    
                     <!-- 카카오계정으로 로그인 버튼 노출 영역 -->
                     <a id="kakao-login-btn"></a>
   					<a href="http://developers.kakao.com/logout"></a>
@@ -120,10 +121,10 @@ button{
 			clientId: "aCUzCh7VHWRdUn3uzB77",
 			callbackUrl: "http://192.168.0.79:8080/mn/naverLogin.jsp",
 			isPopup: false, /* 팝업을 통한 연동처리 여부 */
-			loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+			/* 로그인 버튼의 타입을 지정 */
+			loginButton: {color: "green", type: 3, height: 60} 
 		}
 	);
-	
 	/* 설정정보를 초기화하고 연동을 준비 */
 	naverLogin.init();
 	
