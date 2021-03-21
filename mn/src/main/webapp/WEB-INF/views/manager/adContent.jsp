@@ -271,16 +271,16 @@
 										<input type="hidden" name="ad_num" value="${adContent.ad_num}">
 									</tr>
 
-									<td colspan="2" align="center"><input type="submit"
-										value="광고수정" onclick="return confirm('수정하시겠습니까?');" /></td>
+								<!-- 	<td colspan="2" align="center"><input type="submit"
+										value="광고수정" onclick="return confirm('수정하시겠습니까?');" /></td> -->
 								</table>
-
-                <!--                   <a href="#" class="btn btn-primary btn-icon-split" onclick="$('#myform').submit();">
+								<br/>
+                    <a href="#" class="btn btn-primary btn-icon-split" onclick="$('form').submit();">
 	                                        <span class="icon text-white-50">
 	                                            <i class="fas fa-check"></i>
 	                                        </span>
 	                                        <span class="text">수정하기</span>
-	                                    </a> -->
+	                                    </a>
 
 								<a href="/mn/manager/ad.do"
 									" class="btn btn-secondary btn-icon-split"> <span

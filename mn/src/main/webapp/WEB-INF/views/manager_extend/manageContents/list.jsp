@@ -173,10 +173,11 @@
 									cellspacing="0">
 									<thead>
 										<tr>
-											<th>작성일</th>
+										
 											<th>글번호</th>
 											<th>제목</th>
-											<th>작성자</th>
+											<th>작성일</th>
+											<th>컨텐츠 머릿말</th>
 											<th>카테고리</th>
 											<th>상태</th>
 										</tr>
@@ -184,10 +185,10 @@
 									<tbody>
 										<c:forEach items="${contentsList}" var="content">
 											<tr>
-												<td>${content.con_date}</td>
 												<td>${content.con_num}</td>
 												<td><a href='view.do?con_num=${content.con_num}'>${content.con_title}</a></td>
-												<td>?</td>
+												<td>${content.con_date}</td>
+												<td>${content.con_head}</td>
 												<td>${content.con_cate}</td>
 												<td>${content.con_state}</td>
 											</tr>
