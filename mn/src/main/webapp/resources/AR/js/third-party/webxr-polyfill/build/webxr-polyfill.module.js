@@ -1098,7 +1098,7 @@ class XR extends EventTarget {
       inlineSessions: new Set(),
     };
     devicePromise.then((device) => { this[PRIVATE$4].device = device; });
-  }
+  };
   async isSessionSupported(mode) {
     if (!this[PRIVATE$4].device) {
       await this[PRIVATE$4].devicePromise;

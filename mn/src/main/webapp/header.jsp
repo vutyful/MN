@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
@@ -63,7 +64,7 @@
 
         <!-- Navbar Area -->
         <div class="bueno-main-menu" id="sticker">
-            <div class="classy-nav-container breakpoint-off" style="background-color:#F2DAC0;">
+            <div class="classy-nav-container breakpoint-off" style=" background-color:#FAEFE2;">
                 <div class="container">
                     <!-- Menu -->
                     <nav class="classy-navbar justify-content-between" id="buenoNav">
@@ -85,22 +86,22 @@
                             </div>
 
                             <!-- Nav Start -->
-                            <div class="classynav">
+                            <div class="classynav" style="right: 100px;">
                                 <ul>
                                     <li><a href="#">강아지</a>
                                             <ul class="dropdown">
-                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=강아지 음식">- 강아지 음식</a></li>
-                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=강아지 행동">- 강아지 행동</a></li>
-                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=강아지 건강">- 강아지 건강</a></li>
-                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=견종백과">- 견종백과</a></li>
+                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=강아지 음식&pageNo=1">- 강아지 음식</a></li>
+                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=강아지 행동&pageNo=1">- 강아지 행동</a></li>
+                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=강아지 건강&pageNo=1">- 강아지 건강</a></li>
+                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=견종백과&pageNo=1">- 견종백과</a></li>
                                             </ul>
                                     </li>
                                     <li><a href="#">고양이</a>
                                             <ul class="dropdown">
-                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=고양이 음식">- 고양이 음식</a></li>
-                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=고양이 행동">- 고양이 행동</a></li>
-                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=고양이 건강">- 고양이 건강</a></li>
-                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=묘종백과">- 묘종백과</a></li>
+                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=고양이 음식&pageNo=1">- 고양이 음식</a></li>
+                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=고양이 행동&pageNo=1">- 고양이 행동</a></li>
+                                                <li><a href="/mn/buenoBasic/infoList.do?con_cate=고양이 건강&pageNo=1">- 고양이 건강</a></li>
+                                                <li><a href="/mn/buenoBasic/infoCard.do?con_cate=묘종백과&pageNo=1">- 묘종백과</a></li>
                                             </ul>
                                     </li>
                                     <li><a href="#">커뮤니티</a>
@@ -109,17 +110,12 @@
                                             <li><a href="#">강아지</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">상품</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/mn/buenoBasic/catagory.do">고양이</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory-post.do">강아지</a></li>
-                                        </ul>
+                                    <li><a href="/mn/product.jsp">상품</a>
                                     </li>
                                     <li><a href="#">편의기능</a>
                                         <ul class="dropdown">
                                             <li><a href="/mn/Test_v1.html">AR 체험</a></li>
-                                            <li><a href="/mn/buenoBasic/hospital.do">내 주변 동물병원</a></li>
-                                            <li><a href="/mn/buenoBasic/single-post.do">사운드</a></li>
+                                            <li><a href="/mn/buenoBasic/hospital.do">동물병원 찾기</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="/mn/mypage2.jsp">반려동물</a></li>
@@ -129,10 +125,11 @@
                                 <div class="login-area">
                                 <c:choose>
                                 	<c:when test="${empty sessionScope.userInfo}">
-                                    	<a href="/mn/login.jsp">Login / Register</a>
+                                    	<a href="/mn/login.jsp" style="margin-left: 50px;">로그인 &nbsp;/&nbsp; 회원가입</a>
                                     </c:when>
                                     <c:otherwise>
-                                    	<a href="#">${sessionScope.userInfo.mem_name}님, 안녕하세요!</a>
+                                    	<a style="font-size:20px; color:#DEA361; ">${sessionScope.userInfo.mem_name}님, 안녕하세요!</a>
+                                    	<a href="/mn/logout.do">&nbsp;&nbsp;로그아웃</a>
                                     </c:otherwise>
                                 </c:choose>
                                 </div>
@@ -150,27 +147,38 @@
     <!-- ##### 내가 쓴 글 ##### -->
     <div class="treading-post-area" id="treadingPost">
         <div class="close-icon">
-            <i class="fa fa-times"></i>
+           <i class="fa fa-times"></i>
         </div>
 
-        <h4>내가 쓴 글</h4>
+        <h4>북마크</h4>
 
         <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="/mn/resources/bueno/img/bg-img/9.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Friend eggs with ham</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
+        <c:choose>
+        <c:when test="${not empty sessionScope.userInfo}">
+        	<c:if test="${empty sessionScope.bookmarks}">
+        		<h6>북마크가 없습니다.</h6>
+        	</c:if>
+	        <c:forEach items="${sessionScope.bookmarks}" var="bms">
+		        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		            <!-- Blog Thumbnail -->
+		            <div class="blog-thumbnail">
+		                <a href="/mn/buenoBasic/infoDetail.do?con_num=${bms.con_num}"><img src="${bms.con_img}" alt=""></a>
+		            </div>
+		            <!-- Blog Content -->
+		            <div class="blog-content">
+		                <a href="/mn/buenoBasic/infoDetail.do?con_num=${bms.con_num}" class="post-tag">${bms.con_cate}</a>
+		                <a href="/mn/buenoBasic/infoDetail.do?con_num=${bms.con_num}" class="post-title">${bms.con_title}</a>
+		                <div class="post-meta">
+		                    <a href="#" class="post-date">${bms.con_date}</a>
+		                </div>
+		            </div>
+		        </div>
+	        </c:forEach>
+        </c:when>
+        <c:otherwise>
+        	<a href="/mn/login.jsp"><h6>로그인 후 이용해주세요.</h6></a>
+        </c:otherwise>
+        </c:choose>
 
     </div>
     <!-- ##### Treading Post Area End ##### -->

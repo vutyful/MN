@@ -13,12 +13,18 @@ COLOR CODES
   
 */
 
+@font-face{
+	font-family: "esamanru";
+	src: url("/mn/resources/bueno/fonts/esamanru Light.ttf");
+}
+
+
 html {
   font-size: 17px;
 }
 
 body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: "esamanru", sans-serif;
   overflow-x: hidden;
 }
 
@@ -27,8 +33,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  padding-left: 50px;
-  padding-right: 50px;
 }
 
 .bg02 {
@@ -39,9 +43,7 @@ body {
 	background-image: url(../img/dash-bg-03.jpg);
 }
 
-a {
-  transition: all 0.3s ease;
-}
+
 a:hover,
 a:focus {
   text-decoration: none;
@@ -127,6 +129,7 @@ a:focus {
   justify-content: space-between;
   margin-left: -20px;
   margin-right: -20px; /* To offset col padding */
+  align-content: center;
 }
 
 .tm-col {
@@ -259,7 +262,7 @@ label {
 
 .table td,
 .table th {
-  padding: 20px 24px;
+  padding: 20px 21px;
 }
 
 .table-hover tbody tr:hover {
@@ -272,7 +275,13 @@ label {
 }
 
 .tm-table-striped-even.table-striped tbody tr:nth-of-type(even) {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: #FAEFE2;
+}
+
+/*게시판 목록 제목 글씨*/
+th{
+	color: white;
+	font-size: 20px;
 }
 
 .tm-table-striped-even.table-striped tbody tr:nth-of-type(odd) {
@@ -460,9 +469,7 @@ footer {
     min-height: 383px;
     height: auto;
   }
-  .tm-block {
-    padding: 30px;
-  }
+  
 
   .tm-table-actions-row {
     display: block;
@@ -513,8 +520,6 @@ footer {
   }
 
   body {
-    padding-left: 15px;
-    padding-right: 15px;
   }
 
   .tm-site-title {

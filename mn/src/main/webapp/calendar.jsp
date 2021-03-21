@@ -37,12 +37,20 @@
             </ul>
         </div>
 
+
+		<div>
+			<input type="button" id = "petAdd" value="반려동물 등록">
+			<input type="button" id = "petEdit" value="반려동물 수정">
+		</div>
+
         <div id="wrapper">
             <div id="loading"></div>
             <div id="calendar"></div>
         </div>
 
-
+		
+		
+		
         <!-- 일정 추가 MODAL -->
         <div class="modal fade" tabindex="-1" role="dialog" id="eventModal">
             <div class="modal-dialog" role="document">
@@ -141,6 +149,84 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+        
+        
+        
+        
+        <!-- 반려동물 추가 MODAL -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="petModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                    
+                    
+                    	<div class="modal-footer modalBtnContainer-modifyEvent">
+                    		<div class="row">
+	                            <div class="col-xs-12">
+	                                <label class="col-xs-4" for="edit-type">수정 반려동물 선택</label>
+	                                <select class="inputModal" type="text" name="pet_dogcat" id="pet_dogcat">
+	                                    <option value="개1">개1</option>
+	                                    <option value="고양이1">고양이1</option>
+	                                </select>
+	                            </div>
+                        	</div>
+                    	</div>
+                    
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-title">이름</label>
+                                <input class="inputModal" type="text" name="pet_name" id="pet_name"
+                                    required="required" />
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-type">구분</label>
+                                <select class="inputModal" type="text" name="pet_dogcat" id="pet_dogcat">
+                                    <option value="dog">개</option>
+                                    <option value="cat">고양이</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-title">종</label>
+                                <input class="inputModal" type="text" name="pet_kind" id="pet_kind"
+                                    required="required" />
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-start">생일</label>
+                                <input class="inputModal" type="text" name="edit-start" id="edit-start" />
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="modal-footer modalBtnContainer-addEvent">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+                        <button type="button" class="btn btn-primary" id="save-event">저장</button>
+                    </div>
+                    <div class="modal-footer modalBtnContainer-modifyEvent">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                        <button type="button" class="btn btn-danger" id="deleteEvent">삭제</button>
+                        <button type="button" class="btn btn-primary" id="updateEvent">저장</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        
+        
 
         <div class="panel panel-default">
 
@@ -154,10 +240,12 @@
                     <label for="calendar_view">구분별</label>
                     <div class="input-group">
                         <select class="filter" id="type_filter" multiple="multiple">
-                            <option value="카테고리1">카테고리1</option>
-                            <option value="카테고리2">카테고리2</option>
-                            <option value="카테고리3">카테고리3</option>
-                            <option value="카테고리4">카테고리4</option>
+                            <option value="산책">산책</option>
+                            <option value="목욕">목욕</option>
+                            <option value="몸무게 측정">몸무게 측정</option>
+                            <option value="접종">접종</option>
+                            <option value="지출">지출</option>
+                            <option value="기타">기타</option>
                         </select>
                     </div>
                 </div>
@@ -196,6 +284,11 @@
     <script src="./resources/FullCalendar/js/addEvent.js"></script>
     <script src="./resources/FullCalendar/js/editEvent.js"></script>
     <script src="./resources/FullCalendar/js/etcSetting.js"></script>
+    
+    
+    <script src="./resources/FullCalendar/js/petAddEvent.js"></script>
+    <script src="./resources/FullCalendar/js/petEditEvent.js"></script>
+    
 </body>
 
 </html>
