@@ -49,11 +49,6 @@ button{
 	margin-left: 30px;
 }
 
-#register > input{
-	font-size: 15px;
-}
-
-
 </style>
 </head>
 
@@ -66,13 +61,18 @@ button{
                     <button type="button" class="togglebtn" onclick="login()">&nbsp;&nbsp;&nbsp;&nbsp;로그인</button>
                     <button type="button" class="togglebtn" onclick="register()">회원가입</button>
                 </div>
+<!--                 <div class="social-icons">
+                    <img src="img/fb.png" alt="facebook">
+                    <img src="img/tw.png" alt="twitter">
+                    <img src="img/gl.png" alt="google">
+                </div> -->
                 <form id="login" action="/mn/login.do" method="post" class="input-group">
-                    <input id="mem_email" name="mem_email" value='sachawon@gmail.com' type="text" class="input-field" placeholder="아이디:jingang@gmail.com" required>                  
-                    <input name="mem_pass"  type="password" value='aaa111!!' class="input-field" placeholder="비번:aaa111!!" required="">
+                    <input id="mem_email" name="mem_email" value='sy10201220@naver.com' type="text" class="input-field" placeholder="아이디:jingang@gmail.com" required>                  
+                    <input name="mem_pass"  type="password" value='qqq111!!' class="input-field" placeholder="비번:aaa111!!" required="">
                    
-                    <button id="last_login_btn"class="submit" style="margin-top: 20px;">로그인</button>
+                    <button id="last_login_btn"class="submit">로그인</button>
                     <!-- 네이버아이디로로그인 버튼 노출 영역 -->
-                    <div id="naverIdLogin" style="margin-top: 30px;"></div>
+                    <div id="naverIdLogin" style="margin-top: 15px;"></div>
                     <!-- 카카오계정으로 로그인 버튼 노출 영역 -->
                     <a id="kakao-login-btn"></a>
   					<a href="http://developers.kakao.com/logout"></a>
@@ -84,19 +84,17 @@ button{
                     
                     <div id = "mem_name_check"></div>
                     
-                    <input type="password" id="mem_pass" name="mem_pass" class="input-field" placeholder="비밀번호(소문자,특수문자,숫자 포함 5자)" required="">
-                    <input placeholder="비밀번호 확인" id="mem_pass_ck" type="password"  class="input-field">
+                    <input type="password" id="mem_pass" name="mem_pass" class="input-field" placeholder="영문 소문자, 특수문자,숫자를 5이상 모두 포함" required="">
+                    <input placeholder="비밀번호를 다시 입력하세요." id="mem_pass_ck" type="password"  class="input-field">
                     <div id = "mem_pass_check"></div>
                     
-                    <input type="email"id="mem_email" name="mem_email" class="input-field" placeholder="이메일을 입력하세요" required="">
+                    <input type="email" id="mem_email2" name="mem_email" class="input-field" placeholder="이메일을 입력하세요" required="">
                     <div id = "mem_email_check"></div>
-                   <!--  <button type="button" class="id_overlap_button" onclick="id_check()">중복검사</button>
-                    <img id="id_check_sucess" style="display: none;"> -->
+              
                     
-                    
-                    <input placeholder="핸드폰 번호를 입력하세요('-' 제외)"name="mem_tel" type="tel" class="input-field">
+                    <input placeholder="핸드폰 번호를 입력하세요'-'는 제외"name="mem_tel" type="tel" class="input-field">
                     <div id = "mem_tel_check"></div>
-                    <button id="last_register_btn" name="last_register_btn"class="submit" style="margin-top: 20px;">가입하기</button>
+                    <button id="last_register_btn" name="last_register_btn"class="submit">가입하기</button>
                 </form>
         </div>
             
@@ -131,29 +129,31 @@ button{
 
 <!-- 카카오톡 로그인 -->
 <script type="text/javascript">
-// 사용할 앱의 JavaScript 키를 설정해 주세요.
-Kakao.init('965db0eb53584dc6dd507e3f0ba041f9');
-// 카카오 로그인 버튼을 생성합니다.
-Kakao.Auth.createLoginButton({
-    container: '#kakao-login-btn',
-    success: function (authObj) {
-        console.log(JSON.stringify(authObj));
-        // access_token으로 사용자 정보 요청하기
-    	Kakao.API.request({
-			url : '/v2/user/me',
-			success : function(res) {
-				var mem_email = res.kakao_account.email; //유저의 이메일
-				
-				window.location.replace("http://"+window.location.hostname + 
-						((location.port==""||location.port==undefined)?"":":"+location.port)+
-						"/mn/buenoBasic/main.do?mem_email="+mem_email); 
-				}
-			})
-    },
-    fail: function (err) {
-        alert(JSON.stringify(err));
-    }
-});
+	// 사용할 앱의 JavaScript 키를 설정해 주세요.
+	Kakao.init('965db0eb53584dc6dd507e3f0ba041f9');
+	// 카카오 로그인 버튼을 생성합니다.
+	Kakao.Auth.createLoginButton({
+	    container: '#kakao-login-btn',
+	    success: function (authObj) {
+	        alert(JSON.stringify(authObj));
+	        console.log(JSON.stringify(authObj));
+	        // access_token으로 사용자 정보 요청하기
+	    	Kakao.API.request({
+				url : '/v2/user/me',
+				success : function(res) {
+					alert(JSON.stringify(res))
+					var mem_email = res.kakao_account.email; //유저의 이메일
+					
+					window.location.replace("http://"+window.location.hostname + 
+							((location.port==""||location.port==undefined)?"":":"+location.port)+
+							"/mn/buenoBasic/main.do?mem_email="+mem_email); 
+					}
+				})
+	    },
+	    fail: function (err) {
+	        alert(JSON.stringify(err));
+	    }
+	});
 
 </script>
 
@@ -183,26 +183,36 @@ Kakao.Auth.createLoginButton({
 	//회원가입 & 로그인
 	$(function() {
  		//회원가입 form에 기입을 배열로 처리하여 입력 여부 결정
- 		var inval_Arr = new Array(4).fill(false);   //Array()안에 숫자는 fill함수 안에 인자 값의 수 
- 		// 한글 또는 영문 사용하기(혼용X)
- 		var nameJ = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
- 		// 이메일 정규식 
- 		var mailJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //정규식
- 		// 휴대폰 번호 정규식
- 		var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
+ 		var inval_Arr = new Array(4).fill(false);   
+  		var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
  		// 비밀번호 정규식
- 		var pwJ = /^.*(?=^.{5,10}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/; //비번 정규식 다시 확인
+ 		var pwJ = /^.*(?=^.{5,10}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/; 
  		
 		
- 		//이름 정규식 확인
- 		$("#mem_name").blur(function() {  //blur() 포커스빠져나갔을때 나타나는 메서드
-			if (nameJ.test($(this).val())) {	//test() 메서드는 주어진 문자열이 정규 표현식을 만족하는지 판별하고, 그 여부를 true 또는 false로 반환합니다.
-					console.log(nameJ.test($(this).val()));
-					$("#mem_name_check").text('');
-			} else {
-				$('#mem_name_check').text('이름을 확인해주세요');
-				$('#mem_name_check').css('color', 'red');
-			}
+ 		//닉네임 중복 확인
+ 		$('#mem_name').blur(function() {//blur() 포커스빠져나갔을때 나타나는 메서드
+			$.ajax({
+				type:"post",
+				url:"/mn/nickCheck.do",
+				data:{
+					"mem_name":$('#mem_name').val()
+				},
+				success: function(idresult) {
+					console.log(idresult);
+					if(idresult=="0"){
+					$("#mem_name_check").text("이미 사용중인 닉네임입니다.")
+					$('#mem_name_check').css('color', 'red');
+					}else{
+					$("#mem_name_check").text("사용 가능한 닉네임입니다.");
+					$('#mem_name_check').css('color', 'red');
+					}
+				},
+				error: function () {
+					alert("닉네임 중복실패")
+					
+				}
+				
+			})
 		});
  		
  		//비밀번호 정규식 확인
@@ -216,17 +226,32 @@ Kakao.Auth.createLoginButton({
 			}
 		});
  		
-  		//이메일 정규식 확인
- 		$("#mem_email").blur(function() {  //blur() 포커스빠져나갔을때 나타나는 메서드
-			if (mailJ.test($(this).val())) {	//test() 메서드는 주어진 문자열이 정규 표현식을 만족하는지 판별하고, 그 여부를 true 또는 false로 반환합니다.
-					console.log(mailJ.test($(this).val()));
-					$("#mem_email_check").text('');
-			} else {
-				$('#mem_email_check').text('이메일을 확인해주세요');
-				$('#mem_email_check').css('color', 'red');
-			}
-		}); 
- 		
+  		//이메일 중복 확인
+  			$('#mem_email2').blur(function() {  //blur() 포커스빠져나갔을때 나타나는 메서드
+
+			$.ajax({
+				type:"post",
+				url:"/mn/emailCheck.do",
+				data:{
+					"mem_email":$('#mem_email2').val() //아이디 값은 본인이 정한 것이며 앞에 mem_email 받아오는 vo값
+				},
+				success: function(emailResult) {
+					console.log(emailResult);
+					if(emailResult=="0"){
+					$("#mem_email_check").text("이미 사용중인 이메일입니다.")
+					$('#mem_email_check').css('color', 'red');
+					}
+					else{
+					$("#mem_email_check").text("사용 가능한 이메일입니다.");
+					$('#mem_email_check').css('color', 'red');
+					}
+				},
+				error: function () {
+					alert("이메일 중복실패")
+					
+				}
+			})
+  		});
  		
  		//휴대폰 정규식 확인
  		$("#mem_tel").blur(function() {  
@@ -244,16 +269,7 @@ Kakao.Auth.createLoginButton({
 	 	$('.last_register_btn').click(function(){
 	 		/* $('#mem_pass').val() */
 	 		console.log($('#mem_pass').val())
-	 		
-	 				// 이름에 특수문자 들어가지 않도록 설정
-
-	
-			// 이름 정규식
-			if (nameJ.test($('#mem_name').val())) {
-				inval_Arr[0] = true;	
-			} else {
-				inval_Arr[0] = false;
-			}
+	 
  	 		//비밀번호 입력시 비교 확인 
 			if (pwJ.test($('#mem_pass').val())==pwJ.test($('#mem_pass_ck').val())){
 				console.log(pwJ.test($('#mem_pass').val()))
@@ -267,14 +283,6 @@ Kakao.Auth.createLoginButton({
 				inval_Arr[1] = false;
 			}	
 
-			// 이메일 정규식 (회원로그인 아이디가 되는 부분)
-			if (mailJ.test($('#mem_email').val())){
-				console.log(phoneJ.test($('#mem_email').val()));
-				inval_Arr[2] = true;
-			} else {
-				inval_Arr[2] = false;
-			}	
-			
  	 		
 			// 휴대폰 정규식
 			if (phoneJ.test($('#mem_tel').val())){

@@ -10,7 +10,6 @@ $('#replyinsert').click(function(){
     if($('#re_content').val() == ""){
         alert('내용을 입력해 주세요.');
     }else{
-		console.log("여기까진오나?")
         $.ajax({
             type: 'post',
             url : 'replyinsert.do',
@@ -18,6 +17,7 @@ $('#replyinsert').click(function(){
             contentType : 'application/x-www-form-urlencoded;charset=utf-8',
             success: function(data){
                 alert('댓글 등록이 완료되었습니다!');
+                
                 //새로 쓴 댓글 리스트 밑에 추가하기
                 var html = "";
                 var recount = Number($('#cCount').text())+1;
@@ -34,7 +34,8 @@ $('#replyinsert').click(function(){
                 html += '<p>'+ $('#re_content').val().replace('\n','<br/>')+'</p>';
                 html += '</div>';
                 html += '</div>';
-                html += '<textarea class="form-control modify-ta" style="width: 100%; height:100px; display: none;">'+$('#re_content').val().replace('<br/>','\n')+'</textarea>';
+                html += '<textarea class="form-control modify-ta" style="width: 100%; height:100px; display: none;">'+
+                $('#re_content').val().replace('<br/>','\n')+'</textarea>';
                 html += '<button class="btn reply-btn modify-btn" style="display: none;" >등록</button>';
                 html += '<input type="hidden" value="'+data+'"/> ';
                 html += '</li>';
@@ -45,7 +46,7 @@ $('#replyinsert').click(function(){
                 $('#re_content').val("");
             },
             error:function (){
-                alert('실패스')
+                alert('댓글등록 실패')
             }
         });
     }

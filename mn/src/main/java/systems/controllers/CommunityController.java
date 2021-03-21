@@ -1,5 +1,7 @@
 package systems.controllers;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.security.Provider.Service;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,26 +43,33 @@ public class CommunityController {
 		//커뮤니티 게시판 등록
 		@RequestMapping(value="communityBoard/CommunityInsert.do")
 		public String CommunityInsert(BoardVO vo) {
-			System.out.println("CommunityVO"+ vo);
-			System.out.println(vo.getBo_cate());
-			System.out.println("community 컨드롤 왔니?? 와라와라");
+			System.out.println("등록controller mem_num"+vo.getMem_num());
+			System.out.println("bo_content:"+vo.getBo_content());
 			//1. id를 통해서 db에서 이름을 가져옴
 			//2. 가져온 이름을 합쳐서 insert에 넘김.
 			CommunityServiceImpl.CommunityInsert(vo);
 			
 			
-			return "redirect:BoardList.do";
+			try {
+				return "redirect:BoardList.do?bo_cate="+ URLEncoder.encode(vo.getBo_cate(), "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+			
+				e.printStackTrace();
+			}
+			return "communityBoard/BoardList.do";
 
+			
 		}
 		
 		//커뮤니티 게시판 목록보기
 		@RequestMapping(value="communityBoard/BoardList.do")
-		public String getBoardList(Model model) {
-			System.out.println("BoardList 컨트롤 탔니?");
+		public String getBoardList(Model model, String bo_cate) {
 			
 			//작성자 이름 뽑아오기 위해, getBoardList 할 때 조인하여 작성자까지 얻어오기 (Map 사용)
-			System.out.println("받아오나"+CommunityServiceImpl.getBoardList().get(0));
-			model.addAttribute("boards", CommunityServiceImpl.getBoardList());
+			List<HashMap<String, Object>> result = CommunityServiceImpl.getBoardList(bo_cate);
+			System.out.println("보드리스트:"+result);
+			model.addAttribute("boards", CommunityServiceImpl.getBoardList(bo_cate));
+			model.addAttribute("cate", result.get(0).get("BO_CATE"));
 			
 			return "communityBoard/communityboard";
 		
@@ -138,6 +147,15 @@ public class CommunityController {
 			return result; // 1이면 등록 성공, 0이면 등록 실패
 			
 	};
+	
+		//댓글 수정
+	@RequestMapping	(value= "communityBoard/CommunityReplyModify.do")
+	@ResponseBody
+	public int CommunityReplyModify() {
+		
+		return 0; // 삭제 실패
+	};
+	
 	
 		// 댓글 삭제
 		@RequestMapping	(value= "communityBoard/deleteReply.do")
