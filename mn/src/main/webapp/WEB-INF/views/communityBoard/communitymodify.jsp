@@ -30,8 +30,6 @@
 						<!-- summernote -->
 						<form action="commuUpate.do"method="post">
 							<h4 class="mb-50">게시판 수정하기</h4>
-
-							
 							제목: <input type="text" name="bo_title" style="width: 40%;" value="${modifyResult.bo_title}"/>
 							 	<input type="hidden" name="bo_num" id="bo_num" value="${modifyResult.bo_num}">
 							<!-- summernote  -->

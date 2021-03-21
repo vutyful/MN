@@ -194,14 +194,12 @@ font-size: 15px;
 		alert('수정 버튼 클릭');
 		$('#frm').submit();
 		
-		
 	})
 		
 	//(댓글)삭제버튼을 눌렀을 시
 	$(document).on('click','#del_btn',function(){
  		alert("삭제버튼 클릭"); 
 		alert($(this).prev().val());
-		
 		
    	$.ajax({
 		type:"get",
@@ -215,60 +213,20 @@ font-size: 15px;
 				console.log(delresult);
 				if(delresult==1){
 					alert("삭제되었습니다");
-					
 				}
 			},
 			error: function(){
 					alert("댓글삭제 실패");
 				}
-		
 		});	 //삭제 ajax of end
  	 	$(this).parent().parent().parent().parent().remove();
 
 	}); //삭제 of end
-	
-	
-/* 	//댓글 수정
-	$(document).on('click','.re_modify',function(){
-		
-		alert($(this).text())
-		
-		$.ajax({
-			type: "POST",
-			async: true,
-			url :"/mn/communityBoard/CommunityReplyModify.do",
-			contentType:'application/x-www-form-urlencoded;charset=utf-8',
-				success: function(result) {
-			 	alert('들어왓니1?'+result)
-			 	
-			 	
-			 	
-			 	
-					
-					},
-			error: function(){
-			alert("댓글등록 실패");
-							
-				}
-			}); //댓글 ajax of end
-					
-	}) */
+
 	
 	//댓글 등록		
  	$(document).on('click','#re_insert',function(){
- /* 		alert('클릭'); */
-      	
-/* 		if($.trim($("#mem_num").val()) == null)){
-			alert("로그인을 하세요");
-		}
-		else($.trim($(".form-control")).val())=="")
-		
-      		alert("댓글을 입력해 주세요");  */
-		  
-		console.log($("#mem_num").val())
-		console.log($("#bo_num").val())
-		console.log($(".form-control").val())
-		
+
 	//댓글 비동기식 처리 ajax
 	$.ajax({
 		type: "POST",
@@ -280,17 +238,11 @@ font-size: 15px;
 				'mem_num':$("#mem_num").val(),  //회원번호
 				'bo_num':$("#bo_num").val(),	//게시판번호
 				're_content':$(".form-control").val()	//내용
-				
 			},
 			success: function(result) {
-			/* 	alert('들어왓니?') */
-
-			console.log(result);//0
-			console.log(typeof result); //js 'typeof'을 보는 방법
 			
 				if(result==1){ // 1 (int ) 비교 "1" (string ) 되지 않도록 실수 주의
-				alert("댓글 등록 완료");
-				//1)내용이 지워주고 화면을 찾아서 추가할 수 있게 2)자바스크립트에서 ol 한번 더 만듦어줌 mb-50의 자식으로 append 함수 사용
+
 				$('.comment_area').prepend('<ol>'
 						+'<li class="single_comment_area">'
 						+'<div class="comment-content d-flex">'
@@ -315,7 +267,6 @@ font-size: 15px;
 	
 						+'</li>'
 						+'</ol>');
-				
 						$('.form-control').val('');
 				
 					} 

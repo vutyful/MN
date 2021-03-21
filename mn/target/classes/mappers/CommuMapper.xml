@@ -32,14 +32,12 @@
 	</select>
 	
 	<!-- 게시글 수정 -->
-
 	<select id="selectReply" resultType="board" parameterType="board">
 		select * from board  
 		WHERE bo_num = ${bo_num}
 	</select>
 	
 	<!-- 게시글 수정완료 -->
-
 	<update id="commuUpdate" parameterType="board" >
 		UPDATE board SET
 		bo_content = #{bo_content}, bo_title = #{bo_title}
@@ -52,8 +50,7 @@
 		<selectKey keyProperty="re_num" resultType="int" order="AFTER">
 			SELECT seq_reply.CURRVAL FROM DUAL
 		</selectKey>
-		insert into reply
-		(re_num,bo_num, mem_num, re_content, re_date)
+		insert into reply (re_num,bo_num, mem_num, re_content, re_date) 
 		values(seq_reply.nextval,#{bo_num},#{mem_num},#{re_content},sysdate)
 	</insert>
 	
