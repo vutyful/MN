@@ -105,8 +105,8 @@
                                     </li>
                                     <li><a href="#">커뮤니티</a>
                                         <ul class="dropdown">
-                                            <li><a href="/mn/communityBoard/BoardList.do">고양이</a></li>
-                                            <li><a href="#">강아지</a></li>
+                                            <li><a href="/mn/communityBoard/BoardList.do?bo_cate=고양이">고양이</a></li>
+                                            <li><a href="/mn/communityBoard/BoardList.do?bo_cate=강아지">강아지</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">상품</a>

@@ -19,5 +19,15 @@
 	WHERE mem_email = #{mem_email}
 </select>
 
+<!-- 닉네임 중복확인  -->
+<select id="nickCheck" parameterType="member" resultType="member"><!-- 중복확인 -->
+	select * from member where mem_name=#{mem_name}
+</select>
+
+<!-- 이메일 중복확인  -->
+<select id="emailCheck" parameterType="member" resultType="member"><!-- 중복확인 -->
+	select * from member where mem_email=#{mem_email}
+</select>
+
 
 </mapper>

@@ -13,6 +13,16 @@ COLOR CODES
   
 */
 
+div.classynav>ul{
+	position: relative;
+	right:220px;
+}
+
+a{
+	
+	
+}
+
 html {
   font-size: 17px;
 }
