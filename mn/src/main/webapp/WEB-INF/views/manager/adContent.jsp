@@ -46,7 +46,7 @@
 
 		<!-- Sidebar -->
 		<ul
-			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+			class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion"
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
@@ -81,14 +81,12 @@
 				data-toggle="collapse" data-target="#collapsePages"
 				aria-expanded="true" aria-controls="collapsePages"> <i
 					class="fas fa-fw fa-folder"></i> <span>광고 관리</span></a>
-				<div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
-					data-parent="#accordionSidebar">
+				<div id="collapsePages" class="collapse show"
+					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">MANAGE LIST:</h6>
-							<a class="collapse-item active" href="/mn/manager/ad.do">광고
-							목록</a>
-						<a class="collapse-item" href="/mn/manager/adInsert.do">광고
-							등록</a>
+						<a class="collapse-item active" href="/mn/manager/ad.do">광고 목록</a>
+						<a class="collapse-item" href="/mn/manager/adInsert.do">광고 등록</a>
 					</div>
 				</div></li>
 
@@ -148,7 +146,7 @@
 			<!-- Main Content -->
 			<div id="content">
 
-						<!-- Topbar -->
+				<!-- Topbar -->
 				<nav
 					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -156,15 +154,15 @@
 					<h1 class="h3 mb-4 text-gray-800"
 						style="margin-bottom: 0.5rem !important">광고 관리</h1>
 				</nav>
-					<!-- Sidebar Toggle (Topbar) -->
-					<form class="form-inline">
-						<button id="sidebarToggleTop"
-							class="btn btn-link d-md-none rounded-circle mr-3">
-							<i class="fa fa-bars"></i>
-						</button>
-					</form>
+				<!-- Sidebar Toggle (Topbar) -->
+				<form class="form-inline">
+					<button id="sidebarToggleTop"
+						class="btn btn-link d-md-none rounded-circle mr-3">
+						<i class="fa fa-bars"></i>
+					</button>
+				</form>
 
-					<!--             Topbar Search
+				<!--             Topbar Search
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
@@ -178,41 +176,40 @@
                         </div>
                     </form> -->
 
-					<!-- Topbar Navbar -->
-					<ul class="navbar-nav ml-auto">
-					
-						<div class="topbar-divider d-none d-sm-block"></div>
+				<!-- Topbar Navbar -->
+				<ul class="navbar-nav ml-auto">
 
-						<!-- Nav Item - User Information -->
-						<li class="nav-item dropdown no-arrow">
-							<!--                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+					<div class="topbar-divider d-none d-sm-block"></div>
+
+					<!-- Nav Item - User Information -->
+					<li class="nav-item dropdown no-arrow">
+						<!--                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a> --> <!-- Dropdown - User Information -->
-							<div
-								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="#"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a> <a class="dropdown-item" href="#"> <i
-									class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-									Settings
-								</a> <a class="dropdown-item" href="#"> <i
-									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-									Activity Log
-								</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
-									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Logout
-								</a>
-							</div>
-						</li>
+						<div
+							class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+							aria-labelledby="userDropdown">
+							<a class="dropdown-item" href="#"> <i
+								class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+							</a> <a class="dropdown-item" href="#"> <i
+								class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings
+							</a> <a class="dropdown-item" href="#"> <i
+								class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity
+								Log
+							</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#" data-toggle="modal"
+								data-target="#logoutModal"> <i
+								class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+								Logout
+							</a>
+						</div>
+					</li>
 
-					</ul>
+				</ul>
 
 				</nav>
 				<!-- End of Topbar -->
@@ -221,79 +218,81 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800">광고열람 / 수정</h1>
+					<p class="mb-4">광고의 내용을 열람하거나 수정 할 수 있습니다.</p>
 
-					<h1 class="h3 mb-2 text-gray-800">광고 열람 / 수정</h1>
-				<p class="mb-4">광고의 내용을 열람하거나 수정 할 수 있습니다.</p>
-					<!--                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
+					<div class="row">
 
-					<!-- DataTales Example -->
-					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<!--             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
-						</div>
-						<div class="card-body">
+						<div class="col-lg-6">
+
 							<form action="/mn/manager/adModify.do" name='form'
 								enctype="multipart/form-data" method='post'>
-								<table border="3">
-									<tr>
-										<!-- 	<input type="hidden" name="ad_num" >  -->
-										<!-- 			<td>광고번호</td>
-										<td><input type="text" name="ad_num"></td>  -->
-									</tr>
-									<tr>
-										<td>광고이름</td>
-										<td><input type="text" name="ad_name"
-											value="${adContent.ad_name}"></td>
-									</tr>
-									<tr>
-										<td>광고링크주소</td>
-										<td><input type="text" name="ad_link"
-											value="${adContent.ad_link}"></td>
-									</tr>
-									<tr>
-										<td>광고이미지</td>
-										<td><input type="file" name="file">수정전 파일명 :
-											${adContent.ad_img}</td>
-									</tr>
-									<tr>
-										<td>광고시작일</td>
-										<td><input type="date" name="startdate"
-											value="${adContent.startdate}"></td>
-									</tr>
-									<tr>
-										<td>광고종료일</td>
-										<td><input type="date" name="enddate"
-											value="${adContent.enddate}"></td>
-									</tr>
-									<tr>
-										<input type="hidden" name="ad_num" value="${adContent.ad_num}">
-									</tr>
 
-								<!-- 	<td colspan="2" align="center"><input type="submit"
-										value="광고수정" onclick="return confirm('수정하시겠습니까?');" /></td> -->
-								</table>
-								<br/>
-                    <a href="#" class="btn btn-primary btn-icon-split" onclick="$('form').submit();">
-	                                        <span class="icon text-white-50">
-	                                            <i class="fas fa-check"></i>
-	                                        </span>
-	                                        <span class="text">수정하기</span>
-	                                    </a>
+								<div class="card shadow mb-2">
+									<div class="card-header py-2">
+										<div class="form-group">
+											<h6 class="m-0 font-weight-bold text-primary"
+												style="margin-bottom: 0.5rem !important">광고이름</h6>
+											<input class="form-control form-control-user" type="text"
+												name="ad_name" value="${adContent.ad_name}" />
+										</div>
+									</div>
 
-								<a href="/mn/manager/ad.do"
-									" class="btn btn-secondary btn-icon-split"> <span
-									class="icon text-white-50"> <i
-										class="fas fa-arrow-right"></i>
-								</span> <span class="text">목록으로</span>
-								</a>
 
+
+									<div class="card-body">
+										<h6 class="m-0 font-weight-bold text-primary"
+											style="margin: 0.5rem 0 !important">광고링크주소</h6>
+										<input class="text" type="text" name="ad_link"
+											value="${adContent.ad_link}" />
+
+										<h6 class="m-0 font-weight-bold text-primary"
+											style="margin: 0.5rem 0 !important">광고이미지</h6>
+										<input type="file" name="file"><br>수정전 파일명 :
+										${adContent.ad_img}
+										
+										<h6 class="m-0 font-weight-bold text-primary"
+											style="margin: 0.5rem 0 !important">총클릭수</h6>
+										<input type="text" name="totalclick"
+											value="${adContent.totalclick}" />
+
+
+										<h6 class="m-0 font-weight-bold text-primary"
+											style="margin: 0.5rem 0 !important">광고시작일</h6>
+										<input type="date" name="startdate"
+											value="${adContent.startdate}" />
+
+										<h6 class="m-0 font-weight-bold text-primary"
+											style="margin: 0.5rem 0 !important">광고마감일</h6>
+										<input type="date" name="enddate" value="${adContent.enddate}" />
+
+
+										<h6 class="m-0 font-weight-bold text-primary"
+											style="margin: 0.5rem 0 !important">광고수익</h6>
+										<input class="text" type="text" name="revenue"
+											value="${adContent.revenue}" />
+
+										<tr>
+											<input type="hidden" name="ad_num"
+												value="${adContent.ad_num}">
+										</tr>
+										<br> <br> <br> <a href="#"
+											class="btn btn-primary btn-icon-split"
+											onclick="$('form').submit();"> <span
+											class="icon text-white-50"> <i class="fas fa-check"></i>
+										</span> <span class="text">수정하기</span>
+										</a> <a href="/mn/manager/ad.do"
+											class="btn btn-secondary btn-icon-split"> <span
+											class="icon text-white-50"> <i
+												class="fas fa-arrow-right"></i>
+										</span> <span class="text">목록으로</span>
+										</a>
+									</div>
+								</div>
 							</form>
 
 						</div>
 					</div>
-
 				</div>
 				<!-- /.container-fluid -->
 

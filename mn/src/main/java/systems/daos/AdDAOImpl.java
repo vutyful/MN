@@ -39,4 +39,8 @@ public class AdDAOImpl implements AdDAO{
 	public List<AdVO> adRevenue(AdVO vo){
 		return mybatis.selectList("AdMap.adRevenue",vo);
 	}; //광고수익 그래프
+	
+	public int adClick(AdVO vo) {
+		return mybatis.update("AdMap.adClick",vo);
+	};//광고 클릭수
 }

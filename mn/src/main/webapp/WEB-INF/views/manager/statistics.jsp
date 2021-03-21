@@ -54,8 +54,8 @@
 
 		<!-- Sidebar -->
 		<ul
-			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-			id="accordionSidebar">
+			class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion"
+			id="accordionSidebar" >
 
 			<!-- Sidebar - Brand -->
 			<a
@@ -273,7 +273,7 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 											<div
 												class="text-l font-weight-bold text-primary text-uppercase mb-3">
 												고객님들의 게시판 총 게시물 수</div>
-											<div class="h3 mb-0 font-weight-bold text-gray-800">${boardTotal}
+											<div class="h3 mb-0 font-weight-bold text-gray-800">${boardTotal[0]}
 												개</div>
 										</div>
 										<div class="col-auto">
@@ -293,7 +293,7 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 											<div
 												class="text-l font-weight-bold text-success text-uppercase mb-3">
 												오늘의 게시판 게시물 수</div>
-											<div class="h3 mb-0 font-weight-bold text-gray-800">${boardToday}
+											<div class="h3 mb-0 font-weight-bold text-gray-800">${boardToday[0]}
 												개</div>
 										</div>
 										<div class="col-auto">
@@ -311,10 +311,10 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 										<div class="col mr-6">
 
 											<div
-												class="text-l font-weight-bold text-primary text-uppercase mb-3">
+												class="text-l font-weight-bold text-dark text-uppercase mb-3">
 												등록된 총 회원 수</div>
 											<!-- 이부분 db값 따오기  -->
-											<div class="h3 mb-0 font-weight-bold text-gray-800">${memberTotal}
+											<div class="h3 mb-0 font-weight-bold text-gray-800">${memberTotal[0]}
 												명</div>
 										</div>
 										<div class="col-auto">
@@ -598,7 +598,7 @@ var myLineChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + ':' + number_format(tooltipItem.yLabel) + '₩';
         }
       }
     }
@@ -606,7 +606,6 @@ var myLineChart = new Chart(ctx, {
 });
 myLineChart.data.datasets[0].data[6] = ${adRevenue}[0];
 myLineChart.update();
-/* alert(type(myLineChart.data.datasets[0].data[5])); */
 
 </script>
 
