@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ContentMAP">
+	
+	<update id="modifyContent">
+		UPDATE content SET con_title = #{con_title}, con_content = #{con_content}, con_cate = #{con_cate}
+		<choose>
+			<when test="con_state != null">
+				, con_state = #{con_state}
+			</when>
+			<when test="con_state == null">
+				, con_state = 'y'
+			</when>
+		</choose>
+		<if test="con_img != null">
+			, con_img = #{con_img}, con_imgsize = #{con_imgsize}
+		</if>
+		WHERE con_num = #{con_num}
+	</update>
+	
+	<delete id="deleteContent">
+		DELETE FROM content WHERE con_num = #{con_num}
+	</delete>
+	
+	<select id="getContentsList" resultType="content">
+		SELECT * FROM content ORDER BY con_num DESC
+	</select>
+	<!-- 
+	<select id="getJoinList" resultType="map">
+		SELECT * FROM content INNER JOIN member ON content.mem_num = member.mem_num
+	</select>
+	 -->
+	<select id="getContent" parameterType="content" resultType="content">
+		SELECT * FROM content WHERE con_num = #{con_num}
+	</select>
+	
+	<select id="getCategoryList" resultType="string">
+		select con_cate from content GROUP BY con_cate
+	</select>
+
+</mapper>

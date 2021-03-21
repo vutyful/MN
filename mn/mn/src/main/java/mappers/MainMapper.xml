@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MainMap">
+
+<!-- 정보 글 등록 -->
+<insert id="writeInfo" parameterType="content">
+	insert into content(con_num,con_title,con_cate,con_date,con_content,con_img)
+	values(seq_content.NEXTVAL,#{con_title},#{con_cate},sysdate,#{con_content},#{con_img})
+</insert>
+
+<!-- 메인 슬라이더에 띄울 정보 (랜덤하게 10개) -->
+<select id="getAllContent" resultType="content">
+	<![CDATA[
+	select * from(select * from content order by dbms_random.random)
+	where rownum <11
+	]]>
+</select>
+
+<!-- con_id 이용하여 컨텐츠 정보 가져오기(컨텐츠 상세) -->
+<select id="getOneContent" parameterType="Integer" resultType="content">
+	select * from content where con_num=#{con_num}
+</select>
+
+<!-- con_cate에 해당하는 전체 레코드 갯수 구하기 -->
+<select id="totalCateRec" parameterType="String" resultType="Integer">
+	select count(*) count from content where con_cate = #{con_cate}
+</select>
+
+<!-- con_cate와 선택된 페이지번호 이용하여 9개 레코드 가져오기 -->
+<select id="getCateContent" parameterType="hashmap" resultType="content">
+	<![CDATA[
+	select *
+	from 
+    (
+        select rownum rnum,con.*
+        from 
+            (   select * 
+                from content 
+                where con_cate=#{con_cate}
+                order by con_num DESC
+            ) con
+     )
+	where rnum >=#{firstRow} and rnum <=#{endRow}
+	]]>
+</select>
+
+
+<!-- keyword 포함하는 컨텐츠 전부 가져오기 -->
+<select id="searchAll" parameterType="String" resultType="content">
+	select * 
+	from content 
+	where (con_content LIKE '%'||#{keyword}||'%' OR con_title LIKE '%'||#{keyword}||'%' )
+	order by con_date DESC
+</select>
+<!-- mem_num에 해당하는 북마크 가져오기 -->
+<select id="getBookmark" parameterType="String" resultType="String">
+	SELECT bookmark FROM member WHERE mem_num = #{mem_num}
+</select>
+
+<!-- mem_num에 해당하는 북마크 업데이트 -->
+<update id="updateBookmark" parameterType="hashmap">
+	UPDATE member SET bookmark = #{bm} WHERE mem_num = #{mem_num}
+</update>
+
+<!-- 댓글 등록하기 -->
+<insert id="insertReply" parameterType="contentreply">
+	INSERT INTO contentreply(re_num,con_num,re_content,re_date,mem_num)
+	VALUES (seq_contentreply.NEXTVAL,#{con_num},#{re_content},sysdate,#{mem_num})
+</insert>
+
+<!-- con_num에 해당하는 댓글 전부 가져오기 -->
+<select id="getReplyList" parameterType="Integer" resultType="HashMap">
+	SELECT mem_name, contentreply.*
+	FROM contentreply
+	INNER JOIN member
+	ON member.mem_num = contentreply.mem_num
+	WHERE con_num=#{con_num}
+	ORDER BY re_date DESC
+</select>
+
+<!-- 해당 mem_num 의 가장 최근 댓글 가져오기 -->
+<select id="currentReply" parameterType="String" resultType="contentreply">
+	SELECT * 
+	FROM (SELECT member.mem_name mem_name, contentreply.* 
+	FROM contentreply JOIN member 
+	ON contentreply.mem_num= member.mem_num 
+	WHERE member.mem_num=#{mem_num}
+	ORDER BY re_date DESC)
+	WHERE rownum=1
+</select>
+
+<!-- 해당 con_num의 조회수 1 증가시키기 -->
+<update id="addViewCount" parameterType="Integer">
+	UPDATE content SET viewcount = viewcount+1 WHERE con_num = #{con_num}
+</update>
+
+<!-- 조회수 가장 높은 3개 정보글 얻어오기 -->
+<select id="getpopular" resultType="content">
+	<![CDATA[
+	select *
+	from (select * from content order by viewcount desc)
+	where rownum <=3
+	]]>
+</select>
+
+<!-- 가장 최신 정보글 3개 얻어오기 -->
+<select id="getLatest" resultType="content">
+	<![CDATA[
+	select *
+	from (select * from content order by con_date desc)
+	where rownum <=3
+	]]>
+</select>
+
+<!-- 댓글 업데이트 -->
+<update id="replyupdate" parameterType="contentreply">
+	UPDATE contentreply SET re_content = #{re_content} WHERE re_num = #{re_num}
+</update>
+
+<!-- 댓글 삭제 -->
+<delete id="replydelete">
+	DELETE FROM contentreply WHERE re_num=#{re_num}
+</delete>
+
+<!-- 정보글 수정 업데이트 -->
+<update id="updateContent" parameterType="content">
+	UPDATE content 
+	SET con_cate = #{con_cate}, con_title = #{con_title}, con_content = #{con_content}
+	WHERE con_num = #{con_num}
+</update>
+
+<!-- 광고 전부 가져오기 -->
+<select id="getAllAD" resultType="ad">
+	select * from ad
+</select>
+
+<!-- 네이버로 로그인 시 회원정보 등록하기 -->
+<insert id="naverRegist" parameterType="member">
+
+	<selectKey keyProperty="mem_num" resultType="string" order="AFTER">
+		select seq_member.currval from dual
+	</selectKey>
+	insert into member (mem_num,mem_name,mem_email) values (seq_member.NEXTVAL, #{mem_name}, #{mem_email})
+
+</insert>
+
+<!-- mem_num으로 해당 레코드 가져오기 -->
+<select id="getMember" parameterType="String" resultType="member">
+	select * from member where mem_num = #{mem_num}
+</select>
+
+<!-- 현재 seq_member 가져오기 -->
+<select id="getNowSeq" resultType="string">
+	select seq_member.currval from dual
+</select>
+
+<!-- 네이버 로그인 시 기존 회원여부 확인 -->
+<select id="naverCheck" parameterType="string" resultType="member">
+	select * from member where mem_email = #{mem_email}
+</select>
+
+</mapper>
+
+
