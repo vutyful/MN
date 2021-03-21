@@ -1,5 +1,7 @@
 package systems.controllers;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.security.Provider.Service;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,26 +43,33 @@ public class CommunityController {
 		//커뮤니티 게시판 등록
 		@RequestMapping(value="communityBoard/CommunityInsert.do")
 		public String CommunityInsert(BoardVO vo) {
-			System.out.println("CommunityVO"+ vo);
-			System.out.println(vo.getBo_cate());
-			System.out.println("community 컨드롤 왔니?? 와라와라");
+			System.out.println("등록controller mem_num"+vo.getMem_num());
+			System.out.println("bo_content:"+vo.getBo_content());
 			//1. id를 통해서 db에서 이름을 가져옴
 			//2. 가져온 이름을 합쳐서 insert에 넘김.
 			CommunityServiceImpl.CommunityInsert(vo);
 			
 			
-			return "redirect:BoardList.do";
+			try {
+				return "redirect:BoardList.do?bo_cate="+ URLEncoder.encode(vo.getBo_cate(), "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+			
+				e.printStackTrace();
+			}
+			return "communityBoard/BoardList.do";
 
+			
 		}
 		
 		//커뮤니티 게시판 목록보기
 		@RequestMapping(value="communityBoard/BoardList.do")
-		public String getBoardList(Model model) {
-			System.out.println("BoardList 컨트롤 탔니?");
+		public String getBoardList(Model model, String bo_cate) {
 			
 			//작성자 이름 뽑아오기 위해, getBoardList 할 때 조인하여 작성자까지 얻어오기 (Map 사용)
-			System.out.println("받아오나"+CommunityServiceImpl.getBoardList().get(0));
-			model.addAttribute("boards", CommunityServiceImpl.getBoardList());
+			List<HashMap<String, Object>> result = CommunityServiceImpl.getBoardList(bo_cate);
+			System.out.println("보드리스트:"+result);
+			model.addAttribute("boards", CommunityServiceImpl.getBoardList(bo_cate));
+			model.addAttribute("cate", result.get(0).get("BO_CATE"));
 			
 			return "communityBoard/communityboard";
 		
@@ -84,9 +93,6 @@ public class CommunityController {
 		//게시글 수정하는 등록하는 곳
 		@RequestMapping(value="communityBoard/commuUpate.do") //model로 select로 값 불러오기
 		public String commuUpate(BoardVO vo, int bo_num){		
-			System.out.println("컨트롤러 제목"+vo.getBo_title());
-			System.out.println("컨트롤러 내용"+ vo.getBo_content());
-			System.out.println("컨트롤러 게시판번호"+ vo.getBo_num());  // 번호가없어서 못함 재상이의 뽀송머리 유지바람/ 린스바람
 			
 			int boUpdate = CommunityServiceImpl.commuUpate(vo, bo_num);
 			System.out.println("게시글 수정하는 등록"+boUpdate);
@@ -121,23 +127,12 @@ public class CommunityController {
 		@RequestMapping(value = "communityBoard/CommunityReply.do")
 		@ResponseBody
 		public int insertReply(ReplyVO replyVO, HttpSession session) { // 댓글 insert,update,delect는 숫자를 반환함
-			/*
-			 * MemberVO vo = (MemberVO)session.getAttribute("userInfo"); //세션값(mem_num)을
-			 * 받아오기 위해 HttpSession session 사용 System.out.println(vo);
-			 * replyVO.setMem_num(vo.getMem_num());
-			 */
-			System.out.println("댓글등록 createReplycontroller");
-			System.out.println("mem_num:"+replyVO.getMem_num());
-			System.out.println("bo_num:"+replyVO.getBo_num());
-			System.out.println("re_content:"+replyVO.getRe_content());
-	
-		
 			int result = CommunityServiceImpl.createReply(replyVO);//Insert되는 함수
-			//getReCurrval mapper에서 현재 seq_reply 값 얻어오기
 			System.out.println("댓글등록"+result);
 			return result; // 1이면 등록 성공, 0이면 등록 실패
-			
-	};
+		};
+
+	
 	
 		// 댓글 삭제
 		@RequestMapping	(value= "communityBoard/deleteReply.do")

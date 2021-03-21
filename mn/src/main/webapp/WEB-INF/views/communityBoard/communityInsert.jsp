@@ -31,6 +31,10 @@
 						<form action="CommunityInsert.do"method="post">
 							<h4 class="mb-50">게시판 등록하기</h4>
 
+							<select id="bo_cate" name="bo_cate">
+							    <option value="강아지">강아지</option>
+							    <option value="고양이">고양이</option>
+							</select>
 							<input placeholder="제목을 입력해 주세요." name="bo_title"
 								id="bo_title" style="height: 50px; width: 100%"></input>
 							<!-- summernote  -->

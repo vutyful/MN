@@ -40,14 +40,21 @@ public class RegisterDaoImpl implements RegisterDAO {
 		return result;
 	}
 
-	/*
-	 * //아이디(이메일) 중복체크
-	 * 
-	 * @Override public int idCheck(MemberVO vo) throws Exception { int result =
-	 * mybatis.selectOne("RegisterMap.idCheck", vo); return result; }
-	 */
-
+	//아이디 중복체크
+	@Override
+	public MemberVO nickCheck(MemberVO vo) {
+		System.out.println("mybatis nickCheck 호출");
+		System.out.println(vo.getMem_name());
+		return mybatis.selectOne("RegisterMap.nickCheck", vo);
+	}
 	
+	//이메일 중복체크
+	@Override
+	public MemberVO emailCheck(MemberVO vo) {
+		System.out.println("mybatis nickCheck 호출");
+		System.out.println(vo.getMem_email());
+		return mybatis.selectOne("RegisterMap.emailCheck", vo);
+	}
 	
 	
 }
