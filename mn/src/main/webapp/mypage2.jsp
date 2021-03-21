@@ -2,15 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file = "/header.jsp" %>
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>멍냥 마이페이지</title>
-    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
     <!-- https://fonts.google.com/specimen/Open+Sans -->
     <link rel="stylesheet" href="resources/dashboard/css/fontawesome.min.css">
@@ -21,13 +14,52 @@
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="resources/dashboard/css/tooplate.css">
     <style type="text/css">
+    	.tm-block-title{
+    		text-align: center;
+    		background-color:#FAEFE2;
+    		font-size: 20px;
+    		font-family: esamanru; 
+    		margin-top: -20px;
+    		margin-bottom: -30px;
+    		padding: 10px 0px;
+    		margin-bottom: 10px;
+    		border-radius: 10px;
+    	}
+    		/* 반려동물 프로필 css*/
+		.pet_box{
+			 width: 70px;
+		    height: 70px; 
+		    border-radius: 70%;
+		    overflow: hidden;
+			border: solid #FAEFE2 2px;
+		}
+		.pet_profile{
+			width: 100%;
+			height: 100%;
+			object-fit:cover;
+		}
+    </style>
+    <style type="text/css">
     
     
     </style>
+    <script type="text/javascript">
+    </script>
 </head>
 
 <body id="reportsPage">
     <div class="" id="home">
+    	<input type="hidden" id="session" value="${sessionScope.userInfo}">
+    	
+    	<div style="margin-top: 30px; left:70%; padding-left: 1100px; height: 70px;">
+    		<div style="float: left">
+	    		<div class="pet_box">
+	    			<img class="pet_profile" src="/mn/resources/petimg/basic_pet.png"  style="left:70%; font-family: esamanru;">
+	    		</div>
+    		</div>
+    		<div style="display: inline-block;padding-top: 30px; padding-left: 10px;"><span style="left:73%;;">반려동물을 등록해주세요</span></div>
+    		<div style="display:inline-block;margin-top: -20px; "><button id="petRegist" class="btn bueno-btn" style="left:20px;" onclick="location.href='/mn/pet/petList.do'">반려동물 등록</button></div>
+    	</div>
         <div class="container">
         
         	<!-- header start -->
@@ -38,26 +70,43 @@
             </div>
             <!-- header end -->
             
+            
+            <!-- 세션확인용 -->
+            <a href="#">회원 seq : ${sessionScope.userInfo.mem_num}</a>
+            
             <!-- row -->
             <div class="row tm-content-row tm-mt-big">
                 <div class="tm-col tm-col-big">
-                    <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">[동물이름] 몸무게</h2>
+                    <div class="bg-white h-100">
+                        	<h2 class="tm-block-title">[동물이름] 몸무게</h2>
                         <canvas id="lineChart"></canvas>
                     </div>
                 </div>
                 <div class="tm-col tm-col-big">
-                    <div class="bg-white tm-block h-100">
+                    <div class="bg-white h-100">
                         <h2 class="tm-block-title">이번달 지출내역</h2>
                         <canvas id="barChart"></canvas>
                     </div>
                 </div>
+                
                 <div class="tm-col tm-col-small">
+                    <div class="bg-white h-100">
+                        <h2 class="tm-block-title">세부일정</h2>
+                        <ol class="tm-list-group">
+                            <li class="tm-list-group-item">oo</li>
+                            <li class="tm-list-group-item">Lorem ipsum doloe</li>
+                            <li class="tm-list-group-item">Read reports</li>
+                            <li class="tm-list-group-item">Write email</li>
+                                                    </ol>
+                    </div>
+                </div>
+                
+                <%-- <div class="tm-col tm-col-small">
                     <div class="bg-white tm-block h-100">
                         <!-- <h2 class="tm-block-title">파이차트~</h2> -->
                         <canvas id="pieChart" class="chartjs-render-monitor"></canvas>
                     </div>
-                </div>
+                </div> --%>
 
 
 				<!-- 
@@ -166,7 +215,7 @@
             configBar,
             configPie,
             lineChart;
-        barChart, pieChart;
+       		barChart;
         // DOM is ready
         $(function () {
             updateChartOptions();
@@ -211,16 +260,19 @@
         <div id="contextMenu" class="dropdown clearfix">
             <ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu"
                 style="display:block;position:static;margin-bottom:5px;">
-                <li><a tabindex="-1" href="#">카테고리1</a></li>
-                <li><a tabindex="-1" href="#">카테고리2</a></li>
-                <li><a tabindex="-1" href="#">카테고리3</a></li>
-                <li><a tabindex="-1" href="#">카테고리4</a></li>
+                <li><a tabindex="-1" href="#">산책</a></li>
+                <li><a tabindex="-1" href="#">목욕</a></li>
+                <li><a tabindex="-1" href="#">몸무게 측정</a></li>
+                <li><a tabindex="-1" href="#">접종</a></li>
+                <li><a tabindex="-1" href="#">지출</a></li>
+                <li><a tabindex="-1" href="#">기타</a></li>
                 <li class="divider"></li>
                 <li><a tabindex="-1" href="#" data-role="close">Close</a></li>
             </ul>
         </div>
 
         <div id="wrapper">
+        <h2 class="tm-block-title">세부일정</h2>
             <div id="loading"></div>
             <div id="calendar"></div>
         </div>
@@ -267,17 +319,60 @@
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-type">구분</label>
                                 <select class="inputModal" type="text" name="edit-type" id="edit-type">
-                                    <option value="카테고리1">카테고리1</option>
-                                    <option value="카테고리2">카테고리2</option>
-                                    <option value="카테고리3">카테고리3</option>
-                                    <option value="카테고리4">카테고리4</option>
+                                    <option value="산책">산책</option>
+		                            <option value="목욕">목욕</option>
+		                            <option value="몸무게 측정">몸무게 측정</option>
+		                            <option value="접종">접종</option>
+		                            <option value="지출">지출</option>
+		                            <option value="기타">기타</option>
                                 </select>
                             </div>
                         </div>
                         
+                        
+                        
+                        <div class="row sch_walk">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-title">산책시간</label> <!--  -->
+                                <input class="inputModal" type="time" name="sch_walk" id="sch_walk"
+                                    required="required" />
+                            </div>
+                        </div>
+                        
+                        <div class="row sch_ex">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-type">지출항목</label>
+                                <select class="inputModal" type="text" name="sch_expenditure" id="sch_expenditure">
+                                    <option value="사료/간식">사료/간식</option>
+		                            <option value="장난감">장난감</option>
+		                            <option value="병원">병원</option>
+		                            <option value="미용/의류">미용/의류</option>
+		                            <option value="기타">기타</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row sch_ex">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-title">지출내역</label> <!-- 숫자만 쓸수있게 -->
+                                <input class="inputModal" type="number" name="sch_exDetails" id="sch_exDetails"
+                                    required="required" />
+                            </div>
+                        </div>
+
+                        <div class="row sch_weight">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-title">몸무게</label> <!-- 숫자만 쓸수있게 -->
+                                <input class="inputModal" type="number" name="sch_petWeight" id="sch_petWeight"
+                                    required="required" />
+                            </div>
+                        </div>
+                        
+                        
+                        
                         <div class="row">
                             <div class="col-xs-12">
-                                <label class="col-xs-4" for="edit-username">구분</label>
+                                <label class="col-xs-4" for="edit-username">반려동물</label>
                                 <select class="inputModal" type="text" name="edit-username" id="edit-username">
                                     <option value="강아지1">강아지1</option>
                                     <option value="강아지2">강아지2</option>
@@ -337,10 +432,12 @@
                     <label for="calendar_view">구분별</label>
                     <div class="input-group">
                         <select class="filter" id="type_filter" multiple="multiple">
-                            <option value="카테고리1">카테고리1</option>
-                            <option value="카테고리2">카테고리2</option>
-                            <option value="카테고리3">카테고리3</option>
-                            <option value="카테고리4">카테고리4</option>
+                            <option value="산책">산책</option>
+                            <option value="목욕">목욕</option>
+                            <option value="몸무게 측정">몸무게 측정</option>
+                            <option value="접종">접종</option>
+                            <option value="지출">지출</option>
+                            <option value="기타">기타</option>
                         </select>
                     </div>
                 </div>
@@ -379,6 +476,51 @@
     <script src="./resources/FullCalendar/js/addEvent.js"></script>
     <script src="./resources/FullCalendar/js/editEvent.js"></script>
     <script src="./resources/FullCalendar/js/etcSetting.js"></script>
+    
+    <script type="text/javascript">
+	
+    
+    	function categoryHide(){
+    		$(".sch_walk").hide();
+    		$(".sch_ex").hide();
+    		//$("#sch_exDetails").hide();
+    	};
+    	categoryHide();
+
+    	function walkShow(){
+    		$(".sch_walk").show();
+    	}
+    	function exShow(){
+    		$(".sch_ex").show();
+    	}
+    	
+    	
+    	$("#edit-type").change(function(){
+    	    var sch_type =  $(this).val();
+    	    alert(sch_type);
+    	    if (sch_type == "산책"){
+    	    	categoryHide();
+    	    	walkShow();
+    	    }else if (sch_type == "지출"){
+    	    	categoryHide();
+    	    	esShow();
+    	    }else{
+    	    	categoryHide();
+    	    }
+    	});
+	
+    	
+    	// 반려동물 등록 버튼 클릭 시
+/*     	$('#petRegist').click(function () {
+			if(('#session').val()==null){ // 로그인 하지 않았다면
+				alert('로그인 후 이용해주세요.');
+			}else{
+			location.href='/mn/pet/petList.do';
+			}
+		}) */
+
+    </script>
+    
 </body>
 
 </html>

@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="../resources/dashboard/css/bootstrap.min.css">
 <!-- https://getbootstrap.com/ -->
 <link rel="stylesheet" href="../resources/dashboard/css/tooplate.css">
+<link rel="stylesheet" href="./resources/FullCalendar/css/main.css">
 </head>
 
 <style type="text/css">
@@ -37,11 +38,7 @@ background-image: none;
 background-color: white;
 }
 
-.col-xl-8 .col-lg-12 .tm-md-12 .tm-sm-12 .tm-col{
 
-
-
-}
 </style>
 
 <body id="reportsPage" class="bg02">

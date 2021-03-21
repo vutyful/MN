@@ -36,13 +36,15 @@ public class CalendarDAOImpl implements CalendarDAO{
 	// 스케줄러 일정 수정하기
 	public void updateSchedule(CalendarVO vo) {
 		System.out.println("CalendarDAO 일정 수정하는 중");
-//		System.out.println(vo.getSch_id());
-//		System.out.println(vo.getSch_title());
-//		System.out.println(vo.getSch_description());
-//		System.out.println(vo.getSch_start());
-//		System.out.println(vo.getSch_end());
-//		System.out.println(vo.getSch_backgroundColor());
-//		System.out.println(vo.getSch_type());
+		System.out.println(vo.getSch_id());
+		System.out.println(vo.getSch_title());
+		System.out.println(vo.getSch_description());
+		System.out.println(vo.getSch_start());
+		System.out.println(vo.getSch_end());
+		System.out.println(vo.getSch_backgroundColor());
+		System.out.println(vo.getSch_type());
+		System.out.println(vo.getSch_pname());
+		System.out.println(vo.getMem_num());
 		mybatis.update("calendar.updateSchedule", vo);
 	}
 	

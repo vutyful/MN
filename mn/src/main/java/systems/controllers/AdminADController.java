@@ -32,6 +32,26 @@ public class AdminADController {
 
 		System.out.println("---관리자 광고등록페이지로 이동---");
 	}
+	//광고 글 열람하는 페이지.
+	@RequestMapping(value="manager/adContent.do")
+	public void adContent(AdVO vo, Model model) {
+		adService.adContent(vo);
+		
+		AdVO list = adService.adContent(vo);
+		model.addAttribute("adContent",list);
+		System.out.println("---관리자 광고열람페이지로 이동---");
+	}
+	
+	@RequestMapping(value="manager/adModify.do")
+	public String adModify(AdVO vo, Model model) {
+		
+		adService.adModify(vo);
+		
+		System.out.println("---관리자 광고글 수정---");
+		 return "redirect:ad.do"; 
+	}
+	
+	
 	//광고 등록성공.
 	@RequestMapping(value="manager/adInsertConfirm.do")
 	public String adInsertConfirm(AdVO vo) {
@@ -53,7 +73,6 @@ public class AdminADController {
 		
 		System.out.println("---관리자 광고 삭제---");
 		 return "redirect:ad.do"; 
-		
 	}
 
 }

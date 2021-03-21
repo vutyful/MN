@@ -8,7 +8,7 @@
     <div class="post-catagory section-padding-100">
         <div class="container">
             <div style="padding-bottom: 40px;">
-        		<h2 style="color:black; text-align: center;">${cate}</h2>
+        		<h2 style="color:#DEA361; text-align: center;">${cate}</h2>
         	</div>
             <div class="row">
                 <!-- Single Post Catagory -->

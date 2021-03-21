@@ -28,4 +28,17 @@ public class AdServiceImpl implements AdService{
 		return adDAO.adInsertConfirm(vo);
 	};//관리자 광고 글 등록.
 	
+	 public AdVO adContent(AdVO vo) {
+		 
+		 return adDAO.adContent(vo);
+	 };//광고 열람.
+	 
+	 public int adModify(AdVO vo) {
+		 return adDAO.adModify(vo);
+	 };//광고 수정
+	 
+	 public List<AdVO> adRevenue(AdVO vo){
+		 return adDAO.adRevenue(vo);
+	 };//광고수익 그래프.
+	
 }

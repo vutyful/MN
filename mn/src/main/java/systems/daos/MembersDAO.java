@@ -9,4 +9,7 @@ public interface MembersDAO {
 	public MemberVO getMember(MemberVO vo);
 	public List<MemberVO> getMembersList();
 	public List<MemberVO> getWithdrawalList();
+	
+	
+	public List<MemberVO> memberTotal(MemberVO vo);//관리자페이지 통계 멤버수
 }
