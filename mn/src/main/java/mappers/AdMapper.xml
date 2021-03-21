@@ -49,5 +49,12 @@
 		order by startdate asc
 	</select>
 	
+	<update id="adClick" parameterType="ad">
+	update ad 
+	set totalclick = totalclick + 1
+	where ad_num = #{ad_num}
+	</update>
+	
+	
 	
 </mapper>

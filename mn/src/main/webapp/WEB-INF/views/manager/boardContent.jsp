@@ -41,7 +41,7 @@
 
 		<!-- Sidebar -->
 		<ul
-			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+			class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion"
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
@@ -215,7 +215,7 @@
 										<h6 class="m-0 font-weight-bold text-primary"
 											style="margin-bottom: 0.5rem !important">게시글 제목</h6>
 										<input class="form-control form-control-user" type="text"
-											name="board_title" value="${boardContent.bo_title}" disabled />
+											name="board_title" value="${boardContent.bo_title}" readonly />
 									</div>
 								</div>
 
@@ -225,17 +225,17 @@
 									<h6 class="m-0 font-weight-bold text-primary"
 										style="margin: 0.5rem 0 !important">카테고리</h6>
 									<input class="text" type="text" name="board_cate"
-										value="${boardContent.bo_cate}" disabled />
+										value="${boardContent.bo_cate}" readonly />
 								<h6 class="m-0 font-weight-bold text-primary"
 									style="margin: 0.5rem 0 !important">작성일자</h6>
 								<input class="text" type="text" name="board_date"
-									value="${boardContent.bo_date}" disabled />
+									value="${boardContent.bo_date}" readonly />
 
 
 
 									<h6 class="m-0 font-weight-bold text-primary"
 										style="margin: 0.5rem 0 !important">게시글 내용</h6>
-									<textarea name="board_content" rows="20" cols="77" disabled>${boardContent.bo_content}</textarea>
+									<textarea name="board_content" rows="20" cols="77" readonly>${boardContent.bo_content}</textarea>
 
 
 									<a

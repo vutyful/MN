@@ -91,9 +91,12 @@ public class AdminController {
 			/* list.add(); */	//리베뉴 형식이 AdVO인  달 수익 / 달 수익으로 나열된건데 get(i)는 달 수익/ 한묶음 단위.
 			//달 수익 한개씩 리스트로 나누고 또 수익만 필요해서 겟 리베뉴한거
 			//리스트에서 i번째 0번쨰의 AdVO의 값의 리베뉴값.
+		
 			list.add(i, Integer.toString((Revenue.get(i).getRevenue())));
+		
+
 		}
-		System.out.println(list);
+		/* System.out.println(list); */
 		//만든 리스트 보내기
 		model.addAttribute("adRevenue", list);
 	}
