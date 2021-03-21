@@ -48,6 +48,7 @@ public class MainController {
 	public void main(Model m) {
 		//슬라이더 정보글 가져오기
 		List<ContentVO> result = mainService.getAllContent();
+        System.out.println(this.getClass().getResource("/").toString());
 		m.addAttribute("contents",result);
 		
 		System.out.println(result);

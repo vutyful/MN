@@ -12,6 +12,7 @@
 			<typeAlias type="systems.domains.AdVO" alias="ad"/>
 			<typeAlias type="systems.domains.CalendarVO" alias="calendar"/>
 			<typeAlias type="systems.domains.PetVO" alias="pet"/>
+			<typeAlias type="systems.domains.ProductVO" alias="product"/>
 			
 		</typeAliases>
 		<typeHandlers>
