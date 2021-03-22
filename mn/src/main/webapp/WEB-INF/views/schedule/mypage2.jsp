@@ -21,13 +21,48 @@
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="../resources/dashboard/css/tooplate.css">
     <style type="text/css">
-    
+    	.tm-block-title{
+    		text-align: center;
+    		background-color:#FAEFE2;
+    		font-size: 20px;
+    		font-family: esamanru; 
+    		margin-top: -20px;
+    		margin-bottom: -30px;
+    		padding: 10px 0px;
+    		margin-bottom: 10px;
+    		border-radius: 10px;
+    	}
+    		/* 반려동물 프로필 css*/
+		.pet_box{
+			 width: 70px;
+		    height: 70px; 
+		    border-radius: 70%;
+		    overflow: hidden;
+			border: solid #FAEFE2 2px;
+		}
+		.pet_profile{
+			width: 100%;
+			height: 100%;
+			object-fit:cover;
+		}
     
     </style>
 </head>
 
 <body id="reportsPage">
     <div class="" id="home">
+    	<input type="hidden" id="session" value="${sessionScope.userInfo}">
+    	
+    	<div style="margin-top: 30px; left:70%; padding-left: 1100px; height: 70px;">
+    		<div style="float: left">
+	    		<div class="pet_box">
+	    			<img class="pet_profile" src="/mn/resources/petimg/basic_pet.png"  style="left:70%; font-family: esamanru;">
+	    		</div>
+    		</div>
+    		<div style="display: inline-block;padding-top: 30px; padding-left: 10px;"><span style="left:73%;;">반려동물을 등록해주세요</span></div>
+    		<div style="display:inline-block;margin-top: -20px; "><button id="petRegist" class="btn bueno-btn" style="left:20px;" onclick="location.href='/mn/pet/petList.do'">반려동물 등록</button></div>
+    	</div>
+    
         <div class="container">
         
         	<!-- header start -->
@@ -40,7 +75,7 @@
             
             
             <!-- 세션확인용 -->
-            <a href="#">회원 seq : ${sessionScope.userInfo.mem_num}</a>
+            <%-- <a href="#">회원 seq : ${sessionScope.userInfo.mem_num}</a> --%>
             <!-- 그래프 데이터 받기 -->
             <%-- <a href="#">지출 그래프 데이터? : ${expenditure[4].sch_exDetails }</a>
              --%>
@@ -53,7 +88,7 @@
             <%-- <input type="hidden" id = "pet_count" value="${pet_count }">
             
             <a href="#">반려동물 등록 수 : ${pet_count }</a> --%>
-            <a href="#">반려동물 몸무게 받아온거 : ${petWeight}</a>
+           <%--  <a href="#">반려동물 몸무게 받아온거 : ${petWeight}</a> --%>
             
 
             
@@ -511,28 +546,28 @@
 
     </script>
     <script type="text/javascript">
-	alert("뭐 아무거나 좀 나와봐");
+	//alert("뭐 아무거나 좀 나와봐");
     //var pet_count = $("#pet_count").val();
     var pet_count = ${pet_count};
-	alert(pet_count);
-    console.log(pet_count);
+	//alert(pet_count);
+    //console.log(pet_count);
     
 	var petWeight = ${petWeight};
 	var petNameList = new Array();
 	
 	<c:forEach items="${petNameList}" var="petName">
 	petNameList.push("${petName}");
-	alert("떤냐? ${petName}")
+	//alert("떤냐? ${petName}")
 	</c:forEach>
 	
 	//for (var i = 0; i < pet_count; i++){
 		//petNameList.push(${petNameList[i] });
 		//var sibal = "${petNameList[0] }"
 		//petNameList.push(sibal);}
-	alert(petNameList)
+	/* alert(petNameList)
     console.log(petNameList);
 	alert(petWeight[0].length)
-    console.log(petWeight[0].length);
+    console.log(petWeight[0].length); */
 	//alert(sibal)
     //console.log(sibal);
     

@@ -25,9 +25,9 @@
 	<!--반려동물 리스트 -->
 	<!-- 로그인한 멤버아이디로 접근 하기 떄문에 시험적으로 만드는거는 mem_num = 1로 픽스해서 만듬. -->
 	<select id="petList" parameterType="pet" resultType="pet">
-	select *
+	select pet_num, pet_name, pet_dogcat, pet_kind, to_char(pet_birth, 'YYYY-MM-DD') pet_birth, mem_num
 	from pet
-	where mem_num = 1
+	where mem_num = #{mem_num}
 	</select>
 
 	<!-- 반려동물 등록-->
@@ -37,10 +37,16 @@
 	<!-- #{pet_img}하면 에러 뜨고 ${pet_img}하면 에러 안뜨는데 이유 잘모름. -->
 	<update id="petModify" parameterType="pet">
 	update pet
-	set pet_name = #{pet_name} , pet_img = #{pet_img} ,
+	set pet_name = #{pet_name} ,
  	pet_birth = '${pet_birth}',pet_dogcat = #{pet_dogcat},pet_kind = '${pet_kind}' 
 	where pet_num = #{pet_num}
 	</update>
+<!-- 	<update id="petModify" parameterType="pet">
+	update pet
+	set pet_name = #{pet_name} , pet_img = #{pet_img} ,
+ 	pet_birth = '${pet_birth}',pet_dogcat = #{pet_dogcat},pet_kind = '${pet_kind}' 
+	where pet_num = #{pet_num}
+	</update> -->
 	
 	<!-- 반려동물 삭제-->
 	<!-- pk pet_num 로 삭제.  -->
@@ -48,5 +54,35 @@
 	delete from pet
 	where pet_num = ${pet_num}
 	</delete>
+	
+	<!-- 반려동물 등록 -->
+	<!-- mem_num을 포함한 반려동물 정보를 받아와 등록해준다 -->
+	<insert id="petRegist" parameterType="pet">
+	INSERT INTO pet
+	(pet_num, pet_name, pet_dogcat, mem_num
+	<if test="pet_img != null">
+	 ,pet_img 
+	</if>
+	<if test="pet_birth != null">
+	 ,pet_birth 
+	</if>
+	<if test="pet_kind != null">
+	 ,pet_kind
+	</if>
+	 )
+	 VALUES
+	 (seq_pet.NEXTVAL, #{pet_name}, #{pet_dogcat}, #{mem_num}
+	 <if test="pet_img != null">
+	 ,#{pet_img} 
+	</if>
+	<if test="pet_birth != null">
+	 ,#{pet_birth} 
+	</if>
+	<if test="pet_kind != null">
+	 ,#{pet_kind}
+	</if>
+	 )
+	 	
+	</insert>
 
 </mapper>
