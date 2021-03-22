@@ -131,6 +131,19 @@
 					</div>
 				</div></li>
 
+			<!-- Nav Item - Utilities Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapseOne"
+				aria-expanded="true" aria-controls="collapseOne"> <i
+					class="fas fa-fw fa-cog"></i> <span>상품 관리</span>
+			</a>
+				<div id="collapseOne" class="collapse"
+					aria-labelledby="headingOne" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">PRODUCT MANAGE:</h6>
+						<a class="collapse-item" id="analysis" href="#">상품 갱신</a> 
+					</div>
+				</div></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
@@ -478,6 +491,18 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 			<!-- Page level plugins -->
 			<script src="/mn/resources/manager/vendor/chart.js/Chart.min.js"></script>
 
+	<script type="text/javascript">
+	
+	$('#analysis').click(function(){
+		alert("상품 분석을 시작합니다. 약 2분 정도 시간이 소요될 수 있습니다.");
+		$.ajax({
+			url:"/mn/analysis.do",
+			success: function(result){},
+			error:function(){}
+		})
+	})
+	
+	</script>
 			<!-- Page level custom scripts -->
 			<!-- 	<script src="/mn/resources/manager/js/demo/chart-area-demo.js"></script> -->
 			<!-- 차트 에어리어 관련 JS -->
