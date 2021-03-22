@@ -11,7 +11,7 @@
 .bueno-btn{
 	position:relative;
 	background-color: lightpink;
-    margin-left: 700px;
+    margin-left: 600px;
 }
 .post-author .post-date .reply{
 font-size: 15px;
@@ -26,11 +26,9 @@ font-size: 15px;
 		<div class="container">
 			<div class="post-details-content mb-100" style="margin-top: 80px;">
 				<div class="con-content">
-					<div class="col-12 col-lg-6" style="padding-left:-15px;">
-						
+					<div class="col-12 col-lg-6" style="padding-left:-80px;">
 						<h4 class="post-title">${data.BO_TITLE}</h4>
-
-						<div class="post-meta mb-50">
+						<div class="post-meta mb-50" >
 							<a href="#"class="post-author">작성자: ${data.MEM_NAME}</a>
 							<a href="#" class="post-date">작성날짜: ${fn:substring(data.BO_DATE,0,16)} </a> 
 							<a href="#"class="post-author"> 종류: ${data.BO_CATE}</a>

@@ -67,8 +67,8 @@ button{
                     <button type="button" class="togglebtn" onclick="register()">회원가입</button>
                 </div>
                 <form id="login" action="/mn/login.do" method="post" class="input-group">
-                    <input id="mem_email" name="mem_email" value='sy10201220@naver.com' type="text" class="input-field" placeholder="아이디:jingang@gmail.com" required>                  
-                    <input name="mem_pass"  type="password" value='qqq111!!' class="input-field" placeholder="비번:aaa111!!" required="">
+                    <input id="mem_email" name="mem_email" type="text" class="input-field" placeholder="이메일을 입력하세요" required>                  
+                    <input name="mem_pass"  type="password" class="input-field" placeholder="비밀번호를 입력하세요" required>
                    
                     <button id="last_login_btn"class="submit" style="margin-top: 20px;">로그인</button>
                     <!-- 네이버아이디로로그인 버튼 노출 영역 -->
@@ -130,7 +130,6 @@ button{
 
 <!-- 카카오톡 로그인 -->
 <script type="text/javascript">
-<<<<<<< HEAD
 	// 사용할 앱의 JavaScript 키를 설정해 주세요.
 	Kakao.init('965db0eb53584dc6dd507e3f0ba041f9');
 	// 카카오 로그인 버튼을 생성합니다.
@@ -156,31 +155,7 @@ button{
 	        alert(JSON.stringify(err));
 	    }
 	});
-=======
-// 사용할 앱의 JavaScript 키를 설정해 주세요.
-Kakao.init('965db0eb53584dc6dd507e3f0ba041f9');
-// 카카오 로그인 버튼을 생성합니다.
-Kakao.Auth.createLoginButton({
-    container: '#kakao-login-btn',
-    success: function (authObj) {
-        console.log(JSON.stringify(authObj));
-        // access_token으로 사용자 정보 요청하기
-    	Kakao.API.request({
-			url : '/v2/user/me',
-			success : function(res) {
-				var mem_email = res.kakao_account.email; //유저의 이메일
-				
-				window.location.replace("http://"+window.location.hostname + 
-						((location.port==""||location.port==undefined)?"":":"+location.port)+
-						"/mn/buenoBasic/main.do?mem_email="+mem_email); 
-				}
-			})
-    },
-    fail: function (err) {
-        alert(JSON.stringify(err));
-    }
-});
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
+
 
 </script>
 
