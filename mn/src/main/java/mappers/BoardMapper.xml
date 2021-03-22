@@ -15,14 +15,14 @@
 	<delete id="boardDelete" parameterType="board">
 		delete from board
 		where
-		bo_num = ${bo_num}
+		bo_num = #{bo_num}
 	</delete>
 
 	<!-- 관리자 게시글 숨기기 버튼  -->
  	 <update id="boardHide" parameterType="board">
 		update board
 		set bo_state = 'n'
-		where bo_num=${bo_num} and bo_state = 'y'
+		where bo_num = #{bo_num} and bo_state = 'y'
 	</update> 
  <!-- 	 <update id="boardHide" parameterType="board">
 		update board
@@ -40,14 +40,14 @@
 	<update id="boardShow" parameterType="board">
 		update board
 		set bo_state = 'y'
-		where bo_num=${bo_num} and bo_state = 'n'
+		where bo_num = #{bo_num} and bo_state = 'n'
 	</update>
 	
 	<!-- 관리자 게시글 글 내용으로 가는 페이지  -->
 	<select id="boardContent" parameterType="board" resultType="board">
 		select *
 		from board
-		where bo_num = ${bo_num}
+		where bo_num = #{bo_num}
 	</select>
 
 	<!-- 관리자페이지 통계 총 게시물 수 숫자값만 원한다면 인트형으로 한다. -->

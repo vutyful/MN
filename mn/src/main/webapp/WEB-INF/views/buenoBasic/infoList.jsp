@@ -36,10 +36,10 @@
 
                 <!-- Sidebar Area -->
             </div>
-			<!-- 페이징 처리 -->
             <div class="row">
                 <div class="col-12">
                     <div class="pagination-area" style="margin: 40px 0px; padding-left:25%;">
+						<!-- 페이징 처리 -->
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
                             <a class="page-link" href="infoList.do?con_cate=${cate}&pageNo=1" style="color:#DEA361;">처음</a>

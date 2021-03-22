@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
@@ -85,7 +86,7 @@
                             </div>
 
                             <!-- Nav Start -->
-                            <div class="classynav">
+                            <div class="classynav" style="right: 100px;">
                                 <ul>
                                     <li><a href="#">강아지</a>
                                             <ul class="dropdown">
@@ -105,20 +106,16 @@
                                     </li>
                                     <li><a href="#">커뮤니티</a>
                                         <ul class="dropdown">
-                                            <li><a href="/mn/communityBoard/BoardList.do">고양이</a></li>
-                                            <li><a href="#">강아지</a></li>
+                                            <li><a href="/mn/communityBoard/BoardList.do?bo_cate=고양이">고양이</a></li>
+                                            <li><a href="/mn/communityBoard/BoardList.do?bo_cate=강아지">강아지</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">상품</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/mn/buenoBasic/catagory.do">고양이</a></li>
-                                            <li><a href="/mn/buenoBasic/catagory-post.do">강아지</a></li>
-                                        </ul>
+                                    <li><a href="/mn/product.jsp">상품</a>
                                     </li>
                                     <li><a href="#">편의기능</a>
                                         <ul class="dropdown">
                                             <li><a href="/mn/Test_v1.html">AR 체험</a></li>
-                                            <li><a href="/mn/buenoBasic/hospital.do">내 주변 동물병원</a></li>
+                                            <li><a href="/mn/buenoBasic/hospital.do">동물병원 찾기</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="/mn/schedule/mypage2.do">반려동물</a></li>

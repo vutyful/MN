@@ -16,8 +16,7 @@ public class AdVO {
 	private int totalclick; // 총 클릭 수
 	private String startdate; // 광고 시작일
 	private String enddate; // 광고 마감일
-	private String cat; // 반려묘 있는 사람의 클릭 수
-	private String dog; // 반려견 있는 사람의 클릭 수
+	private int revenue; // 광고 수익
 	
 	// C:\Users\psy\git\MN\mn\src\main\webapp\resources\manager File f = new
 	// File("C:\\Users\\psy\\git\\MN\\mn\\src\\main\\webapp\\resources\\manager\\adimg\\"+ad_img);
@@ -109,20 +108,13 @@ public class AdVO {
 		this.enddate = enddate;
 	}
 
-	public String getCat() {
-		return cat;
-	}
 
-	public void setCat(String cat) {
-		this.cat = cat;
+	public int getRevenue() {
+		return revenue;
 	}
-
-	public String getDog() {
-		return dog;
+	public void setRevenue(int revenue) {
+		this.revenue = revenue;
 	}
-
-	public void setDog(String dog) {
-		this.dog = dog;
-	}
+	
 
 }

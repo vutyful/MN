@@ -25,9 +25,9 @@ public class CommunityServiceImpl implements CommunityService{
 	}
 	//게시판 목록 보기
 	@Override
-	public List<HashMap<String, Object>> getBoardList() {
+	public List<HashMap<String, Object>> getBoardList(String bo_cate) {
 		System.out.println("getBoardList 게시판목록 CommunityServiceImpl");
-		return CommunityDAO.getBoardList();
+		return CommunityDAO.getBoardList(bo_cate);
 	}
 	//게시판 상세보기
 	@Override

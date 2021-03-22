@@ -12,15 +12,49 @@
 	<delete id="adDelete" parameterType="ad">
 		delete from ad
 		where
-		ad_num = ${ad_num}
+		ad_num = #{ad_num}
 	</delete>
 	
 	<!-- 광고 등록 이미지까지. date형 날짜 ' '로 처리해줘야지 날짜로 제대로 들어감.  SEQ_AD.nextval
 	' ' 안하면 2021-03-25 뺄셈 값이 insert됨. -->
 	<insert id="adInsertConfirm" parameterType="ad">
-	Insert into ad(ad_num,ad_name,ad_link,startdate,enddate,ad_img)
-	values(SEQ_AD.nextval,'${ad_name}','${ad_link}','${startdate}','${enddate}','${ad_img}')
+	<!-- Insert into ad(ad_num,ad_name,ad_link,startdate,enddate,ad_img, dog, cat, revenue)
+	values(SEQ_AD.nextval,'${ad_name}','${ad_link}','${startdate}','${enddate}','${ad_img}',0,0,${revenue}) -->
+	Insert into ad(ad_num,ad_name,ad_link,startdate,enddate,ad_img, revenue)
+	values(SEQ_AD.nextval,#{ad_name},#{ad_link},
+	#{startdate},#{enddate},#{ad_img},#{revenue})
+	
+	
 	</insert>
+	
+	<select id="adContent" parameterType="ad" resultType="ad">
+		select *
+		from ad
+		where ad_num = #{ad_num}
+	</select>
+	
+	
+	
+	<update id="adModify" parameterType="ad">
+			update ad
+		set ad_name = '${ad_name}', ad_img = '${ad_img}', ad_link = '${ad_link}',
+		startdate = '${startdate}', enddate = '${enddate}' , revenue = ${revenue}
+		where ad_num = ${ad_num}
+	</update>
+	
+	<select id="adRevenue" parameterType="ad" resultType="ad">
+		select substr(startdate,6,2) as startdate, sum(revenue) as revenue
+		from ad
+		group by substr(startdate,6,2)
+		order by startdate asc
+	</select>
+	
+	<update id="adClick" parameterType="ad">
+	update ad 
+	set totalclick = totalclick + 1
+	where ad_num = #{ad_num}
+	</update>
+	
 	
 	
 </mapper>
