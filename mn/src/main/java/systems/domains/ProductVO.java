@@ -6,10 +6,10 @@ public class ProductVO {
 	private String pro_num;
 	private String pro_name;
 	private int price;
-	private String cate;
+	private String pro_cate;
 	private String pro_img;
-	private String link;
-	private String age;
+	private String pro_link;
+	private String pro_age;
 	
 	public String getPro_num() {
 		return pro_num;
@@ -20,16 +20,16 @@ public class ProductVO {
 	public int getPrice() {
 		return price;
 	}
-	public String getCate() {
-		return cate;
+	public String getPro_cate() {
+		return pro_cate;
 	}
 	public String getPro_img() {
 		return pro_img;
 	}
-	public String getLink() {
-		return link;
+	public String getPro_link() {
+		return pro_link;
 	}
-	public String getAge() {
-		return age;
+	public String getPro_age() {
+		return pro_age;
 	}	
 }

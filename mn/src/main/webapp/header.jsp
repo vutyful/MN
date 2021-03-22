@@ -110,7 +110,7 @@
                                             <li><a href="/mn/communityBoard/BoardList.do?bo_cate=강아지">강아지</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/mn/product.jsp">상품</a>
+                                    <li><a href="/mn/product.do?result=1&cate=고양이사료&age=키튼">상품</a>
                                     </li>
                                     <li><a href="#">편의기능</a>
                                         <ul class="dropdown">
