@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ProductMAP">
-	<select id="getContentsList" resultType="content">
-		SELECT * FROM product
+	<select id="getProductsList" resultType="product" parameterType="HashMap">
+		SELECT * FROM product WHERE PRO_CATE=#{cate} and PRO_AGE=#{age}
 	</select>
 </mapper>
