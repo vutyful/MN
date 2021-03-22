@@ -103,7 +103,7 @@ var calendar = $('#calendar').fullCalendar({
         $.ajax({
             type: "get",
             //url: "resources/FullCalendar/data.json",
-            url: "mn/test.do",
+            url: "/mn/schedule/test.do",
             dataType:'json',
             data: {
                 // 화면이 바뀌면 Date 객체인 start, end 가 들어옴
@@ -135,7 +135,7 @@ var calendar = $('#calendar').fullCalendar({
         //리사이즈한 일정 업데이트
         $.ajax({
             type: "get",
-            url: "mn/simpleUpdateSchedule.do",
+            url: "/mn/schedule/simpleUpdateSchedule.do",
             data: {
                 sch_id: newDates.id,
                 sch_start: newDates.startDate,
@@ -165,7 +165,7 @@ var calendar = $('#calendar').fullCalendar({
         //드롭한 일정 업데이트
         $.ajax({
             type: "get",
-            url: "mn/simpleUpdateSchedule.do",
+            url: "/mn/schedule/simpleUpdateSchedule.do",
             data: {
                 sch_id: newDates.id,
                 sch_start: newDates.startDate,

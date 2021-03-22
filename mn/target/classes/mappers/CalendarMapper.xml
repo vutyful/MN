@@ -5,7 +5,7 @@
 
 	<!-- 스케쥴러 일정 불러오기 -->
 	<select id="test" parameterType="calendar" resultType="calendar">
-		SELECT sch_id, sch_title, sch_description , sch_start, sch_end, sch_type, sch_pname, sch_backgroundColor, sch_textColor, sch_allDay
+		SELECT sch_id, sch_title, sch_description , sch_start, sch_end, sch_type, sch_pname, sch_backgroundColor, sch_textColor, sch_allDay, sch_walk, sch_expenditure, sch_exDetails, sch_petWeight
 		FROM schedule
 		WHERE pet_num in (select pet_num from pet where mem_num = #{mem_num})
 	</select>
@@ -13,43 +13,63 @@
 	<!-- 스케쥴러 일정 추가하기 -->
 	<insert id="addSchedule" parameterType="calendar">
 		INSERT INTO schedule
-		(sch_id, sch_title, sch_start, sch_end, sch_type, sch_pname, sch_backgroundColor, sch_textColor, sch_allDay, pet_num
+		(sch_id, sch_title, sch_start, sch_end, sch_type, sch_pname, sch_backgroundColor, sch_allDay, pet_num
 		
-		<if test = "sch_description != null">
+		<if test = "sch_walk  != null">
 		,sch_description
+		
+		</if>
+		<if test = "sch_description != null">
+		,sch_walk
+		</if>
+		<if test = "sch_expenditure != null and sch_exDetails != null">
+		,sch_expenditure, sch_exDetails
+		</if>
+		<if test = "sch_petWeight != null">
+		,sch_petWeight
 		</if>
 		
-		<choose>
+		<!-- <choose>
 			<when test="sch_walk  != null">
 			,sch_walk
 			</when>
-			<when test="sch_expenditure != null and sch_exDetails != null ">
+			<when test="sch_expenditure != null and sch_exDetails != null">
 			,sch_expenditure, sch_exDetails
 			</when>
-			<when test="sch_weight != null">
-			,sch_weight
+			<when test="sch_petWeight != null">
+			,sch_petWeight
 			</when>
-		</choose>
+		</choose> -->
 		
 		)
 		VALUES
-		(seq_sch.NEXTVAL, #{sch_title}, #{sch_start}, #{sch_end}, #{sch_type}, #{sch_pname}, #{sch_backgroundColor}, #{sch_textColor}, #{sch_allDay}, (select  pet_num from pet where mem_num = #{mem_num} and pet_name = #{sch_pname}) 
+		(seq_sch.NEXTVAL, #{sch_title}, #{sch_start}, #{sch_end}, #{sch_type}, #{sch_pname}, #{sch_backgroundColor}, #{sch_allDay}, (select  pet_num from pet where mem_num = #{mem_num} and pet_name = #{sch_pname}) 
 		
 		<if test = "sch_description != null">
 		,#{sch_description}
 		</if>
 		
-		<choose>
+		<if test = "sch_description != null">
+		,#{sch_walk}
+		</if>
+		<if test = "sch_expenditure != null and sch_exDetails != null">
+		,#{sch_expenditure}, #{sch_exDetails}
+		</if>
+		<if test = "sch_petWeight != null">
+		,#{sch_petWeight}
+		</if>
+		
+		<!-- <choose>
 			<when test="sch_walk  != null">
 			,#{sch_walk}
 			</when>
-			<when test="sch_expenditure != null and sch_exDetails != null ">
+			<when test="sch_expenditure != null and sch_exDetails != null">
 			,#{sch_expenditure}, #{sch_exDetails}
 			</when>
-			<when test="sch_weight != null">
-			,#{sch_weight}
+			<when test="sch_petWeight != null">
+			,#{sch_petWeight}
 			</when>
-		</choose>
+		</choose> -->
 		
 		)
 	
@@ -72,6 +92,20 @@
 		<if test = "sch_description != null">
 		,sch_description = #{sch_description}
 		</if>
+		
+		<choose>
+			<when test="sch_walk  != null">
+			,sch_walk = #{sch_walk}
+			</when>
+			<when test="sch_expenditure != null and sch_exDetails != null ">
+			,sch_expenditure = #{sch_expenditure}, sch_exDetails = #{sch_exDetails}
+			</when>
+			<when test="sch_weight != null">
+			,sch_petWeight = #{sch_petWeight}
+			</when>
+		</choose>
+		
+		
 		WHERE
 		sch_id = #{sch_id}
 	</update>
@@ -93,6 +127,39 @@
 		sch_id = #{sch_id}
 	</update>
 	
+	<!-- 스케쥴러 하단 반려동물 리스트 출력 -->
+	<select id="getPetList" parameterType="calendar" resultType="calendar">
+		select pet_name as sch_pname from pet where mem_num = #{mem_num}
+	</select>
+	
+	<!-- 스케쥴러 지출 그래프 데이터 받아오기 -->
+	<select id="expenditureData" parameterType="calendar" resultType="calendar">
+ 		select sch_expenditure, sum(sch_exdetails) as sch_exDetails
+		from schedule
+		where sch_expenditure is not null
+		and pet_num in (select pet_num from pet where mem_num = #{mem_num})
+		and <![CDATA[sch_end >= to_char(trunc(sysdate,'MM'), 'YYYY-MM-DD')]]>
+		and <![CDATA[sch_end <= to_char(LAST_DAY(sysdate), 'YYYY-MM-DD')]]>
+		group by sch_expenditure
+		order by sch_expenditure desc
+	</select>
+	
+	<!-- 로그인 유저의 mem_num을 통해 등록된 반려동물 수 확인 -->
+	<select id="getPetCount" parameterType="calendar" resultType="int">
+		select count(pet_num) pet_count from (select pet_num from pet where mem_num = #{mem_num})
+	</select>
+	
+	<!-- 로그인 유저의 mem_num을 통해 int값에 해당하는 순서의 반려동물 몸무게 받아오기 -->
+	<select id="getPetWeight" parameterType="hashmap" resultType="calendar">
+		select * from 
+		    (select sch_pname, sch_petWeight, substr(sch_end,6,5) sch_end 
+		    from schedule 
+		    where pet_num in (select pet_num from pet where mem_num = #{mem_num}) 
+		    and sch_petWeight >0 
+		    and sch_pname = (select pet_name from (select rownum as num, pet_name from pet where mem_num = #{mem_num} order by pet_num asc)a where a.num = #{pet_order}) 
+		    order by sch_end desc)
+		where <![CDATA[rownum <=7]]> order by sch_end asc
+	</select>
 
 
 </mapper>

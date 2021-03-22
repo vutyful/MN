@@ -15,9 +15,9 @@ public class CalendarVO {
 	int pet_num;
 	
 	int sch_walk;
-	int sch_expenditure;
-	String sch_exDetails;
-	int sch_petWeight;
+	String sch_expenditure;
+	int sch_exDetails;
+	float sch_petWeight;
 	
 	
 	String mem_num;
@@ -101,22 +101,22 @@ public class CalendarVO {
 	public void setSch_walk(int sch_walk) {
 		this.sch_walk = sch_walk;
 	}
-	public int getSch_expenditure() {
+	public String getSch_expenditure() {
 		return sch_expenditure;
 	}
-	public void setSch_expenditure(int sch_expenditure) {
+	public void setSch_expenditure(String sch_expenditure) {
 		this.sch_expenditure = sch_expenditure;
 	}
-	public String getSch_exDetails() {
+	public int getSch_exDetails() {
 		return sch_exDetails;
 	}
-	public void setSch_exDetails(String sch_exDetails) {
+	public void setSch_exDetails(int sch_exDetails) {
 		this.sch_exDetails = sch_exDetails;
 	}
-	public int getSch_petWeight() {
+	public float getSch_petWeight() {
 		return sch_petWeight;
 	}
-	public void setSch_petWeight(int sch_petWeight) {
+	public void setSch_petWeight(float sch_petWeight) {
 		this.sch_petWeight = sch_petWeight;
 	}
 	
