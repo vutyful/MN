@@ -121,7 +121,7 @@
                                             <li><a href="/mn/buenoBasic/hospital.do">내 주변 동물병원</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/mn/mypage2.jsp">반려동물</a></li>
+                                    <li><a href="/mn/schedule/mypage2.do">반려동물</a></li>
                                 </ul>
 
                                 <!-- Login/Register -->

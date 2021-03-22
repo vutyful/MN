@@ -75,7 +75,7 @@ public class RegisterController {
 		
 		//로그인 정보를 메모리에 요청하여 얻어오기 위해 session 사용
 		HttpSession session = request.getSession();
-		  MemberVO loginresult = RegisterServiceImpl.login(vo);
+		MemberVO loginresult = RegisterServiceImpl.login(vo);
 
 		if (loginresult!=null) {
 			System.out.println("controller 로그인이  " + loginresult);
