@@ -198,6 +198,7 @@ public class MainController {
 		
 		// 광고 가져오기
 		m.addAttribute("ads",mainService.getAllAD());
+		System.out.println();
 		
 	}
 	

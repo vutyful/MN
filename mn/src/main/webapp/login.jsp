@@ -130,33 +130,7 @@ button{
 
 <!-- 카카오톡 로그인 -->
 <script type="text/javascript">
-<<<<<<< HEAD
-	// 사용할 앱의 JavaScript 키를 설정해 주세요.
-	Kakao.init('965db0eb53584dc6dd507e3f0ba041f9');
-	// 카카오 로그인 버튼을 생성합니다.
-	Kakao.Auth.createLoginButton({
-	    container: '#kakao-login-btn',
-	    success: function (authObj) {
-	        alert(JSON.stringify(authObj));
-	        console.log(JSON.stringify(authObj));
-	        // access_token으로 사용자 정보 요청하기
-	    	Kakao.API.request({
-				url : '/v2/user/me',
-				success : function(res) {
-					alert(JSON.stringify(res))
-					var mem_email = res.kakao_account.email; //유저의 이메일
-					
-					window.location.replace("http://"+window.location.hostname + 
-							((location.port==""||location.port==undefined)?"":":"+location.port)+
-							"/mn/buenoBasic/main.do?mem_email="+mem_email); 
-					}
-				})
-	    },
-	    fail: function (err) {
-	        alert(JSON.stringify(err));
-	    }
-	});
-=======
+
 // 사용할 앱의 JavaScript 키를 설정해 주세요.
 Kakao.init('965db0eb53584dc6dd507e3f0ba041f9');
 // 카카오 로그인 버튼을 생성합니다.
@@ -180,7 +154,6 @@ Kakao.Auth.createLoginButton({
         alert(JSON.stringify(err));
     }
 });
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 
 </script>
 

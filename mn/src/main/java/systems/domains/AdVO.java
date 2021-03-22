@@ -36,7 +36,7 @@ public class AdVO {
 			
 			//***********************************************
 			// 해당 경로로 변경
-			File f = new File("C:\\Users\\psy\\git\\MN\\mn\\src\\main\\webapp\\resources\\manager\\adimg\\"+ad_img);
+			File f = new File("C:\\Users\\Kosmo_22\\git\\MN\\mn\\src\\main\\webapp\\resources\\manager\\adimg\\"+ad_img);
 			
 			try {
 				file.transferTo(f);

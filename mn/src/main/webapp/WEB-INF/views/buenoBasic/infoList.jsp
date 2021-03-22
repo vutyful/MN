@@ -98,13 +98,7 @@ Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p
     <script src="../resources/bueno/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="../resources/bueno/js/active_main.js"></script>
-    <script>
-    	$('.page-item').click(function(){
-    		alert('색깔 안바뀌니?')
-    		$(this).css('background-color','#DEA361');
-    		$(this).css('color','white');
-    	})
-    </script>
+
 </body>
 
 </html>
