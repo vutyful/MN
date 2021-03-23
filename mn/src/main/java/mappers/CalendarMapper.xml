@@ -129,12 +129,12 @@
 	
 	<!-- 스케쥴러 하단 반려동물 리스트 출력 -->
 	<select id="getPetList" parameterType="calendar" resultType="calendar">
-		select pet_name as sch_pname from pet where mem_num = #{mem_num}
+		select pet_name as sch_pname from pet where mem_num = #{mem_num} order by pet_num asc
 	</select>
 	
 	<!-- 스케쥴러 지출 그래프 데이터 받아오기 -->
 	<select id="expenditureData" parameterType="calendar" resultType="calendar">
- 		select sch_expenditure, sum(sch_exdetails) as sch_exDetails
+ 		select sch_expenditure, nvl(sum(sch_exdetails),0) as sch_exDetails
 		from schedule
 		where sch_expenditure is not null
 		and pet_num in (select pet_num from pet where mem_num = #{mem_num})
@@ -161,5 +161,20 @@
 		where <![CDATA[rownum <=7]]> order by sch_end asc
 	</select>
 
+	<!-- 마지막으로 반려동물의 몸무게를 측정한 날짜 계산 -->
+	<select id = "getWeightDate" parameterType="calendar" resultType="calendar">
+		select sch_pname, sch_petWeight, to_char(to_date(sysdate,'YYYY/MM/DD')-to_date(substr(sch_end,3,8),'YYYY/MM/DD')) as sch_end 
+		from schedule 
+		where sch_end in 
+		(select sch_end from (select sch_pname , max(sch_end) sch_end from schedule where pet_num in (select pet_num from pet where mem_num = #{mem_num}) and <![CDATA[sch_petWeight >0]]> and <![CDATA[substr(sch_end,3,8) <= sysdate group by sch_pname]]>))
+		order by pet_num asc
+	</select>
 
+	<!-- 마지막으로 반려동물 샤워를 한 날짜 계산 -->
+	<select id="getShowerDate" parameterType="calendar" resultType="calendar">
+		select sch_pname, to_char(to_date(sysdate,'YYYY/MM/DD')-to_date(substr(sch_end,3,8),'YYYY/MM/DD')) as sch_end
+		from schedule where sch_end in (
+		select sch_end from (select sch_pname, max(sch_end) sch_end from schedule where pet_num in (select pet_num from pet where mem_num = #{mem_num}) and sch_type = '목욕' and <![CDATA[substr(sch_end,3,8) <= sysdate group by sch_pname]]>))
+		order by pet_num asc
+	</select>
 </mapper>

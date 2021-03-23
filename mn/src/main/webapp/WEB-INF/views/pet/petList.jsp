@@ -56,15 +56,15 @@
 			<img class="pet_profile" src="/mn/resources/petimg/${petList.pet_img}">
 			<img class="pet_profile" src="${data.pet_img }">
 		</div> --%>
-			<a class = "data_pet_name" value = "${data.pet_name}">${data.pet_name }</a>
-			<div class="pet_box">
-			<img class="pet_profile" src="/mn/resources/petimg/${data.pet_img}">
-			</div>
+			<a class = "data_pet_name" style="cursor:pointer" value = "${data.pet_name}">${data.pet_name }</a>
 			<input type="hidden" class="data_pet_name" value = "${data.pet_name }">
 			<input type="hidden" class="data_pet_num" value = "${data.pet_num }">
 			<input type="hidden" class="data_pet_birth" value = "${data.pet_birth }">
 			<input type="hidden" class="data_pet_dogcat" value = "${data.pet_dogcat }">
 			<input type="hidden" class="data_pet_kind" value = "${data.pet_kind }">
+			<div class="pet_box">
+			<img class="pet_profile" style="cursor:pointer" src="/mn/resources/petimg/${data.pet_img}">
+			</div>
 	</c:forEach>
 	
 	
@@ -171,6 +171,22 @@
 		var pet_dogcat = $(this).next().next().next().next().val();
 		var pet_kind = $(this).next().next().next().next().next().val();
 		
+		
+		
+		$('#pet_num').val(pet_num);
+		$('#pet_name').val(pet_name);
+		$('#pet_birth').val(pet_birth);
+		$('#pet_dogcat').val(pet_dogcat).attr("selected", "true");
+		$('#pet_kind').val(pet_kind);
+		
+	})
+	$('.pet_box').click(function(){
+		
+		var pet_kind = $(this).prev().val();
+		var pet_dogcat = $(this).prev().prev().val();
+		var pet_birth = $(this).prev().prev().prev().val();
+		var pet_num = $(this).prev().prev().prev().prev().val();
+		var pet_name = $(this).prev().prev().prev().prev().prev().val()
 		
 		
 		$('#pet_num').val(pet_num);

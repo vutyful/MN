@@ -60,4 +60,14 @@ public class CalendarServiceImpl implements CalendarService {
 		return calendarDAO.getPetWeight(pet_count, mem_num);
 	}
 	
+	// 스케쥴러 몸무게 d-day 받아오기
+	public List<CalendarVO>getWeightDate(CalendarVO vo){
+		return calendarDAO.getWeightDate(vo);
+	};
+	
+	// 스케쥴러 목욕 d-day 받아오기
+	public List<CalendarVO> getShowerDate(CalendarVO vo){
+		return calendarDAO.getShowerDate(vo);
+	};
+	
 };

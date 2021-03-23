@@ -36,17 +36,7 @@ public class CalendarController {
 	public void getPetList(CalendarVO vo, Model model, HttpServletRequest request) {
 		System.out.println("mypage2.do 호출");
 		HttpSession session = request.getSession(true);
-//		System.out.println(session.getAttribute("userInfo"));
 		MemberVO Mvo = (MemberVO)session.getAttribute("userInfo");
-		
-		
-//		ArrayList<CalendarVO> petWeight = new ArrayList<CalendarVO>();
-//		ArrayList<ArrayList> petWeights = new ArrayList<ArrayList>();
-		
-
-		
-		
-		
 		
 		try {
 			if (Mvo.getMem_num() != null) {
@@ -54,6 +44,7 @@ public class CalendarController {
 				System.out.println(Mvo.getMem_num());
 				vo.setMem_num(Mvo.getMem_num());
 				System.out.println(vo.getMem_num());
+				
 				//스케쥴러 펫 리스트 불러오기 (스케쥴러 하단의 반려동물 리스트임)
 				List<CalendarVO> petList = calendarService.getPetList(vo);
 				model.addAttribute("petList", petList);
@@ -65,7 +56,6 @@ public class CalendarController {
 				}
 				model.addAttribute("petNameList", petNameList);
 				
-				
 				// 로그인 유저의 mem_num을 통해 등록된 반려동물 수 확
 				int pet_count = calendarService.getPetCount(vo);
 				System.out.println("반려동물 등록 수 : " + Integer.toString(pet_count));
@@ -76,6 +66,14 @@ public class CalendarController {
 
 				// 스케쥴러 몸무게 데이터 불러오기
 				model.addAttribute("petWeight", temp);
+				
+				// 스케쥴러 몸무게 d-day 받아오기
+				List<CalendarVO> petWDate = calendarService.getWeightDate(vo);
+				model.addAttribute("petWeightDate", petWDate);
+				
+				// 스케쥴러 목욕 d-day 받아오기
+				List<CalendarVO> showerDate = calendarService.getShowerDate(vo);
+				model.addAttribute("petShowerDate", showerDate);
 			}
 			
 		}catch (Exception e) {

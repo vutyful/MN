@@ -54,12 +54,12 @@
     	<input type="hidden" id="session" value="${sessionScope.userInfo}">
     	
     	<div style="margin-top: 30px; left:70%; padding-left: 1100px; height: 70px;">
-    		<div style="float: left">
+    		<!-- <div style="float: left">
 	    		<div class="pet_box">
 	    			<img class="pet_profile" src="/mn/resources/petimg/basic_pet.png"  style="left:70%; font-family: esamanru;">
 	    		</div>
     		</div>
-    		<div style="display: inline-block;padding-top: 30px; padding-left: 10px;"><span style="left:73%;;">반려동물을 등록해주세요</span></div>
+    		<div style="display: inline-block;padding-top: 30px; padding-left: 10px;"><span style="left:73%;;">반려동물을 등록해주세요</span></div> -->
     		<div style="display:inline-block;margin-top: -20px; ">
     		<c:choose>
 	    		<c:when test="${empty sessionScope.userInfo}">
@@ -88,7 +88,8 @@
             <!-- 그래프 데이터 받기 -->
             <%-- <a href="#">지출 그래프 데이터? : ${expenditure[4].sch_exDetails }</a>
              --%>
-            <input type="hidden" id = "sch_exDetails" value="${expenditure }">
+            <%-- <input type="hidden" id = "sch_exDetails" value="${expenditure }"> --%>
+            <input type="hidden" id = "mem_num_check" value="${sessionScope.userInfo.mem_num}">
             <input type="hidden" id = "sch_exDetails0" value="${expenditure[0].sch_exDetails }">
             <input type="hidden" id = "sch_exDetails1" value="${expenditure[1].sch_exDetails }">
             <input type="hidden" id = "sch_exDetails2" value="${expenditure[2].sch_exDetails }">
@@ -120,12 +121,24 @@
                 
                 <div class="tm-col tm-col-small">
                     <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">세부일정</h2>
+                        <h2 class="tm-block-title">D-day</h2>
                         <ol class="tm-list-group">
-                            <li class="tm-list-group-item">oo</li>
-                            <li class="tm-list-group-item">Lorem ipsum doloe</li>
-                            <li class="tm-list-group-item">Read reports</li>
-                            <li class="tm-list-group-item">Write email</li>
+                            <li class="tm-list-group-item">목욕</li>
+                            	<ul class="tm-list-group-item">
+                            		<c:forEach items="${petShowerDate }" var="showerDate">
+                            			<li class="tm-list-group-item">${showerDate.sch_pname} - ${showerDate.sch_end}일전 </li>
+	                        		</c:forEach>
+                            	</ul>
+                            <li class="tm-list-group-item">가장 최근 몸무게</li>
+                            
+                            	<ul class="tm-list-group-item">
+                            		<c:forEach items="${petWeightDate }" var="petWDate">
+                            			<li class="tm-list-group-item">${petWDate.sch_end}일전 ${petWDate.sch_pname} : ${petWDate.sch_petWeight}</li>
+	                        		</c:forEach>
+                            	</ul>
+                            
+                            <!-- <li class="tm-list-group-item"></li>
+                            <li class="tm-list-group-item">Write email</li> -->
                                                     </ol>
                     </div>
                 </div>
@@ -250,8 +263,8 @@
             updateChartOptions();
             drawLineChart(); // Line Chart
             drawBarChart(); // Bar Chart
-            drawPieChart(); // Pie Chart
-            drawCalendar(); // Calendar
+            //drawPieChart(); // Pie Chart
+            //drawCalendar(); // Calendar
 
             $(window).resize(function () {
                 updateChartOptions();
@@ -364,8 +377,8 @@
                         
                         <div class="row sch_walk">
                             <div class="col-xs-12">
-                                <label class="col-xs-4" for="edit-title">산책시간</label> <!--  -->
-                                <input class="inputModal" type="text" name="sch_walk" id="sch_walk"
+                                <label class="col-xs-4" for="edit-title">산책시간(분)</label> <!--  -->
+                                <input class="inputModal" type="number" name="sch_walk" id="sch_walk"
                                     required="required" />
                             </div>
                         </div>
@@ -385,17 +398,15 @@
                         
                         <div class="row sch_ex">
                             <div class="col-xs-12">
-                                <label class="col-xs-4" for="edit-title">지출내역</label> <!-- 숫자만 쓸수있게 -->
-                                <input class="inputModal" type="number" name="sch_exDetails" id="sch_exDetails"
-                                    required="required" />
+                                <label class="col-xs-4" for="edit-title">지출내역(원)</label> <!-- 숫자만 쓸수있게 -->
+                                <input class="inputModal" type="number" name="sch_exDetails" id="sch_exDetails" required="required" />
                             </div>
                         </div>
 
                         <div class="row sch_weight">
                             <div class="col-xs-12">
-                                <label class="col-xs-4" for="edit-title">몸무게</label> <!-- 숫자만 쓸수있게 -->
-                                <input class="inputModal" type="number" name="sch_petWeight" id="sch_petWeight"
-                                    required="required" />
+                                <label class="col-xs-4" for="edit-title">몸무게(Kg)</label> <!-- 숫자만 쓸수있게 -->
+                                <input class="inputModal" type="number" name="sch_petWeight" id="sch_petWeight" required="required" />
                             </div>
                         </div>
                         
@@ -518,38 +529,6 @@
     <script src="../resources/FullCalendar/js/etcSetting.js"></script>
     
     <script type="text/javascript">
-
-
-    	function categoryHide(){
-    		$(".sch_walk").hide();
-    		$(".sch_ex").hide();
-    		//$("#sch_exDetails").hide();
-    	};
-    	categoryHide();
-
-    	function walkShow(){
-    		$(".sch_walk").show();
-    	}
-    	function exShow(){
-    		$(".sch_ex").show();
-    	}
-    	
-    	
-    	$("#edit-type").change(function(){
-    	    var sch_type =  $(this).val();
-    	    alert(sch_type);
-    	    if (sch_type == "산책"){
-    	    	categoryHide();
-    	    	walkShow();
-    	    }else if (sch_type == "지출"){
-    	    	categoryHide();
-    	    	esShow();
-    	    }else{
-    	    	categoryHide();
-    	    }
-    	});
-		
-    	
 
     </script>
     <script type="text/javascript">
