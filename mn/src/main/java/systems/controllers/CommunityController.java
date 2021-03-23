@@ -68,8 +68,11 @@ public class CommunityController {
 			//작성자 이름 뽑아오기 위해, getBoardList 할 때 조인하여 작성자까지 얻어오기 (Map 사용)
 			List<HashMap<String, Object>> result = CommunityServiceImpl.getBoardList(bo_cate);
 			System.out.println("보드리스트:"+result);
-			model.addAttribute("boards", CommunityServiceImpl.getBoardList(bo_cate));
-			model.addAttribute("cate", result.get(0).get("BO_CATE"));
+			if( !result.isEmpty() ) {
+				model.addAttribute("cate", result.get(0).get("BO_CATE"));
+				model.addAttribute("boards", CommunityServiceImpl.getBoardList(bo_cate));
+				}
+			
 			
 			return "communityBoard/communityboard";
 		
