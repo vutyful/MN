@@ -29,7 +29,6 @@ public class PetController {
 		vo.setMem_num(Mvo.getMem_num());
 		
 		List<PetVO> list = petService.petList(vo);
-		System.out.println("반려동물 이름:"+list.get(0).getPet_name());
 
 		model.addAttribute("petList", list);
 	}

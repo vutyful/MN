@@ -9,7 +9,7 @@ import sys
 
 
 # 선택자를 이용하여 이름 / 상세 / 가격 데이터를 가져오는 함수
-
+"""
 
 def get_prod_items(prod_items, page):
     prod_data = []
@@ -59,7 +59,7 @@ directory = sys.argv[1] + "chromedriver.exe";
 driver = webdriver.Chrome(directory)
 driver.implicitly_wait(3)
 keyword = '사료'
-total_page = 10
+total_page = 3
 prod_data_total = []
 
 for page in range(1, total_page + 1):
@@ -149,14 +149,14 @@ for spec_data in data['스펙 목록']:
             for num in temp_value:
                 if '조단백' in num:
                     if ':' in num:
-                        protein_value = num.split(':')[1].replace("%", '').replace("g", '')
+                        protein_value = num.split(':')[1].replace("%", '').replace("g", '').strip()
                     else:
-                        protein_value = num.strip().split(' ')[1].replace("%", '').replace("g", '')
+                        protein_value = num.strip().split(' ')[1].replace("%", '').replace("g", '').strip()
                 elif '조지방' in num:
                     if ':' in num:
-                        fat_value = num.split(':')[1].replace("%", '').replace("g", '')
+                        fat_value = num.split(':')[1].replace("%", '').replace("g", '').strip()
                     else:
-                        fat_value = num.strip().split(' ')[1].replace("%", '').replace("g", '')
+                        fat_value = num.strip().split(' ')[1].replace("%", '').replace("g", '').strip()
     function_list.append(function_value)
     protein_list.append(protein_value)
     fat_list.append(fat_value)
@@ -187,7 +187,7 @@ pd_data = pd_data[pd_data['조단백(%)'].str.contains('None') == False]
 pd_data.to_excel(sys.argv[1] + '../../../../resources/data/data_final.xlsx', index=False)
 pd_data
 
-
+"""
 chart_data = pd.read_excel(sys.argv[1] + '../../../../resources/data/data_final.xlsx')
 chart_data.info()
 chart_data.head()
@@ -247,6 +247,8 @@ def product_result(chart_data, num):
     plt.plot([0, protein_max_value], [fat_mean_value, fat_mean_value], 'r--', lw=1)
     plt.plot([protein_mean_value, protein_mean_value], [0, fat_max_value], 'r--', lw=1)
 
+
+    
     # 표기 범위 지정
     plt.xlim(protein_mean_value - 1, chart_data_selected['조단백(%)'].max() + 1)
     plt.ylim(fat_mean_value - 1, chart_data_selected['조지방(%)'].max() + 1)
@@ -300,6 +302,10 @@ for cate in cate_array:
     else:
         age_array = ['퍼피', '어덜트', '시니어', '전연령용']
     for age in age_array:
-        product_result(chart_data[chart_data['카테고리'].str.contains(cate) & chart_data['연령대'].str.contains(age)], i+1);
-        i+=1;
+        try:
+            product_result(chart_data[chart_data['카테고리'].str.contains(cate) & chart_data['연령대'].str.contains(age)], i+1);
+            i+=1;
+        except:
+            i+=1;
+            continue;
 conn.close()

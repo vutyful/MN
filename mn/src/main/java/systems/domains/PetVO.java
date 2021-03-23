@@ -13,7 +13,7 @@ public class PetVO {
 	private String pet_check; // 반려동물 등록여부
 	private String pet_dogcat; // 강아지 고양이 2개만
 	private String pet_kind; // 품종
-	private String pet_birth; // 반려동물 생년   int형이엇는데 string으로 바꿧음.
+	private String pet_birth; // 반려동물 생년 int형이엇는데 string으로 바꿧음.
 	private String mem_num; // 회원번호.
 
 	MultipartFile file; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
@@ -31,7 +31,7 @@ public class PetVO {
 
 			// ***********************************************
 			// 해당 경로로 변경 // 이경로에 이미지파일이 저장됨.
-			File f = new File("C:\\Users\\user\\git\\MN\\mn\\src\\main\\webapp\\resources\\petimg\\" + pet_img);
+			File f = new File("C:\\Users\\Kosmo_22\\git\\MN\\mn\\src\\main\\webapp\\resources\\petimg\\" + pet_img);
 
 			try {
 				file.transferTo(f);

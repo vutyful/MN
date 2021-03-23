@@ -14,10 +14,12 @@ COLOR CODES
 */
 
 
+
 @font-face{
 	font-family: "esamanru";
 	src: url("/mn/resources/bueno/fonts/esamanru Light.ttf");
 }
+
 
 
 html {
@@ -92,7 +94,7 @@ a:focus {
 }
 
 .tm-block {
-  padding: 50px 45px;
+/*   padding: 50px 45px; */
 }
 
 .tm-block-title {
@@ -410,7 +412,7 @@ footer {
 }
 
 @media (min-width: 1200px) {
-  .container {
+  .container2 {
     max-width: 1630px;
   }
 }

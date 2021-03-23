@@ -17,7 +17,7 @@
 		mem_name, board.bo_title bo_title,board.bo_num bo_num, board.bo_date
 		bo_date,  board.bo_cate bo_cate
 		from board
-		inner join member on board.mem_num = member.mem_num where bo_cate=#{bo_cate} order by bo_date
+		inner join member on board.mem_num = member.mem_num where bo_cate=#{bo_cate} and bo_state='y' order by bo_date
 		desc
 	</select>
 

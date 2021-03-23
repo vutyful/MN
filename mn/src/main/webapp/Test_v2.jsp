@@ -1,4 +1,3 @@
-
 <!doctype html>
 <!--
 Copyright 2018 The Immersive Web Community Group
@@ -35,11 +34,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <title>Hit Test</title>
   </head>
   <body>
-    <header style="margin: 100px 500px;">
+    <header style="margin: 100px 500px; border-radius:20px; padding: 20px 40px;">
       <details open>
-        <summary></summary>
+        <summary>Hit Test</summary>
         <p>
-          
+          This sample demonstrates use of hit testing to place virtual objects on real-world surfaces.
           <a class="back" href="./">Back</a>
         </p>
       </details>
@@ -70,8 +69,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       arObject.visible = false;
       scene.addNode(arObject);
 
-      let gltfObject = new Gltf2Node({url: '/mn/resources/AR/media/gltf/black_leather_chair/black_leather_chair.gltf'});
-      arObject.addNode(gltfObject);
+      let flower = new Gltf2Node({url: '/mn/resources/AR/media/gltf/black_leather_chair/black_leather_chair.gltf'});
+      arObject.addNode(flower);
 
       let reticle = new Gltf2Node({url: '/mn/resources/AR/media/gltf/reticle/reticle.gltf'});
       reticle.visible = false;
@@ -83,8 +82,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       vec3.set(shadow.scale, 0.15, 0.15, 0.15);
       arObject.addNode(shadow);
 
-      const MAX_OBJECTS = 1;
-      let gltfObjects = [];
+      const MAX_FLOWERS = 1;
+      let flowers = [];
 
       // Ensure the background is transparent for AR.
       scene.clear = false;
@@ -162,19 +161,19 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       // Adds a new object to the scene at the
       // specified transform.
       function addARObjectAt(matrix) {
-        let newObject = arObject.clone();
-        newObject.visible = true;
-        newObject.matrix = matrix;
-        scene.addNode(newObject);
+        let newFlower = arObject.clone();
+        newFlower.visible = true;
+        newFlower.matrix = matrix;
+        scene.addNode(newFlower);
 
-        gltfObjects.push(newObject);
+        flowers.push(newFlower);
 
         // For performance reasons if we add too many objects start
         // removing the oldest ones to keep the scene complexity
         // from growing too much.
-        if (gltfObjects.length > MAX_OBJECTS) {
-          let oldObject = gltfObjects.shift();
-          scene.removeNode(oldObject);
+        if (flowers.length > MAX_FLOWERS) {
+          let oldFlower = flowers.shift();
+          scene.removeNode(oldFlower);
         }
       }
 
