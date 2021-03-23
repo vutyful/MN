@@ -60,7 +60,16 @@
 	    		</div>
     		</div>
     		<div style="display: inline-block;padding-top: 30px; padding-left: 10px;"><span style="left:73%;;">반려동물을 등록해주세요</span></div>
-    		<div style="display:inline-block;margin-top: -20px; "><button id="petRegist" class="btn bueno-btn" style="left:20px;" onclick="location.href='/mn/pet/petList.do'">반려동물 등록</button></div>
+    		<div style="display:inline-block;margin-top: -20px; ">
+    		<c:choose>
+	    		<c:when test="${empty sessionScope.userInfo}">
+	    			<button id="petRegist" class="btn bueno-btn" style="left:20px;" onclick="location.href='/mn/login.jsp'">로그인</button>
+	    		</c:when>
+	    		<c:otherwise>
+	    			<button id="petRegist" class="btn bueno-btn" style="left:20px;" onclick="location.href='/mn/pet/petList.do'">반려동물 등록</button>
+	    		</c:otherwise>
+    		</c:choose>
+    		</div>
     	</div>
     
         <div class="container">
@@ -98,7 +107,7 @@
             <div class="row tm-content-row tm-mt-big">
                 <div class="tm-col tm-col-big">
                     <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">[동물이름] 몸무게</h2>
+                        <h2 class="tm-block-title">최근 몸무게</h2>
                         <canvas id="lineChart"></canvas>
                     </div>
                 </div>
@@ -396,11 +405,9 @@
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-username">반려동물</label>
                                 <select class="inputModal" type="text" name="edit-username" id="edit-username">
-                                    <option value="강아지1">강아지1</option>
-                                    <option value="강아지2">강아지2</option>
-                                    <option value="고양이1">고양이1</option>
-                                    <option value="고양이2">고양이2</option>
-                                    <option value="고양이3">고양이3</option>
+	                                <c:forEach items="${petList }" var="schedule">
+	                                	<option value="${schedule.sch_pname }">${schedule.sch_pname }</option>
+	                        		</c:forEach>
                                 </select>
                             </div>
                         </div>

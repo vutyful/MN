@@ -57,6 +57,9 @@
 			<img class="pet_profile" src="${data.pet_img }">
 		</div> --%>
 			<a class = "data_pet_name" value = "${data.pet_name}">${data.pet_name }</a>
+			<div class="pet_box">
+			<img class="pet_profile" src="/mn/resources/petimg/${data.pet_img}">
+			</div>
 			<input type="hidden" class="data_pet_name" value = "${data.pet_name }">
 			<input type="hidden" class="data_pet_num" value = "${data.pet_num }">
 			<input type="hidden" class="data_pet_birth" value = "${data.pet_birth }">
@@ -108,9 +111,9 @@
 			</table>
 		</form>
 			<!-- <a  href="/mn/pet/petRegist.do" id="regist" class="btn bueno-btn" style="margin-left: 80px;"  onclick="$('#frm').submit()">등록하기</a> -->
-			<a  id="regist" class="btn bueno-btn" style="margin-left: 80px;" >등록하기</a>
-			<a  id="modify" class="btn bueno-btn">수정하기</a>
-			<a  id="delete" class="btn bueno-btn" >삭제하기</a>
+			<a  id="regist" class="btn bueno-btn" style="margin-left: 80px; margin-top: 40px;" >등록하기</a>
+			<a  id="modify" class="btn bueno-btn" style="margin-top: 40px;">수정하기</a>
+			<a  id="delete" class="btn bueno-btn" style="margin-top: 40px;">삭제하기</a>
 	</div>
 
 </body>
@@ -125,7 +128,7 @@
 	var pet_num = '';
 
 	$('#modify').click(function () {
-		if(confirm("수정하시겠습니다?")==true){
+		if(confirm("수정하시겠습니까?")==true){
 			$('#pet_name').val()
 			$('#frm').submit();
 		}else{

@@ -16,8 +16,8 @@ Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p
                     <div class="footer-nav">
                         <ul>
                             <li ><a href="#">홈</a></li>
-                            <c:if test="${sessionScope.userInfo.mem_check >= 1}"><li><a href="/mn/manager/statistics.do">관리자 페이지</a></li></c:if>
-                            <li><a href="/mn/buenoBasic/infoWrite.do">정보글 등록</a></li>
+                            <c:if test="${sessionScope.userInfo.mem_check >= 1}"><li><a href="/mn/manager/statistics.do">관리자 페이지</a></li>
+                            <li><a href="/mn/buenoBasic/infoWrite.do">정보글 등록</a></li></c:if>
                         </ul>
                     </div>
                 </div>

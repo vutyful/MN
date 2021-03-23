@@ -38,6 +38,10 @@
 			height: 100%;
 			object-fit:cover;
 		}
+		
+		.tm-block {
+
+}
     </style>
     <style type="text/css">
     
@@ -58,7 +62,16 @@
 	    		</div>
     		</div>
     		<div style="display: inline-block;padding-top: 30px; padding-left: 10px;"><span style="left:73%;;">반려동물을 등록해주세요</span></div>
-    		<div style="display:inline-block;margin-top: -20px; "><button id="petRegist" class="btn bueno-btn" style="left:20px;" onclick="location.href='/mn/pet/petList.do'">반려동물 등록</button></div>
+    		<div style="display:inline-block;margin-top: -20px; ">
+    		<c:choose>
+	    		<c:when test="${empty sessionScope.userInfo}">
+	    			<button id="petRegist" class="btn bueno-btn" style="left:20px;" onclick="/mn/login.jsp">로그인</button>
+	    		</c:when>
+	    		<c:otherwise>
+	    			<button id="petRegist" class="btn bueno-btn" style="left:20px;" onclick="location.href='/mn/pet/petList.do'">반려동물 등록</button>
+	    		</c:otherwise>
+    		</c:choose>
+    		</div>
     	</div>
         <div class="container">
         

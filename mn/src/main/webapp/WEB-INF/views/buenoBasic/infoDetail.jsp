@@ -17,7 +17,7 @@
                        		 <a href="/mn/login.jsp"><img src="/mn/resources/content/img/bm_no.jpg" style="width: 60px; height: 60px;"></a>
                         	</c:when>
                         	<c:when test="${bmcheck eq 'yes'}">
-                       		 <a href="/mn/login.jsp"><img src="/mn/resources/content/img/bm_ok.jpg" style="width: 60px; height: 60px;"></a>
+                       		 <a href=""><img src="/mn/resources/content/img/bm_ok.jpg" style="width: 60px; height: 60px;"></a>
                         	</c:when>
                         	<c:otherwise> <!-- 북마크 안했을 때 -->
                        		 <img id="bm_img" src="/mn/resources/content/img/bm_no.jpg" style="width: 60px; height: 60px;">
