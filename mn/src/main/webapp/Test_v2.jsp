@@ -1,4 +1,3 @@
-
 <!doctype html>
 <!--
 Copyright 2018 The Immersive Web Community Group
@@ -35,7 +34,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <title>Hit Test</title>
   </head>
   <body>
-    <header style="margin: 100px 500px;">
+    <header style="margin: 100px 500px; border-radius:20px; padding: 20px 40px;">
       <details open>
         <summary>Hit Test</summary>
         <p>

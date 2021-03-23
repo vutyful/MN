@@ -362,7 +362,7 @@ public class MainController {
 		String temp = "";
 		try {
 			// 한글을 쿼리스트링으로 보낼 때 보통 웹에서는 자동 인코딩이 되지만 현재는 수동으로 인코딩 해야함.
-			temp = "redirect:infoList.do?con_cate=" + URLEncoder.encode(vo.getCon_cate(), "UTF-8");
+			temp = "redirect:infoList.do?con_cate=" + URLEncoder.encode(vo.getCon_cate(), "UTF-8")+"&pageNo=1";
 		}catch (Exception e) {
 		}
 		return temp;
