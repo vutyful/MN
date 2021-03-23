@@ -14,11 +14,13 @@ public interface PetService {
 	
 	
 	
-	PetVO petList(PetVO vo);//반려동물 정보
+	List<PetVO> petList(PetVO vo);//반려동물 정보
 	
 	int petModify(PetVO vo);//반려동물 수정
 	
 	
 	int petDelete(PetVO vo);//반려동물 삭제
+	
+	void petRegist(PetVO vo);
 
 }

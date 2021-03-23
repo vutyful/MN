@@ -54,8 +54,8 @@
 
 		<!-- Sidebar -->
 		<ul
-			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-			id="accordionSidebar">
+			class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion"
+			id="accordionSidebar" >
 
 			<!-- Sidebar - Brand -->
 			<a
@@ -131,6 +131,19 @@
 					</div>
 				</div></li>
 
+			<!-- Nav Item - Utilities Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapseOne"
+				aria-expanded="true" aria-controls="collapseOne"> <i
+					class="fas fa-fw fa-cog"></i> <span>상품 관리</span>
+			</a>
+				<div id="collapseOne" class="collapse"
+					aria-labelledby="headingOne" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">PRODUCT MANAGE:</h6>
+						<a class="collapse-item" id="analysis" href="#">상품 갱신</a> 
+					</div>
+				</div></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
@@ -273,7 +286,7 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 											<div
 												class="text-l font-weight-bold text-primary text-uppercase mb-3">
 												고객님들의 게시판 총 게시물 수</div>
-											<div class="h3 mb-0 font-weight-bold text-gray-800">${boardTotal}
+											<div class="h3 mb-0 font-weight-bold text-gray-800">${boardTotal[0]}
 												개</div>
 										</div>
 										<div class="col-auto">
@@ -293,7 +306,7 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 											<div
 												class="text-l font-weight-bold text-success text-uppercase mb-3">
 												오늘의 게시판 게시물 수</div>
-											<div class="h3 mb-0 font-weight-bold text-gray-800">${boardToday}
+											<div class="h3 mb-0 font-weight-bold text-gray-800">${boardToday[0]}
 												개</div>
 										</div>
 										<div class="col-auto">
@@ -311,10 +324,10 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 										<div class="col mr-6">
 
 											<div
-												class="text-l font-weight-bold text-primary text-uppercase mb-3">
+												class="text-l font-weight-bold text-dark text-uppercase mb-3">
 												등록된 총 회원 수</div>
 											<!-- 이부분 db값 따오기  -->
-											<div class="h3 mb-0 font-weight-bold text-gray-800">${memberTotal}
+											<div class="h3 mb-0 font-weight-bold text-gray-800">${memberTotal[0]}
 												명</div>
 										</div>
 										<div class="col-auto">
@@ -478,6 +491,18 @@ ${boardToday}  오늘의 게시물 값만 받아옴
 			<!-- Page level plugins -->
 			<script src="/mn/resources/manager/vendor/chart.js/Chart.min.js"></script>
 
+	<script type="text/javascript">
+	
+	$('#analysis').click(function(){
+		alert("상품 분석을 시작합니다. 약 2분 정도 시간이 소요될 수 있습니다.");
+		$.ajax({
+			url:"/mn/analysis.do",
+			success: function(result){},
+			error:function(){}
+		})
+	})
+	
+	</script>
 			<!-- Page level custom scripts -->
 			<!-- 	<script src="/mn/resources/manager/js/demo/chart-area-demo.js"></script> -->
 			<!-- 차트 에어리어 관련 JS -->
@@ -598,7 +623,7 @@ var myLineChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + ':' + number_format(tooltipItem.yLabel) + '₩';
         }
       }
     }
@@ -606,7 +631,6 @@ var myLineChart = new Chart(ctx, {
 });
 myLineChart.data.datasets[0].data[6] = ${adRevenue}[0];
 myLineChart.update();
-/* alert(type(myLineChart.data.datasets[0].data[5])); */
 
 </script>
 

@@ -28,8 +28,8 @@ public class PetDAOImpl implements PetDAO {
 
 	///////////////////////////////////////////
 	
-	public PetVO petList(PetVO vo) {
-		return mybatis.selectOne("PetMap.petList", vo);
+	public List<PetVO> petList(PetVO vo) {
+		return mybatis.selectList("PetMap.petList", vo);
 	}//반려동물 열람 리스트
 
 	public int petModify(PetVO vo) {
@@ -39,4 +39,11 @@ public class PetDAOImpl implements PetDAO {
 	public int petDelete(PetVO vo) {
 		return mybatis.delete("PetMap.petDelete", vo);
 	}//반려동물 삭제
+	
+	
+	// 반려동물 등록
+	public void petRegist(PetVO vo) {
+		System.out.println("petDAO petRegist 호출");
+		mybatis.insert("PetMap.petRegist", vo);
+	}
 }

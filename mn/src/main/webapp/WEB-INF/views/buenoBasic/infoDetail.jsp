@@ -122,7 +122,11 @@
                         </div>
                         <c:forEach items="${ads}" var="ad">
                         <div class="single-widget-area add-widget mb-30">
-                            <a href="${ad.ad_link}"><img src="${ad.ad_img }" alt=""></a>
+                        
+                        
+                        <!--  여기를 do로 바꾸기.업데이트문 //-->
+                           <%--  <a href="${ad.ad_link}"><img src="${ad.ad_img }" alt=""></a> --%>
+                        <a href="/mn/manager/click.do?ad_link=${ad.ad_link}&ad_num=${ad.ad_num}"><img src="/mn/resources/manager/adimg/${ad.ad_img}" alt=""></a> 
                         </div>
                         </c:forEach>
                         

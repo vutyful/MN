@@ -58,9 +58,9 @@ a:hover, a:focus {
 		</div>
 		<br></br> <br></br> <br></br>
 		<!-- Contact Form Area -->
-		<div class="contact-form-area mb-70">
+<!-- 		<div class="contact-form-area mb-70">
 			<h4 class="mb-50">동물병원 관련 광고 넣을 예정</h4>
-		</div>
+		</div> -->
 
 	</div>
 	</div>

@@ -12,9 +12,12 @@ public interface PetDAO {
 	
 	/////////////////////////////////////////////////////////
 	
-	public PetVO petList(PetVO vo);//반려동물 정보
+	public List<PetVO> petList(PetVO vo);//반려동물 정보
 	
 	public int petModify(PetVO vo);//반려동물 수정
 	
 	public int petDelete(PetVO vo);//반려동물 삭제
+	
+	
+	public void petRegist(PetVO vo);// 반려동물 등록
 }
