@@ -37,6 +37,13 @@ var newEvent = function (start, end, eventType) {
     editEnd.val(end);
     editDesc.val('');
     
+    editWalk.val('');
+    editExDetails.val('');
+    editPetWeight.val('');
+    editExpenditure.val("사료/간식").prop("selected", true);
+
+    
+    
     addBtnContainer.show();
     modifyBtnContainer.hide();
     eventModal.modal('show');
@@ -79,7 +86,7 @@ var newEvent = function (start, end, eventType) {
     //새로운 일정 저장버튼 클릭
     $('#save-event').unbind();
     $('#save-event').on('click', function () {
-
+        
         var eventData = {
             //_id: eventId,
             title: editTitle.val(),
@@ -103,27 +110,6 @@ var newEvent = function (start, end, eventType) {
             return false;
         }
 
-        if (eventData.title === '') {
-            alert('일정명은 필수입니다.');
-            return false;
-        }
-        
-        if (eventData.type == '산책') {
-        	if (eventData.walk == ''){
-        		alert('산책시간을 입력해주세요');
-	            return false;
-        	}
-        }else if (eventData.type == '지출'){
-        	if (eventData.exDetails == ''){
-        		alert('지출내역을 입력해주세요');
-	            return false;
-        	}
-        }else if (eventData.type == '몸무게 측정'){
-        	if (eventData.petWeight == ''){
-        		alert('몸무게를 입력해주세요');
-	            return false;
-        	}
-        }
                 
 
         var realEndDay;
@@ -142,11 +128,26 @@ var newEvent = function (start, end, eventType) {
         eventModal.find('input, textarea').val('');
         editAllDay.prop('checked', false);
         eventModal.modal('hide');
-
+	
+		
         //새로운 일정 저장
-        $.ajax({
+        if (eventData.title === '') {
+            alert('일정명은 필수입니다.');
+            return false;
+        }
+        
+        if (eventData.type == '산책') {
+        	if (eventData.walk === ''){
+        		alert('산책시간을 입력해주세요');
+	            return false;
+        	}else {
+        		eventData.expenditure = '';
+        		eventData.exDetails = '';
+        		eventData.petWeight = null;
+        		
+        		$.ajax({
             type: "get",
-            url: "mn/addSchedule.do",
+            url: "/mn/schedule/addSchedule.do",
             dataType:'json',
             data: {
                 sch_title : eventData.title,
@@ -156,18 +157,21 @@ var newEvent = function (start, end, eventType) {
                 sch_type : eventData.type,
                 sch_pname : eventData.username,
                 sch_backgroundColor : eventData.backgroundColor,
-                sch_textColor : eventData.textColor,
-                sch_allDay : eventData.allDay
-                //pet_num = 
+                //sch_textColor : eventData.textColor,
+                sch_allDay : eventData.allDay,
+                sch_walk : eventData.walk,
+                //sch_expenditure : eventData.expenditure,
+                //sch_exDetails : eventData.exDetails,
+                //sch_petWeight : eventData.petWeight
                 
             },
             success: function (response) {
-            	alert('db저장을 해보자');
+            	//alert('db저장을 해보자');
                 //DB연동시 중복이벤트 방지를 위한
                 //$('#calendar').fullCalendar('removeEvents');
                 //$('#calendar').fullCalendar('refetchEvents');
                 //calendar;
-                alert(response);
+                //alert(response);
                 var fixedDate = response.map(function (array) {
                     if (array.allDay == true && array.schstart !== array.end) {
                         array.end = moment(array.end).add(1, 'days'); // 이틀 이상 AllDay 일정인 경우 달력에 표기시 하루를 더해야 정상출력
@@ -176,7 +180,164 @@ var newEvent = function (start, end, eventType) {
                 });
                 callback(fixedDate);
                 
+            },
+            error : function(response){
+            	alert('ajax 실패');
+            	alert(response);
             }
         });
+        	}
+        	
+        	
+        }else if (eventData.type == '지출'){
+        	if (eventData.exDetails === ''){
+        		alert('지출내역을 입력해주세요');
+	            return false;
+        	}else {
+        		eventData.walk = null;
+        		eventData.petWeight = null;
+        		
+        		$.ajax({
+            type: "get",
+            url: "/mn/schedule/addSchedule.do",
+            dataType:'json',
+            data: {
+                sch_title : eventData.title,
+                sch_description : eventData.description,
+                sch_start : eventData.start,
+                sch_end : eventData.end,
+                sch_type : eventData.type,
+                sch_pname : eventData.username,
+                sch_backgroundColor : eventData.backgroundColor,
+                //sch_textColor : eventData.textColor,
+                sch_allDay : eventData.allDay,
+                //sch_walk : eventData.walk,
+                sch_expenditure : eventData.expenditure,
+                sch_exDetails : eventData.exDetails,
+                //sch_petWeight : eventData.petWeight
+                
+            },
+            success: function (response) {
+            	//alert('db저장을 해보자');
+                //DB연동시 중복이벤트 방지를 위한
+                //$('#calendar').fullCalendar('removeEvents');
+                //$('#calendar').fullCalendar('refetchEvents');
+                //calendar;
+                //alert(response);
+                var fixedDate = response.map(function (array) {
+                    if (array.allDay == true && array.schstart !== array.end) {
+                        array.end = moment(array.end).add(1, 'days'); // 이틀 이상 AllDay 일정인 경우 달력에 표기시 하루를 더해야 정상출력
+                    }
+                    return array;
+                });
+                callback(fixedDate);
+                
+            },
+            error : function(response){
+            	alert('ajax 실패');
+            	alert(response);
+            }
+        });
+        	}
+        }else if (eventData.type == '몸무게 측정'){
+        	if (eventData.petWeight === ''){
+        		alert('몸무게를 입력해주세요');
+	            return false;
+        	}else {
+        		eventData.walk = '';
+        		eventData.expenditure = '';
+        		eventData.exDetails = '';
+        		
+        		$.ajax({
+            type: "get",
+            url: "/mn/schedule/addSchedule.do",
+            dataType:'json',
+            data: {
+                sch_title : eventData.title,
+                sch_description : eventData.description,
+                sch_start : eventData.start,
+                sch_end : eventData.end,
+                sch_type : eventData.type,
+                sch_pname : eventData.username,
+                sch_backgroundColor : eventData.backgroundColor,
+                //sch_textColor : eventData.textColor,
+                sch_allDay : eventData.allDay,
+                //sch_walk : eventData.walk,
+                //sch_expenditure : eventData.expenditure,
+                //sch_exDetails : eventData.exDetails,
+                sch_petWeight : eventData.petWeight
+                
+            },
+            success: function (response) {
+            	//alert('db저장을 해보자');
+                //DB연동시 중복이벤트 방지를 위한
+                //$('#calendar').fullCalendar('removeEvents');
+                //$('#calendar').fullCalendar('refetchEvents');
+                //calendar;
+                //alert(response);
+                var fixedDate = response.map(function (array) {
+                    if (array.allDay == true && array.schstart !== array.end) {
+                        array.end = moment(array.end).add(1, 'days'); // 이틀 이상 AllDay 일정인 경우 달력에 표기시 하루를 더해야 정상출력
+                    }
+                    return array;
+                });
+                callback(fixedDate);
+                
+            },
+            error : function(response){
+            	alert('ajax 실패');
+            	alert(response);
+            }
+        });
+        	}
+        }else {
+        	eventData.walk = null;
+        	eventData.expenditure = null;
+        	eventData.exDetails = null;
+        	eventData.petWeight = null;
+        	
+        	$.ajax({
+            type: "get",
+            url: "/mn/schedule/addSchedule.do",
+            dataType:'json',
+            data: {
+                sch_title : eventData.title,
+                sch_description : eventData.description,
+                sch_start : eventData.start,
+                sch_end : eventData.end,
+                sch_type : eventData.type,
+                sch_pname : eventData.username,
+                sch_backgroundColor : eventData.backgroundColor,
+                //sch_textColor : eventData.textColor,
+                sch_allDay : eventData.allDay,
+                //sch_walk : eventData.walk,
+                //sch_expenditure : eventData.expenditure,
+                //sch_exDetails : eventData.exDetails,
+                //sch_petWeight : eventData.petWeight
+                
+            },
+            success: function (response) {
+            	//alert('db저장을 해보자');
+                //DB연동시 중복이벤트 방지를 위한
+                //$('#calendar').fullCalendar('removeEvents');
+                //$('#calendar').fullCalendar('refetchEvents');
+                //calendar;
+                //alert(response);
+                var fixedDate = response.map(function (array) {
+                    if (array.allDay == true && array.schstart !== array.end) {
+                        array.end = moment(array.end).add(1, 'days'); // 이틀 이상 AllDay 일정인 경우 달력에 표기시 하루를 더해야 정상출력
+                    }
+                    return array;
+                });
+                callback(fixedDate);
+                
+            },
+            error : function(response){
+            	alert('ajax 실패');
+            	alert(response);
+            }
+        });
+        }
+        
     });
 };

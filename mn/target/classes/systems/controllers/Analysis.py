@@ -9,7 +9,7 @@ import sys
 
 
 # 선택자를 이용하여 이름 / 상세 / 가격 데이터를 가져오는 함수
-
+"""
 
 def get_prod_items(prod_items, page):
     prod_data = []
@@ -59,7 +59,7 @@ directory = sys.argv[1] + "chromedriver.exe";
 driver = webdriver.Chrome(directory)
 driver.implicitly_wait(3)
 keyword = '사료'
-total_page = 10
+total_page = 3
 prod_data_total = []
 
 for page in range(1, total_page + 1):
@@ -122,13 +122,13 @@ for spec_data in data['스펙 목록']:
 
     for spec in first:
         if '사료' in spec:
-            category = spec;
+            category = spec.strip();
         elif '용' in spec and '용량' not in spec:
             temp = spec.split(' ')
             if len(temp) > 3:
-                age_group = temp[2];
+                age_group = temp[2].strip();
             else:
-                age_group = spec.split('(')[1].replace(')', '')
+                age_group = spec.split('(')[1].replace(')', '').strip();
         elif '식' in spec:
             form = spec;
 
@@ -149,14 +149,14 @@ for spec_data in data['스펙 목록']:
             for num in temp_value:
                 if '조단백' in num:
                     if ':' in num:
-                        protein_value = num.split(':')[1].replace("%", '').replace("g", '')
+                        protein_value = num.split(':')[1].replace("%", '').replace("g", '').strip()
                     else:
-                        protein_value = num.strip().split(' ')[1].replace("%", '').replace("g", '')
+                        protein_value = num.strip().split(' ')[1].replace("%", '').replace("g", '').strip()
                 elif '조지방' in num:
                     if ':' in num:
-                        fat_value = num.split(':')[1].replace("%", '').replace("g", '')
+                        fat_value = num.split(':')[1].replace("%", '').replace("g", '').strip()
                     else:
-                        fat_value = num.strip().split(' ')[1].replace("%", '').replace("g", '')
+                        fat_value = num.strip().split(' ')[1].replace("%", '').replace("g", '').strip()
     function_list.append(function_value)
     protein_list.append(protein_value)
     fat_list.append(fat_value)
@@ -187,6 +187,7 @@ pd_data = pd_data[pd_data['조단백(%)'].str.contains('None') == False]
 pd_data.to_excel(sys.argv[1] + '../../../../resources/data/data_final.xlsx', index=False)
 pd_data
 
+"""
 chart_data = pd.read_excel(sys.argv[1] + '../../../../resources/data/data_final.xlsx')
 chart_data.info()
 chart_data.head()
@@ -209,7 +210,7 @@ elif platform.system() == 'Darwin':
 else:
     print('Check your OS system')
 
-def product_result(chart_data, i):
+def product_result(chart_data, num):
     # 최소, 최대, 평균값을 저장한다.
     protein_max_value = chart_data['조단백(%)'].max()
     protein_min_value = chart_data['조단백(%)'].min()
@@ -246,6 +247,8 @@ def product_result(chart_data, i):
     plt.plot([0, protein_max_value], [fat_mean_value, fat_mean_value], 'r--', lw=1)
     plt.plot([protein_mean_value, protein_mean_value], [0, fat_max_value], 'r--', lw=1)
 
+
+    
     # 표기 범위 지정
     plt.xlim(protein_mean_value - 1, chart_data_selected['조단백(%)'].max() + 1)
     plt.ylim(fat_mean_value - 1, chart_data_selected['조지방(%)'].max() + 1)
@@ -260,23 +263,23 @@ def product_result(chart_data, i):
     #DB 연동
     for i, row in chart_data_selected.iterrows():
         #pro_num, pro_name, price, pro_cate, pro_img, pro_link, pro_age
+        
         sql = """insert into product values(:1, :2, :3, :4, :5, :6, :7, null)"""
-        img = "./src/main/webapp/resources/data/img/" + row['제품'].replace(' ', '_') + '.jpg'
+        img = "/mn/resources/data/img/" + row['제품'].replace(' ', '_').replace('%','') + '.jpg'
         temp = (i, row['제품'], row['가격'], row['카테고리'], img, row['링크'], row['연령대'])
+        cursor = conn.cursor()
         cursor.execute(sql, temp)
-    
-    plt.savefig('./src/main/webapp/resources/data/pandas/result_' + str(i) + '.png')
+        cursor.close()
+        conn.commit()
+    plt.savefig(sys.argv[1] + '../../../../resources/data/pandas/result_' + str(num) + '.png')
 
     for product in chart_data_selected.T.to_dict().values():
         headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'}
         response = requests.get(product['이미지'], headers=headers)
-        file = open('./src/main/webapp/resources/data/img/' + product['제품'].replace(' ', '_') + '.jpg', "wb")
+        file = open(sys.argv[1] + '../../../../resources/data/img/' + product['제품'].replace(' ', '_') + '.jpg', "wb")
         file.write(response.content)
         file.close()
     
-
-
-# In[168]:
 
 
 cate_array = ['고양이', '강아지'];
@@ -289,6 +292,9 @@ conn = cx_Oracle.connect('mn/1234@192.168.0.79:1521/orcl')
 cursor = conn.cursor()
 sql = """delete from product"""
 cursor.execute(sql)
+print("ddd")
+cursor.close();
+conn.commit()
 
 for cate in cate_array:
     if cate == '고양이':
@@ -296,9 +302,10 @@ for cate in cate_array:
     else:
         age_array = ['퍼피', '어덜트', '시니어', '전연령용']
     for age in age_array:
-        product_result(chart_data[chart_data['카테고리'].str.contains(cate) & chart_data['연령대'].str.contains(age)], i+1);
-        i+=1;
-        conn.commit()
-        cursor.close()
-        conn.close()
-
+        try:
+            product_result(chart_data[chart_data['카테고리'].str.contains(cate) & chart_data['연령대'].str.contains(age)], i+1);
+            i+=1;
+        except:
+            i+=1;
+            continue;
+conn.close()

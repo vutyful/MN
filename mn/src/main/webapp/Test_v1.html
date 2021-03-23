@@ -37,9 +37,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   <body>
     <header style="margin: 100px 500px;">
       <details open>
-        <summary>Hit Test</summary>
+        <summary></summary>
         <p>
-          This sample demonstrates use of hit testing to place virtual objects on real-world surfaces.
+          
           <a class="back" href="./">Back</a>
         </p>
       </details>
@@ -70,8 +70,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       arObject.visible = false;
       scene.addNode(arObject);
 
-      let flower = new Gltf2Node({url: '/mn/resources/AR/media/gltf/black_leather_chair/black_leather_chair.gltf'});
-      arObject.addNode(flower);
+      let gltfObject = new Gltf2Node({url: '/mn/resources/AR/media/gltf/black_leather_chair/black_leather_chair.gltf'});
+      arObject.addNode(gltfObject);
 
       let reticle = new Gltf2Node({url: '/mn/resources/AR/media/gltf/reticle/reticle.gltf'});
       reticle.visible = false;
@@ -83,8 +83,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       vec3.set(shadow.scale, 0.15, 0.15, 0.15);
       arObject.addNode(shadow);
 
-      const MAX_FLOWERS = 1;
-      let flowers = [];
+      const MAX_OBJECTS = 1;
+      let gltfObjects = [];
 
       // Ensure the background is transparent for AR.
       scene.clear = false;
@@ -162,19 +162,19 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       // Adds a new object to the scene at the
       // specified transform.
       function addARObjectAt(matrix) {
-        let newFlower = arObject.clone();
-        newFlower.visible = true;
-        newFlower.matrix = matrix;
-        scene.addNode(newFlower);
+        let newObject = arObject.clone();
+        newObject.visible = true;
+        newObject.matrix = matrix;
+        scene.addNode(newObject);
 
-        flowers.push(newFlower);
+        gltfObjects.push(newObject);
 
         // For performance reasons if we add too many objects start
         // removing the oldest ones to keep the scene complexity
         // from growing too much.
-        if (flowers.length > MAX_FLOWERS) {
-          let oldFlower = flowers.shift();
-          scene.removeNode(oldFlower);
+        if (gltfObjects.length > MAX_OBJECTS) {
+          let oldObject = gltfObjects.shift();
+          scene.removeNode(oldObject);
         }
       }
 

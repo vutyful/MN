@@ -14,9 +14,9 @@ public class ProductsServiceImpl implements ProductsService{
 	private ProductsDAO productsDAO;
 
 	@Override
-	public List<ProductVO> getProductsList() {
+	public List<ProductVO> getProductsList(String cate, String age) {
 		System.out.println("Service : getProductsList");
-		return productsDAO.getProductsList();
+		return productsDAO.getProductsList(cate, age);
 	}
 
 }

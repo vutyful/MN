@@ -3,6 +3,7 @@ package systems.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Service;
 
 import systems.daos.PetDAOImpl;
@@ -24,7 +25,7 @@ public class PetServiceImpl implements PetService {
 
 	//////////////////////////////////////////////////
 
-	public PetVO petList(PetVO vo) {
+	public List<PetVO> petList(PetVO vo) {
 		return petDAO.petList(vo);
 
 	};// 반려동물 정보
@@ -37,5 +38,11 @@ public class PetServiceImpl implements PetService {
 	public int petDelete(PetVO vo) {
 		return petDAO.petDelete(vo);
 	};//반려동물 삭제
+	
+	
+	// 반려동물 등록
+	public void petRegist(PetVO vo) {
+		petDAO.petRegist(vo);
+	}
 
 }

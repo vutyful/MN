@@ -13,23 +13,12 @@ COLOR CODES
   
 */
 
-<<<<<<< HEAD
-div.classynav>ul{
-	position: relative;
-	right:220px;
-}
 
-a{
-	
-	
-}
-=======
 @font-face{
 	font-family: "esamanru";
 	src: url("/mn/resources/bueno/fonts/esamanru Light.ttf");
 }
 
->>>>>>> branch 'main' of https://github.com/vutyful/MN.git
 
 html {
   font-size: 17px;
@@ -103,7 +92,7 @@ a:focus {
 }
 
 .tm-block {
-  padding: 50px 45px;
+/*   padding: 50px 45px; */
 }
 
 .tm-block-title {

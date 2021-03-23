@@ -31,6 +31,12 @@ var editEvent = function (event, element, view) {
     editDesc.val(event.description);
     editColor.val(event.backgroundColor).css('color', event.backgroundColor);
 
+	
+	editWalk.val('');
+    editExDetails.val('');
+    editPetWeight.val('');
+	
+
     addBtnContainer.hide();
     modifyBtnContainer.show();
     eventModal.modal('show');
@@ -57,11 +63,15 @@ var editEvent = function (event, element, view) {
 	if(editType.val() == "산책"){
 		//categoryHide();
 		walkShow();
+		editWalk.val(event.walk);
 	}else if (editType.val() == "지출"){
 		//categoryHide();
 		exShow();
+		editExpenditure.val(event.expenditure);
+		editExDetails.val(event.exDetails);
 	}else if (editType.val() == "몸무게 측정"){
 		weightShow();
+		editPetWeight.val(event.petWeight);
 	};
 	
     
@@ -135,7 +145,7 @@ var editEvent = function (event, element, view) {
         //일정 업데이트
         $.ajax({
             type: "get",
-            url: "mn/updateSchedule.do",
+            url: "/mn/schedule/updateSchedule.do",
             data: {
                 sch_id : event.sch_id,
                 sch_allDay : event.allDay,
@@ -145,7 +155,11 @@ var editEvent = function (event, element, view) {
 		        sch_type : event.type,
 		        sch_backgroundColor : event.backgroundColor,
 		        sch_description : event.description,
-		        sch_pname : event.username
+		        sch_pname : event.username,
+		        sch_walk : event.walk,
+				sch_expenditure : event.expenditure,
+				sch_exDetails : event.exDetails,
+				sch_petWeight : event.petWeight
             },
             success: function (response) {
                 alert('수정되었습니다.')
@@ -163,7 +177,7 @@ var editEvent = function (event, element, view) {
 	    //삭제시
 	    $.ajax({
 	        type: "get",
-	        url: "mn/deleteSchedule.do",
+	        url: "/mn/schedule/deleteSchedule.do",
 	        data: {
 	            sch_id : event.sch_id
 	        },
