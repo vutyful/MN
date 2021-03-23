@@ -33,4 +33,10 @@ public interface CalendarDAO {
 	
 	// 스케쥴러 몸무게 데이터 불러오기
 	ArrayList<ArrayList> getPetWeight(int pet_count, String mem_num);
+	
+	// 스케쥴러 몸무게 d-day 받아오기
+	List<CalendarVO> getWeightDate(CalendarVO vo);
+	
+	// 스케쥴러 목욕 d-day 받아오기
+	List<CalendarVO> getShowerDate(CalendarVO vo);
 }

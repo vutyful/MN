@@ -128,4 +128,14 @@ public class CalendarDAOImpl implements CalendarDAO{
 		return petWeights;
 	}
 	
+	// 스케쥴러 몸무게 d-day 받아오기
+	public List<CalendarVO>getWeightDate(CalendarVO vo){
+		return mybatis.selectList("calendar.getWeightDate",vo);
+	};
+	
+	// 스케쥴러 목욕 d-day 받아오기
+	public List<CalendarVO> getShowerDate(CalendarVO vo){
+		return mybatis.selectList("calendar.getShowerDate", vo);
+	};
+	
 }

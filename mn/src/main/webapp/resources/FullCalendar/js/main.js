@@ -211,6 +211,10 @@ var calendar = $('#calendar').fullCalendar({
             e.preventDefault();
             //닫기 버튼이 아닐때
             if ($(this).data().role !== 'close') {
+            	if($('#mem_num_check').val() == ''){
+					alert('회원만 이용가능한 서비스입니다. 회원가입 후 이용해주세요.')
+					return false
+				}
                 newEvent(startDate, endDate, $(this).html());
             }
             $contextMenu.removeClass("contextOpened");

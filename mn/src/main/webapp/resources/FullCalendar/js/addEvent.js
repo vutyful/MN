@@ -68,17 +68,46 @@ var newEvent = function (start, end, eventType) {
     };
     
 	if(editType.val() == "산책"){
-		//categoryHide();
+		categoryHide();
 		walkShow();
 	}else if (editType.val() == "지출"){
-		//categoryHide();
+		//$('#edit-allDay').is(":checked")==true
+		$('#edit-allDay').attr("checked",true);
+		categoryHide();
 		exShow();
 	}else if (editType.val() == "몸무게 측정"){
+		//$('#edit-allDay').is(":checked")==true
+		$('#edit-allDay').attr("checked",true);
+		categoryHide();
 		weightShow();
-	};
+	}else{
+    	categoryHide();
+		$('#edit-allDay').attr("checked",false);
+    };
+    
+    $('#edit-type').change(function(){
+		if($(this).val() == "산책"){
+			categoryHide();
+			walkShow();
+		}else if($(this).val() == "몸무게 측정"){
+			//$('#edit-allDay').is(":checked")==true
+			$('#edit-allDay').attr("checked",true);
+			categoryHide();
+			weightShow();
+		}else if($(this).val() == "지출"){
+			//$('#edit-allDay').is(":checked")==true
+			$('#edit-allDay').attr("checked",true);
+			categoryHide();
+			exShow();
+		}else{
+			categoryHide();
+			//$('#edit-allDay').is(":checked")==false
+			$('#edit-allDay').attr("checked",false);
+		};
+	});
+
 	
 
-    	
     /******** 임시 RAMDON ID - 실제 DB 연동시 삭제 **********/
     //var eventId = 1 + Math.floor(Math.random() * 1000);
     /******** 임시 RAMDON ID - 실제 DB 연동시 삭제 **********/
@@ -86,7 +115,6 @@ var newEvent = function (start, end, eventType) {
     //새로운 일정 저장버튼 클릭
     $('#save-event').unbind();
     $('#save-event').on('click', function () {
-        
         var eventData = {
             //_id: eventId,
             title: editTitle.val(),
@@ -143,7 +171,7 @@ var newEvent = function (start, end, eventType) {
         	}else {
         		eventData.expenditure = '';
         		eventData.exDetails = '';
-        		eventData.petWeight = null;
+        		eventData.petWeight = '';
         		
         		$.ajax({
             type: "get",
@@ -190,7 +218,7 @@ var newEvent = function (start, end, eventType) {
         	
         	
         }else if (eventData.type == '지출'){
-        	if (eventData.exDetails === ''){
+        	if (eventData.exDetails == ''){
         		alert('지출내역을 입력해주세요');
 	            return false;
         	}else {
@@ -210,7 +238,7 @@ var newEvent = function (start, end, eventType) {
                 sch_pname : eventData.username,
                 sch_backgroundColor : eventData.backgroundColor,
                 //sch_textColor : eventData.textColor,
-                sch_allDay : eventData.allDay,
+                sch_allDay : 'true',
                 //sch_walk : eventData.walk,
                 sch_expenditure : eventData.expenditure,
                 sch_exDetails : eventData.exDetails,
@@ -244,7 +272,7 @@ var newEvent = function (start, end, eventType) {
         		alert('몸무게를 입력해주세요');
 	            return false;
         	}else {
-        		eventData.walk = '';
+        		eventData.walk = null;
         		eventData.expenditure = '';
         		eventData.exDetails = '';
         		
@@ -261,7 +289,7 @@ var newEvent = function (start, end, eventType) {
                 sch_pname : eventData.username,
                 sch_backgroundColor : eventData.backgroundColor,
                 //sch_textColor : eventData.textColor,
-                sch_allDay : eventData.allDay,
+                sch_allDay : 'true',
                 //sch_walk : eventData.walk,
                 //sch_expenditure : eventData.expenditure,
                 //sch_exDetails : eventData.exDetails,
