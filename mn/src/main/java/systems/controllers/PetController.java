@@ -61,7 +61,6 @@ public class PetController {
 	// 반려동물 삭제
 	@RequestMapping(value = "pet/petDelete.do")
 	public String petDelete(PetVO vo) {
-
 		petService.petDelete(vo);
 
 		return "redirect:petList.do";

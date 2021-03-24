@@ -156,7 +156,10 @@
 		    from schedule 
 		    where pet_num in (select pet_num from pet where mem_num = #{mem_num}) 
 		    and sch_petWeight >0 
-		    and sch_pname = (select pet_name from (select rownum as num, pet_name from pet where mem_num = #{mem_num} order by pet_num asc)a where a.num = #{pet_order}) 
+		    and sch_pname = 
+		    (select pet_name from 
+		    (select rownum as num, pet_name from pet where mem_num = #{mem_num} order by pet_num asc) a 
+		    where a.num = #{pet_order}) 
 		    order by sch_end desc)
 		where <![CDATA[rownum <=7]]> order by sch_end asc
 	</select>
@@ -166,7 +169,10 @@
 		select sch_pname, sch_petWeight, to_char(to_date(sysdate,'YYYY/MM/DD')-to_date(substr(sch_end,3,8),'YYYY/MM/DD')) as sch_end 
 		from schedule 
 		where sch_end in 
-		(select sch_end from (select sch_pname , max(sch_end) sch_end from schedule where pet_num in (select pet_num from pet where mem_num = #{mem_num}) and <![CDATA[sch_petWeight >0]]> and <![CDATA[substr(sch_end,3,8) <= sysdate group by sch_pname]]>))
+		(select sch_end from 
+		(select sch_pname , max(sch_end) sch_end from schedule 
+		where pet_num in (select pet_num from pet where mem_num = #{mem_num}) and <![CDATA[sch_petWeight >0]]> 
+		and <![CDATA[substr(sch_end,3,8) <= sysdate group by sch_pname]]>))
 		order by pet_num asc
 	</select>
 
@@ -174,7 +180,10 @@
 	<select id="getShowerDate" parameterType="calendar" resultType="calendar">
 		select sch_pname, to_char(to_date(sysdate,'YYYY/MM/DD')-to_date(substr(sch_end,3,8),'YYYY/MM/DD')) as sch_end
 		from schedule where sch_end in (
-		select sch_end from (select sch_pname, max(sch_end) sch_end from schedule where pet_num in (select pet_num from pet where mem_num = #{mem_num}) and sch_type = '목욕' and <![CDATA[substr(sch_end,3,8) <= sysdate group by sch_pname]]>))
+		select sch_end from 
+		(select sch_pname, max(sch_end) sch_end from schedule 
+		where pet_num in (select pet_num from pet where mem_num = #{mem_num}) and sch_type = '목욕' 
+		and <![CDATA[substr(sch_end,3,8) <= sysdate group by sch_pname]]>))
 		order by pet_num asc
 	</select>
 </mapper>

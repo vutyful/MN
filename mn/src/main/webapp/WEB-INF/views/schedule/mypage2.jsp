@@ -95,6 +95,11 @@
             <input type="hidden" id = "sch_exDetails2" value="${expenditure[2].sch_exDetails }">
             <input type="hidden" id = "sch_exDetails3" value="${expenditure[3].sch_exDetails }">
             <input type="hidden" id = "sch_exDetails4" value="${expenditure[4].sch_exDetails }">
+            <input type="hidden" id = "sch_expenditure0" value="${expenditure[0].sch_expenditure }">
+            <input type="hidden" id = "sch_expenditure1" value="${expenditure[1].sch_expenditure }">
+            <input type="hidden" id = "sch_expenditure2" value="${expenditure[2].sch_expenditure }">
+            <input type="hidden" id = "sch_expenditure3" value="${expenditure[3].sch_expenditure }">
+            <input type="hidden" id = "sch_expenditure4" value="${expenditure[4].sch_expenditure }">
             <%-- <input type="hidden" id = "pet_count" value="${pet_count }">
             
             <a href="#">반려동물 등록 수 : ${pet_count }</a> --%>
@@ -483,7 +488,7 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <label for="calendar_view">등록자별</label>
+                    <label for="calendar_view">반려동물별</label>
                     <div class="input-group">
                     	<c:forEach items="${petList }" var="schedule">
                         <label class="checkbox-inline"><input class='filter' type="checkbox" value="${schedule.sch_pname }"
@@ -564,6 +569,12 @@
     var sch_exDetails2 = $("#sch_exDetails2").val()
     var sch_exDetails3 = $("#sch_exDetails3").val()
     var sch_exDetails4 = $("#sch_exDetails4").val()
+
+    var sch_expenditure0 = $("#sch_expenditure0").val()
+    var sch_expenditure1 = $("#sch_expenditure1").val()
+    var sch_expenditure2 = $("#sch_expenditure2").val()
+    var sch_expenditure3 = $("#sch_expenditure3").val()
+    var sch_expenditure4 = $("#sch_expenditure4").val()
 
 
 
@@ -691,7 +702,7 @@
         configBar = {
           type: "bar",
           data: {
-            labels: ["장난감", "사료/간식", "병원", "미용/의류", "기타"],
+            labels: [sch_expenditure0, sch_expenditure1, sch_expenditure2, sch_expenditure3, sch_expenditure4],
             datasets: [
               {
                 label: "# of Hits",

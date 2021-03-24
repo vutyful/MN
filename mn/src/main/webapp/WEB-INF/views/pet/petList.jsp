@@ -186,7 +186,8 @@
 		var pet_dogcat = $(this).prev().prev().val();
 		var pet_birth = $(this).prev().prev().prev().val();
 		var pet_num = $(this).prev().prev().prev().prev().val();
-		var pet_name = $(this).prev().prev().prev().prev().prev().val()
+		var pet_name = $(this).prev().prev().prev().prev().prev().val();
+		
 		
 		
 		$('#pet_num').val(pet_num);
