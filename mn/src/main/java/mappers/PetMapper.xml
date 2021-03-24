@@ -84,5 +84,10 @@
 	 )
 	 	
 	</insert>
+	
+	<delete id="petScheduleDelete" parameterType="pet">
+	delete from schedule
+	where pet_num = ${pet_num}
+	</delete>
 
 </mapper>

@@ -37,6 +37,7 @@ public class PetDAOImpl implements PetDAO {
 	}//반려동물 수정
 	
 	public int petDelete(PetVO vo) {
+		mybatis.delete("PetMap.petScheduleDelete", vo);
 		return mybatis.delete("PetMap.petDelete", vo);
 	}//반려동물 삭제
 	
